@@ -7,9 +7,9 @@ class Db
     private string $database = "prog_tw";
     private mysqli $conn;
 
-    function connect()
+    function connect($db, $username, $password, $host)
     {
-        $this->conn = new mysqli($this->servername, $this->username, $this->password, $this->database);
+        $this->conn = new mysqli($host, $username, $password, $db);
 
         // Check connection
         if ($this->conn->connect_error) {
