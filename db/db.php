@@ -62,6 +62,26 @@ class Db
         return count($stmt->get_result()->fetch_all(MYSQLI_ASSOC)) != 0;
     }
 
+    function signIn($username, $password): bool
+    {
+        $stmt = $this->conn->prepare("INSERT INTO users (username, password, role, salt) VALUES (?,SHA2(CONCAT(?, ?),?),?,?)");
+        $length = 224;
+        $role = "base";
+        $salt = $this->generateRandomString(30);
+        $stmt->bind_param("sssiss", $username, $password, $salt, $length, $role, $salt);
+        return $stmt->execute();
+    }
+
+    private function generateRandomString($length = 10) {
+        $characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
+        $charactersLength = strlen($characters);
+        $randomString = '';
+        for ($i = 0; $i < $length; $i++) {
+            $randomString .= $characters[rand(0, $charactersLength - 1)];
+        }
+        return $randomString;
+    }
+
     function disconnect()
     {
         $this->conn->close();
