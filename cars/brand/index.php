@@ -1,10 +1,11 @@
 <?php
 
-require_once "../db_config.php";
+require_once "../../db/db.php";
 
 header('Content-Type: application/json; charset=utf-8');
 
-$manufacturer = $_GET['name'];
+$dbh = new Db();
+$dbh->connect();
 
 $result = $dbh->getCarsByManufacturer($manufacturer);
 

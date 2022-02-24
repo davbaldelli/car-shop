@@ -3,9 +3,13 @@ class Db
 {
     private mysqli $conn;
 
-    function connect($db, $username, $password, $host)
+    function connect()
     {
-        $this->conn = new mysqli($host, $username, $password, $db);
+        define('ROOTPATH', __DIR__);
+        $dbCredFile = file_get_contents(ROOTPATH."/../local_res/db_cred.json");
+        $dbCred = json_decode($dbCredFile, true);
+
+        $this->conn = new mysqli($dbCred["host"], $dbCred["username"], $dbCred["password"], $dbCred["db"]);
 
         // Check connection
         if ($this->conn->connect_error) {
@@ -47,6 +51,15 @@ class Db
         $stmt->bind_param('i', $n);
         $stmt->execute();
         return $stmt->get_result()->fetch_all(MYSQLI_ASSOC);
+    }
+
+    function login($username, $password): bool
+    {
+        $stmt = $this->conn->prepare("SELECT username, role, salt FROM users WHERE username = ? AND password = SHA2(CONCAT(?, salt),?)");
+        $length = 224;
+        $stmt->bind_param("ssi", $username, $password, $length);
+        $stmt->execute();
+        return count($stmt->get_result()->fetch_all(MYSQLI_ASSOC)) != 0;
     }
 
     function disconnect()
