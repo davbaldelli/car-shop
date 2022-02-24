@@ -2,10 +2,12 @@
 <html lang="it">
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta name="referrer" content="origin">
     <title><?php echo $templateParams["title"]; ?></title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
           integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
-    <link href="../css/style.css" rel="stylesheet">
+    <link href="/css/style.css" rel="stylesheet">
+    <script src="/scripts/intialLoad.js"></script>
 </head>
 <body>
 <header>
@@ -51,20 +53,7 @@
         <div class="col">
 
         </div>
-        <div class="col">
-            <?php foreach ($templateParams["cars"] as $car): ?>
-                <div class="card" xmlns="http://www.w3.org/1999/html">
-                    <img src="<?php echo $car['image']; ?>" class="card-img-top" alt="car image">
-                    <div class="card-body">
-                        <h5 class="card-title"><?php echo $car['brand'] . " " . $car["model"]; ?> </h5>
-                        <p class="card-text">
-                            <?php echo $car['bhp']; ?> BHP <br>
-                            <?php echo $car['torque']; ?> Nm <br>
-                        </p>
-                        <p class="card-text"><?php echo round(rand(10000, 400000), -4); ?> $</p>
-                    </div>
-                </div>
-            <?php endforeach; ?>
+        <div class="col" id="carList">
         </div>
         <div class="col">
 
