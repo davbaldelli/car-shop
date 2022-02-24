@@ -4,9 +4,9 @@ require_once "../db_config.php";
 
 header('Content-Type: application/json; charset=utf-8');
 
-$manufacturer = $_GET['name'];
+$type = $_GET['name'];
 
-$result = $dbh->getCarsByManufacturer($manufacturer);
+$result = $dbh->getCarsByType($type);
 
 echo json_encode($result);
 

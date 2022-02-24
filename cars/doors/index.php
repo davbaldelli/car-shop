@@ -1,12 +1,11 @@
 <?php
-
 require_once "../db_config.php";
 
 header('Content-Type: application/json; charset=utf-8');
 
-$manufacturer = $_GET['name'];
+$n = $_GET['number'];
 
-$result = $dbh->getCarsByManufacturer($manufacturer);
+$result = $dbh->getCarsByDoors($n);
 
 echo json_encode($result);
 

@@ -1,13 +1,11 @@
 <?php
-include_once "../../db/db.php";
-include_once "../car_card.php";
+require_once "../db_config.php";
+
 header('Content-Type: application/json; charset=utf-8');
 
-$db = new Db();
-$db->connect();
+$result = $dbh->getAllCars();
 
-$result = $db->getAllCars();
+$dbh->disconnect();
 
 echo json_encode($result);
 
-$db->disconnect();

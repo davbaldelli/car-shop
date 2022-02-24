@@ -1,10 +1,6 @@
 <?php
 class Db
 {
-    private string $servername = "192.168.122.76";
-    private string $username = "car_shop_user";
-    private string $password = "prova1234";
-    private string $database = "prog_tw";
     private mysqli $conn;
 
     function connect($db, $username, $password, $host)
@@ -24,10 +20,31 @@ class Db
         return $stmt->get_result()->fetch_all(MYSQLI_ASSOC);
     }
 
-    function getCarByManufacturer($manu)
+    function getCarsByManufacturer($manu)
     {
         $stmt = $this->conn->prepare("SELECT car_mods.* FROM car_mods WHERE brand = ?");
         $stmt->bind_param('s', $manu);
+        $stmt->execute();
+        return $stmt->get_result()->fetch_all(MYSQLI_ASSOC);
+    }
+
+    function getCarsByType($type){
+        $stmt = $this->conn->prepare("SELECT car_mods.* FROM car_mods WHERE car_type = ?");
+        $stmt->bind_param('s', $type);
+        $stmt->execute();
+        return $stmt->get_result()->fetch_all(MYSQLI_ASSOC);
+    }
+
+    function getCarsByPrice($max, $min){
+        $stmt = $this->conn->prepare("SELECT car_mods.* FROM car_mods WHERE price BETWEEN ? AND ?");
+        $stmt->bind_param('ii', $max, $min);
+        $stmt->execute();
+        return $stmt->get_result()->fetch_all(MYSQLI_ASSOC);
+    }
+
+    function getCarsByDoors($n){
+        $stmt = $this->conn->prepare("SELECT car_mods.* FROM car_mods WHERE doors = ?");
+        $stmt->bind_param('i', $n);
         $stmt->execute();
         return $stmt->get_result()->fetch_all(MYSQLI_ASSOC);
     }

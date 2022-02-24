@@ -4,9 +4,10 @@ require_once "../db_config.php";
 
 header('Content-Type: application/json; charset=utf-8');
 
-$manufacturer = $_GET['name'];
+$max = $_GET['max'];
+$min = $_GET['min'];
 
-$result = $dbh->getCarsByManufacturer($manufacturer);
+$result = $dbh->getCasrByPrice($max, $min);
 
 echo json_encode($result);
 

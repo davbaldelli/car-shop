@@ -67,6 +67,7 @@
             <?php endforeach; ?>
         </div>
         <div class="col">
+
         </div>
     </section>
 </main>
