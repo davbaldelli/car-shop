@@ -10,7 +10,7 @@ $dbh->connect();
 $max = $_GET['max'];
 $min = $_GET['min'];
 
-$result = $dbh->getCasrByPrice($max, $min);
+$result = $dbh->getCarsByPrice($max, $min);
 
 echo json_encode($result);
 

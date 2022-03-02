@@ -41,7 +41,7 @@ class Db
 
     function getCarsByPrice($max, $min){
         $stmt = $this->conn->prepare("SELECT car_mods.* FROM car_mods WHERE price BETWEEN ? AND ?");
-        $stmt->bind_param('ii', $max, $min);
+        $stmt->bind_param('ii', $min, $max);
         $stmt->execute();
         return $stmt->get_result()->fetch_all(MYSQLI_ASSOC);
     }
