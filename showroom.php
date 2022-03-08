@@ -1,8 +1,9 @@
 <?php
 
-$templateParams["title"] = "Car Shop";
+$templateParams["title"] = "Showroom";
 $templateParams["page"] = "car_grid.php";
 $templateParams["navbar"] = "navbar.php";
-$templateParams["js"] = array("/scripts/initialLoad.js");
+$templateParams["js"] = array("/scripts/showroomLoader.js");
 
+require_once("utilities/functions.php");
 require("template/base.php");

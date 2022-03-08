@@ -12,7 +12,7 @@
     if(isset($templateParams["js"])):
         foreach($templateParams["js"] as $script):
             ?>
-            <script src="<?php echo $script; ?>"></script>
+            <script src="<?php echo $script; ?>" type="module"></script>
         <?php
         endforeach;
     endif;
@@ -20,11 +20,9 @@
 </head>
 <body>
 <header>
-    <nav class="navbar navbar-expand-lg navbar-light bg-light sticky-top">
-        <?php
-            require($templateParams["navbar"]);
-        ?>
-    </nav>
+    <?php
+        require($templateParams["navbar"]);
+    ?>
 </header>
 <main class="container-fluid">
     <?php
