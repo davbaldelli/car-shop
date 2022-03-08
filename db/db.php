@@ -53,6 +53,12 @@ class Db
         return $stmt->get_result()->fetch_all(MYSQLI_ASSOC);
     }
 
+    function getAllBrands(){
+        $stmt = $this->conn->prepare("SELECT manufacturers.* FROM manufacturers");
+        $stmt->execute();
+        return $stmt->get_result()->fetch_all(MYSQLI_ASSOC);
+    }
+
     function login($username, $password): bool
     {
         $stmt = $this->conn->prepare("SELECT username, role, salt FROM users WHERE username = ? AND password = SHA2(CONCAT(?, salt),?)");

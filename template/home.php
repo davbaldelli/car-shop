@@ -1,8 +1,8 @@
 <section class="row">
-    <div class="col">
+    <div class="col-0 col-md-4">
         <h1>5 Auto Random</h1>
     </div>
-    <div class="col" id="carList">
+    <div class="col-12 col-md-4" id="carList">
         <div id="carousel" class="carousel slide" data-bs-ride="carousel">
             <div class="carousel-inner" id="carousel-content">
             </div>
@@ -16,7 +16,7 @@
             </button>
         </div>
     </div>
-    <div class="col">
+    <div class="col-12 col-md-4">
 
     </div>
 </section>
