@@ -7,7 +7,7 @@ import {brandsToCards, brandsToDropDownItems} from "./brandsFormatter.js";
 $(() => {
     getBrands("api/brands/all", {}, setBrandGridContent, setBrandDropDownContent)
 
-    $("#allCarsBtn").click(() => getCars("api/cars/all", {}, setGridContent))
+    $("#allCarsBtn").click(() => getCars("api/cars/all", {}, setBrandGridContent))
 })
 
 function generateCarGrid(initialValue, nextValue) {
@@ -30,20 +30,20 @@ function generateBrandGrid(initialValue, nextValue){
     `
 }
 
-function setGridContent(cars){
+function setCarGridContent(cars){
     $("#mainGrid").html(carsToCards(cars).reduce(generateCarGrid, ""))
 }
 
 function setBrandDropDownContent(brands){
     $("#brand-menu .dropdown-menu").html(brandsToDropDownItems(brands).reduce(generateBrandList, ""))
     $("#brand-menu .dropdown-menu li .dropdown-item").click((event) => {
-        getCars("api/cars/brand", {name : event.currentTarget.dataset.key}, setGridContent)
+        getCars("api/cars/brand", {name : event.currentTarget.dataset.key}, setCarGridContent)
     })
 }
 
 function setBrandGridContent(brands){
     $("#mainGrid").html(brandsToCards(brands).reduce(generateBrandGrid, ""))
     $(".card-brand").click(event => {
-        getCars("api/cars/brand", {name : event.currentTarget.dataset.key}, setGridContent)
+        getCars("api/cars/brand", {name : event.currentTarget.dataset.key}, setCarGridContent)
     })
 }
