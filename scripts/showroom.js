@@ -5,9 +5,12 @@ import {brandsToCards, brandsToDropDownItems} from "./brandsFormatter.js";
 
 //load the given function when the page is loaded
 $(() => {
-    getBrands("api/brands/all", {}, setBrandGridContent, setBrandDropDownContent)
+    getBrands("api/brands/all", {}, setBrandGridContent)
 
-    $("#allCarsBtn").click(() => getCars("api/cars/all", {}, setBrandGridContent))
+    $("#allCarsBtn").click(() => {
+        getCars("api/cars/all", {}, setBrandGridContent) 
+        getBrands("api/brands/all", {},createDropdownBtn , setBrandDropDownContent  )
+    })
 })
 
 function generateCarGrid(initialValue, nextValue) {
@@ -46,4 +49,15 @@ function setBrandGridContent(brands){
     $(".card-brand").click(event => {
         getCars("api/cars/brand", {name : event.currentTarget.dataset.key}, setCarGridContent)
     })
+}
+
+function createDropdownBtn(){
+    $("#abc").html(
+    `<div class="dropdown" id="brand-menu">
+        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false" >
+            Choose a car brand
+        </button>
+        <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1" style="overflow-y:auto; max-height:80vh">
+        </ul>
+    </div>`)
 }
