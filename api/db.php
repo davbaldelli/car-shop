@@ -1,4 +1,5 @@
 <?php
+header("Access-Control-Allow-Origin: localhost");
 class Db
 {
     private mysqli $conn;
@@ -49,6 +50,12 @@ class Db
     function getCarsByDoors($n){
         $stmt = $this->conn->prepare("SELECT car_mods.* FROM car_mods WHERE doors = ?");
         $stmt->bind_param('i', $n);
+        $stmt->execute();
+        return $stmt->get_result()->fetch_all(MYSQLI_ASSOC);
+    }
+
+    function getAllBrands(){
+        $stmt = $this->conn->prepare("SELECT manufacturers.* FROM manufacturers");
         $stmt->execute();
         return $stmt->get_result()->fetch_all(MYSQLI_ASSOC);
     }

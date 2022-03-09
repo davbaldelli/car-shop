@@ -1,16 +1,16 @@
 <?php
 
-require_once "../../db/db.php";
+require_once "../../db.php";
 
 header('Content-Type: application/json; charset=utf-8');
 
 $dbh = new Db();
 $dbh->connect();
 
-$manufacturer = $_GET['name'];
+$max = $_GET['max'];
+$min = $_GET['min'];
 
-
-$result = $dbh->getCarsByManufacturer($manufacturer);
+$result = $dbh->getCarsByPrice($max, $min);
 
 echo json_encode($result);
 
