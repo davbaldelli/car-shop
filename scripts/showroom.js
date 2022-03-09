@@ -37,11 +37,13 @@ function setGridContent(cars){
 function setBrandDropDownContent(brands){
     $("#brand-menu .dropdown-menu").html(brandsToDropDownItems(brands).reduce(generateBrandList, ""))
     $("#brand-menu .dropdown-menu li .dropdown-item").click((event) => {
-        console.log(event.target.innerHTML)
-        getCars("api/cars/brand", {name : event.target.innerHTML}, setGridContent)
+        getCars("api/cars/brand", {name : event.currentTarget.dataset.key}, setGridContent)
     })
 }
 
 function setBrandGridContent(brands){
     $("#mainGrid").html(brandsToCards(brands).reduce(generateBrandGrid, ""))
+    $(".card-brand").click(event => {
+        getCars("api/cars/brand", {name : event.currentTarget.dataset.key}, setGridContent)
+    })
 }
