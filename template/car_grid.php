@@ -17,8 +17,9 @@
                     </ul>
                 </div>
             </div>
+            <button id="allCarsBtn" type="button" class="btn btn-primary">See all cars</button>
         </div>
-        <div class="row" id="carGrid">
+        <div class="row" id="mainGrid">
 
         </div>
     </div>

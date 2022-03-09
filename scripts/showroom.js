@@ -1,12 +1,13 @@
 import {getCars} from "./carLoader.js";
 import {carsToCards} from "./carFormatter.js";
 import {getBrands} from "./brandsLoader.js";
+import {brandsToCards, brandsToDropDownItems} from "./brandsFormatter.js";
 
 //load the given function when the page is loaded
 $(() => {
-    getCars("cars/all", {}, setGridContent)
+    getBrands("api/brands/all", {}, setBrandGridContent, setBrandDropDownContent)
 
-    getBrands("brands/all", {}, setBrandDropDownContent)
+    $("#allCarsBtn").click(() => getCars("api/cars/all", {}, setGridContent))
 })
 
 function generateCarGrid(initialValue, nextValue) {
@@ -18,19 +19,29 @@ function generateCarGrid(initialValue, nextValue) {
 }
 
 function generateBrandList(initialValue, nextValue) {
+    return initialValue + nextValue
+}
+
+function generateBrandGrid(initialValue, nextValue){
     return initialValue + `
-        <li><button class="dropdown-item">${nextValue.name}</button></li>
+    <div class="col-12 col-md-4">
+            ${nextValue}
+    </div>
     `
 }
 
 function setGridContent(cars){
-    $("#carGrid").html(carsToCards(cars).reduce(generateCarGrid, ""))
+    $("#mainGrid").html(carsToCards(cars).reduce(generateCarGrid, ""))
 }
 
 function setBrandDropDownContent(brands){
-    $("#brand-menu .dropdown-menu").html(brands.reduce(generateBrandList, ""))
+    $("#brand-menu .dropdown-menu").html(brandsToDropDownItems(brands).reduce(generateBrandList, ""))
     $("#brand-menu .dropdown-menu li .dropdown-item").click((event) => {
         console.log(event.target.innerHTML)
-        getCars("cars/brand", {name : event.target.innerHTML}, setGridContent)
+        getCars("api/cars/brand", {name : event.target.innerHTML}, setGridContent)
     })
+}
+
+function setBrandGridContent(brands){
+    $("#mainGrid").html(brandsToCards(brands).reduce(generateBrandGrid, ""))
 }

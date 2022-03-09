@@ -1,15 +1,16 @@
 <?php
 
-require_once "../../db/db.php";
+require_once "../../db.php";
 
 header('Content-Type: application/json; charset=utf-8');
 
 $dbh = new Db();
 $dbh->connect();
 
-$result = $dbh->getAllCars();
+$type = $_GET['name'];
 
-$dbh->disconnect();
+$result = $dbh->getCarsByType($type);
 
 echo json_encode($result);
 
+$dbh->disconnect();
