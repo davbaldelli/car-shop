@@ -1,8 +1,7 @@
-export function getBrands(url, options, handler, ...optHandlers){
+export function getBrands(url, options = {}, ...handlers){
     $.get(url, options, (responseObj) => {
-        handler(responseObj)
-        if(optHandlers){
-            optHandlers.forEach(h => h(responseObj))
+        if(handlers){
+            handlers.forEach(h => h(responseObj))
         }
     })
 }

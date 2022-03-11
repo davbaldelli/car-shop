@@ -1,7 +1,7 @@
 <?php
 
 $templateParams["title"] = "Showroom";
-$templateParams["page"] = "car_grid.php";
+$templateParams["page"] = "brand-grid.php";
 $templateParams["navbar"] = "navbar.php";
 $templateParams["js"] = array("/scripts/showroom.js");
 $templateParams["css"] = array("/css/showroom.css");

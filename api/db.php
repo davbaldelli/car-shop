@@ -20,42 +20,42 @@ class Db
 
     function getAllCars()
     {
-        $stmt = $this->conn->prepare("SELECT car_mods.* FROM car_mods");
+        $stmt = $this->conn->prepare("SELECT car_mods.* FROM car_mods ORDER BY CONCAT(brand,' ',model) ASC");
         $stmt->execute();
         return $stmt->get_result()->fetch_all(MYSQLI_ASSOC);
     }
 
     function getCarsByManufacturer($manu)
     {
-        $stmt = $this->conn->prepare("SELECT car_mods.* FROM car_mods WHERE brand = ?");
+        $stmt = $this->conn->prepare("SELECT car_mods.* FROM car_mods WHERE brand = ? ORDER BY CONCAT(brand,' ',model) ASC");
         $stmt->bind_param('s', $manu);
         $stmt->execute();
         return $stmt->get_result()->fetch_all(MYSQLI_ASSOC);
     }
 
     function getCarsByType($type){
-        $stmt = $this->conn->prepare("SELECT car_mods.* FROM car_mods WHERE car_type = ?");
+        $stmt = $this->conn->prepare("SELECT car_mods.* FROM car_mods WHERE car_type = ? ORDER BY CONCAT(brand,' ',model) ASC");
         $stmt->bind_param('s', $type);
         $stmt->execute();
         return $stmt->get_result()->fetch_all(MYSQLI_ASSOC);
     }
 
     function getCarsByPrice($max, $min){
-        $stmt = $this->conn->prepare("SELECT car_mods.* FROM car_mods WHERE price BETWEEN ? AND ?");
+        $stmt = $this->conn->prepare("SELECT car_mods.* FROM car_mods WHERE price BETWEEN ? AND ? ORDER BY CONCAT(brand,' ',model) ASC");
         $stmt->bind_param('ii', $min, $max);
         $stmt->execute();
         return $stmt->get_result()->fetch_all(MYSQLI_ASSOC);
     }
 
     function getCarsByDoors($n){
-        $stmt = $this->conn->prepare("SELECT car_mods.* FROM car_mods WHERE doors = ?");
+        $stmt = $this->conn->prepare("SELECT car_mods.* FROM car_mods WHERE doors = ? ORDER BY CONCAT(brand,' ',model) ASC");
         $stmt->bind_param('i', $n);
         $stmt->execute();
         return $stmt->get_result()->fetch_all(MYSQLI_ASSOC);
     }
 
     function getAllBrands(){
-        $stmt = $this->conn->prepare("SELECT manufacturers.* FROM manufacturers");
+        $stmt = $this->conn->prepare("SELECT manufacturers.* FROM manufacturers ORDER BY name ASC");
         $stmt->execute();
         return $stmt->get_result()->fetch_all(MYSQLI_ASSOC);
     }
@@ -79,7 +79,8 @@ class Db
         return $stmt->execute();
     }
 
-    private function generateRandomString($length = 10) {
+    private function generateRandomString($length = 10): string
+    {
         $characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
         $charactersLength = strlen($characters);
         $randomString = '';
