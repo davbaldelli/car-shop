@@ -1,4 +1,17 @@
-#carDropMenu {         
+.dropdown-menu {         
     max-height: 200px;
     overflow-y: auto;
   }
+.car-brand{
+      background-color: #B6B6B6;      
+  }
+
+.dropdown-multicol2{
+    width: 30em;
+}
+
+
+.div.dropdown-multicol2>div.dropdown-col{
+    display:inline-block;
+    width: 32%;
+}

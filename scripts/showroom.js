@@ -2,14 +2,22 @@ import {getCars} from "./carLoader.js";
 import {carsToCards} from "./carFormatter.js";
 import {getBrands} from "./brandsLoader.js";
 import {brandsToCards, brandsToDropDownItems} from "./brandsFormatter.js";
+import {createDropdownBtn, setBrandDropDownContent} from "./showroom-test.js";
 
 //load the given function when the page is loaded
 $(() => {
     getBrands("api/brands/all", {}, setBrandGridContent)
 
     $("#allCarsBtn").click(() => {
-        getCars("api/cars/all", {}, setBrandGridContent) 
-        getBrands("api/brands/all", {},createDropdownBtn , setBrandDropDownContent  )
+        getCars("api/cars/all", {}, setCarGridContent) 
+
+        
+        getBrands("api/brands/all", {}, function(brands){
+            createDropdownBtn()
+            let brand = brandsToDropDownItems(brands).reduce(generateBrandList, "")
+            console.log(brand);
+            setBrandDropDownContent(brand, 7)
+        })
     })
 })
 
@@ -33,15 +41,8 @@ function generateBrandGrid(initialValue, nextValue){
     `
 }
 
-function setCarGridContent(cars){
+export function setCarGridContent(cars){
     $("#mainGrid").html(carsToCards(cars).reduce(generateCarGrid, ""))
-}
-
-function setBrandDropDownContent(brands){
-    $("#brand-menu .dropdown-menu").html(brandsToDropDownItems(brands).reduce(generateBrandList, ""))
-    $("#brand-menu .dropdown-menu li .dropdown-item").click((event) => {
-        getCars("api/cars/brand", {name : event.currentTarget.dataset.key}, setCarGridContent)
-    })
 }
 
 function setBrandGridContent(brands){
@@ -51,13 +52,3 @@ function setBrandGridContent(brands){
     })
 }
 
-function createDropdownBtn(){
-    $("#abc").html(
-    `<div class="dropdown" id="brand-menu">
-        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false" >
-            Choose a car brand
-        </button>
-        <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1" style="overflow-y:auto; max-height:80vh">
-        </ul>
-    </div>`)
-}

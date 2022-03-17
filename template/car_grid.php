@@ -1,3 +1,4 @@
+<link href="/css/showroom.css" rel="stylesheet">
 <section class="row">
     <div class="col-0 col-md-2">
         <h1>Tutte le auto</h1>
