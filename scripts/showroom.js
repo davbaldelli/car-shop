@@ -9,15 +9,10 @@ $(() => {
     getBrands("api/brands/all", {}, setBrandGridContent)
 
     $("#allCarsBtn").click(() => {
-        getCars("api/cars/all", {}, setCarGridContent) 
 
-        
-        getBrands("api/brands/all", {}, function(brands){
-            createDropdownBtn()
-            let brand = brandsToDropDownItems(brands).reduce(generateBrandList, "")
-            console.log(brand);
-            setBrandDropDownContent(brand, 7)
-        })
+        getCars("api/cars/all", {}, setCarGridContent) //non funzionava perchè chiamavi la funzione che creava le card coi brand non quella delle macchine
+        createDropdownBtn() //Qua non è necessario creare il dropdown dopo avere ricevuto le macchine
+        getBrands("api/brands/all", {}, setBrandDropDownContent)
     })
 })
 
