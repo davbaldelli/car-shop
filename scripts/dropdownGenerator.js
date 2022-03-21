@@ -38,13 +38,28 @@ export function popolaDropdownContent(items, column){
 //aggiunge e all'head il css per le colonne multiple
 export function aggiungiCssInHead(){
     let temp= $("head").html()
-    $("head").html(temp + `<style>
+    $("head").html(temp + `<style>             
         div.dropdown-multicol{
-        width: auto;
+            width:auto;
         }
         div.dropdown-multicol>div.dropdown-col{
             display:inline-block;
             width: auto;
+        }
+        #inputChkbx{
+            width: auto; 
+            vertical-align:middle; 
+            display: inline-block; 
+            float: right;
+            margin-top: 6%;
+            margin-left:2em;
+        }
+        div.chkLabel{
+            float:right;
+        }
+        div.chkbx{
+            padding-left:1em;
+            padding-right:1em;
         }
     </style>`)
 }

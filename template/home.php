@@ -1,6 +1,8 @@
+<div class="logo-space">
+    <img src="src_img/carshop.png" class="logo" alt="logo">
+</div>
 <section class="row">
     <div class="col-0 col-md-4">
-        <h1>5 Auto Random</h1>
     </div>
     <div class="col-12 col-md-4" id="carList">
         <div id="carousel" class="carousel slide" data-bs-ride="carousel">

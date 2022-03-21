@@ -1,7 +1,7 @@
 export function carsToCards(cars) {
     return cars.map(car => {
-        return `<div class="card m-3">
-                    <img src="${car.image}" class="card-img-top" alt="car image">
+        return `<div class="card m-3 car-card">
+                    <img src="${car.image}" class="card-img-top card-img-top-car" alt="car image">
                     <div class="card-body">
                        <h5 class="card-title"> ${car.brand} ${car.model} </h5>
                        <p class="card-text">
