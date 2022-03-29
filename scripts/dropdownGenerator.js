@@ -1,31 +1,23 @@
 //prende in input il nome del bottone e restituisce l'html percui usarlo $(tag).html(creaDropdownBtn(nome))
-function creaDropdownBtn(nomebtn, objs, column){
-
-    let items=creaDropdownItems(objs)
-    let codice = popolaDropdownContent(items, column)
+function createDropdownBtn(label, items, columns){
+    let grid = createDropdownGridContent(items.map(item => `<button class="dropdown-item" data-key="${item.name}">${item.name}</button>`), columns)
     return `<div class="dropdown" id="dropdown-me">
-                <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    ${nomebtn}
+                <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    ${label}
                 </button>
                 <div class="dropdown-menu dropdown-multicol" aria-labelledby="dropdownMenuButton">
-                    ${codice}
+                    ${grid}
                 </div>
             </div>
             `
 }
 
-
-//richiede un array e restituisce un array di elementi html
-function creaDropdownItems(oggetti){
-    return oggetti.map(item => `<button class="dropdown-item" data-key="${item.name}">${item.name}</button>`)
-}
-
-//prende l' arrey di creaDropdownItems e il numero di colonne retituendo l'html 
-function popolaDropdownContent(items, column){
+//prende l' array di creaDropdownItems e il numero di colonne retituendo l'html
+function createDropdownGridContent(items, columns){
     let a=""       
-        for(let i=0, tmp=0; i<column; i++){    
+        for(let i=0, tmp=0; i<columns; i++){
             let b=""
-            for(let j=0; j<(items.length/column) && tmp<items.length; j++,tmp++){
+            for(let j=0; j<(items.length/columns) && tmp<items.length; j++,tmp++){
                 b = b + items[tmp] 
             }
             a = a +`<div class="dropdown-col" >${b}</div>` 
@@ -33,11 +25,10 @@ function popolaDropdownContent(items, column){
     return(a)
 }
 
+let state = []
 
-
-export function generateExtendedDropdown(nomeDiv, nomeBtn, elements, columns, onChange, onSelected, onUnselected){
-   
-    $(nomeDiv).html(creaDropdownBtn(nomeBtn, elements, columns))   
+export function generateExtendedDropdown(nomeDiv, nomeBtn, items, columns, onChange, onSelected, onUnselected){
+    $(`#${nomeDiv}`).html(createDropdownBtn(nomeBtn, items, columns))
     $(".dropdown-item").change(event => {
         if(this.checked){
             onSelected(event.currentTarget.dataset.key)
@@ -50,7 +41,5 @@ export function generateExtendedDropdown(nomeDiv, nomeBtn, elements, columns, on
             state.filter(e => e !== event.currentTarget.dataset.key)
             onChange(tmp, state)
         }
-        
     })
-    
 }

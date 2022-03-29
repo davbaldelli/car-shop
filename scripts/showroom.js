@@ -49,7 +49,7 @@ function setBrandGridContent(brands){
 }
 
 function setBrandDropDownContent(items){
-   generateExtendedDropdown("#prova","mostra brand", items, 7, (a,b)=>console.log(a,b), (a)=>console.log(a), (a)=>console.log(a))
+   generateExtendedDropdown("prova","mostra brand", items, 7, (a,b)=>console.log(a,b), (a)=>console.log(a), (a)=>console.log(a))
 }
 
 
