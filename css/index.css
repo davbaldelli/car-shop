@@ -1,13 +1,166 @@
+
 .logo-space{
     width: 100%;   
     margin-top: auto;
     margin-bottom: auto;
-
 }
 
-
 .logo{
+    filter: invert(100%);
     display: block;
     margin-right: auto;
     margin-left: auto;
+    padding:50px 0;
+    align-self:center;
 }
+
+
+.fixed-bg {
+    min-height: 400px;
+    background-attachment: fixed;
+    background-position: center top;
+    background-repeat: no-repeat;
+    background-size: contain;
+  }
+  
+.home-sections{
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); 
+    height: auto;
+    width: 100%;
+}
+
+#about-carousel{
+    display: inline-flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    align-items: center;
+}u
+#carousel-outer-div{
+    flex: 37%;
+    padding: 5px 0;
+    padding-left: 5px;
+    align-self:center;
+}
+
+#about-text{
+    flex: 63%;
+    order:1;
+    overflow-wrap: break-word;
+    text-align: center;
+}
+
+#review{
+    margin-top: 35px;  
+    min-height: 300px;
+    height: auto;
+    display: block;
+}
+
+.rev-container{
+    width: 99vw;
+    min-height: 300px;
+    justify-content: space-around;
+    display: inline-flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    align-content: center;
+}
+.review-div{
+    flex-grow: 1;
+    flex: 25%;
+    height: 200px;
+    text-align: center;
+}
+.img_stars{
+    max-width:150px;
+    max-height:100%;
+    object-fit: contain;
+    align-items: end ;
+}
+.p_signature{
+    color: #838383;
+}
+.p_rev{
+    text-align: center;
+}
+
+.fa:hover {
+    opacity: 0.7;
+}
+.fa-facebook {
+    background: #3B5998;
+    color: white;
+}
+.fa-twitter {
+    background: #55ACEE;
+    color: white;
+}
+.fa-instagram {
+    background: #924CC8;
+    color: white;
+}
+.fa-youtube {
+    background: #FF0000;
+    color: white;
+}
+.fa {
+    padding: 11px;
+    font-size: 30px;
+    width: 51px;
+    margin: 5px;
+    text-align: center;
+    text-decoration: none;
+    border-radius: 50%;
+}
+
+.social_logos{
+   
+    display: grid;
+    grid-template-columns: auto auto;
+    width: 110px;
+}
+footer{
+    height: 250px;
+    width: auto;
+    display: flex;
+    justify-content: center;
+    background-color: darkcyan;
+}
+.aaa{
+    width: 400px;
+    display: inline-flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-content: center;
+    align-items: center;
+    
+}
+.about_socials{
+    flex: 15%;
+    order: 1;
+}
+
+.about-links{
+    flex: 15%;
+    width: 80px;
+    order: 0;
+}
+.link_list{
+    display: inline-flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+
+}
+.a-link{
+    color: #ffff;
+    margin: 3px;
+    text-decoration: none;
+}
+.a-link:hover{
+    color:black;
+    font-size: 1.5em;
+}
+
+
+
+

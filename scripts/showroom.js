@@ -2,7 +2,8 @@ import {getCars} from "./carLoader.js";
 import {carsToCards} from "./carFormatter.js";
 import {getBrands} from "./brandsLoader.js";
 import {brandsToCards, brandsToDropDownItems} from "./brandsFormatter.js";
-import {createDropdownBtn, setBrandDropDownContent} from "./showroom-test.js";
+import {generateExtendedDropdown} from "./dropdownGenerator.js";
+
 
 //load the given function when the page is loaded
 $(() => {
@@ -11,8 +12,8 @@ $(() => {
     $("#allCarsBtn").click(() => {
 
         getCars("api/cars/all", {}, setCarGridContent) //non funzionava perchè chiamavi la funzione che creava le card coi brand non quella delle macchine
-        createDropdownBtn() //Qua non è necessario creare il dropdown dopo avere ricevuto le macchine
-        getBrands("api/brands/all", {}, setBrandDropDownContent)
+        
+        getBrands("api/brands/all", {}, setBrandDropDownContent )
     })
 })
 
@@ -46,4 +47,9 @@ function setBrandGridContent(brands){
         getCars("api/cars/brand", {name : event.currentTarget.dataset.key}, setCarGridContent)
     })
 }
+
+function setBrandDropDownContent(items){
+   generateExtendedDropdown("#prova","mostra brand", items, 7, (a,b)=>console.log(a,b), (a)=>console.log(a), (a)=>console.log(a))
+}
+
 

@@ -12,10 +12,3 @@ export function createDropdownBtn(){
         </div>`
     )
 }
-
-export function setBrandDropDownContent(items){
-    $("#brand-menu .dropdown-menu").html(items)
-    $("#brand-menu .dropdown-menu a .dropdown-item").click((event) => {
-        getCars("api/cars/brand", {name : event.currentTarget.dataset.key}, setCarGridContent)
-    })
-}

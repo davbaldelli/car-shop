@@ -39,7 +39,9 @@
         require($templateParams["page"]);
     ?>
 </main>
-<footer>
-
-</footer>
+    <?php   
+        require($templateParams["footer"]);
+    ?>
 </body>
+
+    
