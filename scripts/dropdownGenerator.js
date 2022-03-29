@@ -1,6 +1,6 @@
-//prende in input il nome del bottone e restituisce l'html percui usarlo $(tag).html(creaDropdownBtn(nome))
+//prende in input il nome del bottone e restituisce l'html 
 function createDropdownBtn(label, items, columns){
-    let grid = createDropdownGridContent(items.map(item => `<button class="dropdown-item" data-key="${item.name}">${item.name}</button>`), columns)
+    let grid = createDropdownGridContent(items.map(item => `<div class="chkbx" style="width: auto;"><label class="chkLabel">&#9900; ${item.name}</label><input class="dropdown-item" type="checkbox" id="inputChkbx" data-key="${item.name}" name="${item.name}"/></div>`), columns)
     return `<div class="dropdown" id="dropdown-me">
                 <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     ${label}
@@ -30,16 +30,16 @@ let state = []
 export function generateExtendedDropdown(nomeDiv, nomeBtn, items, columns, onChange, onSelected, onUnselected){
     $(`#${nomeDiv}`).html(createDropdownBtn(nomeBtn, items, columns))
     $(".dropdown-item").change(event => {
-        if(this.checked){
+        if(event.currentTarget.checked){
             onSelected(event.currentTarget.dataset.key)
-            let prev = state
+            let prev = [...state] 
             state.push(event.currentTarget.dataset.key)
-            onChange(prev, state)
+            onChange(state, prev)
         }else{
             onUnselected(event.currentTarget.dataset.key)
-            let tmp = state
-            state.filter(e => e !== event.currentTarget.dataset.key)
-            onChange(tmp, state)
+            let prev =[...state]
+            state.splice(state.indexOf(event.currentTarget.dataset.key),1)
+            onChange(state, prev )
         }
     })
 }
