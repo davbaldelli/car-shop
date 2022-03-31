@@ -1,0 +1,131 @@
+
+.logo-space{
+    width: 100%;   
+    margin-top: auto;
+    margin-bottom: auto;
+}
+
+.logo{
+    display: block;
+    margin-right: auto;
+    margin-left: auto;
+    padding:50px 0;
+    align-self:center;
+}
+
+
+.fixed-bg {
+    min-height: 400px;
+    background-attachment: fixed;
+    background-position: center top;
+    background-repeat: no-repeat;
+    background-size: contain;
+  }
+  
+.home-sections{
+    box-shadow:0 10px 20px 0 rgba(0, 0, 0, 0.2),  0 0 0 0 rgba(0, 0, 0, 0.19); 
+    height: auto;
+    width: 100%;
+    margin-bottom: 35px;
+}
+
+#about-carousel{
+    display: inline-flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    align-items: center;
+}
+#carousel-outer-div{
+    flex: 37%;
+    padding: 5px 0;
+    padding-left: 5px;
+    align-self:center;
+}
+
+#about-text{
+    flex: 63%;
+    order:1;
+    overflow-wrap: break-word;
+    text-align: center;
+}
+
+.review{ 
+    min-height: 300px;
+    height: auto;
+    display: block;
+}
+
+.rev-container{
+    width: 99vw;
+    min-height: 300px;
+    justify-content: space-around;
+    display: inline-flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    align-content: center;
+}
+.review-div{
+    flex-grow: 1;
+    flex: 25%;
+    height: 200px;
+    text-align: center;
+}
+.img_stars{
+    max-width:150px;
+    max-height:100%;
+    object-fit: contain;
+    align-items: end ;
+}
+.p_signature{
+    color: #838383;
+    filter: invert(100%);
+}
+.p_rev{
+    text-align: center;
+    filter: invert(100%);
+}
+
+.shields-section{
+    height: 400px;
+    display: inline-flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-content: center;
+}
+.shield-img{
+    height: 128px;
+    opacity: 50%;
+    filter: invert(100%);
+}
+.shield-div{
+    width: 512px;
+    text-align: center;
+}
+
+.h2-footer{
+    margin-bottom: 6%;
+    margin-top: 3%;
+    font-weight: bolder;
+}
+
+.h1-shield{
+    color:rgb(61, 38, 168);
+}
+.h4-shield{
+    opacity: 70%;
+    color:#91A826;
+}
+
+.h2-abtxt{
+    color: #91A826;
+}
+.h4-abtxt{
+    color: rgb(61, 38, 168);
+}
+
+.h5-rev{
+    filter: invert(100%);
+}
+
+

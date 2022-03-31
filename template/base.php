@@ -28,18 +28,22 @@
     endif;
     ?>
 </head>
-<body>
-<header>
+<body class="container-fluid">
+<header class="row">
     <?php
         require($templateParams["navbar"]);
     ?>
 </header>
-<main class="container-fluid">
+<main class="row">
     <?php
         require($templateParams["page"]);
     ?>
 </main>
-<footer>
-
+<footer class="row position-sticky footer">
+    <?php
+    require($templateParams["footer"]);
+    ?>
 </footer>
 </body>
+
+    
