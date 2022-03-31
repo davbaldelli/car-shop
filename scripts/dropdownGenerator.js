@@ -27,7 +27,7 @@ function createDropdownGridContent(items, columns){
 
 let state = []
 
-export function generateExtendedDropdown(nomeDiv, nomeBtn, items, columns, onChange, onSelected, onUnselected){
+export function generateExtendedDropdown(nomeDiv, nomeBtn, items, columns, onChange, onSelected = () => {}, onUnselected = () => {}){
     $(`#${nomeDiv}`).html(createDropdownBtn(nomeBtn, items, columns))
     $(".dropdown-item").change(event => {
         if(event.currentTarget.checked){
