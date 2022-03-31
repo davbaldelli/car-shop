@@ -85,15 +85,19 @@
     height: 400px;
     display: inline-flex;
     flex-direction: row;
-    flex-wrap: wrap;
+    flex-wrap: nowrap;
     justify-content: space-around;
     align-content: center;
 }
 
 
 .shield-div{
-    width: 512px;
+    max-width: 512px;
+    flex-shrink: 1;
+    width: auto;
+    height: fit-content;
     text-align: center;
+    align-self: center;
 }
 
 .h2-footer{

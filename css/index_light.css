@@ -6,7 +6,9 @@
     color:#212529;
 }
 .shield-img{
-    height: 128px;
+    max-height: 128px;
+    height: 100%;
+    width: auto;
     opacity: 50%;
     filter: invert(0%);
 }
