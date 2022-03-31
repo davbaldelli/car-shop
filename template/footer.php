@@ -1,9 +1,7 @@
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-<footer class="fixed-bottom">
-            
-    <div class="aaa"> 
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">    
+    <div class="about-group"> 
         <div class="about-links">
-            <h2>  About Us</h2>
+            <h2 class="h2-footer postion-fixed-top">  About Us</h2>
             <div class="link_list">
                 <a class="a-link" href=#>Chi siamo</a>
                 <a class="a-link" href=#>FAQ</a>
@@ -21,4 +19,3 @@
             </div>
         </div>
     </div>
-</footer>

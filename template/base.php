@@ -39,7 +39,7 @@
         require($templateParams["page"]);
     ?>
 </main>
-<footer class="row">
+<footer class="row position-sticky footer">
     <?php
     require($templateParams["footer"]);
     ?>

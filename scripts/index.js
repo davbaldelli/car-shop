@@ -5,5 +5,6 @@ import {carsToCarouselElems} from "./carFormatter.js";
 $(() => {
     getCars("/api/cars/random", {},
         (cars) =>  $("#carousel-content").html(carsToCarouselElems(cars).reduce((s, val) => s += val, "")))
+        $('a').tooltip({ boundary: 'window' })
 })
 
