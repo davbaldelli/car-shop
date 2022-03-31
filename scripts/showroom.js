@@ -3,12 +3,13 @@ import {carsToCards} from "./carFormatter.js";
 import {getBrands} from "./brandsLoader.js";
 import {brandsToCards, brandsToDropDownItems} from "./brandsFormatter.js";
 import {generateExtendedDropdown} from "./dropdownGenerator.js";
+import {darkModeGlobal, darkModeShowroom} from "./darkMode.js";
 
 
 //load the given function when the page is loaded
 $(() => {
     getBrands("api/brands/all", {}, setBrandGridContent)
-
+    $('.darklight-toggle').change(function(){darkModeShowroom(), darkModeGlobal()}) 
     $("#allCarsBtn").click(() => {
 
         getCars("api/cars/all", {}, setCarGridContent) //non funzionava perchè chiamavi la funzione che creava le card coi brand non quella delle macchine
@@ -49,7 +50,7 @@ function setBrandGridContent(brands){
 }
 
 function setBrandDropDownContent(items){
-   generateExtendedDropdown("prova","mostra brand", items, 7, (a,b)=>console.log(a,b), (a)=>console.log(a), (a)=>console.log(a))
+   generateExtendedDropdown("showBtnDropdown","Mostra brand", items, 7, (a,b)=>console.log(a,b), (a)=>console.log(a), (a)=>console.log(a))
 }
 
 

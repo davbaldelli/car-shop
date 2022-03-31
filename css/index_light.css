@@ -1,0 +1,12 @@
+.h5-rev{
+    color:#212529;
+}
+.p-rev{
+    text-align: center;
+    color:#212529;
+}
+.shield-img{
+    height: 128px;
+    opacity: 50%;
+    filter: invert(0%);
+}

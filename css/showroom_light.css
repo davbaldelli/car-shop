@@ -1,0 +1,16 @@
+#cardBrandContent{
+    background-color: #ffff;
+}
+#cardBrandContent:hover{
+    box-shadow: 0 0 10px rgba(61, 38, 168, 0.7); 
+}
+#allCarsBtn{
+    width: 50%;
+    color:white;
+    background-color: #3D26A8;
+    box-shadow:0 0 5px rgba(61, 38, 168, 0.5);
+}
+
+#allCarsBtn:hover{
+    box-shadow:0 0 10px rgba(61, 38, 168, 0.7);
+}

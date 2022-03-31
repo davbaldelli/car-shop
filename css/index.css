@@ -70,18 +70,14 @@
     height: 200px;
     text-align: center;
 }
-.img_stars{
+.img-stars{
     max-width:150px;
     max-height:100%;
     object-fit: contain;
     align-items: end ;
 }
-.p_signature{
+.p-signature{
     color: #838383;
-    filter: invert(100%);
-}
-.p_rev{
-    text-align: center;
     filter: invert(100%);
 }
 
@@ -93,11 +89,8 @@
     justify-content: space-around;
     align-content: center;
 }
-.shield-img{
-    height: 128px;
-    opacity: 50%;
-    filter: invert(100%);
-}
+
+
 .shield-div{
     width: 512px;
     text-align: center;
@@ -124,8 +117,5 @@
     color: rgb(61, 38, 168);
 }
 
-.h5-rev{
-    filter: invert(100%);
-}
 
 
