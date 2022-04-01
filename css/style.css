@@ -1,25 +1,25 @@
 main {
-    padding-top: 60px;
-    
+    padding-top: 60px;    
 }
 body{
     background-color: #1E1E1E;
 }
-
 .navbar-logo{
     width: 100px;
     height: 37px;
 }
-
 html{
     width: auto;
-    
+   
 }
 .body-light{
     background-color: white;
 }
-.fa:hover {
+
+.div-ico:hover{
     box-shadow: 0 1px 10px 0 rgba(61, 38, 168, 0.7);
+}
+.div-ico:hover>.fa {
     color: rgb(61, 38, 168);
 }
 .fa-facebook {
@@ -32,32 +32,36 @@ html{
     color: white;
 }
 .fa-youtube {
-    color: white;
-    
+    color: white;    
 }
 .fa {
-    padding-top: 8%;
-    border: 4px solid rgba(0, 0, 0, 0.8);
-    width: 80%;
-    height: 80%;
     text-align: center;
     text-decoration: none;
+}
+.div-ico{
+    border: 4px solid rgba(0, 0, 0, 0.8);
     border-radius: 50%;
-    vertical-align: middle;
+    width: 100px;
+    height: 100px;
+    display: flex;
+    align-items: center;
+    justify-content:center ;
 }
 
 .social_logos{
-    display: grid;
-    grid-template-columns: auto auto;
-    width: 250px;
-    height: 250px;
+    display: flex;
+    flex-wrap: wrap;
+    width: 200px;
+    height: auto;
     margin: 0 auto;
+    justify-content: space-around;
     align-items: center;
     justify-items: center;
     font-size: 70px;
 }
 .footer{
-    height: 300px;
+    min-height: 300px;
+    max-height: fit-content;
     width: auto;
     display: flex;
     flex-wrap: wrap;
@@ -65,7 +69,12 @@ html{
     background-color: #91A826;
 }
 .about-group{
-    width: 50%;
+    width: fit-content;
+    min-width: 60%;
+    padding-right: 100px;
+    padding-left: 100px;
+    min-height: inherit;
+    height: fit-content;
     display: inline-flex;
     flex-direction: row;
     flex-wrap: wrap;
@@ -76,11 +85,13 @@ html{
     
 }
 .about_socials{
+    flex-shrink: 0;
     display: flex;
     flex: 15%;
     order: 1;
     width: 100%;
-    height: 100%;
+    min-width: 85px;
+    height: inherit;
     align-items: center;
     
 }
@@ -97,13 +108,14 @@ html{
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
+    font-size: 17px;
 
 }
 .a-link{
     color: #ffff;
-    margin: 3px;
+    padding-bottom: 3%;
     text-decoration: none;
-    font-size: 17px;
+    min-width: 85px;
 }
 .a-link:hover{
     color:rgb(61, 38, 168);
@@ -113,6 +125,9 @@ html{
 
 .switch-div{
     max-width: 100px;
+}
+.h2-footer{
+    min-width: 85px;
 }
 
 

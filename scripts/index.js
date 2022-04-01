@@ -6,7 +6,7 @@ import {darkModeGlobal, darkModeIndex} from "./darkMode.js";
 $(() => {
     getCars("/api/cars/random", {},
         (cars) =>  $("#carousel-content").html(carsToCarouselElems(cars).reduce((s, val) => s += val, "")))
-        $('a').tooltip({ boundary: 'window' })
+        $('.div-ico').tooltip({ boundary: 'window' })
 
 
         $('.darklight-toggle').change(function(){darkModeGlobal(), darkModeIndex()});   

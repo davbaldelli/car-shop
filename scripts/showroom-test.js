@@ -12,3 +12,6 @@ export function createDropdownBtn(){
         </div>`
     )
 }
+
+/*display: grid;
+    grid-template-columns: auto auto;*/

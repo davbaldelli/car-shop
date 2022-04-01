@@ -21,7 +21,7 @@
             <label class="switch">
                 <input type="checkbox" class="darklight-toggle" checked>
                 <span class="slider"></span>
-                </label>
-            </div>
+            </label>
+        </div>
     </div>
 </nav>

@@ -4,6 +4,7 @@
 .p-rev{
     text-align: center;
     color:#A29F9D;
+    overflow: hidden;
 }
 .shield-img{
     width: 100%;
