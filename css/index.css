@@ -125,9 +125,9 @@
 
 .h2-abtxt{
     color: #91A826;
-}
-.h4-abtxt{
-    color: rgb(61, 38, 168);
+    font-size: 47px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
 }
 
 

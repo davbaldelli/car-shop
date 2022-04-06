@@ -43,7 +43,7 @@
     <div class="shield-div">
         <img src="src_img/shield-check.png" class="shield-img shield-img-dark" alt="shield">
         <h1 class="h1-shield">Sicuro</h1>
-        <h4 class="h4-shield">Sei al sicuro con Autohero! Puoi restituire l'auto entro 14 giorni! In più hai la garanzia di 12 mesi.</h4>
+        <h4 class="h4-shield">Sei al sicuro con CARSHOP! Puoi restituire l'auto entro 14 giorni! In più hai la garanzia di 12 mesi.</h4>
     </div>
 </section>
 

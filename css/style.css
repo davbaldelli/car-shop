@@ -186,6 +186,25 @@ input:checked + .slider:before {
     transform: translateX(26px);
 }
 
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background: rgba(90, 90, 90, 0.212); 
+}
+
+::-webkit-scrollbar-thumb {
+    background: rgba(0,0,0,0.3); 
+    border-top-left-radius: 15px;
+    border-bottom-left-radius: 15px;
+    border-top-right-radius: 15px;
+    border-bottom-right-radius: 15px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: rgba(0,0,0,0.8); 
+}
 
 
 
