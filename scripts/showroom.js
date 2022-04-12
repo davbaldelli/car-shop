@@ -26,7 +26,11 @@ function setBrandGridContent(brands){
 }
 
 function setBrandDropDownContent(items){
-   generateExtendedDropdown("brandDropdown","mostra brand", items, 7, (a)=>setCarGridContentWithFilter(filterByBrand(a)))
+   generateExtendedDropdown("brandDropdown","mostra brand", items, 7, (a) =>
+   {
+       if(a.length !== 0) setCarGridContentWithFilter(filterByBrand(a))
+       else setCarGridContentWithFilter(e => e)
+   })
 }
 
 function setCarGridContentWithFilter(filter){
