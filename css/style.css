@@ -1,8 +1,11 @@
 main {
-    padding-top: 60px;    
+    padding-top: 60px;
+    min-height: 77vh;
+        
 }
 body{
     background-color: #1E1E1E;
+    min-height: 100vh;
 }
 .navbar-logo{
     width: 100px;
