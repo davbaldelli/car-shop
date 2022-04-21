@@ -25,6 +25,13 @@ class Db
         return $stmt->get_result()->fetch_all(MYSQLI_ASSOC);
     }
 
+    function getCarById($id){
+        $stmt = $this->conn->prepare("SELECT car_mods.* FROM car_mods WHERE id = ?");
+        $stmt->bind_param('i', $id);
+        $stmt->execute();
+        return $stmt->get_result()->fetch_all(MYSQLI_ASSOC);
+    }
+
     function getCarsByManufacturer($manu)
     {
         $stmt = $this->conn->prepare("SELECT car_mods.* FROM car_mods WHERE brand = ? ORDER BY CONCAT(brand,' ',model) ASC");
