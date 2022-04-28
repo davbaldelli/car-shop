@@ -3,13 +3,12 @@ import {carsToCards} from "./carFormatter.js";
 import {getBrands} from "./brandsLoader.js";
 import {brandsToCards, brandsToDropDownItems} from "./brandsFormatter.js";
 import {generateExtendedDropdown} from "./dropdownGenerator.js";
-import {darkModeGlobal, darkModeShowroom} from "./darkMode.js";
+
 
 
 //load the given function when the page is loaded
 $(() => {
-    getBrands("api/brands/all", {}, setBrandGridContent)
-    $('.darklight-toggle').change(function(){darkModeShowroom(), darkModeGlobal()}) 
+    getBrands("api/brands/all", {}, setBrandGridContent) 
     $("#allCarsBtn").click(() => {
 
         getCars("api/cars/all", {}, setCarGridContent)
