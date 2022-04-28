@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark border-bottom fixed-top">
+<nav class="navbar navbar-expand-lg fixed-top navbar-dark bg-dark  ">
     <div class="container-fluid">
         <a class="navbar-brand" href="index.php"><img class="navbar-logo" src="src_img/carshopcolor.png" alt="logo"></a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -17,5 +17,12 @@
                 </li>
             </ul>
         </div>
+        <!--
+        <div class="switch-div">
+            <label class="switch">
+                <input type="checkbox" class="darklight-toggle" checked>
+                <span class="slider"></span>
+            </label>
+        </div>-->
     </div>
 </nav>

@@ -12,10 +12,10 @@
         </div>
         <div class="about_socials">
             <div class="social_logos">
-                <a href="#" class="fa fa-facebook a-ico" data-toggle="tooltip" title="Facebook"></a>
-                <a href="#" class="fa fa-instagram a-ico" data-toggle="tooltip" title="Instagram"></a>
-                <a href="#" class="fa fa-twitter a-ico" data-toggle="tooltip" title="Twitter"></a>
-                <a href="#" class="fa fa-youtube a-ico" data-toggle="tooltip" title="Youtube"></a>
+                <div class="div-ico" data-toggle="tooltip" title="Facebook"><a href="#" class="fa fa-facebook a-ico" ></a></div>
+                <div class="div-ico" data-toggle="tooltip" title="Instagram"><a href="#" class="fa fa-instagram a-ico" ></a></div>
+                <div class="div-ico" data-toggle="tooltip" title="Twitter"><a href="#" class="fa fa-twitter a-ico" ></a></div>
+                <div class="div-ico" data-toggle="tooltip" title="Youtube"><a href="#" class="fa fa-youtube a-ico" ></a></div>
             </div>
         </div>
     </div>

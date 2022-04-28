@@ -1,22 +1,28 @@
 main {
     padding-top: 60px;
-    
+    min-height: 77vh;
+        
 }
-
+body{
+    background-color: #1E1E1E;
+    min-height: 100vh;
+}
 .navbar-logo{
     width: 100px;
     height: 37px;
 }
-
 html{
     width: auto;
-    
+   
 }
-body{
-    background-color: #1E1E1E ;
+.body-light{
+    background-color: white;
 }
-.fa:hover {
+
+.div-ico:hover{
     box-shadow: 0 1px 10px 0 rgba(61, 38, 168, 0.7);
+}
+.div-ico:hover>.fa {
     color: rgb(61, 38, 168);
 }
 .fa-facebook {
@@ -29,32 +35,36 @@ body{
     color: white;
 }
 .fa-youtube {
-    color: white;
-    
+    color: white;    
 }
 .fa {
-    padding-top: 8%;
-    border: 4px solid rgba(0, 0, 0, 0.8);
-    width: 80%;
-    height: 80%;
     text-align: center;
     text-decoration: none;
+}
+.div-ico{
+    border: 4px solid rgba(0, 0, 0, 0.8);
     border-radius: 50%;
-    vertical-align: middle;
+    width: 100px;
+    height: 100px;
+    display: flex;
+    align-items: center;
+    justify-content:center ;
 }
 
 .social_logos{
-    display: grid;
-    grid-template-columns: auto auto;
-    width: 250px;
-    height: 250px;
+    display: flex;
+    flex-wrap: wrap;
+    width: 200px;
+    height: auto;
     margin: 0 auto;
+    justify-content: space-around;
     align-items: center;
     justify-items: center;
     font-size: 70px;
 }
 .footer{
-    height: 300px;
+    min-height: 300px;
+    max-height: fit-content;
     width: auto;
     display: flex;
     flex-wrap: wrap;
@@ -62,7 +72,12 @@ body{
     background-color: #91A826;
 }
 .about-group{
-    width: 50%;
+    width: fit-content;
+    min-width: 60%;
+    padding-right: 100px;
+    padding-left: 100px;
+    min-height: inherit;
+    height: fit-content;
     display: inline-flex;
     flex-direction: row;
     flex-wrap: wrap;
@@ -73,11 +88,13 @@ body{
     
 }
 .about_socials{
+    flex-shrink: 0;
     display: flex;
     flex: 15%;
     order: 1;
     width: 100%;
-    height: 100%;
+    min-width: 85px;
+    height: inherit;
     align-items: center;
     
 }
@@ -94,17 +111,102 @@ body{
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
+    font-size: 17px;
 
 }
 .a-link{
     color: #ffff;
-    margin: 3px;
+    padding-bottom: 3%;
     text-decoration: none;
-    font-size: 17px;
+    min-width: 85px;
 }
 .a-link:hover{
     color:rgb(61, 38, 168);
     font-size: 1.5em;
+}
+
+
+.switch-div{
+    max-width: 100px;
+}
+.h2-footer{
+    min-width: 85px;
+}
+
+
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 60px;
+    height: 34px;
+}
+
+.switch input { 
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #1E1E1E;
+    -webkit-transition: .4s;
+    transition: .4s;
+    border-radius: 34px;
+}
+
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 26px;
+    width: 26px;
+    left: 4px;
+    bottom: 4px;
+    background-color: white;
+    -webkit-transition: .4s;
+    transition: .4s;
+    border-radius: 50%;
+}
+
+input:checked + .slider {
+    background-color: #91A826;
+}
+
+input:focus + .slider {
+    box-shadow: 0 0 1px #2196F3;
+}
+
+input:checked + .slider:before {
+    -webkit-transform: translateX(26px);
+    -ms-transform: translateX(26px);
+    transform: translateX(26px);
+}
+
+
+
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background: rgba(90, 90, 90, 0.212); 
+}
+
+::-webkit-scrollbar-thumb {
+    background: rgba(0,0,0,0.3); 
+    border-top-left-radius: 15px;
+    border-bottom-left-radius: 15px;
+    border-top-right-radius: 15px;
+    border-bottom-right-radius: 15px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: rgba(0,0,0,0.8); 
 }
 
 

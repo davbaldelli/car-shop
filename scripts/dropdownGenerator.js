@@ -1,6 +1,6 @@
 //prende in input il nome del bottone e restituisce l'html 
 function createDropdownBtn(label, items, columns){
-    let grid = createDropdownGridContent(items.map(item => `<div class="chkbx" style="width: auto;"><label class="chkLabel">&#9900; ${item.name}</label><input class="dropdown-item" type="checkbox" id="inputChkbx" data-key="${item.name}" name="${item.name}"/></div>`), columns)
+    let grid = createDropdownGridContent(items.map(item => `<div class="chkbx"><input class="dropdown-item" type="checkbox" id="inputChkbx" data-key="${item.name}" name="${item.name}"/><label class="chkLabel"> ${item.name}</label></div>`), columns)
     return `<div class="dropdown" id="dropdown-me">
                 <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     ${label}

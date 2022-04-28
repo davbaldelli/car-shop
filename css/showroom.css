@@ -1,27 +1,19 @@
-.dropdown-menu {         
-    max-height: 200px;
-    overflow-y: auto;
-  }
-#cardBrandContent{
-      background-color: #ffff; 
-      display: flex;
-      justify-content: center;  
-      box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.2);
-      transition: all 200ms ease-out;   
-  }
+.card-brand{ 
+  display: flex;
+  justify-content: center;  
+  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.014);
+  transition: all 200ms ease-out;   
+}
 
 .card-img-top{
-    display: block;
-    margin-left: auto;
-    margin-right: auto; 
-    object-fit: contain;
-    width: 85%;
-    height: 85%; 
-    max-width: 90%;
-    max-height: 90%;  
-}
-#cardBrandContent:hover{
-  box-shadow: 0 0 6px rgba(35, 173, 278, 1); 
+  display: block;
+  margin-left: auto;
+  margin-right: auto; 
+  object-fit: contain;
+  width: 85%;
+  height: 85%; 
+  max-width: 90%;
+  max-height: 90%;  
 }
 
 .m-3{
@@ -39,29 +31,58 @@
 .card-brand {
   height: 400px
 }
+
+/* css per dropdown btn*/
+.dropdown-menu {         
+  height: auto;
+  overflow-y: auto;
+}
 div.dropdown-multicol{
-  width:auto;
+  width: max-content;
 }
 div.dropdown-multicol>div.dropdown-col{
-  display:inline-block;
   width: auto;
-}
-#inputChkbx{
-  width: auto; 
-  vertical-align:middle; 
-  display: inline-block; 
- 
-  margin-top: 6%;
-  margin-left:2em;
-}
-div.chkLabel{
-  float:right;
-}
-div.chkbx{
-  padding-left:1em;
-  padding-right:1em;
+  height: 100%;
+  display: inline-flex;
+  flex-direction: column;
 }
 
-#allCarsBtn{
-  height: auto;
+#inputChkbx{
+  width: auto;  
+  margin-top: 6%;
+}
+.chkLabel{
+  width: max-content;
+  margin-left:4px ;
+}
+div.chkbx{
+  display: inline-flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: baseline;
+  padding-left:1em;
+  padding-right:1em;
+  width: 100%;
+}
+
+.div-allCarsBtn{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  padding-top: 4%;
+  width: 100%;
+}
+
+.div-dropDown{
+  padding-top: 3%;
+  padding-left: 1.5%;
+  width: 50vw;
+}
+
+#showBtnDropdown{
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
 }
