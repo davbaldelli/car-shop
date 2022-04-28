@@ -17,11 +17,12 @@
                 </li>
             </ul>
         </div>
+        <!--
         <div class="switch-div">
             <label class="switch">
                 <input type="checkbox" class="darklight-toggle" checked>
                 <span class="slider"></span>
             </label>
-        </div>
+        </div>-->
     </div>
 </nav>

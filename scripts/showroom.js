@@ -12,7 +12,7 @@ $(() => {
     $('.darklight-toggle').change(function(){darkModeShowroom(), darkModeGlobal()}) 
     $("#allCarsBtn").click(() => {
 
-        getCars("api/cars/all", {}, setCarGridContent) //non funzionava perchè chiamavi la funzione che creava le card coi brand non quella delle macchine
+        getCars("api/cars/all", {}, setCarGridContent)
         
         getBrands("api/brands/all", {}, setBrandDropDownContent )
     })

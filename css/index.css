@@ -1,4 +1,4 @@
-
+/* css logo*/
 .logo-space{
     width: 100%;   
     margin-top: auto;
@@ -16,15 +16,15 @@
     height: 100%;
 }
 
-
 .fixed-bg {
     min-height: fit-content;
     background-attachment: fixed;
     background-position: center top;
     background-repeat: no-repeat;
     background-size: contain;
-  }
-  
+}
+
+/* css generale per section*/
 .home-sections{
     box-shadow:0 10px 20px 0 rgba(0, 0, 0, 0.2),  0 0 0 0 rgba(0, 0, 0, 0.19); 
     height: auto;
@@ -32,6 +32,7 @@
     margin-bottom: 35px;
 }
 
+/* css per section carosello*/
 #about-carousel{
     display: inline-flex;
     flex-wrap: wrap;
@@ -57,7 +58,7 @@
     text-align: center;
     max-width: 50vw;
 }
-
+/* css per section review*/
 .review{ 
     min-height: 300px;
     height: auto;  
@@ -76,17 +77,20 @@
     padding-left: 1%;
     padding-right: 1%;
 }
+
 .img-stars{
     max-width:150px;
     max-height:100%;
     object-fit: contain;
     align-items: end ;
 }
+
 .p-signature{
     color: #838383;
     filter: invert(100%);
 }
 
+/* css per section shields*/
 .shields-section{
     height: fit-content;
     display: inline-flex;
@@ -97,7 +101,6 @@
     padding-top: 20px;
     padding-bottom: 20px;
 }
-
 
 .shield-div{
     max-width: 512px;
@@ -128,9 +131,5 @@
     font-size: 2vw;
     text-transform: uppercase;
     letter-spacing: 2px;
-}
-
-@media screen and (min-width:600px) {
-    
 }
 
