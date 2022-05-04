@@ -35,15 +35,14 @@ function setBrandDropDownContent(items){
    })
 }
 function setChassisDropDownContent(items){
-    generateSinglePickDropdown("chassisDropdown", "Mostra opzioni", items, 1, (a) =>
-    {
-        if(a=="") setCarGridContentWithFilter(filterByChassis(a))
-        else setCarGridContentWithFilter(e => e)
-    })
+    generateSinglePickDropdown("chassisDropdown", "Mostra opzioni", items, 1,
+        (a) => setCarGridContentWithFilter(filterByChassis(a)),
+        () => setCarGridContentWithFilter(e => e))
 }
 
 function setCarGridContentWithFilter(filter){
     getCars("api/cars/all", {}, cars => {
+        console.log(filter(cars))
         setCarGridContent(filter(cars))
     })
 }

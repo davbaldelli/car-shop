@@ -27,20 +27,16 @@ function createDropdownGridContent(items, columns){
 
 let state = ""
 
-export function generateSinglePickDropdown(nomeDiv, nomeBtn, items, columns, onChange, onSelected = () => {}, onUnselected = () => {}){
+export function generateSinglePickDropdown(nomeDiv, nomeBtn, items, columns, onSelected = () => {}, onUnselected = () => {}){
     console.log(items)
     $(`#${nomeDiv}`).html(createDropdownBtn(nomeBtn, items, columns))
     $(".dropdown-item").change(event => {
         if(event.currentTarget.checked){
-            onSelected(event.currentTarget.dataset.key)
-            let prev = state
             state=event.currentTarget.dataset.key
-            onChange(state, prev)
-        }else{
-            onUnselected(event.currentTarget.dataset.key)
-            let prev =state
-            state=event.currentTarget.dataset.key
-            onChange(state, prev )
+            onSelected(state)
+        } else {
+            state = ""
+            onUnselected()
         }
     })
 }
