@@ -1,3 +1,13 @@
+#allCarsBtn{
+  width: 50%;
+  color:white;
+  background-color: #91A826;
+  box-shadow:0 0 5px rgba(145, 168, 38, 0.9);
+}
+
+#allCarsBtn:hover{
+  box-shadow:0 0 10px rgba(145, 168, 38, 0.9);
+}
 .card-brand{ 
   display: flex;
   justify-content: center;  
@@ -86,3 +96,27 @@ div.chkbx{
   flex-direction: row;
   justify-content: flex-start;
 }
+
+#cardBrandContent{
+  background-color: rgba(128, 128, 128, 0.123);
+}
+
+#cardBrandContent:hover{
+  box-shadow: 0 0 18px rgba(145, 168, 38, 1); 
+}
+
+.card-title{
+  color: #91A826;
+  text-decoration: none;
+}
+.card-text{
+  color: #91A826;
+  text-decoration: none;
+}
+
+
+
+#cardCarContent{
+  background-color: rgba(128, 128, 128, 0.123);
+}
+

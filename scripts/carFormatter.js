@@ -1,6 +1,6 @@
 export function carsToCards(cars) {
     return cars.map(car => {
-        return `<a href="/product.php?id=${car.id}"><div class="card m-3 car-card" >
+        return `<a href="/product.php?id=${car.id}"><div class="card m-3 car-card"  id="cardCarContent">
                     <img src="${car.image}" class="card-img-top card-img-top-car" alt="car image">
                     <div class="card-body">
                        <h5 class="card-title"> ${car.brand} ${car.model} </h5>
@@ -23,5 +23,22 @@ export function carsToCarouselElems(cars){
 }
 
 export function carToInfoPanel(car){
-    return ""
+    console.log(car)
+    return  `   
+
+                <div class="divcar-img">
+                    <img class="car-img" src="${car.image}" alt="car detail image">
+                </div>
+                <h3 class="car-model">${car.model}</h3>
+                <div class="divbtn">
+                    <button type="button" class="btn btn-primary btn-buy"><span class="car-price">Aggiungi al carrello: $${car.price}</span></button>
+                </div>
+                
+                <div class="divcar-info">        
+                    <p class="car-info">Marca: ${car.brand}</p>
+                    <p class="car-info">BHP: ${car.bhp}</p>
+                    <p class="car-info">Carburante: ${car.fuel_type}</p>
+                    <p class="car-info">Cambio: ${car.transmission}</p>
+                    <p class="car-info">Ruote motrici: ${car.drivetrain}</p>
+                </div>`
 }

@@ -5,7 +5,8 @@ import {brandsToCards} from "./brandsFormatter.js";
 import {generateBrandGrid} from "./brandComposer.js";
 import {generateCarGrid} from "./carComposer.js";
 import {generateExtendedDropdown} from "./dropdownGenerator.js";
-import {filterByBrand} from "./carsFilters.js";
+import {generateSinglePickDropdown} from "./singlePickDropDownGen.js";
+import {filterByBrand, filterByChassis} from "./carsFilters.js";
 
 
 //load the given function when the page is loaded
@@ -14,6 +15,7 @@ $(() => {
     $("#allCarsBtn").click(() => getCars("api/cars/all", {}, cars => {
         setCarGridContent(cars)
         getBrands("api/brands/all", {}, setBrandDropDownContent)
+        setChassisDropDownContent([{name:"coupe"},{name:"sedan"}, {name: "convertible"}])
     }))
 })
 
@@ -31,6 +33,13 @@ function setBrandDropDownContent(items){
        if(a.length !== 0) setCarGridContentWithFilter(filterByBrand(a))
        else setCarGridContentWithFilter(e => e)
    })
+}
+function setChassisDropDownContent(items){
+    generateSinglePickDropdown("chassisDropdown", "Mostra opzioni", items, 1, (a) =>
+    {
+        if(a=="") setCarGridContentWithFilter(filterByChassis(a))
+        else setCarGridContentWithFilter(e => e)
+    })
 }
 
 function setCarGridContentWithFilter(filter){

@@ -1,0 +1,49 @@
+#mainPanel{
+    margin-top: 20px;
+    text-align: center;
+}
+
+.car-img{
+    width: 1280px;
+    border-radius: 10px;
+}
+
+.divcar-img{
+    width: 100%;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.car-model{
+    color: #91A826;
+    font-size: 69px;
+    margin-top: 15px ;
+}
+
+.btn-buy{
+    min-width:300px;
+    min-height: 60px;
+    margin-top: 40px;
+    margin-bottom: 40px;
+}
+.car-price{
+    font-size: 20px;
+}
+
+.divcar-info{
+    display: inline-flex;
+    align-items: center;
+    justify-content: space-around;
+}
+.car-info{
+    padding-top: 5px;
+    padding-bottom: 5px;
+    padding-left: 15px;
+    padding-right: 15px;
+    color: white;
+    font-size: 25px;
+    background-color: #2A2A2A;
+    box-shadow: 0 5px 5px 0 rgba(0, 0, 0, 0.14);
+    border-radius: 5px;
+}
