@@ -97,6 +97,10 @@ div.chkbx{
   justify-content: flex-start;
 }
 
+<<<<<<< Updated upstream
+=======
+
+>>>>>>> Stashed changes
 #cardBrandContent{
   background-color: rgba(128, 128, 128, 0.123);
 }
@@ -106,6 +110,7 @@ div.chkbx{
 }
 
 .card-title{
+<<<<<<< Updated upstream
   color: #91A826;
   text-decoration: none;
 }
@@ -115,8 +120,29 @@ div.chkbx{
 }
 
 
+=======
+  filter:invert(100%);
+}
+
+#allCarsBtn{
+  width: 50%;
+  color:white;
+  background-color: #91A826;
+  box-shadow:0 0 5px rgba(145, 168, 38, 0.9);
+}
+
+#allCarsBtn:hover{
+  box-shadow:0 0 10px rgba(145, 168, 38, 0.9);
+}
+>>>>>>> Stashed changes
 
 #cardCarContent{
   background-color: rgba(128, 128, 128, 0.123);
 }
+<<<<<<< Updated upstream
 
+=======
+.card-text{
+  filter:invert(100%);
+}
+>>>>>>> Stashed changes
