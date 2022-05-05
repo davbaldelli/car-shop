@@ -1,6 +1,6 @@
 export function brandsToCards(brands){
     return brands.map(brand => {
-        return `<a href="/brand.php?name=${brand.name}">
+        return `<a class="card-link" href="/brand.php?name=${brand.name}">
                     <div class="card m-3 card-brand" id="cardBrandContent" data-key="${brand.name}">
                         <img src="${brand.logo}" class="card-img-top card-image-fit p-2" alt="brand logo">
                         <div class="card-body">

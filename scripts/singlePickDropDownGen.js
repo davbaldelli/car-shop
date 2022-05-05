@@ -14,13 +14,12 @@ function createDropdownBtn(label, items){
 
 //prende l' array di creaDropdownItems e il numero di colonne retituendo l'html
 function createDropdownListContent(items){      
-    return items.reduce((r,item)=>r=r+`<li class="dropdown-item" data-key="${item.name}">${item.name}</li>`,"")
+    return items.reduce((r,item)=>r=r+`<li class="dropdown-item" data-key="${item}">${item}</li>`,"")
 }
 
 
 
 export function generateSinglePickDropdown(nomeDiv, nomeBtn, items, onSelected = () => {}, onUnselected = () => {}){
-    console.log(items)
     $(`#${nomeDiv}`).html(createDropdownBtn(nomeBtn, items))
     $(".dropdown-item").click(event => {  
         onSelected(event.currentTarget.dataset.key)

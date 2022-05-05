@@ -1,6 +1,6 @@
 export function carsToCards(cars) {
     return cars.map(car => {
-        return `<a href="/product.php?id=${car.id}"><div class="card m-3 car-card"  id="cardCarContent">
+        return `<a class="card-link" href="/product.php?id=${car.id}"><div class="card m-3 car-card"  id="cardCarContent">
                     <img src="${car.image}" class="card-img-top card-img-top-car" alt="car image">
                     <div class="card-body">
                        <h5 class="card-title"> ${car.brand} ${car.model} </h5>
@@ -31,7 +31,7 @@ export function carToInfoPanel(car){
                 </div>
                 <h3 class="car-model">${car.model}</h3>
                 <div class="divbtn">
-                    <button type="button" class="btn btn-primary btn-buy"><span class="car-price">Aggiungi al carrello: $${car.price}</span></button>
+                    <button type="button" class="btn btn-buy"><span class="car-price">Aggiungi al carrello: $${car.price}</span></button>
                 </div>
                 
                 <div class="divcar-info">        
