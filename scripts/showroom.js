@@ -15,7 +15,9 @@ $(() => {
     $("#allCarsBtn").click(() => getCars("api/cars/all", {}, cars => {
         setCarGridContent(cars)
         getBrands("api/brands/all", {}, setBrandDropDownContent)
-        setChassisDropDownContent([{name:"coupe"},{name:"sedan"}, {name: "convertible"}, {name: "station_wagon"}, {name: "van"}, {name: "suv"}] )
+        setChassisDropDownContent([{name:"Coupè", value : "coupe"},{name:"Berlina", value : "sedan"},
+            {name: "Cabriolet", value: "convertible"}, {name : "Station Wagon",value: "station_wagon"},
+            {name: "Minivan",value: "van"}, {name: "Suv",value: "suv"}] )
     }))
 })
 
@@ -35,7 +37,7 @@ function setBrandDropDownContent(items){
    })
 }
 function setChassisDropDownContent(items){
-    generateSinglePickDropdown("chassisDropdown", "Telaio", items.map(item=>item.name),
+    generateSinglePickDropdown("chassisDropdown", "Telaio", items,
         (a) => setCarGridContentWithFilter(filterByChassis(a)),
         () => setCarGridContentWithFilter(e => e))
 }
