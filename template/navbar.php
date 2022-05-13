@@ -5,7 +5,7 @@
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav">
+            <ul class="navbar-nav" ">
                 <li class="nav-item">
                     <a class="nav-link <?php isActive("index.php","active");?>" aria-current="page" href="index.php">Home</a>
                 </li>
@@ -14,11 +14,14 @@
                 </li>
                 <li class="nav-item">
                     <a class="nav-link <?php isActive("contacts.php","active");?>"  href="contacts.php">Contacts</a>
-                </li>
+                </li>                
             </ul>
+            <div class=" nav-login">
+                <a class=" nav-link login"  href="#">Login</a>     
+            </div>
         </div>
-        <!--
-        <div class="switch-div">
+        
+     <!--<div class="switch-div">
             <label class="switch">
                 <input type="checkbox" class="darklight-toggle" checked>
                 <span class="slider"></span>

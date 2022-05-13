@@ -28,7 +28,7 @@ html{
 }
 
 .div-ico:hover>.fa {
-    color: rgb(61, 38, 168);
+    color: #3d26a8;
 }
 
 .fa-facebook {
@@ -224,4 +224,68 @@ input:checked + .slider:before {
 }
 
 
+
+/*Css per login*/
+.nav-login{
+    display: flex;
+    justify-content: flex-end;
+    width: 100%;
+}
+.login-container{ 
+    border-bottom-left-radius:10px ; 
+    border-bottom-right-radius:10px ; 
+    width: 360px;
+    height:440px;
+    display: flex;
+    flex-direction: column;
+    background-color: rgb(33, 37, 41);
+    transition: ease-in 100ms;
+}
+.form-hidden{
+    position: absolute;
+    left: 100%;
+    top: 50%;
+    transform: translate(-100%,-1200px);
+}
+
+.form-active{
+    position: absolute;
+    left: 100%;
+    top: 50%;
+    transform: translate(-100%,-430px); 
+
+}
+.login-form{
+    align-self: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    width: 85%;
+    height: 90%;
+}
+.btn-login{
+    margin-top: 8%;
+    background-color: #3d26a8;
+}
+.close-form{
+    margin-top: 5px;
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+}
+.btn-close{
+    padding-right: 10px;
+}
+.h2-login{
+    margin-top: 30px;
+    margin-bottom: 40px;
+    color:#91A826;
+}
+.email-input{
+    margin-bottom: 20px;
+}
+
+.login-label{
+    color: #fff
+}
 

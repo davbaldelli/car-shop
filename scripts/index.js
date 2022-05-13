@@ -6,11 +6,18 @@ import {darkModeGlobal, darkModeIndex} from "./darkMode.js";
 $(() => {
     getCars("/api/cars/random", {},
         (cars) =>  $("#carousel-content").html(carsToCarouselElems(cars).reduce((s, val) => s += val, "")))
-        $('.div-ico').tooltip({ boundary: 'window' })
 
+    $('.div-ico').tooltip({ boundary: 'window' })
 
-        $('.darklight-toggle').change(function(){darkModeGlobal(), darkModeIndex()});   
-        
+    $(".login").click(function(){
+        $(".login-container").toggleClass("form-hidden");
+        $(".login-container").toggleClass("form-active"); 
+    });
+    $(".btn-close").click(function(){
+        $(".login-container").toggleClass("form-hidden");
+        $(".login-container").toggleClass("form-active");  
+    });
+          
         
 })
 
