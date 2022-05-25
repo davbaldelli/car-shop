@@ -44,6 +44,21 @@ class Db
         return $stmt->error;
     }
 
+    function updateOrder($id, $newState): bool
+    {
+        $stmt = $this->conn->prepare("UPDATE orders SET state = ? WHERE id = ?");
+        $stmt->bind_param("si", $newState, $id);
+        $stmt->execute();
+        return $stmt->error === "";
+    }
+
+    function addOrder($order) : string{
+        $stmt = $this->conn->prepare("INSERT INTO orders(id_car,id_user,state) VALUES (?, ?, 'pending_payment_confirm')");
+        $stmt->bind_param("ii", $order->id_car, $order->id_user);
+        $stmt->execute();
+        return $stmt->error;
+    }
+
     function getAllCars(): array
     {
         $stmt = $this->conn->prepare("SELECT car_mods.* FROM car_mods ORDER BY CONCAT(brand,' ',model) ASC");

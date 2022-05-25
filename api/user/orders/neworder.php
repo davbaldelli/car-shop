@@ -1,4 +1,5 @@
 <?php
+
 require_once "../utilities/jwt_token.php";
 require_once "../../db.php";
 
@@ -8,21 +9,20 @@ $db = new Db();
 $db->connect();
 
 $token = getallheaders()["Token"];
-$car = json_decode(file_get_contents('php://input'));
 
 $payload = json_decode(getJWTPayload($token));
 
-if(is_jwt_valid($token) && $payload->role === "admin"){
-    $response = $db->addCar($car);
+$order = json_decode(file_get_contents('php://input'));
+
+if(is_jwt_valid($token)  && ($payload->role === "admin" || $order->username === $payload->username)){
+    $response = $db->addOrder($order);
     if($response === ""){
         http_response_code(200);
-        echo json_encode($car);
+        echo json_encode($order);
     } else {
         http_response_code(500);
         echo "error while adding the car :".$response;
     }
 } else {
-    echo "you're not allowed";
+    echo "not allowed to do this operation";
 }
-
-
