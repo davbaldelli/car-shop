@@ -14,7 +14,7 @@ $payload = json_decode(getJWTPayload($token));
 
 $order = json_decode(file_get_contents('php://input'));
 
-if(is_jwt_valid($token)  && ($payload->role === "admin" || $order->username === $payload->username)){
+if(is_jwt_valid($token)  && ($payload->role === "admin" || $order->id_user === $payload->id)){
     $response = $db->addOrder($order);
     if($response === ""){
         http_response_code(200);

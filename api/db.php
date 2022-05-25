@@ -59,12 +59,29 @@ class Db
         return $stmt->error;
     }
 
+    function getUserOrders($user_id): array
+    {
+        $stmt = $this->conn->prepare("SELECT * FROM orders WHERE id_user = ?");
+        $stmt->bind_param("i", $user_id);
+        $stmt->execute();
+        return $stmt->get_result()->fetch_all(MYSQLI_ASSOC);
+    }
+
+    function getAllOrders(): array
+    {
+        $stmt = $this->conn->prepare("SELECT * FROM orders");
+        $stmt->execute();
+        return $stmt->get_result()->fetch_all(MYSQLI_ASSOC);
+    }
+
     function getAllCars(): array
     {
         $stmt = $this->conn->prepare("SELECT car_mods.* FROM car_mods ORDER BY CONCAT(brand,' ',model) ASC");
         $stmt->execute();
         return $stmt->get_result()->fetch_all(MYSQLI_ASSOC);
     }
+
+
 
     function getCarById($id): array
     {
@@ -115,7 +132,7 @@ class Db
 
     function login($username, $password): array
     {
-        $stmt = $this->conn->prepare("SELECT username, role, salt FROM users WHERE username = ? AND password = SHA2(CONCAT(?, salt),?)");
+        $stmt = $this->conn->prepare("SELECT id,username, role, salt FROM users WHERE username = ? AND password = SHA2(CONCAT(?, salt),?)");
         $length = 224;
         $stmt->bind_param("ssi", $username, $password, $length);
         $stmt->execute();

@@ -1,12 +1,12 @@
 <?php
 
-function generateToken($username, $role): string
+function generateToken($username, $role, $id): string
 {
     // Create token header as a JSON string
     $header = json_encode(['typ' => 'JWT', 'alg' => 'HS256']);
 
     // Create token payload as a JSON string
-    $payload = json_encode(['username' => $username,'role' => $role]);
+    $payload = json_encode(['username' => $username,'role' => $role,'id' => $id]);
 
     // Encode Header to Base64Url String
     $base64UrlHeader = str_replace(['+', '/', '='], ['-', '_', ''], base64_encode($header));
