@@ -18,21 +18,48 @@ class Db
         }
     }
 
-    function getAllCars()
+    function addCar($car) : string{
+        $stmt = $this->conn->prepare("INSERT INTO cars(model, id_brand, year, premium, image, bhp, 
+                 torque, weight, top_speed, transmission, drivetrain, rating, price, fuel_type, car_type, doors) 
+                VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)");
+        $stmt->bind_param('siiisiiiissiissi',
+            $car->model,
+            $car->id_brand,
+            $car->year,
+            $car->premium,
+            $car->image,
+            $car->bhp,
+            $car->torque,
+            $car->weight,
+            $car->top_speed,
+            $car->transmission,
+            $car->drivetrain,
+            $car->rating,
+            $car->price,
+            $car->fuel_type,
+            $car->car_type,
+            $car->doors
+        );
+        $stmt->execute();
+        return $stmt->error;
+    }
+
+    function getAllCars(): array
     {
         $stmt = $this->conn->prepare("SELECT car_mods.* FROM car_mods ORDER BY CONCAT(brand,' ',model) ASC");
         $stmt->execute();
         return $stmt->get_result()->fetch_all(MYSQLI_ASSOC);
     }
 
-    function getCarById($id){
+    function getCarById($id): array
+    {
         $stmt = $this->conn->prepare("SELECT car_mods.* FROM car_mods WHERE id = ?");
         $stmt->bind_param('i', $id);
         $stmt->execute();
         return $stmt->get_result()->fetch_all(MYSQLI_ASSOC);
     }
 
-    function getCarsByManufacturer($manu)
+    function getCarsByManufacturer($manu): array
     {
         $stmt = $this->conn->prepare("SELECT car_mods.* FROM car_mods WHERE brand = ? ORDER BY CONCAT(brand,' ',model) ASC");
         $stmt->bind_param('s', $manu);
@@ -40,40 +67,44 @@ class Db
         return $stmt->get_result()->fetch_all(MYSQLI_ASSOC);
     }
 
-    function getCarsByType($type){
+    function getCarsByType($type): array
+    {
         $stmt = $this->conn->prepare("SELECT car_mods.* FROM car_mods WHERE car_type = ? ORDER BY CONCAT(brand,' ',model) ASC");
         $stmt->bind_param('s', $type);
         $stmt->execute();
         return $stmt->get_result()->fetch_all(MYSQLI_ASSOC);
     }
 
-    function getCarsByPrice($max, $min){
+    function getCarsByPrice($max, $min): array
+    {
         $stmt = $this->conn->prepare("SELECT car_mods.* FROM car_mods WHERE price BETWEEN ? AND ? ORDER BY CONCAT(brand,' ',model) ASC");
         $stmt->bind_param('ii', $min, $max);
         $stmt->execute();
         return $stmt->get_result()->fetch_all(MYSQLI_ASSOC);
     }
 
-    function getCarsByDoors($n){
+    function getCarsByDoors($n): array
+    {
         $stmt = $this->conn->prepare("SELECT car_mods.* FROM car_mods WHERE doors = ? ORDER BY CONCAT(brand,' ',model) ASC");
         $stmt->bind_param('i', $n);
         $stmt->execute();
         return $stmt->get_result()->fetch_all(MYSQLI_ASSOC);
     }
 
-    function getAllBrands(){
+    function getAllBrands(): array
+    {
         $stmt = $this->conn->prepare("SELECT manufacturers.* FROM manufacturers ORDER BY name ASC");
         $stmt->execute();
         return $stmt->get_result()->fetch_all(MYSQLI_ASSOC);
     }
 
-    function login($username, $password): bool
+    function login($username, $password): array
     {
         $stmt = $this->conn->prepare("SELECT username, role, salt FROM users WHERE username = ? AND password = SHA2(CONCAT(?, salt),?)");
         $length = 224;
         $stmt->bind_param("ssi", $username, $password, $length);
         $stmt->execute();
-        return count($stmt->get_result()->fetch_all(MYSQLI_ASSOC)) != 0;
+        return $stmt->get_result()->fetch_all(MYSQLI_ASSOC);
     }
 
     function signIn($username, $password): bool

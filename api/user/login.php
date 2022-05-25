@@ -1,13 +1,23 @@
 <?php
 require_once "../db.php";
+require_once "admin/utilities/jwt_token.php";
+
+header('Content-Type: application/json; charset=utf-8');
+
 $db = new Db();
 $db->connect();
 
 $username = $_POST["username"];
 $password = $_POST["password"];
 
-if ($db->login($username, $password)){
+
+
+$user = $db->login($username, $password);
+
+if (count($user) != 0) {
     http_response_code(200);
+    $role = $user[0]["role"];
+    echo json_encode(["username" => $username, "role" => $role, "token" => generateToken($username, $role)]);
 } else {
     http_response_code(401);
     echo "wrong username or password";

@@ -23,7 +23,6 @@ export function carsToCarouselElems(cars){
 }
 
 export function carToInfoPanel(car){
-    console.log(car)
     return  `   
 
                 <div class="divcar-img">
@@ -41,4 +40,10 @@ export function carToInfoPanel(car){
                     <p class="car-info">Cambio: ${car.transmission}</p>
                     <p class="car-info">Ruote motrici: ${car.drivetrain}</p>
                 </div>`
+}
+
+export function carToOrderCard(cars){
+    return cars.map(car => {
+        return `<div>ordered car card</div>`
+    })
 }
