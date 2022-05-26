@@ -14,11 +14,12 @@ $token = getallheaders()["Token"];
 $payload = json_decode(getJWTPayload($token));
 
 $userId = $_GET["userId"];
+$state = $_GET["state"];
 
 if(is_jwt_valid($token)  && ($payload->role === "admin" || $userId == $payload->id)){
     http_response_code(200);
     header('Content-Type: application/json; charset=utf-8');
-    $res = $db->getUserOrders($userId);
+    $res = $db->getUserOrdersByState($userId, $state);
     echo json_encode($res);
 } else {
     http_response_code(401);
