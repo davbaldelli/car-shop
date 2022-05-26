@@ -33,7 +33,7 @@ $(() => {
 
 function login(user) {
     //save user on success and refresh, write down username or password wrong on failure
-    userAccess("api/user/login.php",user,user => saveUser(user.username, user.role, user.token), onLoginFailure)
+    userAccess("api/user/login.php",user,user => saveUser(user.username, user.id, user.role, user.token), onLoginFailure)
 }
 
 function signIn(user){
@@ -49,8 +49,8 @@ function onSigningFailure(){
     //TODO show username already taken hint
 }
 
-function saveUser(username, role, token){
-    localStorage.setItem("user", JSON.stringify({username : username, role: role, token: token}))
+function saveUser(username, id, role, token){
+    localStorage.setItem("user", JSON.stringify({username : username, user_id : id, role: role, token: token}))
     if(role === "admin"){
         unlockAdminFeatures()
     } else {

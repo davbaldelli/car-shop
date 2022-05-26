@@ -44,12 +44,19 @@ class Db
         return $stmt->error;
     }
 
-    function updateOrder($id, $newState): bool
+    function updateOrder($id, $newState): ?array
     {
         $stmt = $this->conn->prepare("UPDATE orders SET state = ? WHERE id = ?");
         $stmt->bind_param("si", $newState, $id);
         $stmt->execute();
-        return $stmt->error === "";
+        if ($stmt->error === ""){
+            $stmt = $this->conn->prepare("SELECT * FROM orders WHERE id = ?");
+            $stmt->bind_param("s", $id);
+            $stmt->execute();
+            return $stmt->get_result()->fetch_all(MYSQLI_ASSOC);
+        } else {
+            return null;
+        }
     }
 
     function addOrder($order) : string{
