@@ -1,4 +1,4 @@
-import {userAccess} from "./userLogger.js";
+import {userAccess} from "./loaders/userLogger.js";
 
 $(() => {
     $("#loginBtn").onclick(() => {

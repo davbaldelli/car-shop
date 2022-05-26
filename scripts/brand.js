@@ -1,6 +1,6 @@
-import {getCars} from "./carLoader.js";
-import {carsToCards} from "./carFormatter.js";
-import {generateCarGrid} from "./carComposer.js";
+import {getCars} from "./loaders/carLoader.js";
+import {carsToCards} from "./formatters/carFormatter.js";
+import {generateCarGrid} from "./composers/carComposer.js";
 
 $(() => {
     const urlParams = new URLSearchParams(window.location.search);

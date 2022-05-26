@@ -1,5 +1,5 @@
-import {getOrders, updateOrder} from "./orderLoader.js";
-import {ordersToUpdateCard} from "./orderFormatter.js";
+import {getOrders, updateOrder} from "./loaders/orderLoader.js";
+import {ordersToUpdateCard} from "./formatters/orderFormatter.js";
 
 $(() => {
     let user = JSON.parse(localStorage.getItem("user"))

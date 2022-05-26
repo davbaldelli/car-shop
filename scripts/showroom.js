@@ -1,12 +1,12 @@
-import {getCars} from "./carLoader.js";
-import {carsToCards} from "./carFormatter.js";
-import {getBrands} from "./brandsLoader.js";
-import {brandsToCards} from "./brandsFormatter.js";
-import {generateBrandGrid} from "./brandComposer.js";
-import {generateCarGrid} from "./carComposer.js";
-import {generateExtendedDropdown} from "./dropdownGenerator.js";
-import {generateSinglePickDropdown} from "./singlePickDropDownGen.js";
-import {filterByBrand, filterByChassis} from "./carsFilters.js";
+import {getCars} from "./loaders/carLoader.js";
+import {carsToCards} from "./formatters/carFormatter.js";
+import {getBrands} from "./loaders/brandsLoader.js";
+import {brandsToCards} from "./formatters/brandsFormatter.js";
+import {generateBrandGrid} from "./composers/brandComposer.js";
+import {generateCarGrid} from "./composers/carComposer.js";
+import {generateExtendedDropdown} from "./components/dropdownGenerator.js";
+import {generateSinglePickDropdown} from "./components/singlePickDropDownGen.js";
+import {filterByBrand, filterByChassis} from "./utilities/carsFilters.js";
 
 
 //load the given function when the page is loaded
