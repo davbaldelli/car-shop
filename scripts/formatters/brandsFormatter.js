@@ -11,6 +11,6 @@ export function brandsToCards(brands){
     })
 }
 
-export function brandsToDropDownItems(brands){
-    return brands.map(brand => `<a><button class="dropdown-item" data-key="${brand.name}">${brand.name}</button></a>`)
+export function brandsToSelectOptions(brands){
+    return brands.map(brand => `<option value="${brand.id}">${brand.name}</option>`)
 }

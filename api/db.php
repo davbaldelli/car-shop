@@ -19,14 +19,13 @@ class Db
     }
 
     function addCar($car) : string{
-        $stmt = $this->conn->prepare("INSERT INTO cars(model, id_brand, year, premium, image, bhp, 
+        $stmt = $this->conn->prepare("INSERT INTO cars(model, id_brand, year, image, bhp, 
                  torque, weight, top_speed, transmission, drivetrain, rating, price, fuel_type, car_type, doors) 
-                VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)");
-        $stmt->bind_param('siiisiiiissiissi',
+                VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)");
+        $stmt->bind_param('siisiiiissiissi',
             $car->model,
             $car->id_brand,
             $car->year,
-            $car->premium,
             $car->image,
             $car->bhp,
             $car->torque,

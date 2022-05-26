@@ -15,7 +15,7 @@ export function getOrders(url, headers = {}, data = {},...handlers){
         url: url,
         data : data,
         headers : headers,
-        contentType : "application/json",
+        contentType : "application/json; charset=utf-8",
         success : res => {
             if(handlers) {
                 handlers.forEach(h => h(res))
