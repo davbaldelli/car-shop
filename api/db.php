@@ -57,7 +57,7 @@ class Db
             $stmt = $this->conn->prepare("SELECT * FROM orders_view WHERE id = ?");
             $stmt->bind_param("i", $id);
             $stmt->execute();
-            return array_merge($stmt->get_result()->fetch_all(MYSQLI_ASSOC), $logs);
+            return array_merge($stmt->get_result()->fetch_all(MYSQLI_ASSOC)[0], $logs);
         } else {
             return null;
         }
@@ -80,7 +80,7 @@ class Db
     function getUserOrderById($user_id, $order_id): array
     {
         $stmt = $this->conn->prepare("SELECT state, timestamp FROM orders_logs WHERE id_order = ?");
-        $stmt->bind_param("i", $id);
+        $stmt->bind_param("i", $order_id);
         $stmt->execute();
         $logs = array("logs" => $stmt->get_result()->fetch_all(MYSQLI_ASSOC));
         $stmt = $this->conn->prepare("SELECT * FROM orders_view WHERE id_user = ? AND id = ?");

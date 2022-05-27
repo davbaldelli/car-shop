@@ -6,7 +6,7 @@ $(()=>{
     const id = urlParams.get('id');
     let user = JSON.parse(localStorage.getItem("user"))
     if(user && user.token){
-        getOrders("api/user/orders/byid.php",{Token : user.token}, {userId : user.id_user, orderId : id}, setInfoPanelContent)
+        getOrders("api/user/orders/byid.php",{Token : user.token}, {userId : user.user_id, orderId : id}, setInfoPanelContent)
     }
 
 })

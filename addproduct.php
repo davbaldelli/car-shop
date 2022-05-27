@@ -4,6 +4,7 @@ $templateParams["title"] = "Add Product";
 $templateParams["page"] = "add-product-page.php";
 $templateParams["navbar"] = "navbar.php";
 $templateParams["footer"] = "footer.php";
+$templateParams["loginform"] = "login-form.php";
 $templateParams["js"] = array("/scripts/addProduct.js");
 
 require_once("utilities/functions.php");
