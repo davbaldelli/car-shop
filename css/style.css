@@ -28,7 +28,7 @@ html{
 }
 
 .div-ico:hover>.fa {
-    color: rgb(61, 38, 168);
+    color: #3d26a8;
 }
 
 .fa-facebook {
@@ -225,3 +225,106 @@ input:checked + .slider:before {
 
 
 
+/*Css per login*/
+.nav-login{
+    display: flex;
+    justify-content: flex-end;
+    width: 100%;
+}
+.login-container{ 
+    border-bottom-left-radius:10px ; 
+    border-bottom-right-radius:10px ; 
+    width: 400px;
+    height:500px;
+    display: flex;
+    flex-direction: column;
+    background-color: rgb(33, 37, 41);
+    transition: ease-in 100ms;
+    overflow: hidden;
+    z-index: 5;
+}
+.form-hidden{
+    position: absolute;
+    right: 4px;
+    top: -500px;
+}
+
+.form-active{
+    position: fixed;
+    top: 63px;
+    right: 4px;
+}
+.login-form{
+    align-self: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    width: 85%;
+    height: 90%;
+}
+.btn-login{
+    margin-top: 8%;
+    background-color: #3d26a8;
+}
+.close-form{
+    margin-top: 5px;
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+}
+.btn-close{
+    padding-right: 10px;
+}
+.h2-login{
+    margin-top: 30px;
+    margin-bottom: 40px;
+    color:#91A826;
+}
+.email-input{
+    margin-bottom: 20px;
+    width: 100%;
+}
+
+.login-label{
+    color: #fff
+}
+
+.signup-form{
+    align-self: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: flex-start;
+    width: 85%;
+    height: 90%;
+}
+.btn-signup{
+    margin-top: 8%;
+    background-color: #3d26a8;
+    width: 100%;
+}
+.h2-signup{
+    margin-top: 30px;
+    margin-bottom: 40px;
+    color:#91A826;
+    width: 100%;
+}
+.password-input{
+    width: 100%;
+}
+
+.signup-label{
+    color: #fff
+}
+
+.nav-tabs .nav-item.show .nav-link, .nav-tabs .nav-link.active {
+    color: #fff;
+    background-color: #212529;
+    border-color: #dee2e6 #dee2e6 #212529;
+}
+.form-switch{
+    width: 90%;
+}
+.tab-content{
+    padding-left: 30px;
+}

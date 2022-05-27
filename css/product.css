@@ -40,9 +40,14 @@
 }
 
 .divcar-info{
+    margin-top:7vh ;
+    padding-top: 7vh;
+    padding-bottom: 7vh;
+    width: 100%;
     display: inline-flex;
     align-items: center;
     justify-content: space-around;
+    box-shadow: 0 8px 8px 0 rgba(0, 0, 0, 0.14);
 }
 .car-info{
     padding-top: 5px;
@@ -54,4 +59,54 @@
     background-color: #2A2A2A;
     box-shadow: 0 5px 5px 0 rgba(0, 0, 0, 0.14);
     border-radius: 5px;
+}
+
+.prod-rev{
+    width: 98.5%;
+    display: inline-flex;
+    align-items: center;
+    justify-content:center;
+    margin-top:7vh ;
+    padding-top: 7vh;
+    padding-bottom: 7vh;
+    box-shadow: 0 8px 8px 0 rgba(0, 0, 0, 0.14);
+}
+
+.p-prod-rev{
+    color: white;
+    margin-left:30px;
+    margin-top: 10px;
+}
+
+.h4-prod-rev{
+    color: white;
+    margin-left:30px;
+}
+
+.img-prod-rev{
+    width: 150px;
+    margin-left:30px;
+}
+
+.faq{
+    width: 98.5%;
+    margin-top:7vh;
+    margin-bottom:7vh;
+    padding-top: 7vh;
+    padding-bottom: 7vh;
+    box-shadow: 0 8px 8px 0 rgba(0, 0, 0, 0.14);
+}
+
+.faq-block{
+    width: 80%;
+    padding-left: 2vw;
+}
+
+.faq-question{
+    color:#91A826;
+}
+.faq-answer{
+    color: white;
+    padding-left: 2%;
+    text-align: justify;
 }

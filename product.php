@@ -3,7 +3,8 @@ $templateParams["title"] = "Product";
 $templateParams["page"] = "product-page.php";
 $templateParams["navbar"] = "navbar.php";
 $templateParams["footer"] = "footer.php";
-$templateParams["js"] = array("/scripts/product.js");
+$templateParams["loginform"] = "login-form.php";
+$templateParams["js"] = array("/scripts/product.js", "/scripts/loginHTML.js");
 $templateParams["css"] = array("/css/product.css");
 
 require_once("utilities/functions.php");
