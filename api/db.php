@@ -72,6 +72,13 @@ class Db
         $stmt->execute();
         return $stmt->get_result()->fetch_all(MYSQLI_ASSOC);
     }
+    function getUserOrderById($user_id, $order_id): array
+    {
+        $stmt = $this->conn->prepare("SELECT * FROM orders WHERE id_user = ? AND id = ?");
+        $stmt->bind_param("ii", $user_id, $order_id);
+        $stmt->execute();
+        return $stmt->get_result()->fetch_all(MYSQLI_ASSOC);
+    }
 
     function getUserOrdersByState($user_id, $state): array
     {
