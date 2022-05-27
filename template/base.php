@@ -27,12 +27,14 @@
         <?php
         endforeach;
     endif;
-    ?>
-    <script src="/scripts/loginHTML.js" type="module"></script>
+    ?>  
+    <script src="/scripts/login.js" type="module"></script>
 </head>
-<body class="container-fluid">
+<body class="container-fluid">    
     <?php
+    if(isset($templateParams["loginform"])):
         require($templateParams["loginform"]);
+    endif;
     ?>
 <header class="row">
     <?php
