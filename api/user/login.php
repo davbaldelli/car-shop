@@ -18,7 +18,7 @@ if (count($user) != 0) {
     http_response_code(200);
     $role = $user[0]["role"];
     $user_id = $user[0]["id"];
-    echo json_encode(["username" => $username,"id_user"=> $user_id, "role" => $role, "token" => generateToken($username, $role,$user_id)]);
+    echo json_encode(["username" => $username,"id"=> $user_id, "role" => $role, "token" => generateToken($username, $role,$user_id)]);
 } else {
     http_response_code(401);
     echo "wrong username or password";

@@ -32,7 +32,9 @@
 </head>
 <body class="container-fluid">
     <?php
-        require($templateParams["loginform"]);
+        if(isset($templateParams["loginform"])):
+            require($templateParams["loginform"]);
+        endif;
     ?>
 <header class="row">
     <?php

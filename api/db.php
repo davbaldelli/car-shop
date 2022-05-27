@@ -48,11 +48,16 @@ class Db
         $stmt = $this->conn->prepare("UPDATE orders SET state = ? WHERE id = ?");
         $stmt->bind_param("si", $newState, $id);
         $stmt->execute();
+
         if ($stmt->error === ""){
-            $stmt = $this->conn->prepare("SELECT * FROM orders WHERE id = ?");
-            $stmt->bind_param("s", $id);
+            $stmt = $this->conn->prepare("SELECT state, timestamp FROM orders_logs WHERE id_order = ?");
+            $stmt->bind_param("i", $id);
             $stmt->execute();
-            return $stmt->get_result()->fetch_all(MYSQLI_ASSOC);
+            $logs = array("logs" => $stmt->get_result()->fetch_all(MYSQLI_ASSOC));
+            $stmt = $this->conn->prepare("SELECT * FROM orders_view WHERE id = ?");
+            $stmt->bind_param("i", $id);
+            $stmt->execute();
+            return array_merge($stmt->get_result()->fetch_all(MYSQLI_ASSOC), $logs);
         } else {
             return null;
         }
@@ -67,22 +72,26 @@ class Db
 
     function getUserOrders($user_id): array
     {
-        $stmt = $this->conn->prepare("SELECT * FROM orders WHERE id_user = ?");
+        $stmt = $this->conn->prepare("SELECT * FROM orders_view WHERE id_user = ?");
         $stmt->bind_param("i", $user_id);
         $stmt->execute();
         return $stmt->get_result()->fetch_all(MYSQLI_ASSOC);
     }
     function getUserOrderById($user_id, $order_id): array
     {
-        $stmt = $this->conn->prepare("SELECT * FROM orders WHERE id_user = ? AND id = ?");
+        $stmt = $this->conn->prepare("SELECT state, timestamp FROM orders_logs WHERE id_order = ?");
+        $stmt->bind_param("i", $id);
+        $stmt->execute();
+        $logs = array("logs" => $stmt->get_result()->fetch_all(MYSQLI_ASSOC));
+        $stmt = $this->conn->prepare("SELECT * FROM orders_view WHERE id_user = ? AND id = ?");
         $stmt->bind_param("ii", $user_id, $order_id);
         $stmt->execute();
-        return $stmt->get_result()->fetch_all(MYSQLI_ASSOC);
+        return array_merge($stmt->get_result()->fetch_all(MYSQLI_ASSOC)[0],$logs);
     }
 
     function getUserOrdersByState($user_id, $state): array
     {
-        $stmt = $this->conn->prepare("SELECT * FROM orders WHERE id_user = ? AND state = ?");
+        $stmt = $this->conn->prepare("SELECT * FROM orders_view WHERE id_user = ? AND state = ?");
         $stmt->bind_param("is", $user_id, $state);
         $stmt->execute();
         return $stmt->get_result()->fetch_all(MYSQLI_ASSOC);
@@ -90,7 +99,7 @@ class Db
 
     function getAllOrders(): array
     {
-        $stmt = $this->conn->prepare("SELECT * FROM orders");
+        $stmt = $this->conn->prepare("SELECT * FROM orders_view");
         $stmt->execute();
         return $stmt->get_result()->fetch_all(MYSQLI_ASSOC);
     }

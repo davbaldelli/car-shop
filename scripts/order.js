@@ -12,5 +12,5 @@ $(()=>{
 })
 
 function setInfoPanelContent(order){
-    $("#orderInfoPanel").html(orderToInfoPanel(order[0]))
+    $("#orderInfoPanel").html(orderToInfoPanel(order))
 }
