@@ -37,12 +37,12 @@ $(()=> {
 
 function goForward(){
     console.log("authorized")
-    //TODO let the user do what he wants
+    $(document).trigger("authorized");
 }
 
 function goBack(){
     console.log("unauthorized")
-    //TODO send the user back to where he came from
+    history.back()
 }
 
 function redirectTo(to){
