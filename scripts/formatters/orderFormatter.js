@@ -7,7 +7,7 @@ export function ordersToUpdateCard(orders){
 
 export function ordersToCard(orders){
     return orders.map(order => {
-        return `<div class="card"><a href="order.php?id=${order.id}">Ordine numero ${order.id}</a></div>`
+        return `<div class="card"><a href="order.php?order_id=${order.id}&user_id=${order.id_user}">Ordine numero ${order.id}</a></div>`
     })
 }
 

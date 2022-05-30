@@ -5,7 +5,8 @@ $templateParams["page"] = "admin-update-order.php";
 $templateParams["navbar"] = "navbar.php";
 $templateParams["footer"] = "footer.php";
 $templateParams["loginform"] = "login-form.php";
-$templateParams["js"] = array("/scripts/updateorders.js");
+$templateParams["page-name"] = "update orders";
+$templateParams["js"] = array("/scripts/updateorders.js", "/scripts/middlewares/middleware.js");
 
 require_once("utilities/functions.php");
 require("template/base.php");

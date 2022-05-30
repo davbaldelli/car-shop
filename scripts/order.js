@@ -3,10 +3,12 @@ import {getOrders} from "./loaders/orderLoader.js";
 
 $(()=>{
     const urlParams = new URLSearchParams(window.location.search);
-    const id = urlParams.get('id');
+    const order_id = urlParams.get('order_id');
+    const user_id = urlParams.get('user_id')
+
     let user = JSON.parse(localStorage.getItem("user"))
     if(user && user.token){
-        getOrders("api/user/orders/byid.php",{Token : user.token}, {userId : user.user_id, orderId : id}, setInfoPanelContent)
+        getOrders("api/user/orders/byid.php",{Token : user.token}, {userId : user.user_id, orderId : order_id}, setInfoPanelContent)
     }
 
 })
