@@ -169,7 +169,7 @@ class Db
         return $stmt->get_result()->fetch_all(MYSQLI_ASSOC);
     }
 
-    function signIn($username, $password)
+    function signIn($username, $password): ?array
     {
         $stmt = $this->conn->prepare("INSERT INTO users (username, password, role, salt) VALUES (?,SHA2(CONCAT(?, ?),?),?,?)");
         $length = 224;
@@ -201,6 +201,22 @@ class Db
     function disconnect()
     {
         $this->conn->close();
+    }
+
+    public function addNotify($notify)
+    {
+        $stmt = $this->conn->prepare("INSERT INTO users_notifications(id_user, title, description) VALUES (?, ?, ?)");
+        $stmt->bind_param("iss", $notify->id_user, $notify->title, $notify->description);
+        $stmt->execute();
+        return $stmt->error;
+    }
+
+    public function getUserNotifications($id_user): array
+    {
+        $stmt = $this->conn->prepare("SELECT * FROM users_notifications WHERE id_user = ?");
+        $stmt->bind_param("i", $id_user);
+        $stmt->execute();
+        return $stmt->get_result()->fetch_all(MYSQLI_ASSOC);
     }
 }
 
