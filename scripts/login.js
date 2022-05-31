@@ -2,36 +2,41 @@ import {userAccess} from "./loaders/userLogger.js";
 
 $(() => {
 
-    $(".nav-login").click(function(){
+    $("#login-dropdown").click(function(){
         $(".login-container").toggleClass("form-hidden");
         $(".login-container").toggleClass("form-active"); 
     });
-    $(".btn-close").click(function(){
-        $(".login-container").toggleClass("form-hidden");
-        $(".login-container").toggleClass("form-active");  
-    });  
+
+    $(".btn-close").click(closeloginForm);  
+
+    
 
 
     $("#btn-login").click(() => {
         let username = $("#username-log").val()
         let password = $("#password-log").val()
-        login({username, password})
-        console.log("ok")
+        if(password==""){
+            $("#error-login").html("Campo password vuoto")
+        }else{
+            login({username, password})
+            closeloginForm();
+        }
+        
     })
 
     $("#btn-signup").click(() => {
         let username = $("#username-sign").val()
         let password1 = $("#password-sign").val()
         let password2 = $("#password2-sign").val()
-        if (password1 !== password2) {
-            //TODO write down that the passwords do no match
+        if (password1 !== password2 || password1=="") {
+            $("#error-sign").html("Password differenti o mancanti")
         } else {
             signIn({username, password : password1})
+            closeloginForm();
         }
         console.log("ok")
     })
 
-    $("#logoutBtn").click(removeUser)
 
     let user = JSON.parse(localStorage.getItem("user"))
     if(user){
@@ -43,6 +48,11 @@ $(() => {
     }
 
 })
+
+function closeloginForm(){
+    $(".login-container").toggleClass("form-hidden");
+    $(".login-container").toggleClass("form-active");  
+}
 
 function login(user) {
     //save user on success and refresh, write down username or password wrong on failure
@@ -71,14 +81,56 @@ function saveUser(username, id, role, token){
     }
 }
 
-function removeUser(){
-    localStorage.removeItem("user")
-}
+
 
 function unlockAdminFeatures(username){
-    //TODO unlock the admin features
+    $(".nav-login").toggleClass("a-login-hidden")
+    $("#user-feature").html(`
+        <div class="collapse navbar-collapse account-dprdwn" id="navbarNavDarkDropdown">
+        <ul class="navbar-nav" id="navbarAccount">
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDarkDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                ${username}
+                </a>
+                    <ul class="dropdown-menu dropdown-menu-start dropdown-menu-dark" aria-labelledby="navbarDarkDropdownMenuLink">
+                        <li><a class="dropdown-item" href="http://localhost/updateorders.php">Orders State</a></li>
+                        <li><a class="dropdown-item" href="http://localhost/addproduct.php">Add product</a></li>
+                        <li><hr class="dropdown-divider"></li>
+                        <li ><a class="dropdown-item" id="logoutBtn">Logout</a></li>
+                    </ul>
+            </li>
+        </ul>
+    </div>
+    `)
+    $("#logoutBtn").click(()=>removeUser())
 }
 
 function unlockUserFeatures(username){
-    //TODO unlock user features
+    $(".nav-login").toggleClass("a-login-hidden")
+    $("#user-feature").html(`
+        <div class="collapse navbar-collapse account-dprdwn" id="navbarNavDarkDropdown">
+        <ul class="navbar-nav" id="navbarAccount">
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDarkDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                ${username}
+                </a>
+                    <ul class="dropdown-menu dropdown-menu-start dropdown-menu-dark" aria-labelledby="navbarDarkDropdownMenuLink">
+                        <li><a class="dropdown-item" href="http://localhost/account.php">Account</a></li>
+                        <li><a class="dropdown-item" href="http://localhost/user-orders.php">My orders</a></li>
+                        <li><hr class="dropdown-divider"></li>
+                        <li><a class="dropdown-item" id="logoutBtn" >Logout</a></li>
+                    </ul>
+            </li>
+        </ul>
+    </div>
+    `)
+    $("#logoutBtn").click(()=>removeUser())
+
+}
+function removeUser(){
+    console.log("logout effetuato")
+    localStorage.removeItem("user")
+    location.reload()
+    
+
 }

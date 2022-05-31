@@ -228,8 +228,14 @@ input:checked + .slider:before {
 /*Css per login*/
 .nav-login{
     display: flex;
+    visibility: visible;
     justify-content: flex-end;
     width: 100%;
+}
+
+.a-login-hidden{
+    display: none;
+    visibility: none;
 }
 .login-container{ 
     border-bottom-left-radius:10px ; 
@@ -280,7 +286,7 @@ input:checked + .slider:before {
     margin-bottom: 40px;
     color:#91A826;
 }
-.email-input{
+.username-input{
     margin-bottom: 20px;
     width: 100%;
 }
@@ -327,4 +333,23 @@ input:checked + .slider:before {
 }
 .tab-content{
     padding-left: 30px;
+}
+
+.error-form{
+    color: #ff6e19;
+}
+
+#user-feature{
+    display: inline-flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    width: 100%;
+}
+.account-dprdwn{
+    display: inline-flex;
+    flex-direction: row;
+    justify-content: flex-end;
+}
+#navbarAccount{
+    min-width: 125px;
 }
