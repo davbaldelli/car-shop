@@ -4,6 +4,7 @@ import {addAddress, getUserDeliveringAddresses} from "./loaders/userLoader.js";
 import {addressesToListItems} from "./formatters/addressesFormatter.js";
 import {getNations} from "./loaders/nationLoader.js";
 import {nationsToSelectElements} from "./formatters/nationsFormatter.js";
+import {addOrder} from "./loaders/orderLoader.js";
 
 $(() => {
     let user = JSON.parse(localStorage.getItem("user"))
@@ -25,7 +26,13 @@ $(() => {
         }
         addAddress("api/user/addresses/new.php",{Token : user.token}, car, (res) => console.log(res))
     })
-
+    $("#purchaseBtn").click(() => {
+        getCart().products.forEach(item => {
+                let order = {id_user : user.userId, id_car : item.product.id, state : "pending_payment_confirm", quantity: item.quantity}
+                addOrder("api/user/orders/new.php", {Token : user.token}, order, console.log)
+            }
+        )
+    })
 })
 
 function setupProductList(products){

@@ -64,8 +64,8 @@ class Db
     }
 
     function addOrder($order) : string{
-        $stmt = $this->conn->prepare("INSERT INTO orders(id_car,id_user,state) VALUES (?, ?, 'pending_payment_confirm')");
-        $stmt->bind_param("ii", $order->id_car, $order->id_user);
+        $stmt = $this->conn->prepare("INSERT INTO orders(id_car,id_user,state, quantity) VALUES (?, ?, ?, ?)");
+        $stmt->bind_param("iisi", $order->id_car, $order->id_user, $order->state, $order->quantity);
         $stmt->execute();
         return $stmt->error;
     }

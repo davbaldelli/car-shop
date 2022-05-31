@@ -51,6 +51,9 @@
 
             </div>
         </div>
+        <div class="row">
+            <div class="col"><button id="purchaseBtn" class="btn btn-primary">Purchase</button></div>
+        </div>
     </div>
     <div class="col-3"></div>
 </div>
