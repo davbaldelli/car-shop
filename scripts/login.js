@@ -3,28 +3,45 @@ import {userAccess} from "./loaders/userLogger.js";
 $(() => {
 
     $("#login-dropdown").click(function(){
-        $(".login-container").toggleClass("form-hidden");
-        $(".login-container").toggleClass("form-active"); 
+        let loginContainer = $(".login-container")
+        loginContainer.toggleClass("form-hidden");
+        loginContainer.toggleClass("form-active");
     });
 
-    $(".btn-close").click(closeloginForm);  
+    $(".btn-close").click(closeLoginForm);
 
-    
+    let loginForm = $("#login-form-dropdown")
+    let signupForm = $("#signup-form-dropdown")
 
+    loginForm.keyup(e => {
+        let keycode = (e.keyCode ? e.keyCode : e.which);
+        if(keycode === 13){
+            e.preventDefault()
+        }
+        return false
+    })
 
-    $("#btn-login").click(() => {
+    signupForm.keyup(e => {
+        let keycode = (e.keyCode ? e.keyCode : e.which);
+        if(keycode === 13){
+            e.preventDefault()
+        }
+        return false
+    })
+
+    loginForm.submit((e) => {
         let username = $("#username-log").val()
         let password = $("#password-log").val()
         if(password==""){
             $("#error-login").html("Campo password vuoto")
         }else{
             login({username, password})
-            closeloginForm();
+            closeLoginForm();
         }
-        
+        e.preventDefault()
     })
 
-    $("#btn-signup").click(() => {
+    signupForm.submit((e) => {
         let username = $("#username-sign").val()
         let password1 = $("#password-sign").val()
         let password2 = $("#password2-sign").val()
@@ -32,9 +49,9 @@ $(() => {
             $("#error-sign").html("Password differenti o mancanti")
         } else {
             signIn({username, password : password1})
-            closeloginForm();
+            closeLoginForm();
         }
-        console.log("ok")
+        e.preventDefault()
     })
 
 
@@ -49,9 +66,10 @@ $(() => {
 
 })
 
-function closeloginForm(){
-    $(".login-container").toggleClass("form-hidden");
-    $(".login-container").toggleClass("form-active");  
+function closeLoginForm(){
+    let loginContainer = $(".login-container")
+    loginContainer.toggleClass("form-hidden");
+    loginContainer.toggleClass("form-active");
 }
 
 function login(user) {
