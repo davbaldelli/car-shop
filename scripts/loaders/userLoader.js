@@ -33,3 +33,13 @@ export function addAddress(url, headers = {}, data, handler){
         success : res => (handler(res)),
     })
 }
+
+export function makePayment(url, headers = {}, data, handler){
+    $.ajax({
+        type : 'POST',
+        url: url,
+        data : data,
+        headers : headers,
+        success : res => (handler(res)),
+    })
+}

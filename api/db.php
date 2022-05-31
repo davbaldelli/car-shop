@@ -64,8 +64,8 @@ class Db
     }
 
     function addOrder($order) : string{
-        $stmt = $this->conn->prepare("INSERT INTO orders(id_car,id_user,state, quantity) VALUES (?, ?, ?, ?)");
-        $stmt->bind_param("iisi", $order->id_car, $order->id_user, $order->state, $order->quantity);
+        $stmt = $this->conn->prepare("INSERT INTO orders(id_car,id_user,id_user_address,state, quantity) VALUES (?, ?, ?, ?, ?)");
+        $stmt->bind_param("iiisi", $order->id_car, $order->id_user,$order->id_address, $order->state, $order->quantity);
         $stmt->execute();
         return $stmt->error;
     }
@@ -244,6 +244,25 @@ class Db
             $address->address_line_1, $address->address_line_2);
         $stmt->execute();
         return $stmt->error;
+    }
+
+    public function makePayment($id_user, $amount): bool
+    {
+        $stmt = $this->conn->prepare("SELECT credit FROM users WHERE id = ?");
+        $stmt->bind_param("i", $id_user);
+        $stmt->execute();
+        $res = $stmt->get_result()->fetch_all(MYSQLI_ASSOC);
+        if($res[0]["credit"] >= $amount){
+            $stmt = $this->conn->prepare("UPDATE users SET credit = (credit - ?) WHERE id = ?");
+            $stmt->bind_param("ii",$amount, $id_user);
+            $stmt->execute();
+            if($stmt->error == ""){
+                return true;
+            } else {
+                echo $stmt->error;
+            }
+        }
+        return false;
     }
 }
 

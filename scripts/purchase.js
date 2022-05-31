@@ -1,6 +1,6 @@
 import {getCart} from "./utilities/cartManager.js";
 import {productsToListElements} from "./formatters/productFormatter.js";
-import {addAddress, getUserDeliveringAddresses} from "./loaders/userLoader.js";
+import {addAddress, getUserDeliveringAddresses, makePayment} from "./loaders/userLoader.js";
 import {addressesToListItems} from "./formatters/addressesFormatter.js";
 import {getNations} from "./loaders/nationLoader.js";
 import {nationsToSelectElements} from "./formatters/nationsFormatter.js";
@@ -27,13 +27,19 @@ $(() => {
         addAddress("api/user/addresses/new.php",{Token : user.token}, car, (res) => console.log(res))
     })
     $("#purchaseBtn").click(() => {
+        let address = parseInt($("input[name='delivering-address']:checked").val());
         getCart().products.forEach(item => {
-                let order = {id_user : user.userId, id_car : item.product.id, state : "pending_payment_confirm", quantity: item.quantity}
-                addOrder("api/user/orders/new.php", {Token : user.token}, order, console.log)
+                let order = {id_user : user.userId, id_car : item.product.id, state : "pending_payment_confirm", quantity: item.quantity, id_address : address}
+                addOrder("api/user/orders/new.php", {Token : user.token}, order,(_) => onNewOrderSuccess(item))
             }
         )
     })
 })
+
+function onNewOrderSuccess(item){
+    let user = JSON.parse(localStorage.getItem("user"))
+    makePayment("api/user/payment/makepayment.php",{Token : user.token}, {userId : user.userId, amount : item.product.price * item.quantity}, (res) => console.log(res))
+}
 
 function setupProductList(products){
     $("#productsList").html(productsToListElements(products).reduce((res, el) => res + el, ""))
