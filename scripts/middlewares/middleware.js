@@ -11,7 +11,7 @@ $(()=> {
     if(adminPages.includes(pageName)){
         if(user){
             if(user.role === "admin"){
-                userAuth("api/user/verifyauth.php", {Token : user.token} ,{user_id : user.user_id, role : user.role}, goForward, goBack)
+                userAuth("api/user/verifyauth.php", {Token : user.token} ,{userId : user.userId, role : user.role}, goForward, goBack)
             } else {
                 goBack()
             }
@@ -21,9 +21,9 @@ $(()=> {
     }
     if (userPages.includes(pageName)){
         if (user){
-            userAuth("api/user/verifyauth.php", {Token : user.token} ,{user_id : user.user_id, role : user.role}, () => {
-                const user_id = parseInt(urlParams.get('user_id'))
-                if(user_id === user.user_id){
+            userAuth("api/user/verifyauth.php", {Token : user.token} ,{userId : user.userId, role : user.role}, () => {
+                const userId = parseInt(urlParams.get('userId'))
+                if(userId === user.userId){
                     goForward()
                 } else {
                     goBack()
@@ -36,7 +36,6 @@ $(()=> {
 })
 
 function goForward(){
-    console.log("authorized")
     $(document).trigger("authorized");
 }
 

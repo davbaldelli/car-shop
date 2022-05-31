@@ -1,6 +1,6 @@
 import {getOrders, updateOrder} from "./loaders/orderLoader.js";
 import {ordersToUpdateCard} from "./formatters/orderFormatter.js";
-import {addNotify} from "./loaders/notifiesLoader.js";
+import {addNotify} from "./loaders/notificationsLoader.js";
 
 let ordersStateArray=["pending_payment_confirm", "taken_in_charge", "delivering", "delivered"]
 let ordersStateMap=ordersStateArray.reduce((res, item, index)=>res.set(item, index), new Map())
@@ -44,6 +44,6 @@ function updateOrderState(id, state){
 }
 
 function sendUpdateNotification(user, title, description){
-    let notify = {id_user : user.user_id, title: title, description : description}
+    let notify = {userId : user.userId, title: title, description : description}
     addNotify("api/user/admin/addnotify.php",{Token : user.token}, notify)
 }

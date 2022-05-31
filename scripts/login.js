@@ -63,7 +63,7 @@ function onSigningFailure(){
 }
 
 function saveUser(username, id, role, token){
-    localStorage.setItem("user", JSON.stringify({username : username, user_id : id, role: role, token: token}))
+    localStorage.setItem("user", JSON.stringify({username : username, userId : id, role: role, token: token}))
     if(role === "admin"){
         unlockAdminFeatures(username)
     } else {

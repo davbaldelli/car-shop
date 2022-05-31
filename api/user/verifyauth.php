@@ -11,7 +11,7 @@ $db->connect();
 
 
 $token = getallheaders()["Token"];
-$user_id = $_POST["user_id"];
+$user_id = $_POST["userId"];
 $role = $_POST["role"];
 
 $payload = json_decode(getJWTPayload($token));
