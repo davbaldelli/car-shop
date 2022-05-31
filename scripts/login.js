@@ -129,9 +129,6 @@ function unlockUserFeatures(user){
 
 }
 function removeUser(){
-    console.log("logout effetuato")
     localStorage.removeItem("user")
-    location.reload()
-    
-
+    location.href = "index.php"
 }

@@ -206,7 +206,7 @@ class Db
     public function addNotify($notify)
     {
         $stmt = $this->conn->prepare("INSERT INTO users_notifications(id_user, title, description) VALUES (?, ?, ?)");
-        $stmt->bind_param("iss", $notify->id_user, $notify->title, $notify->description);
+        $stmt->bind_param("iss", $notify->userId, $notify->title, $notify->description);
         $stmt->execute();
         return $stmt->error;
     }
