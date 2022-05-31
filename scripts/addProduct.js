@@ -1,6 +1,6 @@
 import {getBrands} from "./loaders/brandsLoader.js";
 import {brandsToSelectOptions} from "./formatters/brandsFormatter.js";
-import {addCar} from "./loaders/carLoader.js";
+import {addCar} from "./loaders/carsLoader.js";
 
 $(() => {
     $("#new-car-form").submit((evt) => {

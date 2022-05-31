@@ -1,4 +1,4 @@
-import {userAccess} from "./loaders/userLogger.js";
+import {userAccess} from "./loaders/userLoader.js";
 
 $(() => {
 

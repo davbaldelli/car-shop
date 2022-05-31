@@ -1,4 +1,4 @@
-import {getCars} from "./loaders/carLoader.js";
+import {getCars} from "./loaders/carsLoader.js";
 import {carsToCards} from "./formatters/carFormatter.js";
 import {getBrands} from "./loaders/brandsLoader.js";
 import {brandsToCards} from "./formatters/brandsFormatter.js";

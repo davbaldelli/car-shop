@@ -1,4 +1,4 @@
-import {userAuth} from "../loaders/userLogger.js";
+import {userAuth} from "../loaders/userLoader.js";
 
 
 let adminPages = ["add product", "update orders"]

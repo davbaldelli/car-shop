@@ -1,4 +1,4 @@
-import {getCars} from "./loaders/carLoader.js";
+import {getCars} from "./loaders/carsLoader.js";
 import {carsToCarouselElems} from "./formatters/carFormatter.js";
 
 //load the given function when the page is loaded
