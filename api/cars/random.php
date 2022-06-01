@@ -1,15 +1,11 @@
 <?php
-
-require_once "../../db.php";
+require_once "../repositories/RepositoriesFactory.php";
 
 header('Content-Type: application/json; charset=utf-8');
 
-$dbh = new Db();
-$dbh->connect();
+$repo = RepositoriesFactory::GetCarsRepository();
 
-$result = $dbh->getAllCars();
-
-$dbh->disconnect();
+$result = $repo->getAllCars();
 
 $random_indexes = array_rand($result, 5);
 $filtered_res = [];

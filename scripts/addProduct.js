@@ -1,6 +1,6 @@
 import {getBrands} from "./loaders/brandsLoader.js";
 import {brandsToSelectOptions} from "./formatters/brandsFormatter.js";
-import {addCar} from "./loaders/carLoader.js";
+import {addCar} from "./loaders/carsLoader.js";
 
 $(() => {
     $("#new-car-form").submit((evt) => {
@@ -27,7 +27,7 @@ $(() => {
             addCar("api/user/admin/addcar.php",{Token : user.token}, car, (data) => console.log(data))
         }
     })
-    getBrands("api/brands/all",{}, setBrandSelectOptions)
+    getBrands("api/brands/all.php",{}, setBrandSelectOptions)
 })
 
 function setBrandSelectOptions(brands){

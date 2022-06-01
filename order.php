@@ -8,4 +8,4 @@ $templateParams["page-name"] = "order";
 $templateParams["js"] = array("/scripts/order.js", "/scripts/middlewares/middleware.js");
 
 require_once("utilities/functions.php");
-require("template/base.php");
+require("template/template-base.php");

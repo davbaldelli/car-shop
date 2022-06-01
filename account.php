@@ -8,4 +8,4 @@ $templateParams["js"] = array("/scripts/account.js");
 $templateParams["css"] = array("/css/account.css");
 
 require_once("utilities/functions.php");
-require("template/base.php");
+require("template/template-base.php");
