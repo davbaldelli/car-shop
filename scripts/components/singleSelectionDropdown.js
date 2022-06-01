@@ -19,8 +19,8 @@ function createDropdownListContent(items){
 
 
 
-export function generateSinglePickDropdown(nomeDiv, nomeBtn, items, onSelected = () => {}, onUnselected = () => {}){
-    $(`#${nomeDiv}`).html(createDropdownBtn(nomeBtn, items))
+export function generateSingleSelectionDropdown(divName, dropdownLabel, items, onSelected = () => {}, onUnselected = () => {}){
+    $(`#${divName}`).html(createDropdownBtn(dropdownLabel, items))
     $(".dropdown-item").click(event => {  
         onSelected(event.currentTarget.dataset.key)
     })

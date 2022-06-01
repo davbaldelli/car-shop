@@ -1,19 +1,17 @@
 <?php
 require_once "../utilities/jwt_token.php";
-require_once "../../db.php";
+require_once "../../repositories/RepositoriesFactory.php";
 
 header('Content-Type:text/plain; charset=utf-8');
 
-$db = new Db();
-$db->connect();
-
+$repo = RepositoriesFactory::GetNotificationsRepository();
 $token = getallheaders()["Token"];
 $notify = json_decode(file_get_contents('php://input'));
 
 $payload = json_decode(getJWTPayload($token));
 
 if(is_jwt_valid($token) && $payload->role === "admin"){
-    $response = $db->addNotify($notify);
+    $response = $repo->addNotify($notify);
     if($response === ""){
         http_response_code(200);
         header('Content-Type: application/json; charset=utf-8');

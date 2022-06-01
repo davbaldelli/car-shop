@@ -1,18 +1,15 @@
 <?php
-require_once "../db.php";
+require_once "../repositories/RepositoriesFactory.php";
 require_once "utilities/jwt_token.php";
 
 header('Content-Type: application/json; charset=utf-8');
 
-$db = new Db();
-$db->connect();
+$repo = RepositoriesFactory::GetLoginRepository();
 
 $username = $_POST["username"];
 $password = $_POST["password"];
 
-
-
-$user = $db->login($username, $password);
+$user = $repo->login($username, $password);
 
 if (count($user) != 0) {
     http_response_code(200);

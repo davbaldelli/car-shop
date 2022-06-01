@@ -1,4 +1,4 @@
-import {userAuth} from "../loaders/userLogger.js";
+import {userAuth} from "../loaders/userLoader.js";
 
 
 let adminPages = ["add product", "update orders"]
@@ -16,7 +16,7 @@ $(()=> {
                 goBack()
             }
         } else {
-            redirectTo("login")
+            redirectTo("index.php")
         }
     }
     if (userPages.includes(pageName)){
@@ -30,7 +30,7 @@ $(()=> {
                 }
             }, goBack)
         } else {
-            redirectTo("login")
+            redirectTo("index.php")
         }
     }
 })
@@ -45,6 +45,6 @@ function goBack(){
 }
 
 function redirectTo(to){
-    console.log("you should go to: ",to)
     //TODO redirect user to specific path
+    location.href = to
 }

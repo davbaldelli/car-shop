@@ -37,13 +37,13 @@ function updateOrderState(id, state){
     let user = JSON.parse(localStorage.getItem("user"))
     if(user && user.role === "admin"){
         updateOrder("api/user/admin/updateorder.php", {Token : user.token}, data, res => {
-            sendUpdateNotification(user, "Order Update",`The order n. ${id} now is in the current state: ${state}`)
+            sendUpdateNotification(user, res,"Order Update",`The order n. ${id} now is in the current state: ${state}`)
             getOrders("/api/user/admin/getorders.php", {Token : user.token},{}, setOrderListContent, setOrdersMap)
         })
     }
 }
 
-function sendUpdateNotification(user, title, description){
-    let notify = {userId : user.userId, title: title, description : description}
-    addNotify("api/user/admin/addnotify.php",{Token : user.token}, notify)
+function sendUpdateNotification(admin, order, title, description){
+    let notify = {userId : order.id_user, title: title, description : description}
+    addNotify("api/user/admin/addnotify.php",{Token : admin.token}, notify,() => {})
 }

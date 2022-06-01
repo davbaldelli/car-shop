@@ -1,39 +1,58 @@
-import {userAccess} from "./loaders/userLogger.js";
+import {userAccess} from "./loaders/userLoader.js";
 
 $(() => {
 
     $("#login-dropdown").click(function(){
-        $(".login-container").toggleClass("form-hidden");
-        $(".login-container").toggleClass("form-active"); 
+        let loginContainer = $(".login-container")
+        loginContainer.toggleClass("form-hidden");
+        loginContainer.toggleClass("form-active");
     });
 
-    $(".btn-close").click(closeloginForm);  
+    $(".btn-close").click(closeLoginForm);
 
-    
+    let loginForm = $("#login-form-dropdown")
+    let signupForm = $("#signup-form-dropdown")
 
+    loginForm.keyup(e => {
+        let keycode = (e.keyCode ? e.keyCode : e.which);
+        if(keycode === 13){
+            e.preventDefault()
+        }
+        return false
+    })
 
-    $("#btn-login").click(() => {
+    signupForm.keyup(e => {
+        let keycode = (e.keyCode ? e.keyCode : e.which);
+        if(keycode === 13){
+            e.preventDefault()
+        }
+        return false
+    })
+
+    loginForm.submit((e) => {
         let username = $("#username-log").val()
         let password = $("#password-log").val()
         if(password==""){
             $("#error-login").html("Campo password vuoto")
         }else{
             login({username, password})
-            closeloginForm();
+            closeLoginForm();
         }
-        
+        e.preventDefault()
     })
 
-    $("#btn-signup").click(loginEvent)
-
-    $(".login-form").keypress(function (event) {
-        var key = (event.keyCode ? event.keyCode : event.which);
-        if(key == '13')  
-         {
-            loginEvent();
-         }
-         
-    });   
+    signupForm.submit((e) => {
+        let username = $("#username-sign").val()
+        let password1 = $("#password-sign").val()
+        let password2 = $("#password2-sign").val()
+        if (password1 !== password2 || password1=="") {
+            $("#error-sign").html("Password differenti o mancanti")
+        } else {
+            signIn({username, password : password1})
+            closeLoginForm();
+        }
+        e.preventDefault()
+    })
 
 
     let user = JSON.parse(localStorage.getItem("user"))
@@ -58,9 +77,10 @@ function loginEvent(){
     }
 }
 
-function closeloginForm(){
-    $(".login-container").toggleClass("form-hidden");
-    $(".login-container").toggleClass("form-active");  
+function closeLoginForm(){
+    let loginContainer = $(".login-container")
+    loginContainer.toggleClass("form-hidden");
+    loginContainer.toggleClass("form-active");
 }
 
 function login(user) {
@@ -138,9 +158,6 @@ function unlockUserFeatures(user){
 
 }
 function removeUser(){
-    console.log("logout effetuato")
     localStorage.removeItem("user")
-    location.reload()
-    
-
+    location.href = "index.php"
 }

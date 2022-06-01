@@ -1,12 +1,10 @@
 <?php
-
+require_once "../../repositories/RepositoriesFactory.php";
 require_once "../utilities/jwt_token.php";
-require_once "../../db.php";
 
 header('Content-Type:text/plain; charset=utf-8');
 
-$db = new Db();
-$db->connect();
+$repo = RepositoriesFactory::GetOrdersRepository();
 
 $token = getallheaders()["Token"];
 
@@ -15,7 +13,7 @@ $payload = json_decode(getJWTPayload($token));
 $order = json_decode(file_get_contents('php://input'));
 
 if(is_jwt_valid($token)  && ($payload->role === "admin" || $order->id_user === $payload->id)){
-    $response = $db->addOrder($order);
+    $response = $repo->addOrder($order);
     if($response === ""){
         http_response_code(200);
         header('Content-Type: application/json; charset=utf-8');

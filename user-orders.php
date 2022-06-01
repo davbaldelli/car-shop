@@ -9,4 +9,4 @@ $templateParams["page-name"] = "user orders";
 $templateParams["js"] = array("/scripts/userOrders.js", "/scripts/notifications.js");
 
 require_once("utilities/functions.php");
-require("template/base.php");
+require("template/template-base.php");

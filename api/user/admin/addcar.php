@@ -1,11 +1,10 @@
 <?php
+require_once "../../repositories/RepositoriesFactory.php";
 require_once "../utilities/jwt_token.php";
-require_once "../../db.php";
 
 header('Content-Type:text/plain; charset=utf-8');
 
-$db = new Db();
-$db->connect();
+$repo = RepositoriesFactory::GetCarsRepository();
 
 $token = getallheaders()["Token"];
 $car = json_decode(file_get_contents('php://input'));
@@ -13,7 +12,7 @@ $car = json_decode(file_get_contents('php://input'));
 $payload = json_decode(getJWTPayload($token));
 
 if(is_jwt_valid($token) && $payload->role === "admin"){
-    $response = $db->addCar($car);
+    $response = $repo->addCar($car);
     if($response === ""){
         http_response_code(200);
         header('Content-Type: application/json; charset=utf-8');
