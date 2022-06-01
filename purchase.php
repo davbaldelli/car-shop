@@ -7,4 +7,4 @@ $templateParams["loginform"] = "login-form.php";
 $templateParams["js"] = array("/scripts/purchase.js");
 
 require_once("utilities/functions.php");
-require("template/base.php");
+require("template/template-base.php");

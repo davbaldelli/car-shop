@@ -9,4 +9,4 @@ $templateParams["js"] = array("/scripts/showroom.js");
 $templateParams["css"] = array("/css/showroom.css");
 
 require_once("utilities/functions.php");
-require("template/base.php");
+require("template/template-base.php");
