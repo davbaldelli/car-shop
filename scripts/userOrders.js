@@ -6,19 +6,19 @@ $(() => {
     if(user && user.token){
         getOrders("/api/user/orders/all.php",{Token : user.token}, {userId : user.userId}, setOrderListContent)
     }
-    $("#deliveredOrdersButton").click(() => {
+    $("#deliveredOrders-tab").click(() => {
         getOrders("/api/user/orders/bystate.php",{Token : user.token}, {userId : user.userId, state : "delivered"}, setOrderListContent)
     })
 
-    $("#deliveringOrdersButton").click(() => {
+    $("#deliveringOrder-tab").click(() => {
         getOrders("/api/user/orders/bystate.php",{Token : user.token}, {userId : user.userId, state : "delivering"}, setOrderListContent)
     })
 
-    $("#allOrdersButton").click(() => {
+    $("#allOrders-tab").click(() => {
         getOrders("/api/user/orders/all.php",{Token : user.token}, {userId : user.userId}, setOrderListContent)
     })
 })
 
 function setOrderListContent(orders){
-    $("#ordersList").html(ordersToCard(orders).reduce((res,order) => res + order,""))
+    $(".list-group").html(ordersToCard(orders).reduce((res,order) => res + order,""))
 }

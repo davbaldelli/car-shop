@@ -6,9 +6,31 @@ export function ordersToUpdateCard(orders){
 }
 
 export function ordersToCard(orders){
+    console.log(orders)
     return orders.map(order => {
-        return `<div class="card"><a href="order.php?orderId=${order.id}&userId=${order.id_user}">Ordine numero ${order.id}</a></div>`
-    })
+        return `
+        <li class="list-group-item order-list-element" style="background-color: #1E1E1E">
+            <a id="list-element-content" href="order.php?orderId=${order.id}&userId=${order.id_user}">
+                <img id="orderCarIcon"src="https://i.imgur.com/lL2KQPH.jpg"/> 
+                <span>Order N.${order.id} </span>      
+                <span>${order.product}</span>
+                <span> US: ${order.price} </span>
+                <span>${orderStateParse(order)}</span>
+            </a>
+        </li>
+    `})
+}
+
+function orderStateParse(order){
+  if(order.state=="taken_in_charge") {
+      return "Take in charge"
+  }else if(order.state=="pending_payment_confirm"){
+      return "Waiting for payment"
+  }else if(order.state=="delivering"){
+      return "In transit"
+  }else if(order.state=="delivered"){
+      return "Your car has arrived"
+  }
 }
 
 export function orderToInfoPanel(order){

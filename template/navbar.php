@@ -14,7 +14,7 @@
                 </li>
                 <li class="nav-item">
                     <a class="nav-link <?php isActive("contacts.php","active");?>"  href="contacts.php">Contacts</a>
-                </li>                    
+                </li>
             </ul>
             <span id="user-feature"></span>
             <div class="nav-login">
