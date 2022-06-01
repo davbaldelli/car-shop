@@ -24,30 +24,39 @@ $(() => {
         
     })
 
-    $("#btn-signup").click(() => {
-        let username = $("#username-sign").val()
-        let password1 = $("#password-sign").val()
-        let password2 = $("#password2-sign").val()
-        if (password1 !== password2 || password1=="") {
-            $("#error-sign").html("Password differenti o mancanti")
-        } else {
-            signIn({username, password : password1})
-            closeloginForm();
-        }
-        console.log("ok")
-    })
+    $("#btn-signup").click(loginEvent)
+
+    $(".login-form").keypress(function (event) {
+        var key = (event.keyCode ? event.keyCode : event.which);
+        if(key == '13')  
+         {
+            loginEvent();
+         }
+         
+    });   
 
 
     let user = JSON.parse(localStorage.getItem("user"))
     if(user){
         if( user.role === "admin"){
-            unlockAdminFeatures(user.username)
+            unlockAdminFeatures(user)
         } else {
-            unlockUserFeatures(user.username)
+            unlockUserFeatures(user)
         }
     }
 
 })
+function loginEvent(){
+    let username = $("#username-sign").val()
+    let password1 = $("#password-sign").val()
+    let password2 = $("#password2-sign").val()
+    if (password1 !== password2 || password1=="") {
+        $("#error-sign").html("Password differenti o mancanti")
+    } else {
+        signIn({username, password : password1})
+        closeloginForm();
+    }
+}
 
 function closeloginForm(){
     $(".login-container").toggleClass("form-hidden");
@@ -74,27 +83,28 @@ function onSigningFailure(){
 
 function saveUser(username, id, role, token){
     localStorage.setItem("user", JSON.stringify({username : username, userId : id, role: role, token: token}))
+    let user = JSON.parse(localStorage.getItem("user"))
     if(role === "admin"){
-        unlockAdminFeatures(username)
+        unlockAdminFeatures(user)
     } else {
-        unlockUserFeatures(username)
+        unlockUserFeatures(user)
     }
 }
 
 
 
-function unlockAdminFeatures(username){
+function unlockAdminFeatures(user){
     $(".nav-login").toggleClass("a-login-hidden")
     $("#user-feature").html(`
         <div class="collapse navbar-collapse account-dprdwn" id="navbarNavDarkDropdown">
         <ul class="navbar-nav" id="navbarAccount">
             <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" id="navbarDarkDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                ${username}
+                ${user.username}
                 </a>
                     <ul class="dropdown-menu dropdown-menu-start dropdown-menu-dark" aria-labelledby="navbarDarkDropdownMenuLink">
-                        <li><a class="dropdown-item" href="http://localhost/updateorders.php">Orders State</a></li>
-                        <li><a class="dropdown-item" href="http://localhost/addproduct.php">Add product</a></li>
+                        <li><a class="dropdown-item" href="http://localhost/update-orders.php">Orders State</a></li>
+                        <li><a class="dropdown-item" href="http://localhost/add-product.php">Add product</a></li>
                         <li><hr class="dropdown-divider"></li>
                         <li ><a class="dropdown-item" id="logoutBtn">Logout</a></li>
                     </ul>
@@ -105,18 +115,18 @@ function unlockAdminFeatures(username){
     $("#logoutBtn").click(()=>removeUser())
 }
 
-function unlockUserFeatures(username){
+function unlockUserFeatures(user){
     $(".nav-login").toggleClass("a-login-hidden")
     $("#user-feature").html(`
         <div class="collapse navbar-collapse account-dprdwn" id="navbarNavDarkDropdown">
         <ul class="navbar-nav" id="navbarAccount">
             <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" id="navbarDarkDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                ${username}
+                ${user.username}
                 </a>
                     <ul class="dropdown-menu dropdown-menu-start dropdown-menu-dark" aria-labelledby="navbarDarkDropdownMenuLink">
                         <li><a class="dropdown-item" href="http://localhost/account.php">Account</a></li>
-                        <li><a class="dropdown-item" href="http://localhost/user-orders.php">My orders</a></li>
+                        <li><a class="dropdown-item" href="http://localhost/user-orders.php?userId=${user.userId}">My orders</a></li>
                         <li><hr class="dropdown-divider"></li>
                         <li><a class="dropdown-item" id="logoutBtn" >Logout</a></li>
                     </ul>
