@@ -1,3 +1,5 @@
+import {getOldestLogsPerState} from "../utilities/logsFilter.js";
+
 export function ordersToUpdateCard(orders){
     return orders.map(order => {
         return `<div class="card">Ordine numero ${order.id} - stato: ${order.state}<button class="forwardOrderBtn" ${order.state==="delivered"? "disabled":""} data-key="${order.id}" >avanti</button>
@@ -12,5 +14,10 @@ export function ordersToCard(orders){
 }
 
 export function orderToInfoPanel(order){
-    return `<div class="row" style="color : white">Ordern n. ${order.id} -> ${order.state}</div>`
+    let statesLogMap = getOldestLogsPerState(order.logs)
+    return `<div style="color : white">Ordern n. ${order.id} -> ${order.state}</div>
+            <div style="color : white">ordered at -> ${statesLogMap.get("pending_payment_confirm").timestamp}</div>
+            <div style="color : white">taken in charge at -> ${statesLogMap.get("taken_in_charge").timestamp}</div>
+            <div style="color : white">delivering at -> ${statesLogMap.get("delivering").timestamp}</div>
+            <div style="color : white">delivered at -> ${statesLogMap.get("delivered").timestamp}</div>`
 }

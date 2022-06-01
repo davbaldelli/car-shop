@@ -23,7 +23,7 @@ function createDropdownList(items){
         },"")
 }
 
-export function generateNotifyDropdown(divName, dropdownLabel, items, onSelected = () => {}, onUnselected = () => {}){
+export function generateNotifyDropdown(divName, dropdownLabel, items, onSelected = () => {}){
     $(`#${divName}`).html(createNotificationDropdown(dropdownLabel, createDropdownList(items)))
     $(".dropdown-item").click(event => {
         onSelected(event.currentTarget.dataset.key)

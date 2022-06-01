@@ -24,12 +24,16 @@ class LoginRepositoryImpl implements LoginRepository
         $salt = $this->generateRandomString(30);
         $stmt->bind_param("sssiss", $username, $password, $salt, $length, $role, $salt);
 
-        if($stmt->execute()){
-            $stmt = $this->conn->prepare("SELECT id,username, role, salt FROM users WHERE username = ? AND password = SHA2(CONCAT(?, salt),?)");
-            $stmt->bind_param("ssi", $username, $password, $length);
-            $stmt->execute();
-            return $stmt->get_result()->fetch_all(MYSQLI_ASSOC);
-        }else{
+        try{
+            if($stmt->execute()){
+                $stmt = $this->conn->prepare("SELECT id,username, role, salt FROM users WHERE username = ? AND password = SHA2(CONCAT(?, salt),?)");
+                $stmt->bind_param("ssi", $username, $password, $length);
+                $stmt->execute();
+                return $stmt->get_result()->fetch_all(MYSQLI_ASSOC);
+            }else{
+                return null;
+            }
+        } catch (exception $err){
             return null;
         }
     }

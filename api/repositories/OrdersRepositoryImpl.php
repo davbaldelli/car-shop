@@ -56,10 +56,18 @@ class OrdersRepositoryImpl implements OrdersRepository
         $stmt->bind_param("i", $id_order);
         $stmt->execute();
         $logs = array("logs" => $stmt->get_result()->fetch_all(MYSQLI_ASSOC));
+
         $stmt = $this->conn->prepare("SELECT * FROM orders_view WHERE id_user = ? AND id = ?");
         $stmt->bind_param("ii", $id_user, $id_order);
         $stmt->execute();
-        return array_merge($stmt->get_result()->fetch_all(MYSQLI_ASSOC)[0],$logs);
+        $order = $stmt->get_result()->fetch_all(MYSQLI_ASSOC)[0];
+
+        $stmt = $this->conn->prepare("SELECT * FROM users_delivering_addresses WHERE id = ?");
+        $stmt->bind_param("i", $order["id_user_address"]);
+        $stmt->execute();
+        $address = array("address" => $stmt->get_result()->fetch_all(MYSQLI_ASSOC)[0]);
+
+        return array_merge($order,$logs,$address);
     }
 
     function getUserOrdersByState($id_user, $state): array
