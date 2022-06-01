@@ -1,5 +1,4 @@
 <?php
-require_once "../../db.php";
 require_once "../../repositories/RepositoriesFactory.php";
 require_once "../utilities/jwt_token.php";
 

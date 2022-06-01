@@ -1,6 +1,5 @@
 <?php
 require_once "utilities/jwt_token.php";
-
 header('Content-Type:text/plain; charset=utf-8');
 
 $token = getallheaders()["Token"];

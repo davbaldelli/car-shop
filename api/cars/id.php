@@ -1,5 +1,4 @@
 <?php
-require_once "../db.php";
 require_once "../repositories/RepositoriesFactory.php";
 
 header('Content-Type: application/json; charset=utf-8');

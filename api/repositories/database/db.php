@@ -8,7 +8,7 @@ class Db
     function __construct()
     {
         define('ROOTPATH', __DIR__);
-        $dbCredFile = file_get_contents(ROOTPATH."/../local_res/db_cred.json");
+        $dbCredFile = file_get_contents(ROOTPATH."/../../../local_res/db_cred.json");
         $dbCred = json_decode($dbCredFile, true);
 
         $this->conn = new mysqli($dbCred["host"], $dbCred["username"], $dbCred["password"], $dbCred["db"]);

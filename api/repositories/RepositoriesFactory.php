@@ -1,4 +1,5 @@
 <?php
+require_once "database/db.php";
 include_once "interfaces.php";
 include_once "CarRepositoryImpl.php";
 include_once "OrdersRepositoryImpl.php";
