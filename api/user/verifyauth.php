@@ -1,14 +1,7 @@
 <?php
-
-
 require_once "utilities/jwt_token.php";
-require_once "../db.php";
 
 header('Content-Type:text/plain; charset=utf-8');
-
-$db = new Db();
-$db->connect();
-
 
 $token = getallheaders()["Token"];
 $user_id = $_POST["userId"];

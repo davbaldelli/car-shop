@@ -1,11 +1,11 @@
 <?php
-require_once "../utilities/jwt_token.php";
 require_once "../../db.php";
+require_once "../../repositories/RepositoriesFactory.php";
+require_once "../utilities/jwt_token.php";
 
 header('Content-Type:text/plain; charset=utf-8');
 
-$db = new Db();
-$db->connect();
+$repo = RepositoriesFactory::GetAddressesRepository();
 
 $token = getallheaders()["Token"];
 
@@ -14,7 +14,7 @@ $payload = json_decode(getJWTPayload($token));
 $address = json_decode(file_get_contents('php://input'));
 
 if(is_jwt_valid($token)  && ($payload->role === "admin" || $address->id_user === $payload->id)){
-    $response = $db->addUserAddress($address);
+    $response = $repo->addUserAddress($address);
     if($response === ""){
         http_response_code(200);
         header('Content-Type: application/json; charset=utf-8');

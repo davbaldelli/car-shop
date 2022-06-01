@@ -11,10 +11,10 @@ import {filterByBrand, filterByChassis} from "./utilities/carsFilters.js";
 
 //load the given function when the page is loaded
 $(() => {
-    getBrands("api/brands/all", {}, setBrandGridContent)
-    $("#allCarsBtn").click(() => getCars("api/cars/all", {}, cars => {
+    getBrands("api/brands/all.php", {}, setBrandGridContent)
+    $("#allCarsBtn").click(() => getCars("api/cars/all.php", {}, cars => {
         setCarGridContent(cars)
-        getBrands("api/brands/all", {}, setBrandDropDownContent)
+        getBrands("api/brands/all.php", {}, setBrandDropDownContent)
         setChassisDropDownContent([{name:"Coupè", value : "coupe"},{name:"Berlina", value : "sedan"},
             {name: "Cabriolet", value: "convertible"}, {name : "Station Wagon",value: "station_wagon"},
             {name: "Minivan",value: "van"}, {name: "Suv",value: "suv"}] )
@@ -43,7 +43,7 @@ function setChassisDropDownContent(items){
 }
 
 function setCarGridContentWithFilter(filter){
-    getCars("api/cars/all", {}, cars => {
+    getCars("api/cars/all.php", {}, cars => {
         setCarGridContent(filter(cars))
     })
 }

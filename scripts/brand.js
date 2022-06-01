@@ -5,7 +5,7 @@ import {generateCarGrid} from "./composers/carComposer.js";
 $(() => {
     const urlParams = new URLSearchParams(window.location.search);
     const brand = urlParams.get('name');
-    getCars("api/cars/brand", {name : brand}, setCarGridContent)
+    getCars("api/cars/brand.php", {name : brand}, setCarGridContent)
 })
 
 function setCarGridContent(cars){

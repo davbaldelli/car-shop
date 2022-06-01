@@ -1,12 +1,11 @@
 <?php
-
-require_once "../utilities/jwt_token.php";
 require_once "../../db.php";
+require_once "../../repositories/RepositoriesFactory.php";
+require_once "../utilities/jwt_token.php";
 
 header('Content-Type:text/plain; charset=utf-8');
 
-$db = new Db();
-$db->connect();
+$repo = RepositoriesFactory::GetOrdersRepository();
 
 $token = getallheaders()["Token"];
 
@@ -16,7 +15,7 @@ $id = $_POST["id"];
 $state = $_POST["state"];
 
 if(is_jwt_valid($token) && $payload->role === "admin"){
-    $res = $db->updateOrder($id, $state);
+    $res = $repo->updateOrder($id, $state);
     if ($res != null){
         http_response_code(200);
         header('Content-Type: application/json; charset=utf-8');

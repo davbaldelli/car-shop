@@ -4,8 +4,10 @@ require_once "../repositories/RepositoriesFactory.php";
 
 header('Content-Type: application/json; charset=utf-8');
 
-$repo = RepositoriesFactory::GetNationsRepository();
+$repo = RepositoriesFactory::GetCarsRepository();
 
-$result = $repo->getAllNations();
+$type = $_GET['name'];
+
+$result = $repo->getCarsByType($type);
 
 echo json_encode($result);

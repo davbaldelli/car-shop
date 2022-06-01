@@ -4,8 +4,8 @@ require_once "../repositories/RepositoriesFactory.php";
 
 header('Content-Type: application/json; charset=utf-8');
 
-$repo = RepositoriesFactory::GetNationsRepository();
+$repo = RepositoriesFactory::GetManufacturersRepository();
 
-$result = $repo->getAllNations();
+$result = $repo->getAllBrands();
 
 echo json_encode($result);

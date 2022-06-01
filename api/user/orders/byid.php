@@ -1,13 +1,11 @@
 <?php
-
-require_once "../utilities/jwt_token.php";
 require_once "../../db.php";
+require_once "../../repositories/RepositoriesFactory.php";
+require_once "../utilities/jwt_token.php";
 
 header('Content-Type:text/plain; charset=utf-8');
 
-$db = new Db();
-$db->connect();
-
+$repo = RepositoriesFactory::GetOrdersRepository();
 
 $token = getallheaders()["Token"];
 
@@ -19,7 +17,7 @@ $orderId = $_GET["orderId"];
 if(is_jwt_valid($token)  && ($payload->role === "admin" || $userId == $payload->id)){
     http_response_code(200);
     header('Content-Type: application/json; charset=utf-8');
-    $res = $db->getUserOrderById($userId, $orderId);
+    $res = $repo->getUserOrderById($userId, $orderId);
     //TODO verify error
     echo json_encode($res);
 } else {

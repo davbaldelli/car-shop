@@ -7,7 +7,7 @@ let car = {}
 $(() => {
     const urlParams = new URLSearchParams(window.location.search);
     const id = urlParams.get('id');
-    getCars("/api/cars/id",{id}, setCarInfoPanel);
+    getCars("/api/cars/id.php",{id}, setCarInfoPanel);
 })
 
 function setCarInfoPanel(cars){
