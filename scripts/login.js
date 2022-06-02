@@ -8,7 +8,7 @@ $(() => {
         loginContainer.toggleClass("form-active");
     });
 
-    $(".btn-close").click(closeLoginForm);
+    $("#closeLoignForm").click(closeLoginForm);
 
     let loginForm = $("#login-form-dropdown")
     let signupForm = $("#signup-form-dropdown")
@@ -28,6 +28,9 @@ $(() => {
         }
         return false
     })
+    let toastLive= $("#loginToast")
+    let toast= new bootstrap.Toast(toastLive)
+    $("#prova").click(()=>toast.show())
 
     loginForm.submit((e) => {
         let username = $("#username-log").val()
@@ -36,7 +39,9 @@ $(() => {
             $("#error-login").html("Campo password vuoto")
         }else{
             login({username, password})
+
             closeLoginForm();
+            toast.show()
         }
         e.preventDefault()
     })
@@ -64,7 +69,19 @@ $(() => {
         }
     }
 
+
 })
+function loginEvent(){
+    let username = $("#username-sign").val()
+    let password1 = $("#password-sign").val()
+    let password2 = $("#password2-sign").val()
+    if (password1 !== password2 || password1=="") {
+        $("#error-sign").html("Password differenti o mancanti")
+    } else {
+        signIn({username, password : password1})
+        closeloginForm();
+    }
+}
 
 function closeLoginForm(){
     let loginContainer = $(".login-container")
@@ -83,11 +100,13 @@ function signIn(user){
 }
 
 function onLoginFailure(){
-    //TODO wrong username or password hint
+    $("#error-login").html("Nome utente o password sbagliati")
+    $(".login-container").toggleClass("form-active")
 }
 
 function onSigningFailure(){
-    //TODO show username already taken hint
+    $("#error-sign").html("Nome utente già in uso")
+    $(".login-container").toggleClass("form-active")
 }
 
 function saveUser(username, id, role, token){

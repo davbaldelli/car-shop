@@ -41,12 +41,21 @@ if (isset($templateParams["loginform"])):
     require($templateParams["loginform"]);
 endif;
 ?>
+
 <header class="row">
     <?php
     require($templateParams["navbar"]);
     ?>
 </header>
 <main class="row">
+    <div id="loginToast" class="toast position-absolute p-3 top-0 end-0 align-items-center text-white bg-primary border-0" role="alert" aria-live="assertive" aria-atomic="true">
+        <div class="d-flex">
+            <div class="toast-body">
+                Login success!
+            </div>
+            <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast" aria-label="Close"></button>
+        </div>
+    </div>
     <?php
     require($templateParams["page"]);
     ?>

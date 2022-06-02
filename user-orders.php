@@ -6,7 +6,7 @@ $templateParams["navbar"] = "navbar.php";
 $templateParams["footer"] = "footer.php";
 $templateParams["loginform"] = "login-form.php";
 $templateParams["page-name"] = "user orders";
-$templateParams["js"] = array("/scripts/userOrders.js", "/scripts/notifications.js","/scripts/middlewares/middleware.js");
+$templateParams["js"] = array("/scripts/userOrders.js", "/scripts/notifications.js");
 
 require_once("utilities/functions.php");
 require("template/template-base.php");

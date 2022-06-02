@@ -16,7 +16,6 @@ body{
 
 html{
     width: auto;
-   
 }
 
 .body-light{
@@ -352,4 +351,23 @@ input:checked + .slider:before {
 }
 #navbarAccount{
     min-width: 125px;
+}
+#loginToast{
+    margin-top: 70px;
+}
+
+/*da spostare*/
+#ordersTabContent{
+    padding-left: 0;
+    margin-top: 10px;
+}
+
+#ordersTab{
+    margin-top: 15px;
+}
+#orderCarIcon{
+    width: 70px;
+}
+.label-form-addcar{
+    color: #fff;
 }

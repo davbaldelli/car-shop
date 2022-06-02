@@ -24,11 +24,25 @@ $(() => {
                 doors : $("#doors-input").val(),
                 rating : $("#rating-input").val()
             }
-            addCar("api/user/admin/addcar.php",{Token : user.token}, car, (data) => console.log(data))
+            addCar("api/user/admin/addcar.php",{Token : user.token}, car, (data,_,xhr) => {})
+            handleErrorCarInsert ()
         }
     })
     getBrands("api/brands/all.php",{}, setBrandSelectOptions)
+
+
+
+
+
 })
+function handleSuccessCarInsert (){
+    let goodModal = new bootstrap.Modal($("#confirmationModal"), {keyboard: true })
+    goodModal.show()
+}
+function handleErrorCarInsert (){
+    let errorModal = new bootstrap.Modal($("#errorModal"), {keyboard: true})
+    errorModal.show()
+}
 
 function setBrandSelectOptions(brands){
     $("#brand-select").html(brandsToSelectOptions(brands).reduce((res,brand) => res + brand,""))
