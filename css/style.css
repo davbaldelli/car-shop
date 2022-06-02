@@ -368,8 +368,6 @@ input:checked + .slider:before {
 #orderCarIcon{
     width: 70px;
 }
-
-#list-element-content{
-    display: flex;
-    justify-content: space-between;
+.label-form-addcar{
+    color: #fff;
 }

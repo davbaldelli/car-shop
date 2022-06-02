@@ -4,34 +4,27 @@ export function ordersToUpdateCard(orders){
         <button class="reverseOrderBtn" data-key="${order.id}" ${order.state==="pending_payment_confirm"? "disabled":""}>indietro</button></div>`
     })
 }
-
+let orderMap = new Map([['taken_in_charge', "Taken in charge"], ["pending_payment_confirm", "Pending payment confirm"], ["delivering", "In transit"], ["delivered", "Your car has arrived"]])
 export function ordersToCard(orders){
     console.log(orders)
     return orders.map(order => {
         return `
         <li class="list-group-item order-list-element" style="background-color: #1E1E1E">
+           
             <a id="list-element-content" href="order.php?orderId=${order.id}&userId=${order.id_user}">
-                <img id="orderCarIcon"src="https://i.imgur.com/lL2KQPH.jpg"/> 
-                <span>Order N.${order.id} </span>      
-                <span>${order.product}</span>
-                <span> US: ${order.price} </span>
-                <span>${orderStateParse(order)}</span>
-            </a>
+             <div class="row">
+                    <div class="col-2"><img id="orderCarIcon"src="${order.image}"/></div> 
+                    <div class="col-2"><span>Order N.${order.id} </span></div>    
+                    <div class="col-2"><span>${order.product}</span></div> 
+                    <div class="col-2"><span> US: ${order.price} </span></div> 
+                    <div class="col-2"><span>${order.address_line_1} ${order.address_line_2}</span></div> 
+                    <div class="col-2"><span>${orderMap.get(order.state)}</span></div> 
+                </div>
+            </a> 
         </li>
     `})
 }
 
-function orderStateParse(order){
-  if(order.state=="taken_in_charge") {
-      return "Take in charge"
-  }else if(order.state=="pending_payment_confirm"){
-      return "Waiting for payment"
-  }else if(order.state=="delivering"){
-      return "In transit"
-  }else if(order.state=="delivered"){
-      return "Your car has arrived"
-  }
-}
 
 export function orderToInfoPanel(order){
     return `<div class="row" style="color : white">Ordern n. ${order.id} -> ${order.state}</div>`
