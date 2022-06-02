@@ -11,7 +11,7 @@ $(() => {
     })
 
     $("#deliveringOrdersButton").click(() => {
-        getOrders("/api/user/orders/bystate.php",{Token : user.token}, {userId : user.userId, state : "delivering"}, setOrderListContent)
+        getOrders("/api/user/orders/notdelivered.php",{Token : user.token}, {userId : user.userId}, setOrderListContent)
     })
 
     $("#allOrdersButton").click(() => {

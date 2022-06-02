@@ -25,4 +25,12 @@ class PaymentsRepositoryImpl implements PaymentsRepository
         }
         return false;
     }
+
+    function rechargeWallet($ud_user, $amount): string
+    {
+        $stmt = $this->conn->prepare("UPDATE users SET credit = (credit + ?)");
+        $stmt->bind_param("i", $amount);
+        $stmt->execute();
+        return $stmt->error;
+    }
 }

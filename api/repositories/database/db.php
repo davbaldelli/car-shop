@@ -11,6 +11,7 @@ class Db
         $dbCredFile = file_get_contents(ROOTPATH."/../../../local_res/db_cred.json");
         $dbCred = json_decode($dbCredFile, true);
 
+        mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT);
         $this->conn = new mysqli($dbCred["host"], $dbCred["username"], $dbCred["password"], $dbCred["db"]);
 
         // Check connection

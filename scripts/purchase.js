@@ -38,7 +38,7 @@ $(() => {
 
 function onNewOrderSuccess(item){
     let user = JSON.parse(localStorage.getItem("user"))
-    makePayment("api/user/payment/makepayment.php",{Token : user.token}, {userId : user.userId, amount : item.product.price * item.quantity}, (res) => console.log(res))
+    makePayment("api/user/payments/makepayment.php",{Token : user.token}, {userId : user.userId, amount : item.product.price * item.quantity}, (res) => console.log(res))
 }
 
 function setupProductList(products){

@@ -16,6 +16,7 @@ interface OrdersRepository {
     function getUserOrders($id_user) : array;
     function getUserOrderById($id_user, $id_order): array;
     function getUserOrdersByState($id_user, $state): array;
+    function getUserOrdersByNotState($id_user, $state): array;
 }
 
 interface ManufacturersRepository {
@@ -43,4 +44,5 @@ interface NationsRepository {
 
 interface PaymentsRepository{
     function makePayment($id_user, $amount): string;
+    function rechargeWallet($ud_user, $amount): string;
 }
