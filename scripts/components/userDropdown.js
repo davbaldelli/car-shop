@@ -1,4 +1,4 @@
-export function generateUserDropdown(containerId, user, elements, onLogout){
+export function generateUserDropdown(containerId, user, elements, onLogout) {
     $(`#${containerId}`).html(`
         <div class="collapse navbar-collapse account-dprdwn" id="navbarNavDarkDropdown">
         <ul class="navbar-nav" id="navbarAccount">
@@ -18,8 +18,8 @@ export function generateUserDropdown(containerId, user, elements, onLogout){
     $("#logoutBtn").click(onLogout)
 }
 
-function getDropdownLinkList(elements){
+function getDropdownLinkList(elements) {
     return elements.reduce((res, element) => {
         return res + `<li><a class="dropdown-item" href="${element.link}">${element.label}</a></li>`
-    },"")
+    }, "")
 }

@@ -1,9 +1,11 @@
 <?php
+
 class NationsRepositoryImpl implements NationsRepository
 {
     private mysqli $conn;
 
-    function __construct($conn){
+    function __construct($conn)
+    {
         $this->conn = $conn;
     }
 

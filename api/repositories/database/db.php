@@ -1,6 +1,7 @@
 <?php
 
 header("Access-Control-Allow-Origin: localhost");
+
 class Db
 {
     private mysqli $conn;
@@ -8,7 +9,7 @@ class Db
     function __construct()
     {
         define('ROOTPATH', __DIR__);
-        $dbCredFile = file_get_contents(ROOTPATH."/../../../local_res/db_cred.json");
+        $dbCredFile = file_get_contents(ROOTPATH . "/../../../local_res/db_cred.json");
         $dbCred = json_decode($dbCredFile, true);
 
         mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT);
@@ -20,7 +21,8 @@ class Db
         }
     }
 
-    function getConnection() : mysqli {
+    function getConnection(): mysqli
+    {
         return $this->conn;
     }
 

@@ -10,7 +10,7 @@ $result = $repo->getAllCars();
 $random_indexes = array_rand($result, 5);
 $filtered_res = [];
 
-foreach ($random_indexes as $index){
+foreach ($random_indexes as $index) {
     $filtered_res[] = $result[$index];
 }
 

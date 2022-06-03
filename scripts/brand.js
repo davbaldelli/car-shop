@@ -8,7 +8,7 @@ $(() => {
     getCarsByManufacturer(brand, setCarGridContent)
 })
 
-function setCarGridContent(cars){
+function setCarGridContent(cars) {
     $("#mainGrid").html(carsToCards(cars).reduce(generateCarGrid, ""))
 }
 

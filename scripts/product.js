@@ -9,7 +9,7 @@ $(() => {
     getCarById(id, setCarInfoPanel)
 })
 
-function setCarInfoPanel(car){
+function setCarInfoPanel(car) {
     $("#mainPanel").html(carToInfoPanel(car))
     $("#buyBtn").click(() => {
         addProductToCart(car, 1)

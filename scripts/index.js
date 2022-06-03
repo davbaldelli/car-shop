@@ -6,6 +6,6 @@ $(() => {
     getRandomCars(setCarouselContent)
 })
 
-function setCarouselContent(cars){
+function setCarouselContent(cars) {
     $("#carousel-content").html(carsToCarouselElems(cars).reduce((s, val) => s + val, ""))
 }

@@ -1,4 +1,4 @@
-export function brandsToCards(brands){
+export function brandsToCards(brands) {
     return brands.map(brand => {
         return `<a class="card-link" href="/brand.php?name=${brand.name}">
                     <div class="card m-3 card-brand" id="cardBrandContent" data-key="${brand.name}">
@@ -11,6 +11,6 @@ export function brandsToCards(brands){
     })
 }
 
-export function brandsToSelectOptions(brands){
+export function brandsToSelectOptions(brands) {
     return brands.map(brand => `<option value="${brand.id}">${brand.name}</option>`)
 }

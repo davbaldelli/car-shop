@@ -1,6 +1,6 @@
 //prende in input il nome del bottone e restituisce l'html 
-function createDropdownBtn(label, items){
-    let list = createDropdownListContent(items) 
+function createDropdownBtn(label, items) {
+    let list = createDropdownListContent(items)
     return `<div class="dropdown" id="dropdown-me">
                 <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     ${label}
@@ -13,15 +13,16 @@ function createDropdownBtn(label, items){
 }
 
 //prende l' array di creaDropdownItems e il numero di colonne retituendo l'html
-function createDropdownListContent(items){      
-    return items.reduce((r,item)=> r + `<li class="dropdown-item" data-key="${item.value}">${item.name}</li>`,"")
+function createDropdownListContent(items) {
+    return items.reduce((r, item) => r + `<li class="dropdown-item" data-key="${item.value}">${item.name}</li>`, "")
 }
 
 
-
-export function generateSingleSelectionDropdown(divName, dropdownLabel, items, onSelected = () => {}, onUnselected = () => {}){
+export function generateSingleSelectionDropdown(divName, dropdownLabel, items, onSelected = () => {
+}, onUnselected = () => {
+}) {
     $(`#${divName}`).html(createDropdownBtn(dropdownLabel, items))
-    $(".dropdown-item").click(event => {  
+    $(".dropdown-item").click(event => {
         onSelected(event.currentTarget.dataset.key)
     })
 }

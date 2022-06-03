@@ -1,46 +1,47 @@
-#mainPanel{
+#mainPanel {
     margin-top: 20px;
     text-align: center;
 }
 
-.car-img{
+.car-img {
     width: 1280px;
     border-radius: 10px;
 }
 
-.divcar-img{
+.divcar-img {
     width: 100%;
     display: inline-flex;
     align-items: center;
     justify-content: center;
 }
 
-.car-model{
+.car-model {
     color: #91A826;
     font-size: 69px;
-    margin-top: 15px ;
+    margin-top: 15px;
 }
 
-.btn-buy{
-    min-width:300px;
+.btn-buy {
+    min-width: 300px;
     min-height: 60px;
     margin-top: 40px;
     margin-bottom: 40px;
     background-color: #3d26a8;
-    color:white;
+    color: white;
 
 }
 
-.btn-buy:hover{
-    color:white;
+.btn-buy:hover {
+    color: white;
     box-shadow: 0 0 12px 4px rgba(120, 89, 255, 0.651);
 }
-.car-price{
+
+.car-price {
     font-size: 20px;
 }
 
-.divcar-info{
-    margin-top:7vh ;
+.divcar-info {
+    margin-top: 7vh;
     padding-top: 7vh;
     padding-bottom: 7vh;
     width: 100%;
@@ -49,7 +50,8 @@
     justify-content: space-around;
     box-shadow: 0 8px 8px 0 rgba(0, 0, 0, 0.14);
 }
-.car-info{
+
+.car-info {
     padding-top: 5px;
     padding-bottom: 5px;
     padding-left: 15px;
@@ -61,51 +63,52 @@
     border-radius: 5px;
 }
 
-.prod-rev{
+.prod-rev {
     width: 98.5%;
     display: inline-flex;
     align-items: center;
-    justify-content:center;
-    margin-top:7vh ;
+    justify-content: center;
+    margin-top: 7vh;
     padding-top: 7vh;
     padding-bottom: 7vh;
     box-shadow: 0 8px 8px 0 rgba(0, 0, 0, 0.14);
 }
 
-.p-prod-rev{
+.p-prod-rev {
     color: white;
-    margin-left:30px;
+    margin-left: 30px;
     margin-top: 10px;
 }
 
-.h4-prod-rev{
+.h4-prod-rev {
     color: white;
-    margin-left:30px;
+    margin-left: 30px;
 }
 
-.img-prod-rev{
+.img-prod-rev {
     width: 150px;
-    margin-left:30px;
+    margin-left: 30px;
 }
 
-.faq{
+.faq {
     width: 98.5%;
-    margin-top:7vh;
-    margin-bottom:7vh;
+    margin-top: 7vh;
+    margin-bottom: 7vh;
     padding-top: 7vh;
     padding-bottom: 7vh;
     box-shadow: 0 8px 8px 0 rgba(0, 0, 0, 0.14);
 }
 
-.faq-block{
+.faq-block {
     width: 80%;
     padding-left: 2vw;
 }
 
-.faq-question{
-    color:#91A826;
+.faq-question {
+    color: #91A826;
 }
-.faq-answer{
+
+.faq-answer {
     color: white;
     padding-left: 2%;
     text-align: justify;

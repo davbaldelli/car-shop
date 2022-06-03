@@ -1,36 +1,39 @@
 import {addOrder, getOrders, updateOrder} from "../loaders/orderLoader.js";
 
-export function getOrder(id,...handlers){
+export function getOrder(id, ...handlers) {
     let user = JSON.parse(localStorage.getItem("user"))
-    getOrders("api/user/orders/byid.php",{Token : user.token}, {userId : user.userId, orderId : id}, ...handlers)
+    getOrders("api/user/orders/byid.php", {Token: user.token}, {userId: user.userId, orderId: id}, ...handlers)
 }
 
-export function getAllOrders(...handlers){
+export function getAllOrders(...handlers) {
     let user = JSON.parse(localStorage.getItem("user"))
-    getOrders("/api/user/admin/getorders.php", {Token : user.token},{}, ...handlers)
+    getOrders("/api/user/admin/getorders.php", {Token: user.token}, {}, ...handlers)
 }
 
-export function getAllUserOrders(...handlers){
+export function getAllUserOrders(...handlers) {
     let user = JSON.parse(localStorage.getItem("user"))
-    getOrders("/api/user/orders/all.php",{Token : user.token}, {userId : user.userId}, ...handlers)
+    getOrders("/api/user/orders/all.php", {Token: user.token}, {userId: user.userId}, ...handlers)
 }
 
-export function getUserDeliveredOrders(...handlers){
+export function getUserDeliveredOrders(...handlers) {
     let user = JSON.parse(localStorage.getItem("user"))
-    getOrders("/api/user/orders/bystate.php",{Token : user.token}, {userId : user.userId, state : "delivered"}, ...handlers)
+    getOrders("/api/user/orders/bystate.php", {Token: user.token}, {
+        userId: user.userId,
+        state: "delivered"
+    }, ...handlers)
 }
 
-export function getUserNotDeliveredOrders(...handlers){
+export function getUserNotDeliveredOrders(...handlers) {
     let user = JSON.parse(localStorage.getItem("user"))
-    getOrders("/api/user/orders/notdelivered.php",{Token : user.token}, {userId : user.userId}, ...handlers)
+    getOrders("/api/user/orders/notdelivered.php", {Token: user.token}, {userId: user.userId}, ...handlers)
 }
 
-export function insertOrder(order, onSuccess, onFail){
+export function insertOrder(order, onSuccess, onFail) {
     let user = JSON.parse(localStorage.getItem("user"))
-    addOrder("api/user/orders/new.php", {Token : user.token}, order, onSuccess)
+    addOrder("api/user/orders/new.php", {Token: user.token}, order, onSuccess)
 }
 
-export function updateOrderState(id, state, onSuccess){
+export function updateOrderState(id, state, onSuccess) {
     let user = JSON.parse(localStorage.getItem("user"))
-    updateOrder("api/user/admin/updateorder.php", {Token : user.token}, {id , state}, onSuccess)
+    updateOrder("api/user/admin/updateorder.php", {Token: user.token}, {id, state}, onSuccess)
 }

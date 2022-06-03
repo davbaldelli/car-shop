@@ -3,11 +3,11 @@
     </div>
     <div class="col-12 col-md-8">
         <div class="row">
-        <div class="row" id="mainGrid">
+            <div class="row" id="mainGrid">
+
+            </div>
+        </div>
+        <div class="col-0 col-md-2">
 
         </div>
-    </div>
-    <div class="col-0 col-md-2">
-
-    </div>
 </section>

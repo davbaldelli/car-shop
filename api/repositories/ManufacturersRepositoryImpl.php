@@ -1,10 +1,12 @@
 <?php
+
 class ManufacturersRepositoryImpl implements ManufacturersRepository
 {
 
     private mysqli $conn;
 
-    function __construct($conn){
+    function __construct($conn)
+    {
         $this->conn = $conn;
     }
 

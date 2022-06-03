@@ -1,9 +1,11 @@
 <?php
+
 class CarRepositoryImpl implements CarRepository
 {
     private mysqli $conn;
 
-    function __construct($conn){
+    function __construct($conn)
+    {
         $this->conn = $conn;
     }
 
