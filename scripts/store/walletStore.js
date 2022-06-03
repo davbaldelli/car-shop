@@ -10,7 +10,7 @@ export function payProduct(product, quantity, onSuccess, onFailure){
 
 export function putAmountInWallet(amount, onSuccess, onFailure = () => {}){
     let user = JSON.parse(localStorage.getItem("user"))
-    rechargeWallet("api/user/payment/rechargewallet.php", {Token: user.token}, {
+    rechargeWallet("api/user/payments/rechargewallet.php", {Token: user.token}, {
         userId: user.userId,
         amount
     }, onSuccess, onFailure)

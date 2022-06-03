@@ -42,9 +42,10 @@ $(() => {
         )
     })
 
-    $("#rechargeWalletBtn").click(() => {
-        let amount = parseInt($("#rechargeAmountInput").val())
+    $("#rechargeWalletForm").submit((e) => {
+        let amount = parseInt($("#creditInput").val())
         putAmountInWallet(amount, onRechargeSuccess)
+        e.preventDefault()
     })
 
 })

@@ -48,6 +48,17 @@
             </div>
         </div>
         <div class="row">
+            <div class="col">
+                <form id="rechargeWalletForm">
+                    <div class="form-group">
+                        <label for="creditInput">Add credits</label>
+                        <input class="form-control" type="number" id="creditInput" placeholder="Enter credits">
+                    </div>
+                    <button id="rechargeWalletBtn" type="submit">Add credits</button>
+                </form>
+            </div>
+        </div>
+        <div class="row">
             <div id="productsList" class="col">
 
             </div>
