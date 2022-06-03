@@ -1,24 +1,24 @@
-import {getOrders} from "./loaders/orderLoader.js";
 import {ordersToCard} from "./formatters/orderFormatter.js";
+import {getAllUserOrders, getUserDeliveredOrders, getUserNotDeliveredOrders} from "./store/ordersStore.js";
 
 $(() => {
     let user = JSON.parse(localStorage.getItem("user"))
-    if(user && user.token){
-        getOrders("/api/user/orders/all.php",{Token : user.token}, {userId : user.userId}, setOrderListContent)
+    if (user && user.token) {
+        getAllUserOrders(setOrderListContent)
     }
-    $("#deliveredOrders-tab").click(() => {
-        getOrders("/api/user/orders/bystate.php",{Token : user.token}, {userId : user.userId, state : "delivered"}, setOrderListContent)
+    $("#deliveredOrdersTab").click(() => {
+        getUserDeliveredOrders(setOrderListContent)
     })
 
-    $("#deliveringOrdersButton").click(() => {
-        getOrders("/api/user/orders/notdelivered.php",{Token : user.token}, {userId : user.userId}, setOrderListContent)
+    $("#deliveringOrdersTab").click(() => {
+        getUserNotDeliveredOrders(setOrderListContent)
     })
 
-    $("#allOrders-tab").click(() => {
-        getOrders("/api/user/orders/all.php",{Token : user.token}, {userId : user.userId}, setOrderListContent)
+    $("#allOrdersTab").click(() => {
+        getAllUserOrders(setOrderListContent)
     })
 })
 
-function setOrderListContent(orders){
-    $(".list-group").html(ordersToCard(orders).reduce((res,order) => res + order,""))
+function setOrderListContent(orders) {
+    $(".list-group").html(ordersToCard(orders).reduce((res, order) => res + order, ""))
 }

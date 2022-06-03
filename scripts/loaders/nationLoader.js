@@ -1,6 +1,6 @@
-export function getNations(url, options = {}, ...handlers){
+export function getNations(url, options = {}, ...handlers) {
     $.get(url, options, (responseObj) => {
-        if(handlers){
+        if (handlers) {
             handlers.forEach(h => h(responseObj))
         }
     })

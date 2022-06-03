@@ -1,9 +1,11 @@
 <?php
+
 class OrdersRepositoryImpl implements OrdersRepository
 {
     private mysqli $conn;
 
-    function __construct($conn){
+    function __construct($conn)
+    {
         $this->conn = $conn;
     }
 
@@ -13,7 +15,7 @@ class OrdersRepositoryImpl implements OrdersRepository
         $stmt->bind_param("si", $newState, $id);
         $stmt->execute();
 
-        if ($stmt->error === ""){
+        if ($stmt->error === "") {
             $stmt = $this->conn->prepare("SELECT state, timestamp FROM orders_logs WHERE id_order = ?");
             $stmt->bind_param("i", $id);
             $stmt->execute();
@@ -30,7 +32,7 @@ class OrdersRepositoryImpl implements OrdersRepository
     function addOrder($order): string
     {
         $stmt = $this->conn->prepare("INSERT INTO orders(id_car,id_user,id_user_address,state, quantity) VALUES (?, ?, ?, ?, ?)");
-        $stmt->bind_param("iiisi", $order->id_car, $order->id_user,$order->id_address, $order->state, $order->quantity);
+        $stmt->bind_param("iiisi", $order->id_car, $order->id_user, $order->id_address, $order->state, $order->quantity);
         $stmt->execute();
         return $stmt->error;
     }
@@ -44,7 +46,8 @@ class OrdersRepositoryImpl implements OrdersRepository
 
     function getUserOrders($id_user): array
     {
-        $stmt = $this->conn->prepare("SELECT * FROM orders_view JOIN users_delivering_addresses ON users_delivering_addresses.id_user = ? WHERE orders_view.id_user = ?");
+        $stmt = $this->conn->prepare("SELECT orders_view.*, ua.address_line_1, ua.address_line_2, ua.administrative_area, ua.locality, ua.postal_code  
+                FROM orders_view JOIN users_delivering_addresses AS ua ON ua.id_user = ? WHERE orders_view.id_user = ?");
         $stmt->bind_param("ii", $id_user, $id_user);
         $stmt->execute();
         return $stmt->get_result()->fetch_all(MYSQLI_ASSOC);
@@ -67,7 +70,7 @@ class OrdersRepositoryImpl implements OrdersRepository
         $stmt->execute();
         $address = array("address" => $stmt->get_result()->fetch_all(MYSQLI_ASSOC)[0]);
 
-        return array_merge($order,$logs,$address);
+        return array_merge($order, $logs, $address);
     }
 
     function getUserOrdersByState($id_user, $state): array

@@ -1,4 +1,4 @@
-function createNotificationDropdown(label, content){
+function createNotificationDropdown(label, content) {
     return `<div class="dropdown">
                 <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
                     ${label}
@@ -9,7 +9,7 @@ function createNotificationDropdown(label, content){
             </div>`
 }
 
-function createDropdownList(items){
+function createDropdownList(items) {
     return items.reduce((res, notify) => {
         return res + `
         <li data-key="${notify.id}">
@@ -20,10 +20,11 @@ function createDropdownList(items){
                 </div>
             </div>
         </li>`
-        },"")
+    }, "")
 }
 
-export function generateNotifyDropdown(divName, dropdownLabel, items, onSelected = () => {}){
+export function generateNotifyDropdown(divName, dropdownLabel, items, onSelected = () => {
+}) {
     $(`#${divName}`).html(createNotificationDropdown(dropdownLabel, createDropdownList(items)))
     $(".dropdown-item").click(event => {
         onSelected(event.currentTarget.dataset.key)

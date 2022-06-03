@@ -6,7 +6,7 @@ function generateToken($username, $role, $id): string
     $header = json_encode(['typ' => 'JWT', 'alg' => 'HS256']);
 
     // Create token payload as a JSON string
-    $payload = json_encode(['username' => $username,'role' => $role,'id' => $id]);
+    $payload = json_encode(['username' => $username, 'role' => $role, 'id' => $id]);
 
     // Encode Header to Base64Url String
     $base64UrlHeader = str_replace(['+', '/', '='], ['-', '_', ''], base64_encode($header));
@@ -55,7 +55,8 @@ function is_jwt_valid($jwt, $secret = 'abC123!'): bool
     }
 }
 
-function getJWTPayload($jwt, $secret = 'abC123!'){
+function getJWTPayload($jwt, $secret = 'abC123!')
+{
     $tokenParts = explode('.', $jwt);
     return base64_decode($tokenParts[1]);
 }

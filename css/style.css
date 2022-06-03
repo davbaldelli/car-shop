@@ -1,32 +1,32 @@
 main {
     padding-top: 60px;
     min-height: 77vh;
-        
+
 }
 
-body{
+body {
     background-color: #1E1E1E;
     min-height: 100vh;
 }
 
-.navbar-logo{
+.navbar-logo {
     width: 100px;
     height: 37px;
 }
 
-html{
+html {
     width: auto;
 }
 
-.body-light{
+.body-light {
     background-color: white;
 }
 
-.div-ico:hover{
+.div-ico:hover {
     box-shadow: 0 1px 10px 0 rgba(61, 38, 168, 0.7);
 }
 
-.div-ico:hover>.fa {
+.div-ico:hover > .fa {
     color: #3d26a8;
 }
 
@@ -43,7 +43,7 @@ html{
 }
 
 .fa-youtube {
-    color: white;    
+    color: white;
 }
 
 .fa {
@@ -51,17 +51,17 @@ html{
     text-decoration: none;
 }
 
-.div-ico{
+.div-ico {
     border: 4px solid rgba(0, 0, 0, 0.8);
     border-radius: 50%;
     width: 100px;
     height: 100px;
     display: flex;
     align-items: center;
-    justify-content:center ;
+    justify-content: center;
 }
 
-.social_logos{
+.social_logos {
     display: flex;
     flex-wrap: wrap;
     width: 200px;
@@ -73,7 +73,7 @@ html{
     font-size: 70px;
 }
 
-.footer{
+.footer {
     min-height: 300px;
     max-height: fit-content;
     width: auto;
@@ -83,7 +83,7 @@ html{
     background-color: #91A826;
 }
 
-.about-group{
+.about-group {
     width: fit-content;
     min-width: 60%;
     padding-right: 100px;
@@ -96,11 +96,11 @@ html{
     align-content: center;
     align-items: center;
     justify-content: center;
-    box-shadow: 0 30px 70px 0 rgba(0,0,0,0.5);
-    
+    box-shadow: 0 30px 70px 0 rgba(0, 0, 0, 0.5);
+
 }
 
-.about_socials{
+.about_socials {
     flex-shrink: 0;
     display: flex;
     flex: 15%;
@@ -109,10 +109,10 @@ html{
     min-width: 85px;
     height: inherit;
     align-items: center;
-    
+
 }
 
-.about-links{
+.about-links {
     padding-left: 13%;
     margin-top: 2%;
     height: 95%;
@@ -120,7 +120,7 @@ html{
     order: 0;
 }
 
-.link_list{
+.link_list {
     padding-left: 5%;
     display: flex;
     flex-direction: column;
@@ -129,23 +129,23 @@ html{
 
 }
 
-.a-link{
+.a-link {
     color: #ffff;
     padding-bottom: 3%;
     text-decoration: none;
     min-width: 85px;
 }
 
-.a-link:hover{
-    color:rgb(61, 38, 168);
+.a-link:hover {
+    color: rgb(61, 38, 168);
     font-size: 1.5em;
 }
 
-.switch-div{
+.switch-div {
     max-width: 100px;
 }
 
-.h2-footer{
+.h2-footer {
     min-width: 85px;
 }
 
@@ -156,7 +156,7 @@ html{
     height: 34px;
 }
 
-.switch input { 
+.switch input {
     opacity: 0;
     width: 0;
     height: 0;
@@ -207,11 +207,11 @@ input:checked + .slider:before {
 }
 
 ::-webkit-scrollbar-track {
-    background: rgba(90, 90, 90, 0.212); 
+    background: rgba(90, 90, 90, 0.212);
 }
 
 ::-webkit-scrollbar-thumb {
-    background: rgba(0,0,0,0.3); 
+    background: rgba(0, 0, 0, 0.3);
     border-top-left-radius: 15px;
     border-bottom-left-radius: 15px;
     border-top-right-radius: 15px;
@@ -219,28 +219,28 @@ input:checked + .slider:before {
 }
 
 ::-webkit-scrollbar-thumb:hover {
-    background: rgba(0,0,0,0.8); 
+    background: rgba(0, 0, 0, 0.8);
 }
 
 
-
 /*Css per login*/
-.nav-login{
+.nav-login {
     display: flex;
     visibility: visible;
     justify-content: flex-end;
     width: 100%;
 }
 
-.a-login-hidden{
+.a-login-hidden {
     display: none;
     visibility: none;
 }
-.login-container{ 
-    border-bottom-left-radius:10px ; 
-    border-bottom-right-radius:10px ; 
+
+.login-container {
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
     width: 400px;
-    height:500px;
+    height: 500px;
     display: flex;
     flex-direction: column;
     background-color: rgb(33, 37, 41);
@@ -248,18 +248,20 @@ input:checked + .slider:before {
     overflow: hidden;
     z-index: 5;
 }
-.form-hidden{
+
+.form-hidden {
     position: absolute;
     right: 4px;
     top: -500px;
 }
 
-.form-active{
+.form-active {
     position: fixed;
     top: 63px;
     right: 4px;
 }
-.login-form{
+
+.login-form {
     align-self: center;
     display: flex;
     flex-direction: column;
@@ -267,34 +269,39 @@ input:checked + .slider:before {
     width: 85%;
     height: 90%;
 }
-.btn-login{
+
+.btn-login {
     margin-top: 8%;
     background-color: #3d26a8;
 }
-.close-form{
+
+.close-form {
     margin-top: 5px;
     width: 100%;
     display: flex;
     justify-content: flex-end;
 }
-.btn-close{
+
+.btn-close {
     padding-right: 10px;
 }
-.h2-login{
+
+.h2-login {
     margin-top: 30px;
     margin-bottom: 40px;
-    color:#91A826;
+    color: #91A826;
 }
-.username-input{
+
+.username-input {
     margin-bottom: 20px;
     width: 100%;
 }
 
-.login-label{
+.login-label {
     color: #fff
 }
 
-.signup-form{
+.signup-form {
     align-self: center;
     display: flex;
     flex-direction: column;
@@ -303,22 +310,25 @@ input:checked + .slider:before {
     width: 85%;
     height: 90%;
 }
-.btn-signup{
+
+.btn-signup {
     margin-top: 8%;
     background-color: #3d26a8;
     width: 100%;
 }
-.h2-signup{
+
+.h2-signup {
     margin-top: 30px;
     margin-bottom: 40px;
-    color:#91A826;
-    width: 100%;
-}
-.password-input{
+    color: #91A826;
     width: 100%;
 }
 
-.signup-label{
+.password-input {
+    width: 100%;
+}
+
+.signup-label {
     color: #fff
 }
 
@@ -327,47 +337,54 @@ input:checked + .slider:before {
     background-color: #212529;
     border-color: #dee2e6 #dee2e6 #212529;
 }
-.form-switch{
+
+.form-switch {
     width: 90%;
 }
-.tab-content{
+
+.tab-content {
     padding-left: 30px;
 }
 
-.error-form{
+.error-form {
     color: #ff6e19;
 }
 
-#user-feature{
+#user-feature {
     display: inline-flex;
     flex-direction: row;
     justify-content: flex-end;
     width: 100%;
 }
-.account-dprdwn{
+
+.account-dprdwn {
     display: inline-flex;
     flex-direction: row;
     justify-content: flex-end;
 }
-#navbarAccount{
+
+#navbarAccount {
     min-width: 125px;
 }
-#loginToast{
+
+#loginToast {
     margin-top: 70px;
 }
 
 /*da spostare*/
-#ordersTabContent{
+#ordersTabContent {
     padding-left: 0;
     margin-top: 10px;
 }
 
-#ordersTab{
+#ordersTab {
     margin-top: 15px;
 }
-#orderCarIcon{
+
+#orderCarIcon {
     width: 70px;
 }
-.label-form-addcar{
+
+.label-form-addcar {
     color: #fff;
 }

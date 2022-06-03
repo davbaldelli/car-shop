@@ -1,14 +1,14 @@
-import {getNotifications} from "./loaders/notificationsLoader.js";
 import {notificationToListItems} from "./formatters/notificationsFormatter.js";
+import {getAllUserNotifications} from "./store/notificationsStore.js";
 
 $(() => {
     let user = JSON.parse(localStorage.getItem("user"))
-    if(user && user.token){
-        getNotifications("api/user/notifications/all.php",{Token : user.token}, {userId : user.userId},setNotificationListContent)
+    if (user && user.token) {
+        getAllUserNotifications(setNotificationListContent)
     }
 })
 
-function setNotificationListContent(notifications){
+function setNotificationListContent(notifications) {
     //TODO set the counter in the notification icon
     $('#notificationsList').html(notificationToListItems(notifications).reduce((res, item) => res + item, ""))
 }

@@ -16,42 +16,50 @@ spl_autoload_register(function ($name) {
 
 class RepositoriesFactory
 {
-    public static function GetCarsRepository() : CarRepository {
+    public static function GetCarsRepository(): CarRepository
+    {
         $db = new Db();
         return new CarRepositoryImpl($db->getConnection());
     }
 
-    public static function GetOrdersRepository() : OrdersRepository {
+    public static function GetOrdersRepository(): OrdersRepository
+    {
         $db = new Db();
         return new OrdersRepositoryImpl($db->getConnection());
     }
 
-    public static function GetManufacturersRepository() : ManufacturersRepository{
+    public static function GetManufacturersRepository(): ManufacturersRepository
+    {
         $db = new Db();
         return new ManufacturersRepositoryImpl($db->getConnection());
     }
 
-    public static function GetNationsRepository() : NationsRepository {
+    public static function GetNationsRepository(): NationsRepository
+    {
         $db = new Db();
         return new NationsRepositoryImpl($db->getConnection());
     }
 
-    public static function GetAddressesRepository() : AddressesRepository {
+    public static function GetAddressesRepository(): AddressesRepository
+    {
         $db = new Db();
         return new AddressesRepositoryImpl($db->getConnection());
     }
 
-    public static function GetNotificationsRepository() : NotificationsRepository {
+    public static function GetNotificationsRepository(): NotificationsRepository
+    {
         $db = new Db();
         return new NotificationsRepositoryImpl($db->getConnection());
     }
 
-    public static function GetLoginRepository() : LoginRepository{
+    public static function GetLoginRepository(): LoginRepository
+    {
         $db = new Db();
         return new LoginRepositoryImpl($db->getConnection());
     }
 
-    public static function GetPaymentsRepository() : PaymentsRepository{
+    public static function GetPaymentsRepository(): PaymentsRepository
+    {
         $db = new Db();
         return new PaymentsRepositoryImpl($db->getConnection());
     }

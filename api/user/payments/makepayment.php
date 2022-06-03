@@ -13,8 +13,8 @@ $payload = json_decode(getJWTPayload($token));
 $userId = $_POST["userId"];
 $amount = $_POST["amount"];
 
-if(is_jwt_valid($token)  && ($payload->role === "admin" || $userId == $payload->id)) {
-    if($repo->makePayment($userId,$amount)) {
+if (is_jwt_valid($token) && ($payload->role === "admin" || $userId == $payload->id)) {
+    if ($repo->makePayment($userId, $amount)) {
         http_response_code(200);
         echo "payed";
     } else {

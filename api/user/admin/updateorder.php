@@ -13,9 +13,9 @@ $payload = json_decode(getJWTPayload($token));
 $id = $_POST["id"];
 $state = $_POST["state"];
 
-if(is_jwt_valid($token) && $payload->role === "admin"){
+if (is_jwt_valid($token) && $payload->role === "admin") {
     $res = $repo->updateOrder($id, $state);
-    if ($res != null){
+    if ($res != null) {
         http_response_code(200);
         header('Content-Type: application/json; charset=utf-8');
         echo json_encode($res);
