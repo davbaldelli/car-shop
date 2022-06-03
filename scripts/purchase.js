@@ -1,19 +1,20 @@
 import {getCart} from "./utilities/cartManager.js";
 import {productsToListElements} from "./formatters/productFormatter.js";
-import {addAddress, getUserDeliveringAddresses, makePayment, rechargeWallet} from "./loaders/userLoader.js";
 import {addressesToListItems} from "./formatters/addressesFormatter.js";
 import {nationsToSelectElements} from "./formatters/nationsFormatter.js";
 import {getAllNations} from "./store/nationsStore.js";
 import {insertOrder} from "./store/ordersStore.js";
+import {addUserAddress, getUserAddresses} from "./store/userStore.js";
+import {payProduct, putAmountInWallet} from "./store/walletStore.js";
 
 $(() => {
     let user = JSON.parse(localStorage.getItem("user"))
     setupProductList(getCart().products)
-    getUserDeliveringAddresses('api/user/addresses/all.php', {Token: user.token}, {userId: user.userId}, setupAddressesList)
+    getUserAddresses(setupAddressesList)
     getAllNations(setupNationsSelectOptions)
     $("#addAddressForm").submit((e) => {
         e.preventDefault()
-        let car = {
+        let address = {
             first_name: $("#firstNameInput").val(),
             last_name: $("#lastNameInput").val(),
             id_user: user.userId,
@@ -24,7 +25,7 @@ $(() => {
             address_line_1: $("#addressL1Input").val(),
             address_line_2: $("#addressL2Input").val(),
         }
-        addAddress("api/user/addresses/new.php", {Token: user.token}, car, (res) => console.log(res))
+        addUserAddress(address, onInsertAddressSuccess, onInsertAddressError)
     })
     $("#purchaseBtn").click(() => {
         let address = parseInt($("input[name='delivering-address']:checked").val());
@@ -43,11 +44,7 @@ $(() => {
 
     $("#rechargeWalletBtn").click(() => {
         let amount = parseInt($("#rechargeAmountInput").val())
-        let user = JSON.parse(localStorage.getItem("user"))
-        rechargeWallet("api/user/payment/rechargewallet.php", {Token: user.token}, {
-            userId: user.userId,
-            amount
-        }, onRechargeSuccess)
+        putAmountInWallet(amount, onRechargeSuccess)
     })
 
 })
@@ -56,12 +53,16 @@ function onRechargeSuccess() {
     //TODO Show Recharge success
 }
 
+function onInsertAddressSuccess(){
+    //TODO Show address insert success
+}
+
+function onInsertAddressError(){
+    //TODO Show address insert success
+}
+
 function onNewOrderSuccess(item) {
-    let user = JSON.parse(localStorage.getItem("user"))
-    makePayment("api/user/payments/makepayment.php", {Token: user.token}, {
-        userId: user.userId,
-        amount: item.product.price * item.quantity
-    }, onPaymentConfirm, onPaymentError)
+    payProduct(item.product, item.quantity, onPaymentConfirm, onPaymentError)
 }
 
 function onPaymentConfirm() {

@@ -19,24 +19,31 @@ export function userAuth(url, headers, data, onSuccess, onFail) {
     })
 }
 
-export function getUserDeliveringAddresses(url, headers, data, onSuccess) {
+export function getUserDeliveringAddresses(url, headers, data, ...handlers) {
     $.ajax({
         type: 'GET',
         url: url,
         data: data,
         headers: headers,
-        success: onSuccess
+        success: res => {
+            if (handlers) {
+                handlers.forEach(h => h(res))
+            }
+        }
     })
 }
 
-export function addAddress(url, headers = {}, data, handler) {
+export function addAddress(url, headers = {}, data, onSuccess, onFailure) {
     $.ajax({
         type: 'POST',
         url: url,
         data: JSON.stringify(data),
         headers: headers,
         contentType: 'application/json; charset=utf-8',
-        success: res => (handler(res)),
+        success: onSuccess,
+        statusCode:{
+            500 : onFailure
+        }
     })
 }
 
