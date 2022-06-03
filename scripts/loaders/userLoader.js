@@ -1,5 +1,11 @@
 export function userAccess(url, data, onSuccess, onFail){
-    $.post(url, data, onSuccess).fail(onFail)
+    $.ajax({
+        type : 'POST',
+        url: url,
+        data : data,
+        success : onSuccess,
+        error : onFail
+    })
 }
 
 export function userAuth(url, headers, data, onSuccess, onFail){

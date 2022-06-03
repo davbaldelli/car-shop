@@ -75,10 +75,9 @@ function onSignup(){
     let password1 = $("#password-sign").val()
     let password2 = $("#password2-sign").val()
     if (password1 !== password2 || password1 === "") {
-        $("#error-sign").html("Password differenti o mancanti")
+        $("#error-sign").html("Passwords not matching, or missing")
     } else {
-        signup({username, password : password1}, user => saveUser(user.username, user.id, user.role, user.token), onSigningFailure)
-        closeLoginForm();
+        signup({username, password : password1}, onLoginSuccess, onSigningFailure)
     }
 }
 
@@ -86,13 +85,9 @@ function onLogin(){
     let username = $("#username-log").val()
     let password = $("#password-log").val()
     if(password === ""){
-        $("#error-login").html("Campo password vuoto")
+        $("#error-login").html("Empty password field")
     }else{
-        login({username, password}, user => saveUser(user.username, user.id, user.role, user.token), onLoginFailure)
-        closeLoginForm();
-        let toastLive= $("#loginToast")
-        let toast= new bootstrap.Toast(toastLive)
-        toast.show()
+        login({username, password}, onLoginSuccess, onLoginFailure)
     }
 }
 
@@ -110,14 +105,21 @@ function closeLoginForm(){
     loginContainer.toggleClass("form-active");
 }
 
+function onLoginSuccess(user){
+    saveUser(user.username, user.id, user.role, user.token)
+    closeLoginForm();
+    let toastLive= $("#loginToast")
+    let toast= new bootstrap.Toast(toastLive)
+    toast.show()
+}
+
+
 function onLoginFailure(){
-    $("#error-login").html("Nome utente o password sbagliati")
-    $(".login-container").toggleClass("form-active")
+    $("#error-login").html("Wrong username or password")
 }
 
 function onSigningFailure(){
-    $("#error-sign").html("Nome utente già in uso")
-    $(".login-container").toggleClass("form-active")
+    $("#error-sign").html("Username already taken")
 }
 
 function unlockUserFeatures(user, features){
