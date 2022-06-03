@@ -34,12 +34,28 @@ export function addAddress(url, headers = {}, data, handler){
     })
 }
 
-export function makePayment(url, headers = {}, data, handler){
+export function makePayment(url, headers = {}, data, onSuccess, onError){
     $.ajax({
         type : 'POST',
         url: url,
         data : data,
         headers : headers,
-        success : res => (handler(res)),
+        success : onSuccess,
+        statusCode : {
+            500 : onError
+        }
+    })
+}
+
+export function rechargeWallet(url, headers = {}, data, onSuccess, onError){
+    $.ajax({
+        type : 'POST',
+        url: url,
+        data : data,
+        headers : headers,
+        success : onSuccess,
+        statusCode : {
+            500 : onError
+        }
     })
 }

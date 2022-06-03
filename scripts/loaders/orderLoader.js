@@ -24,14 +24,17 @@ export function getOrders(url, headers = {}, data = {},...handlers){
     })
 }
 
-export function addOrder(url, headers = {}, data, handler){
+export function addOrder(url, headers = {}, data, onSuccess, onError = () => {}){
     $.ajax({
         type : 'POST',
         url: url,
         data : JSON.stringify(data),
         headers : headers,
         contentType: 'application/json; charset=utf-8',
-        success : res => (handler(res)),
+        success : onSuccess,
+        statusCode : {
+            500 : onError
+        }
     })
 }
 

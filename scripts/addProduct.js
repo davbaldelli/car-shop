@@ -1,6 +1,6 @@
-import {getBrands} from "./loaders/brandsLoader.js";
 import {brandsToSelectOptions} from "./formatters/brandsFormatter.js";
-import {addCar} from "./loaders/carsLoader.js";
+import {getAllManufacturers} from "./store/brandsStore.js";
+import {insertCar} from "./store/carsStore.js";
 
 $(() => {
     $("#new-car-form").submit((evt) => {
@@ -24,11 +24,10 @@ $(() => {
                 doors : $("#doors-input").val(),
                 rating : $("#rating-input").val()
             }
-            addCar("api/user/admin/addcar.php",{Token : user.token}, car, (data,_,xhr) => {})
-            handleErrorCarInsert ()
+            insertCar(car, handleSuccessCarInsert, handleErrorCarInsert)
         }
     })
-    getBrands("api/brands/all.php",{}, setBrandSelectOptions)
+    getAllManufacturers(setBrandSelectOptions)
 
 
 

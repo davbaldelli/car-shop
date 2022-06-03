@@ -13,14 +13,17 @@ export function getNotifications(url, headers = {}, data = {},...handlers){
     })
 }
 
-export function addNotify(url, headers = {}, data, handler){
+export function addNotify(url, headers = {}, data, onSuccess, onFail){
     $.ajax({
         type : 'POST',
         url: url,
         data : JSON.stringify(data),
         headers : headers,
         contentType : "application/json; charset=utf-8",
-        success : res => (handler(res)),
+        success : onSuccess,
+        statusCode : {
+            500 : onFail
+        }
     })
 }
 

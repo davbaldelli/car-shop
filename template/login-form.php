@@ -1,6 +1,6 @@
 <div class="login-container form-hidden">
     <div class="close-form">
-        <button id="closeLoignForm"class="btn-close"></button>
+        <button id="close-login-form" class="btn-close"></button>
     </div>
     <div class="form-switch">
         <ul class="nav nav-tabs" id="myTab" role="tablist">

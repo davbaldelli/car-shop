@@ -1,10 +1,10 @@
-import {getNotifications} from "./loaders/notificationsLoader.js";
 import {notificationToListItems} from "./formatters/notificationsFormatter.js";
+import {getAllUserNotifications} from "./store/notificationsStore.js";
 
 $(() => {
     let user = JSON.parse(localStorage.getItem("user"))
     if(user && user.token){
-        getNotifications("api/user/notifications/all.php",{Token : user.token}, {userId : user.userId},setNotificationListContent)
+        getAllUserNotifications(setNotificationListContent)
     }
 })
 

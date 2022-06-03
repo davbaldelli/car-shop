@@ -3,13 +3,13 @@
         <div class="col-12 col-md-8" >
             <ul class="nav nav-tabs" id="ordersTab" role="tablist">
                 <li class="nav-item" role="presentation">
-                    <button class="nav-link active" id="allOrders-tab" data-bs-toggle="tab" data-bs-target="#contact" type="button" role="tab" aria-controls="contact" aria-selected="false">All</button>
+                    <button class="nav-link active" id="allOrdersTab" data-bs-toggle="tab" data-bs-target="#contact" type="button" role="tab" aria-controls="contact" aria-selected="false">All</button>
                 </li>
                 <li class="nav-item" role="presentation">
-                    <button class="nav-link" id="deliveredOrders-tab" data-bs-toggle="tab" data-bs-target="#home" type="button" role="tab" aria-controls="home" aria-selected="true">Delivered</button>
+                    <button class="nav-link" id="deliveredOrdersTab" data-bs-toggle="tab" data-bs-target="#home" type="button" role="tab" aria-controls="home" aria-selected="true">Delivered</button>
                 </li>
                 <li class="nav-item" role="presentation">
-                    <button class="nav-link" id="deliveringOrder-tab" data-bs-toggle="tab" data-bs-target="#profile" type="button" role="tab" aria-controls="profile" aria-selected="false">On transit</button>
+                    <button class="nav-link" id="deliveringOrdersTab" data-bs-toggle="tab" data-bs-target="#profile" type="button" role="tab" aria-controls="profile" aria-selected="false">On transit</button>
                 </li>
 
             </ul>

@@ -1,16 +1,16 @@
 import {getCart} from "./utilities/cartManager.js";
 import {productsToListElements} from "./formatters/productFormatter.js";
-import {addAddress, getUserDeliveringAddresses, makePayment} from "./loaders/userLoader.js";
+import {addAddress, getUserDeliveringAddresses, makePayment, rechargeWallet} from "./loaders/userLoader.js";
 import {addressesToListItems} from "./formatters/addressesFormatter.js";
-import {getNations} from "./loaders/nationLoader.js";
 import {nationsToSelectElements} from "./formatters/nationsFormatter.js";
-import {addOrder} from "./loaders/orderLoader.js";
+import {getAllNations} from "./store/nationsStore.js";
+import {insertOrder} from "./store/ordersStore.js";
 
 $(() => {
     let user = JSON.parse(localStorage.getItem("user"))
     setupProductList(getCart().products)
     getUserDeliveringAddresses('api/user/addresses/all.php', {Token : user.token}, {userId : user.userId}, setupAddressesList)
-    getNations("api/nations/all.php", {}, setupNationsSelectOptions)
+    getAllNations(setupNationsSelectOptions)
     $("#addAddressForm").submit((e) => {
         e.preventDefault()
         let car = {
@@ -30,15 +30,34 @@ $(() => {
         let address = parseInt($("input[name='delivering-address']:checked").val());
         getCart().products.forEach(item => {
                 let order = {id_user : user.userId, id_car : item.product.id, state : "pending_payment_confirm", quantity: item.quantity, id_address : address}
-                addOrder("api/user/orders/new.php", {Token : user.token}, order,(_) => onNewOrderSuccess(item))
+                insertOrder(order,() => onNewOrderSuccess(item))
             }
         )
     })
+
+    $("#rechargeWalletBtn").click(() => {
+        let amount = parseInt($("#rechargeAmountInput").val())
+        let user = JSON.parse(localStorage.getItem("user"))
+        rechargeWallet("api/user/payment/rechargewallet.php", {Token : user.token}, {userId: user.userId, amount}, onRechargeSuccess)
+    })
+
 })
+
+function onRechargeSuccess(){
+    //TODO Show Recharge success
+}
 
 function onNewOrderSuccess(item){
     let user = JSON.parse(localStorage.getItem("user"))
-    makePayment("api/user/payments/makepayment.php",{Token : user.token}, {userId : user.userId, amount : item.product.price * item.quantity}, (res) => console.log(res))
+    makePayment("api/user/payments/makepayment.php",{Token : user.token}, {userId : user.userId, amount : item.product.price * item.quantity}, onPaymentConfirm, onPaymentError)
+}
+
+function onPaymentConfirm(){
+    //TODO Show payment success
+}
+
+function onPaymentError(){
+    //TODO Show payment error
 }
 
 function setupProductList(products){

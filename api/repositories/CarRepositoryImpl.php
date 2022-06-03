@@ -45,7 +45,7 @@ class CarRepositoryImpl implements CarRepository
         $stmt = $this->conn->prepare("SELECT car_mods.* FROM car_mods WHERE id = ?");
         $stmt->bind_param('i', $id);
         $stmt->execute();
-        return $stmt->get_result()->fetch_all(MYSQLI_ASSOC);
+        return $stmt->get_result()->fetch_all(MYSQLI_ASSOC)[0];
     }
 
     function getCarsByManufacturer($manufacturer): array
