@@ -367,6 +367,8 @@ input:checked + .slider:before {
 }
 #orderCarIcon{
     width: 70px;
+    height: 39px;
+    object-fit: cover;
 }
 .label-form-addcar{
     color: #fff;

@@ -44,7 +44,7 @@ class OrdersRepositoryImpl implements OrdersRepository
 
     function getUserOrders($id_user): array
     {
-        $stmt = $this->conn->prepare("SELECT * FROM orders_view JOIN users_delivering_addresses ON users_delivering_addresses.id_user = ? WHERE orders_view.id_user = ?");
+        $stmt = $this->conn->prepare("SELECT orders_view.*, ua.address_line_1, ua.address_line_2, ua.administrative_area, ua.locality, ua.postal_code FROM orders_view JOIN users_delivering_addresses AS ua ON ua.id_user = ? WHERE orders_view.id_user = ?");
         $stmt->bind_param("ii", $id_user, $id_user);
         $stmt->execute();
         return $stmt->get_result()->fetch_all(MYSQLI_ASSOC);

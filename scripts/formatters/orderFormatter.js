@@ -18,7 +18,7 @@ export function ordersToCard(orders){
                     <div class="col-2"><img id="orderCarIcon"src="${order.image}"/></div> 
                     <div class="col-2"><span>Order N.${order.id} </span></div>    
                     <div class="col-2"><span>${order.product}</span></div> 
-                    <div class="col-2"><span> US: ${order.price} </span></div> 
+                    <div class="col-2"><span> USD: ${order.price} </span></div> 
                     <div class="col-2"><span>${order.address_line_1} ${order.address_line_2}</span></div> 
                     <div class="col-2"><span>${orderMap.get(order.state)}</span></div> 
                 </div>
@@ -30,9 +30,8 @@ export function ordersToCard(orders){
 
 export function orderToInfoPanel(order){
     let statesLogMap = getOldestLogsPerState(order.logs)
-    return `<div style="color : white">Ordern n. ${order.id} -> ${order.state}</div>
-            <div style="color : white">ordered at -> ${statesLogMap.get("pending_payment_confirm").timestamp}</div>
-            <div style="color : white">taken in charge at -> ${statesLogMap.get("taken_in_charge").timestamp}</div>
-            <div style="color : white">delivering at -> ${statesLogMap.get("delivering").timestamp}</div>
-            <div style="color : white">delivered at -> ${statesLogMap.get("delivered").timestamp}</div>`
+    let res = Array.from(statesLogMap).map(([key, value])=>{
+        return `<div style="color : white">${key}-> ${value.timestamp}</div>`
+    })
+    return res.reduce((res, item)=>res+item, `<div style="color : white">Ordern n. ${order.id} -> ${order.state}</div>`)
 }
