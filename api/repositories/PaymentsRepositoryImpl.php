@@ -1,9 +1,11 @@
 <?php
+
 class PaymentsRepositoryImpl implements PaymentsRepository
 {
     private mysqli $conn;
 
-    function __construct($conn){
+    function __construct($conn)
+    {
         $this->conn = $conn;
     }
 
@@ -13,11 +15,11 @@ class PaymentsRepositoryImpl implements PaymentsRepository
         $stmt->bind_param("i", $id_user);
         $stmt->execute();
         $res = $stmt->get_result()->fetch_all(MYSQLI_ASSOC);
-        if($res[0]["credit"] >= $amount){
+        if ($res[0]["credit"] >= $amount) {
             $stmt = $this->conn->prepare("UPDATE users SET credit = (credit - ?) WHERE id = ?");
-            $stmt->bind_param("ii",$amount, $id_user);
+            $stmt->bind_param("ii", $amount, $id_user);
             $stmt->execute();
-            if($stmt->error == ""){
+            if ($stmt->error == "") {
                 return true;
             } else {
                 echo $stmt->error;

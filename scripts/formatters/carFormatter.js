@@ -14,16 +14,16 @@ export function carsToCards(cars) {
     })
 }
 
-export function carsToCarouselElems(cars){
+export function carsToCarouselElems(cars) {
     return cars.map((car, i) => {
-        return `<div class="carousel-item ${i===0 ? "active" : ""}">
+        return `<div class="carousel-item ${i === 0 ? "active" : ""}">
                     <img src="${car.image}" class="d-block w-100" alt="car thumbnail">
                 </div>`
     })
 }
 
-export function carToInfoPanel(car){
-    return  `   
+export function carToInfoPanel(car) {
+    return `   
 
                 <div class="divcar-img">
                     <img class="car-img" src="${car.image}" alt="car detail image">
@@ -42,7 +42,7 @@ export function carToInfoPanel(car){
                 </div>`
 }
 
-export function carToOrderCard(cars){
+export function carToOrderCard(cars) {
     return cars.map(car => {
         return `<div>ordered car card</div>`
     })

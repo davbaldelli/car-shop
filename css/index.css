@@ -1,15 +1,15 @@
 /* css logo*/
-.logo-space{
-    width: 100%;   
+.logo-space {
+    width: 100%;
     margin-top: auto;
     margin-bottom: auto;
 }
 
-.logo{
+.logo {
     display: block;
     margin-right: auto;
     margin-left: auto;
-    align-self:center;
+    align-self: center;
     max-width: 800px;
     max-height: 300px;
     width: 100%;
@@ -25,43 +25,46 @@
 }
 
 /* css generale per section*/
-.home-sections{
-    box-shadow:0 10px 20px 0 rgba(0, 0, 0, 0.2),  0 0 0 0 rgba(0, 0, 0, 0.19); 
+.home-sections {
+    box-shadow: 0 10px 20px 0 rgba(0, 0, 0, 0.2), 0 0 0 0 rgba(0, 0, 0, 0.19);
     height: auto;
     width: 100%;
     margin-bottom: 35px;
 }
 
 /* css per section carosello*/
-#about-carousel{
+#about-carousel {
     display: inline-flex;
     flex-wrap: wrap;
     flex-direction: row;
     align-items: center;
 }
-#carousel-outer-div{
+
+#carousel-outer-div {
     flex: 37%;
     padding: 5px 0;
     padding-left: 5px;
-    align-self:center;
+    align-self: center;
     flex-shrink: 0;
 }
-#carousel{
+
+#carousel {
     max-width: 50vw;
     min-width: none;
 }
 
-#about-text{
+#about-text {
     flex: 63%;
-    order:1;
+    order: 1;
     overflow-wrap: break-word;
     text-align: center;
     max-width: 50vw;
 }
+
 /* css per section review*/
-.review{ 
+.review {
     min-height: 300px;
-    height: auto;  
+    height: auto;
     display: flex;
     flex-wrap: wrap;
     flex-direction: row;
@@ -69,7 +72,7 @@
     justify-content: space-around;
 }
 
-.review-div{
+.review-div {
     min-width: 200px;
     height: auto;
     text-align: center;
@@ -78,20 +81,20 @@
     padding-right: 1%;
 }
 
-.img-stars{
-    max-width:150px;
-    max-height:100%;
+.img-stars {
+    max-width: 150px;
+    max-height: 100%;
     object-fit: contain;
-    align-items: end ;
+    align-items: end;
 }
 
-.p-signature{
+.p-signature {
     color: #838383;
     filter: invert(100%);
 }
 
 /* css per section shields*/
-.shields-section{
+.shields-section {
     height: fit-content;
     display: inline-flex;
     flex-direction: row;
@@ -102,7 +105,7 @@
     padding-bottom: 20px;
 }
 
-.shield-div{
+.shield-div {
     max-width: 512px;
     flex-shrink: 1;
     width: auto;
@@ -112,20 +115,21 @@
     align-self: center;
 }
 
-.h2-footer{
+.h2-footer {
     margin-bottom: 6%;
     margin-top: 3%;
     font-weight: bolder;
 }
 
-.h1-shield{
-    color:#3d26a8;
-}
-.h4-shield{
-    color:#91A826;
+.h1-shield {
+    color: #3d26a8;
 }
 
-.h2-abtxt{
+.h4-shield {
+    color: #91A826;
+}
+
+.h2-abtxt {
     color: #91A826;
     font-size: 2vw;
     text-transform: uppercase;
@@ -133,23 +137,26 @@
 }
 
 
-.h5-rev{
+.h5-rev {
     color: #A29F9D;
 }
-.p-rev{
+
+.p-rev {
     text-align: center;
-    color:#A29F9D;
+    color: #A29F9D;
     overflow: hidden;
 }
-.shield-img{
+
+.shield-img {
     width: 100%;
     max-width: 128px;
     height: auto;
-    
+
     opacity: 50%;
-    filter: invert(100%); 
+    filter: invert(100%);
 }
-.h4-abtxt{
+
+.h4-abtxt {
     color: #DADADA;
     font-size: 1vw;
 }

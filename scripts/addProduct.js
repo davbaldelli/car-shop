@@ -1,6 +1,6 @@
-import {getBrands} from "./loaders/brandsLoader.js";
 import {brandsToSelectOptions} from "./formatters/brandsFormatter.js";
-import {addCar} from "./loaders/carsLoader.js";
+import {getAllManufacturers} from "./store/brandsStore.js";
+import {insertCar} from "./store/carsStore.js";
 
 $(() => {
     $("#new-car-form").submit((evt) => {
@@ -12,38 +12,36 @@ $(() => {
                 id_brand: $("#brand-select").val(),
                 year: $("#year-input").val(),
                 image: $("#image-input").val(),
-                bhp : $("#bhp-input").val(),
+                bhp: $("#bhp-input").val(),
                 torque: $("#torque-input").val(),
                 weight: $("#weight-input").val(),
                 top_speed: $("#top-speed-input").val(),
-                transmission : $("#transmission-select").val(),
-                drivetrain : $("#drivetrain-select").val(),
-                car_type : $("#chassis-select").val(),
-                fuel_type : $("#engine-select").val(),
-                price : $("#price-input").val(),
-                doors : $("#doors-input").val(),
-                rating : $("#rating-input").val()
+                transmission: $("#transmission-select").val(),
+                drivetrain: $("#drivetrain-select").val(),
+                car_type: $("#chassis-select").val(),
+                fuel_type: $("#engine-select").val(),
+                price: $("#price-input").val(),
+                doors: $("#doors-input").val(),
+                rating: $("#rating-input").val()
             }
-            addCar("api/user/admin/addcar.php",{Token : user.token}, car, (data,_,xhr) => {})
-            handleErrorCarInsert ()
+            insertCar(car, handleSuccessCarInsert, handleErrorCarInsert)
         }
     })
-    getBrands("api/brands/all.php",{}, setBrandSelectOptions)
-
-
-
+    getAllManufacturers(setBrandSelectOptions)
 
 
 })
-function handleSuccessCarInsert (){
-    let goodModal = new bootstrap.Modal($("#confirmationModal"), {keyboard: true })
+
+function handleSuccessCarInsert() {
+    let goodModal = new bootstrap.Modal($("#confirmationModal"), {keyboard: true})
     goodModal.show()
 }
-function handleErrorCarInsert (){
+
+function handleErrorCarInsert() {
     let errorModal = new bootstrap.Modal($("#errorModal"), {keyboard: true})
     errorModal.show()
 }
 
-function setBrandSelectOptions(brands){
-    $("#brand-select").html(brandsToSelectOptions(brands).reduce((res,brand) => res + brand,""))
+function setBrandSelectOptions(brands) {
+    $("#brand-select").html(brandsToSelectOptions(brands).reduce((res, brand) => res + brand, ""))
 }

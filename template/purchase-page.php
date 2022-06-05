@@ -24,7 +24,8 @@
                     </div>
                     <div class="form-group">
                         <label for="administrativeAreaInput">State/Province/Region</label>
-                        <input class="form-control" type="text" id="administrativeAreaInput" placeholder="State/Province/Region"/>
+                        <input class="form-control" type="text" id="administrativeAreaInput"
+                               placeholder="State/Province/Region"/>
                     </div>
                     <div class="form-group">
                         <label for="localityInput">Locality</label>
@@ -52,7 +53,9 @@
             </div>
         </div>
         <div class="row">
-            <div class="col"><button id="purchaseBtn" class="btn btn-primary">Purchase</button></div>
+            <div class="col">
+                <button id="purchaseBtn" class="btn btn-primary">Purchase</button>
+            </div>
         </div>
     </div>
     <div class="col-3"></div>

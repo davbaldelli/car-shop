@@ -10,7 +10,7 @@ $token = getallheaders()["Token"];
 
 $payload = json_decode(getJWTPayload($token));
 
-if(is_jwt_valid($token)  && $payload->role === "admin"){
+if (is_jwt_valid($token) && $payload->role === "admin") {
     header('Content-Type: application/json; charset=utf-8');
     echo json_encode($repo->getAllOrders());
 } else {

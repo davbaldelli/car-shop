@@ -1,4 +1,4 @@
-import { initializeApp } from 'https://www.gstatic.com/firebasejs/9.8.2/firebase-app.js'
+import {initializeApp} from 'https://www.gstatic.com/firebasejs/9.8.2/firebase-app.js'
 import {getMessaging, getToken, onMessage} from 'https://www.gstatic.com/firebasejs/9.8.2/firebase-messaging.js'
 
 
@@ -17,7 +17,7 @@ const app = initializeApp(firebaseConfig);
 
 const messaging = getMessaging(app);
 
-getToken(messaging,{vapidKey: "BBldfwnUY4FU22KqNZd_Hfa3Q0kkR79_ir1QctW_wt6XMgkqpLuxtZqubNTi2BkwXf6decv5aZd5uIH-by3tOU4"})
+getToken(messaging, {vapidKey: "BBldfwnUY4FU22KqNZd_Hfa3Q0kkR79_ir1QctW_wt6XMgkqpLuxtZqubNTi2BkwXf6decv5aZd5uIH-by3tOU4"})
     .then((token) => {
         console.log(token)
     })

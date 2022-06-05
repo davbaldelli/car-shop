@@ -9,7 +9,7 @@ $role = $_POST["role"];
 $payload = json_decode(getJWTPayload($token));
 
 
-if(is_jwt_valid($token) && $payload->id == $user_id && $payload->role === $role){
+if (is_jwt_valid($token) && $payload->id == $user_id && $payload->role === $role) {
     http_response_code(200);
     echo "Verified";
 } else {

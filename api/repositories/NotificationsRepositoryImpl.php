@@ -1,9 +1,11 @@
 <?php
+
 class NotificationsRepositoryImpl implements NotificationsRepository
 {
     private mysqli $conn;
 
-    function __construct($conn){
+    function __construct($conn)
+    {
         $this->conn = $conn;
     }
 

@@ -13,9 +13,9 @@ $payload = json_decode(getJWTPayload($token));
 $userId = $_POST["userId"];
 $amount = $_POST["amount"];
 
-if(is_jwt_valid($token)  && ($payload->role === "admin" || $userId == $payload->id)) {
-    $res = $repo->rechargeWallet($userId,$amount);
-    if($res == "") {
+if (is_jwt_valid($token) && ($payload->role === "admin" || $userId == $payload->id)) {
+    $res = $repo->rechargeWallet($userId, $amount);
+    if ($res == "") {
         http_response_code(200);
         echo "recharged wallet";
     } else {
