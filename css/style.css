@@ -372,21 +372,4 @@ input:checked + .slider:before {
 }
 
 /*da spostare*/
-#ordersTabContent {
-    padding-left: 0;
-    margin-top: 10px;
-}
 
-#ordersTab {
-    margin-top: 15px;
-}
-
-#orderCarIcon {
-    width: 70px;
-    height: 39px;
-    object-fit: cover;
-}
-
-.label-form-addcar {
-    color: #fff;
-}

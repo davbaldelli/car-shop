@@ -9,6 +9,7 @@ export function ordersToUpdateCard(orders) {
 
 let orderMap = new Map([['taken_in_charge', "Taken in charge"], ["pending_payment_confirm", "Pending payment confirm"], ["delivering", "In transit"], ["delivered", "Your car has arrived"]])
 let statusMap = new Map([['taken_in_charge', "src_img/status_taken.png"], ["pending_payment_confirm", "src_img/status_base.png"], ["delivering", "src_img/status_delivering.png"], ["delivered", "src_img/status_done.png"]])
+let classesMap = new Map([['taken_in_charge', "taken"], ["pending_payment_confirm", "payment-pending"], ["delivering", "delivering"], ["delivered", "delivered"]])
 export function ordersToCard(orders) {
     console.log(orders)
     return orders.map(order => {
@@ -37,5 +38,51 @@ export function orderToInfoPanel(order) {
     let res = Array.from(statesLogMap).map(([key, value])=>{
         return `<div style="color : white">${key}-> ${value.timestamp} </div>`
     })
-    return res.reduce((res, item)=>res+item, `<img src="${statusMap.get(order.logs[order.logs.length-1].state)}"/> <div style="color : white">Ordern n. ${order.id} -> ${order.state}</div>`)
+    return res.reduce((res, item)=>res+item, `<img src="${statusMap.get(order.logs[order.logs.length-1].state)}"/> <div style="color : white">Order n. ${order.id} -> ${order.state}</div>`)
+}
+
+
+export function orderToInfoPanel2(order) {
+    console.log(order)
+    let statesLogMap = getOldestLogsPerState(order.logs)
+    let ordersHTML = Array.from(statesLogMap).map(([key, value])=>{
+        return `<div  id="${classesMap.get(key)}" class="status-detail-list" > <span>${orderMap.get(key)}</span><span>${value.timestamp}</span> </div>`
+    })
+    let  res = `
+            <div class="row " id="order-detail-header">
+                <div id="div-order-detail-car-img"><img id="order-detail-car-img" src="${order.image}"/></div>
+                <div id="order-number-header"><h4>Order n. ${order.id}  &nbsp &nbsp </h4> <h2>${order.product}</h2></div>
+            </div>
+            
+            
+            <div class="row order-row"  id="order-detail-content">
+                <div class="col-1" id="statusPoints"><img src="${statusMap.get(order.logs[order.logs.length-1].state)}"/></div>
+                <div class="col">${ordersHTML.reduce((res, item)=>res+item,"")}</div>
+            </div>
+            
+            
+            <div class="row order-row" id="order-detail-user">
+                <ol class="list-group" id="list-user-detail">
+                  <li class="list-group-item d-flex justify-content-between align-items-start user-detail">
+                    <div class="ms-2 me-auto">
+                      <div class="fw-bold">Costumer Name:</div>
+                      ${order.address.first_name} ${order.address.last_name}
+                    </div>              
+                  </li>
+                  <li class="list-group-item d-flex justify-content-between align-items-start user-detail">
+                    <div class="ms-2 me-auto">
+                      <div class="fw-bold">Shipping Address:</div>
+                      Area: ${order.address.administrative_area} &nbsp City: ${order.address.locality} &nbsp Address: ${order.address.address_line_1} ${order.address.address_line_2}
+                    </div>
+                  </li>
+                  <li class="list-group-item d-flex justify-content-between align-items-start user-detail">
+                    <div class="ms-2 me-auto">
+                      <div class="fw-bold">Price: </div>
+                      ${order.price}
+                    </div>
+                  </li>
+                </ol>
+            </div>`
+
+    return res
 }

@@ -1,4 +1,4 @@
-import {orderToInfoPanel} from "./formatters/orderFormatter.js";
+import {orderToInfoPanel2} from "./formatters/orderFormatter.js";
 import {getOrder} from "./store/ordersStore.js";
 
 $(() => {
@@ -12,5 +12,5 @@ $(() => {
 })
 
 function setInfoPanelContent(order) {
-    $("#orderInfoPanel").html(orderToInfoPanel(order))
+    $("#orderInfoPanel").html(orderToInfoPanel2(order))
 }
