@@ -1,8 +1,9 @@
-<div class="row">
-    <div class="col-3">
+<section class="row">
+    <div class="col-0 col-md-2"></div>
+    <div id="orderInfoPanel" class="col-12 col-md-8">
 
     </div>
-    <div id="orderInfoPanel" class="col-3">
+    <div class="col-0 col-md-2">
 
     </div>
-</div>
+</section>

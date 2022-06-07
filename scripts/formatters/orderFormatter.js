@@ -8,7 +8,7 @@ export function ordersToUpdateCard(orders) {
 }
 
 let orderMap = new Map([['taken_in_charge', "Taken in charge"], ["pending_payment_confirm", "Pending payment confirm"], ["delivering", "In transit"], ["delivered", "Your car has arrived"]])
-
+let statusMap = new Map([['taken_in_charge', "src_img/status_taken.png"], ["pending_payment_confirm", "src_img/status_base.png"], ["delivering", "src_img/status_delivering.png"], ["delivered", "src_img/status_done.png"]])
 export function ordersToCard(orders) {
     console.log(orders)
     return orders.map(order => {
@@ -32,9 +32,10 @@ export function ordersToCard(orders) {
 
 
 export function orderToInfoPanel(order) {
+    console.log(order.logs[order.logs.length-1])
     let statesLogMap = getOldestLogsPerState(order.logs)
     let res = Array.from(statesLogMap).map(([key, value])=>{
-        return `<div style="color : white">${key}-> ${value.timestamp}</div>`
+        return `<div style="color : white">${key}-> ${value.timestamp} </div>`
     })
-    return res.reduce((res, item)=>res+item, `<div style="color : white">Ordern n. ${order.id} -> ${order.state}</div>`)
+    return res.reduce((res, item)=>res+item, `<img src="${statusMap.get(order.logs[order.logs.length-1].state)}"/> <div style="color : white">Ordern n. ${order.id} -> ${order.state}</div>`)
 }
