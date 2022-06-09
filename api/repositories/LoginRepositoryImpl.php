@@ -25,7 +25,6 @@ class LoginRepositoryImpl implements LoginRepository
         $role = "base";
         $salt = $this->generateRandomString(30);
         $stmt->bind_param("sssiss", $username, $password, $salt, $length, $role, $salt);
-
         try {
             if ($stmt->execute()) {
                 $stmt = $this->conn->prepare("SELECT id,username, role, salt FROM users WHERE username = ? AND password = SHA2(CONCAT(?, salt),?)");

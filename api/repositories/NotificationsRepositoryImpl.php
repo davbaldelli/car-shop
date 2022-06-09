@@ -13,8 +13,12 @@ class NotificationsRepositoryImpl implements NotificationsRepository
     {
         $stmt = $this->conn->prepare("INSERT INTO users_notifications(id_user, title, description) VALUES (?, ?, ?)");
         $stmt->bind_param("iss", $notify->userId, $notify->title, $notify->description);
-        $stmt->execute();
-        return $stmt->error;
+        try {
+            $stmt->execute();
+        } catch (Exception $ex){
+            return $ex->getMessage();
+        }
+        return "";
     }
 
     function getUserNotifications($id_user): array

@@ -33,8 +33,12 @@ class OrdersRepositoryImpl implements OrdersRepository
     {
         $stmt = $this->conn->prepare("INSERT INTO orders(id_car,id_user,id_user_address,state, quantity) VALUES (?, ?, ?, ?, ?)");
         $stmt->bind_param("iiisi", $order->id_car, $order->id_user, $order->id_address, $order->state, $order->quantity);
-        $stmt->execute();
-        return $stmt->error;
+        try{
+            $stmt->execute();
+        }catch (Exception $ex){
+            return $ex->getMessage();
+        }
+        return "";
     }
 
     function getAllOrders(): array
