@@ -16,7 +16,7 @@ export function getAllCars(...handlers) {
     getCars("api/cars/all.php", {}, ...handlers)
 }
 
-export function insertCar(car, onError, onSuccess) {
+export function insertCar(car, onSuccess, onError) {
     let user = JSON.parse(localStorage.getItem("user"))
     addCar("api/user/admin/addcar.php", {Token: user.token}, car, onSuccess, onError)
 }

@@ -35,7 +35,7 @@ class LoginRepositoryImpl implements LoginRepository
             } else {
                 return null;
             }
-        } catch (exception $err) {
+        } catch (Exception $err) {
             return null;
         }
     }

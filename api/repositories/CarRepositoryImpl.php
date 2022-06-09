@@ -31,8 +31,12 @@ class CarRepositoryImpl implements CarRepository
             $car->car_type,
             $car->doors
         );
-        $stmt->execute();
-        return $stmt->error;
+        try {
+            $stmt->execute();
+        } catch (Exception $error){
+            return $error->getMessage();
+        }
+        return "";
     }
 
     function getAllCars(): array

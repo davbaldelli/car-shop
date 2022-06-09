@@ -1,4 +1,4 @@
-<div class="modal" id="confirmationModal" tabindex="-1">
+<div class="modal" id="successModal" tabindex="-1">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
@@ -120,7 +120,6 @@
             <button type="submit" class="btn btn-primary">Submit</button>
 
         </form>
-        <button id="provamodal" class="btn btn-primary">prova modal</button>
     </div>
     <div class="col-3"></div>
 </div>

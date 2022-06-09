@@ -33,7 +33,7 @@ $(() => {
 })
 
 function handleSuccessCarInsert() {
-    let goodModal = new bootstrap.Modal($("#confirmationModal"), {keyboard: true})
+    let goodModal = new bootstrap.Modal($("#successModal"), {keyboard: true})
     goodModal.show()
 }
 

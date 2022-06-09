@@ -9,6 +9,10 @@ const userDropdownActions = (user) => [
     {
         label: "My orders",
         link: `http://localhost/user-orders.php?userId=${user.userId}`
+    },
+    {
+        label: "Purchase",
+        link: `http://localhost/purchase.php`
     }
 ]
 const adminDropdownActions = [
@@ -127,6 +131,7 @@ function unlockUserFeatures(user, features) {
 function removeUser() {
     localStorage.removeItem("user")
     location.href = "index.php"
+    localStorage.removeItem("cart")
 }
 
 function saveUser(username, id, role, token) {

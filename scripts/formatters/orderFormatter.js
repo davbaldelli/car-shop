@@ -33,6 +33,7 @@ export function ordersToCard(orders) {
 
 export function orderToInfoPanel(order) {
     let statesLogMap = getOldestLogsPerState(order.logs)
+    console.log(statesLogMap)
     return `<div style="color : white">Ordern n. ${order.id} -> ${order.state}</div>
             <div style="color : white">ordered at -> ${statesLogMap.get("pending_payment_confirm").timestamp}</div>
             <div style="color : white">taken in charge at -> ${statesLogMap.get("taken_in_charge").timestamp}</div>

@@ -25,7 +25,11 @@ class AddressesRepositoryImpl implements AddressesRepository
         $stmt->bind_param("iisssssss", $address->id_user, $address->id_country, $address->first_name,
             $address->last_name, $address->administrative_area, $address->locality, $address->postal_code,
             $address->address_line_1, $address->address_line_2);
-        $stmt->execute();
-        return $stmt->error;
+        try {
+            $stmt->execute();
+        } catch (Exception $ex){
+            return $ex->getMessage();
+        }
+        return "";
     }
 }

@@ -1,5 +1,5 @@
 import {carToInfoPanel} from "./formatters/carFormatter.js";
-import {addProductToCart, getCart} from "./utilities/cartManager.js";
+import {addProductToCart} from "./utilities/cartManager.js";
 import {getCarById} from "./store/carsStore.js";
 
 
@@ -12,10 +12,14 @@ $(() => {
 function setCarInfoPanel(car) {
     $("#mainPanel").html(carToInfoPanel(car))
     $("#buyBtn").click(() => {
-        addProductToCart(car, 1)
+        onAddProductToCart(car)
     })
     $("#addToCartBtn").click(() => {
-        addProductToCart(car, 1)
-        console.log(getCart())
+        onAddProductToCart(car)
     })
+}
+
+function onAddProductToCart(car){
+    //TODO Open confirm modal
+    addProductToCart(car, 1)
 }
