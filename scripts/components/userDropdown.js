@@ -1,6 +1,6 @@
 export function generateUserDropdown(containerId, user, elements, onLogout) {
     $(`#${containerId}`).html(`
-        <div class="btn-group">
+        <div class="dropdown">
             <a class="nav-link dropdown-toggle" id="navbarNavDarkDropdown" role="button" data-bs-toggle="dropdown"
                  aria-expanded="false">${user.username}
             </a>

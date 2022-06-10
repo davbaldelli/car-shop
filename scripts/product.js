@@ -16,6 +16,5 @@ function setCarInfoPanel(car) {
     })
     $("#addToCartBtn").click(() => {
         addProductToCart(car, 1)
-        console.log(getCart())
     })
 }

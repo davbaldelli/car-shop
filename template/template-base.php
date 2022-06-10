@@ -31,6 +31,8 @@
     endif;
     ?>
     <script src="/scripts/login.js" type="module"></script>
+    <script src="/scripts/notifications.js" type="module"></script>
+    <script src="/scripts/cart.js" type="module"></script>
 </head>
 <body class="container-fluid">
 <?php

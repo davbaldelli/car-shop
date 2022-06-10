@@ -1,6 +1,5 @@
 import {generateUserDropdown} from "./components/userDropdown.js";
 import {login, signup} from "./store/userStore.js";
-import {setNotification} from "./notifications.js";
 
 const userDropdownActions = (user) => [
     {
@@ -10,6 +9,10 @@ const userDropdownActions = (user) => [
     {
         label: "My orders",
         link: `http://localhost/user-orders.php?userId=${user.userId}`
+    },
+    {
+        label: "Purchase",
+        link: `http://localhost/purchase.php`
     }
 ]
 const adminDropdownActions = [
@@ -110,6 +113,7 @@ function onLoginSuccess(user) {
     let toastLive = $("#loginToast")
     let toast = new bootstrap.Toast(toastLive)
     toast.show()
+    $(document).trigger("login")
 }
 
 function onLoginFailure() {
@@ -124,7 +128,6 @@ function unlockUserFeatures(user, features) {
     $("#nav-login").toggleClass("item-hidden")
     $("#navNotification").toggleClass("item-hidden")
     generateUserDropdown("content-user-feature", user, features, removeUser)
-    setNotification()
 }
 
 function removeUser() {

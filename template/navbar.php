@@ -19,11 +19,11 @@
                 </li>
             </ul>
             <ul class="navbar-nav ms-auto w-100 justify-content-end">
+                <li class="nav-item" id="cart-dropdown-container"></li>
                 <li class="nav-item" id="notify-dropdown-container"></li>
                 <li class="nav-item"><span class="navbar-text" id="nav-login"><a class=" nav-link login" id="login-dropdown" href="#">Login</a></span></li>
                 <li class="nav-item" id="content-user-feature"></li>
             </ul>
-
         </div>
     </div>
 </nav>
