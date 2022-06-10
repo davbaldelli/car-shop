@@ -1,5 +1,6 @@
 import {generateUserDropdown} from "./components/userDropdown.js";
 import {login, signup} from "./store/userStore.js";
+import {setNotification} from "./notifications.js";
 
 const userDropdownActions = (user) => [
     {
@@ -120,8 +121,10 @@ function onSigningFailure() {
 }
 
 function unlockUserFeatures(user, features) {
-    $(".nav-login").toggleClass("a-login-hidden")
-    generateUserDropdown("user-feature", user, features, removeUser)
+    $("#nav-login").toggleClass("item-hidden")
+    $("#navNotification").toggleClass("item-hidden")
+    generateUserDropdown("content-user-feature", user, features, removeUser)
+    setNotification()
 }
 
 function removeUser() {
