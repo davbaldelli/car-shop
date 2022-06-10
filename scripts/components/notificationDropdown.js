@@ -1,9 +1,12 @@
 function createNotificationDropdown(label, content) {
     return `<div class="dropdown">
-                <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger" id="notificationCounter">99+
+                <span class="visually-hidden">unread messages</span>
+                </span>
+                <a class="nav-link dropdown-toggle" id="dropdownMenuButton1" data-bs-toggle="dropdown" role="button" aria-expanded="false">
                     ${label}
-                </button>
-                <ul class="dropdown-menu" aria-labelledby="notify dropdown menu">
+                </a>
+                <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="notify dropdown menu">
                     ${content}
                 </ul>
             </div>`
@@ -23,9 +26,9 @@ function createDropdownList(items) {
     }, "")
 }
 
-export function generateNotifyDropdown(divName, dropdownLabel, items, onSelected = () => {
-}) {
+export function generateNotifyDropdown(divName, dropdownLabel, items, onSelected = () => {}) {
     $(`#${divName}`).html(createNotificationDropdown(dropdownLabel, createDropdownList(items)))
+    $('#notificationCounter').html(items.length)
     $(".dropdown-item").click(event => {
         onSelected(event.currentTarget.dataset.key)
     })

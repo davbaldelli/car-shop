@@ -38,6 +38,7 @@ $(() => {
                 }
                 insertOrder(order, () => onNewOrderSuccess(item))
             }
+
         )
     })
 
