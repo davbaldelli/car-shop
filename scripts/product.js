@@ -15,7 +15,7 @@ function setCarInfoPanel(car) {
         onAddProductToCart(car)
     })
     $("#addToCartBtn").click(() => {
-        onAddProductToCart(car)
+        addProductToCart(car, 1)
     })
 }
 

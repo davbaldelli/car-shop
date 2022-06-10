@@ -1,9 +1,9 @@
 function createCartDropdown(label, content) {
     return `<div class="dropdown">
-                <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                <a class="nav-link dropdown-toggle" type="button" id="cartDropdownBtn" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                     ${label}
-                </button>
-                <ul class="dropdown-menu" aria-labelledby="notify dropdown menu">
+                </a>
+                <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="notify dropdown menu">
                     ${content}
                 </ul>
             </div>`

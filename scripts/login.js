@@ -113,6 +113,7 @@ function onLoginSuccess(user) {
     let toastLive = $("#loginToast")
     let toast = new bootstrap.Toast(toastLive)
     toast.show()
+    $(document).trigger("login")
 }
 
 function onLoginFailure() {
@@ -124,8 +125,9 @@ function onSigningFailure() {
 }
 
 function unlockUserFeatures(user, features) {
-    $(".nav-login").toggleClass("a-login-hidden")
-    generateUserDropdown("user-feature", user, features, removeUser)
+    $("#nav-login").toggleClass("item-hidden")
+    $("#navNotification").toggleClass("item-hidden")
+    generateUserDropdown("content-user-feature", user, features, removeUser)
 }
 
 function removeUser() {

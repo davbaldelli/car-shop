@@ -1,0 +1,80 @@
+#ordersTabContent {
+    padding-left: 0;
+    margin-top: 10px;
+}
+
+#ordersTab {
+    margin-top: 15px;
+}
+
+#orderCarIcon {
+    width: 70px;
+    height: 39px;
+    object-fit: cover;
+}
+
+.label-form-addcar {
+    color: #fff;
+}
+.order-row{
+    padding-left: 3vw;
+}
+#statusPoints{
+    max-width: fit-content;
+    padding: 0;
+}
+
+.status-detail-list{
+
+    color: white;
+    max-height: 50px;
+    height: 100%;
+    margin-top: 5px;
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    max-width: 40%;
+}
+#order-detail-car-img{
+    max-width: 250px;
+    border-radius: 9px;
+}
+#order-detail-header{
+    margin-top: 15px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    display: inline-flex;
+    flex-flow: row;
+    width: 100%;
+    align-items: center;
+    background-color: #2A2A2A;
+    box-shadow: 0 0px 5px 0 rgba(61, 38, 168, 0.2)
+}
+#div-order-detail-car-img{
+    max-width: 20.5%;
+    padding-right: 0;
+}
+#order-number-header{
+    color:white;
+    display: inline-flex;
+    justify-content: center;
+    align-items: baseline;
+    max-width: 75%;
+}
+#order-detail-content{
+    margin-top: 50px;
+}
+
+#order-detail-user{
+    margin-top:50px;
+    margin-bottom: 100px;
+}
+#list-user-detail{
+    width: 50%;
+}
+.user-detail{
+    background-color: #1E1E1E;
+    color: white;
+    border: 1px solid rgba(68,68,68,.7)
+}
