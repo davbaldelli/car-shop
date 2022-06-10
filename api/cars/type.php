@@ -1,11 +1,15 @@
 <?php
 require_once "../repositories/RepositoriesFactory.php";
 
-header('Content-Type: application/json; charset=utf-8');
+if(!isset($_GET['type_name'])){
+    die("'type_name' param missing");
+}
+
+$type = $_GET['type_name'];
 
 $repo = RepositoriesFactory::GetCarsRepository();
 
-$type = $_GET['name'];
+header('Content-Type: application/json; charset=utf-8');
 
 $result = $repo->getCarsByType($type);
 

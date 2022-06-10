@@ -72,3 +72,16 @@ export function rechargeWallet(url, headers = {}, data, onSuccess, onError) {
         }
     })
 }
+
+export function checkCredit(url, headers = {}, data, onSuccess, onError) {
+    $.ajax({
+        type: 'POST',
+        url: url,
+        data: data,
+        headers: headers,
+        success: onSuccess,
+        statusCode: {
+            500: onError
+        }
+    })
+}

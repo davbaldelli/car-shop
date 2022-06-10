@@ -1,14 +1,16 @@
 <?php
 require_once "../repositories/RepositoriesFactory.php";
 
-header('Content-Type: application/json; charset=utf-8');
-header("Access-Control-Allow-Origin: localhost");
-header('Access-Control-Allow-Methods: GET, POST, PUT, DELETE, OPTIONS');
-header('Access-Control-Allow-Headers: X-Requested-With, Content-Type, Accept');
+if(!isset($_GET['id'])){
+    http_response_code(500);
+    die("'id' param missing");
+}
+
+$id = $_GET['id'];
 
 $repo = RepositoriesFactory::GetCarsRepository();
 
-$id = $_GET['id'];
+header('Content-Type: application/json; charset=utf-8');
 
 $result = $repo->getCarById($id);
 

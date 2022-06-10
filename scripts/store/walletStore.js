@@ -1,4 +1,4 @@
-import {makePayment, rechargeWallet} from "../loaders/userLoader.js";
+import {checkCredit, makePayment, rechargeWallet} from "../loaders/userLoader.js";
 
 export function payProduct(product, quantity, onSuccess, onFailure){
     let user = JSON.parse(localStorage.getItem("user"))
@@ -13,5 +13,13 @@ export function putAmountInWallet(amount, onSuccess, onFailure = () => {}){
     rechargeWallet("api/user/payments/rechargewallet.php", {Token: user.token}, {
         userId: user.userId,
         amount
+    }, onSuccess, onFailure)
+}
+
+export function checkEnoughCredit(amount, onSuccess, onFailure = () => {}){
+    let user = JSON.parse(localStorage.getItem("user"))
+    checkCredit("api/user/payments/checkcredit.php",{Token: user.token}, {
+        userId: user.userId,
+            amount
     }, onSuccess, onFailure)
 }

@@ -28,11 +28,20 @@ class PaymentsRepositoryImpl implements PaymentsRepository
         return false;
     }
 
-    function rechargeWallet($ud_user, $amount): string
+    function rechargeWallet($id_user, $amount): string
     {
-        $stmt = $this->conn->prepare("UPDATE users SET credit = (credit + ?)");
-        $stmt->bind_param("i", $amount);
+        $stmt = $this->conn->prepare("UPDATE users SET credit = (credit + ?) WHERE id = ?");
+        $stmt->bind_param("ii", $amount, $id_user);
         $stmt->execute();
         return $stmt->error;
+    }
+
+    function checkEnoughCredit($id_user, $amount): bool
+    {
+        $stmt = $this->conn->prepare("SELECT credit FROM users WHERE id = ?");
+        $stmt->bind_param("i", $id_user);
+        $stmt->execute();
+        $res = $stmt->get_result()->fetch_all(MYSQLI_ASSOC);
+        return $res[0]["credit"] >= $amount;
     }
 }

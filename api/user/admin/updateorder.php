@@ -4,7 +4,15 @@ require_once "../utilities/jwt_token.php";
 
 header('Content-Type:text/plain; charset=utf-8');
 
-$repo = RepositoriesFactory::GetOrdersRepository();
+if(!isset(getallheaders()["Token"])){
+    http_response_code(401);
+    die("Missing 'Token' header");
+}
+
+if(!isset($_POST["id"], $_POST["state"])){
+    http_response_code(500);
+    die("'id' 'state' params required");
+}
 
 $token = getallheaders()["Token"];
 
@@ -12,6 +20,8 @@ $payload = json_decode(getJWTPayload($token));
 
 $id = $_POST["id"];
 $state = $_POST["state"];
+
+$repo = RepositoriesFactory::GetOrdersRepository();
 
 if (is_jwt_valid($token) && $payload->role === "admin") {
     $res = $repo->updateOrder($id, $state);
@@ -24,7 +34,7 @@ if (is_jwt_valid($token) && $payload->role === "admin") {
         echo "Order update failed";
     }
 } else {
-    http_response_code(401);
+    http_response_code(403);
     echo "Not Authorized";
 }
 

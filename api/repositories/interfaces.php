@@ -69,5 +69,7 @@ interface PaymentsRepository
 {
     function makePayment($id_user, $amount): string;
 
-    function rechargeWallet($ud_user, $amount): string;
+    function rechargeWallet($id_user, $amount): string;
+
+    function checkEnoughCredit($id_user, $amount) : bool;
 }

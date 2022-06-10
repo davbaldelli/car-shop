@@ -19,5 +19,3 @@ if ($user != null) {
     http_response_code(401);
     echo "username already taken";
 }
-
-exit;

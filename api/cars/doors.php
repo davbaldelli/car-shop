@@ -1,12 +1,15 @@
 <?php
 require_once "../repositories/RepositoriesFactory.php";
 
-header('Content-Type: application/json; charset=utf-8');
-
-$repo = RepositoriesFactory::GetCarsRepository();
+if(!isset($_GET['number'])){
+    http_response_code(500);
+    die("'number' param missing");
+}
 
 $n = $_GET['number'];
 
-$result = $repo->getCarsByDoors($n);
+$repo = RepositoriesFactory::GetCarsRepository();
 
+header('Content-Type: application/json; charset=utf-8');
+$result = $repo->getCarsByDoors($n);
 echo json_encode($result);

@@ -5,7 +5,7 @@ import {nationsToSelectElements} from "./formatters/nationsFormatter.js";
 import {getAllNations} from "./store/nationsStore.js";
 import {insertOrder} from "./store/ordersStore.js";
 import {addUserAddress, getUserAddresses} from "./store/userStore.js";
-import {payProduct, putAmountInWallet} from "./store/walletStore.js";
+import {checkEnoughCredit, payProduct, putAmountInWallet} from "./store/walletStore.js";
 
 $(() => {
     let user = JSON.parse(localStorage.getItem("user"))
@@ -30,14 +30,17 @@ $(() => {
     $("#purchaseBtn").click(() => {
         let address = parseInt($("input[name='delivering-address']:checked").val());
         getCart().products.forEach(item => {
-                let order = {
-                    id_user: user.userId,
-                    id_car: item.product.id,
-                    state: "pending_payment_confirm",
-                    quantity: item.quantity,
-                    id_address: address
-                }
-                insertOrder(order, () => onNewOrderSuccess(item))
+                checkEnoughCredit(item.product.price * item.quantity, () => {
+                    let order = {
+                        id_user: user.userId,
+                        id_car: item.product.id,
+                        state: "pending_payment_confirm",
+                        quantity: item.quantity,
+                        id_address: address
+                    }
+                    insertOrder(order, () => onNewOrderSuccess(item))
+                }, onNotEnoughCredit)
+
             }
         )
     })
@@ -72,6 +75,10 @@ function onPaymentConfirm() {
 
 function onPaymentError() {
     //TODO Show payment error
+}
+
+function onNotEnoughCredit(){
+    //TODO Show not enough credit
 }
 
 function setupProductList(products) {

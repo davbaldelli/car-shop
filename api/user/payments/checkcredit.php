@@ -1,6 +1,6 @@
 <?php
-require_once "../../repositories/RepositoriesFactory.php";
 require_once "../utilities/jwt_token.php";
+require_once "../../repositories/RepositoriesFactory.php";
 
 header('Content-Type:text/plain; charset=utf-8');
 
@@ -9,24 +9,28 @@ if(!isset(getallheaders()["Token"])){
     die("Missing 'Token' header");
 }
 
-if(!isset($_GET["userId"])){
+if(!isset($_POST["userId"], $_POST["amount"])){
     http_response_code(500);
-    die("'userId' param missing");
+    die("'userId' 'amount' params required");
 }
 
 $token = getallheaders()["Token"];
 
 $payload = json_decode(getJWTPayload($token));
 
-$userId = $_GET["userId"];
+$userId = $_POST["userId"];
+$amount = $_POST["amount"];
 
-$repo = RepositoriesFactory::GetAddressesRepository();
+$repo = RepositoriesFactory::GetPaymentsRepository();
 
 if (is_jwt_valid($token) && ($payload->role === "admin" || $userId == $payload->id)) {
-    http_response_code(200);
-    header('Content-Type: application/json; charset=utf-8');
-    $res = $repo->getUserAddresses($userId);
-    echo json_encode($res);
+    if ($repo->checkEnoughCredit($userId, $amount)) {
+        http_response_code(200);
+        echo "enough credit";
+    } else {
+        http_response_code(500);
+        echo "not enough credit";
+    }
 } else {
     http_response_code(403);
     echo "You're not allowed";
