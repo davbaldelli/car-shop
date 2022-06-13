@@ -7,7 +7,12 @@ import {insertOrder} from "./store/ordersStore.js";
 import {addUserAddress, getUserAddresses} from "./store/userStore.js";
 import {checkEnoughCredit, payProduct, putAmountInWallet} from "./store/walletStore.js";
 
+let newAddressModal = new bootstrap.Modal($(".addNewAddressModal"), {
+    keyboard: false
+})
+
 $(() => {
+
     let user = JSON.parse(localStorage.getItem("user"))
     setupProductList(getCart().products)
     getUserAddresses(setupAddressesList)
@@ -59,7 +64,8 @@ function onRechargeSuccess() {
 }
 
 function onInsertAddressSuccess(){
-    //TODO Show address insert success
+    getUserAddresses(setupAddressesList)
+    newAddressModal.toggle()
 }
 
 function onInsertAddressError(){
