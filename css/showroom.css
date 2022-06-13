@@ -148,8 +148,7 @@ div.dropdown-multicol > div.dropdown-col {
     justify-content: space-around;
 }
 
-#dropdownMenuButton {
+.filter-dropdown-btn {
     background-color: #3D26A8;
     color: white;
-
 }

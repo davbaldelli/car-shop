@@ -13,11 +13,12 @@ class Db
         $dbCred = json_decode($dbCredFile, true);
 
         mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT);
-        $this->conn = new mysqli($dbCred["host"], $dbCred["username"], $dbCred["password"], $dbCred["db"]);
-
-        // Check connection
-        if ($this->conn->connect_error) {
-            die("Connection failed: " . $this->conn->connect_error);
+        try {
+            $this->conn = new mysqli($dbCred["host"], $dbCred["username"], $dbCred["password"], $dbCred["db"]);
+        } catch (Exception $e){
+            header('Content-Type:text/plain; charset=utf-8');
+            http_response_code(500);
+            die("MYSqlI connection error: ".$e->getMessage());
         }
     }
 

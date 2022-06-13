@@ -1,28 +1,42 @@
-//prende in input il nome del bottone e restituisce l'html 
-function createDropdownBtn(label, items) {
-    let list = createDropdownListContent(items)
-    return `<div class="dropdown" id="dropdown-me">
-                <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    ${label}
+export class SingleSelectionDropdown{
+
+    #lastSelected = ""
+    #id;
+    #label;
+    #container;
+    #items;
+    #onSelectedItem;
+
+    constructor(uniqueId, container, label, items, onSelectedItem = () => {}) {
+        this.#id = uniqueId
+        this.#container = container
+        this.#label = label
+        this.#items = items
+        this.#onSelectedItem = onSelectedItem
+    }
+
+    generateDropdown() {
+        this.#container.html(this.#createDropdownBtn())
+        $(`.single-select-dropdown-${this.#id}-elem`).click(event => {
+            this.#onSelectedItem(event.currentTarget.dataset.key, this.#lastSelected)
+            this.#lastSelected = event.currentTarget.dataset.key
+        })
+    }
+
+    #createDropdownBtn() {
+        let list = this.#createDropdownListContent()
+        return `<div class="dropdown sigle-selection-dropdown-${this.#id}" id="dropdown-me">
+                <button class="btn btn-secondary dropdown-toggle filter-dropdown-btn" type="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    ${this.#label}
                 </button>
-                <ul class="dropdown-menu " aria-labelledby="dropdownMenuButton">
+                <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                     ${list}
                 </div>
             </div>
             `
-}
+    }
 
-//prende l' array di creaDropdownItems e il numero di colonne retituendo l'html
-function createDropdownListContent(items) {
-    return items.reduce((r, item) => r + `<li class="dropdown-item" data-key="${item.value}">${item.name}</li>`, "")
-}
-
-
-export function generateSingleSelectionDropdown(divName, dropdownLabel, items, onSelected = () => {
-}, onUnselected = () => {
-}) {
-    $(`#${divName}`).html(createDropdownBtn(dropdownLabel, items))
-    $(".dropdown-item").click(event => {
-        onSelected(event.currentTarget.dataset.key)
-    })
+    #createDropdownListContent() {
+        return this.#items.reduce((r, item) => r + `<li class="dropdown-item single-select-dropdown-${this.#id}-elem" data-key="${item.value}">${item.name}</li>`, "")
+    }
 }

@@ -12,10 +12,7 @@
                        href="index.php">Home</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link <?php isActive("showroom.php", "active"); ?>" href="showroom.php">Showroom</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link <?php isActive("contacts.php", "active"); ?>" href="contacts.php">Contacts</a>
+                    <a class="nav-link <?php isActive("brands-showroom.php", "active"); ?>" href="brands-showroom.php">Showroom</a>
                 </li>
             </ul>
             <ul class="navbar-nav ms-auto w-100 justify-content-end">
