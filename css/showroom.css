@@ -152,3 +152,7 @@ div.dropdown-multicol > div.dropdown-col {
     background-color: #3D26A8;
     color: white;
 }
+
+.img-brand-logo{
+    max-height: 200px;
+}

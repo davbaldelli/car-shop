@@ -1,6 +1,16 @@
 <div class="col-0 col-md-2">
 </div>
 <div class="col-12 col-md-8">
+    <div class="row">
+        <div class="col">
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="brands-showroom.php">Cars</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">All</li>
+                </ol>
+            </nav>
+        </div>
+    </div>
     <div class="row p-3">
         <div class="col text-white text-center">
             <h1 class="display-2 mb-1">Showroom</h1>
@@ -21,6 +31,9 @@
         </div>
         <div class="col-1">
             <div id="chassisDropdown" class="div-dropDown"></div>
+        </div>
+        <div class="col-1">
+            <div id="fuelTypeDropdown" class="div-dropDown"></div>
         </div>
     </div>
     <div class="row">

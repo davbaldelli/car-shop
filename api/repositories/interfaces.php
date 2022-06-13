@@ -37,6 +37,7 @@ interface OrdersRepository
 interface ManufacturersRepository
 {
     function getAllBrands(): array;
+    function getManufacturerByName($name);
 }
 
 interface LoginRepository

@@ -3,6 +3,18 @@
     </div>
     <div class="col-12 col-md-8">
         <div class="row">
+            <div class="col">
+                <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="brands-showroom.php">Cars</a></li>
+                        <li id="breadcrumb-brand-name" class="breadcrumb-item" aria-current="page"></li>
+                        <li id="breadcrumb-car-model" class="breadcrumb-item active" aria-current="page"></li>
+                        <li id="breadcrumb-car-year" class="breadcrumb-item active" aria-current="page"></li>
+                    </ol>
+                </nav>
+            </div>
+        </div>
+        <div class="row">
             <div class="row" id="mainPanel">
             </div>
         </div>

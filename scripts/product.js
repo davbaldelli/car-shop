@@ -17,6 +17,9 @@ function setCarInfoPanel(car) {
     $("#addToCartBtn").click(() => {
         addProductToCart(car, 1)
     })
+    $("#breadcrumb-brand-name").html(`<a href="brand.php?name=${car.brand}">${car.brand}</a>`)
+    $("#breadcrumb-car-model").html(car.model)
+    $("#breadcrumb-car-year").html(car.year)
 }
 
 function onAddProductToCart(car){

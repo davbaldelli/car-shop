@@ -2,7 +2,7 @@
 
 $name = $_GET["name"];
 $templateParams["title"] = $name;
-$templateParams["page"] = "car-grid.php";
+$templateParams["page"] = "brand-page.php";
 $templateParams["navbar"] = "navbar.php";
 $templateParams["footer"] = "footer.php";
 $templateParams["loginform"] = "login-form.php";

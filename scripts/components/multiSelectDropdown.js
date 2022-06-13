@@ -52,8 +52,7 @@ export class MultiSelectDropdown {
                 <div class="dropdown-menu dropdown-multicol" aria-labelledby="dropdownMenuButton">
                     ${grid}
                 </div>
-            </div>
-            `
+            </div>`
     }
 
      #createDropdownGridContent(htmlElems) {
