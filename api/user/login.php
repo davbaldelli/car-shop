@@ -2,7 +2,7 @@
 require_once "../repositories/RepositoriesFactory.php";
 require_once "utilities/jwt_token.php";
 
-$repo = RepositoriesFactory::GetLoginRepository();
+$repo = RepositoriesFactory::GetUserRepository();
 
 $username = $_POST["username"];
 $password = $_POST["password"];

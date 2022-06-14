@@ -1,6 +1,6 @@
 <?php
 
-class LoginRepositoryImpl implements LoginRepository
+class UserRepositoryImpl implements UserRepository
 {
     private mysqli $conn;
 
@@ -48,5 +48,18 @@ class LoginRepositoryImpl implements LoginRepository
             $randomString .= $characters[rand(0, $charactersLength - 1)];
         }
         return $randomString;
+    }
+
+    function getUserInfo($id_user): array
+    {
+        $stmt = $this->conn->prepare("SELECT id, username, role, credit FROM users WHERE id = ?");
+        $stmt->bind_param("i",$id_user);
+        $stmt->execute();
+        $user = $stmt->get_result()->fetch_all(MYSQLI_ASSOC)[0];
+        $stmt = $this->conn->prepare("SELECT * FROM users_delivering_addresses WHERE id_user = ?");
+        $stmt->bind_param("i",$id_user);
+        $stmt->execute();
+        $addresses = array("addresses" => $stmt->get_result()->fetch_all(MYSQLI_ASSOC));
+        return array_merge($user, $addresses);
     }
 }

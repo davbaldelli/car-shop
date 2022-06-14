@@ -1,6 +1,7 @@
 import {generateNotifyDropdown} from "./components/notificationDropdown.js";
 import {generateCartDropdown} from "./components/cartDropdown.js";
 import {getAllUserNotifications} from "./store/notificationsStore.js";
+import {getUserInfo} from "./store/userStore.js";
 
 
 $(() => {
@@ -14,6 +15,7 @@ $(() => {
     if (cart) {
         generateCartDropdown("cartDropdownContainer", "My Cart", cart.products, console.log, removeElementFromCart)
     }
+    getUserInfo(console.log)
 })
 
 function removeElementFromCart(index) {

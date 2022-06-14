@@ -7,7 +7,7 @@ include_once "ManufacturersRepositoryImpl.php";
 include_once "NationsRepositoryImpl.php";
 include_once "AddressesRepositoryImpl.php";
 include_once "NotificationsRepositoryImpl.php";
-include_once "LoginRepositoryImpl.php";
+include_once "UserRepositoryImpl.php";
 include_once "PaymentsRepositoryImpl.php";
 
 spl_autoload_register(function ($name) {
@@ -52,10 +52,10 @@ class RepositoriesFactory
         return new NotificationsRepositoryImpl($db->getConnection());
     }
 
-    public static function GetLoginRepository(): LoginRepository
+    public static function GetUserRepository(): UserRepository
     {
         $db = new Db();
-        return new LoginRepositoryImpl($db->getConnection());
+        return new UserRepositoryImpl($db->getConnection());
     }
 
     public static function GetPaymentsRepository(): PaymentsRepository

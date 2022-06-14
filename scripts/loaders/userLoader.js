@@ -19,6 +19,20 @@ export function userAuth(url, headers, data, onSuccess, onFail) {
     })
 }
 
+export function getUser(url, headers, data, ...handlers){
+    $.ajax({
+        type: 'GET',
+        url: url,
+        data: data,
+        headers: headers,
+        success: res => {
+            if (handlers) {
+                handlers.forEach(h => h(res))
+            }
+        }
+    })
+}
+
 export function getUserDeliveringAddresses(url, headers, data, ...handlers) {
     $.ajax({
         type: 'GET',

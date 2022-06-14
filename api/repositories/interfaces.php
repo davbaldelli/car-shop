@@ -40,11 +40,13 @@ interface ManufacturersRepository
     function getManufacturerByName($name);
 }
 
-interface LoginRepository
+interface UserRepository
 {
     function login($username, $password): ?array;
 
     function signIn($username, $password): ?array;
+
+    function getUserInfo($id_user) : array;
 }
 
 interface NotificationsRepository
