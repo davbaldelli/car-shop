@@ -1,19 +1,24 @@
-import {carsToCards} from "./formatters/carFormatter.js";
 import {brandsToCards} from "./formatters/brandsFormatter.js";
 import {generateBrandGrid} from "./composers/brandComposer.js";
-import {generateCarGrid} from "./composers/carComposer.js";
 import {getAllManufacturers} from "./store/brandsStore.js";
+import {filterByName} from "./utilities/brandFilters.js";
+
+let nameFilter = it => it;
 
 $(() => {
     getAllManufacturers(setBrandGridContent)
+    $("#brand-name-searchbar").on("input",function(){
+        if($(this).val() !== ""){
+            nameFilter = filterByName($(this).val())
+        } else {
+            nameFilter = it => it
+        }
+        setBrandGridContentWithFilter()
+    })
 })
 
-function setCarGridContent(cars) {
-    $("#mainGrid").html(carsToCards(cars).reduce(generateCarGrid, ""))
-    let filtersRow = $("#filters-row")
-    filtersRow.addClass("d-flex")
-    filtersRow.removeClass("d-none")
-    $("#all-cars-btn").addClass("d-none")
+function setBrandGridContentWithFilter() {
+    getAllManufacturers(brands => setBrandGridContent(nameFilter(brands)))
 }
 
 function setBrandGridContent(brands) {

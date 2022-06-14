@@ -18,6 +18,11 @@
     justify-content: center;
     box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.014);
     transition: all 200ms ease-out;
+    background-color: rgba(128, 128, 128, 0.123);
+}
+
+.card-brand:hover{
+    box-shadow: 0 0 12px 2px rgba(145, 168, 38, 0.5);
 }
 
 .card-img-top {
@@ -114,14 +119,6 @@ div.dropdown-multicol > div.dropdown-col {
     display: flex;
     flex-direction: row;
     justify-content: flex-start;
-}
-
-#cardBrandContent {
-    background-color: rgba(128, 128, 128, 0.123);
-}
-
-#cardBrandContent:hover {
-    box-shadow: 0 0 12px 2px rgba(145, 168, 38, 0.5);
 }
 
 .card-title {

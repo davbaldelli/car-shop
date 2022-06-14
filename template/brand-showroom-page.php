@@ -9,6 +9,14 @@
     </div>
     <div class="row p-3">
         <div class="col">
+            <div class="input-group mb-3">
+                <input id="brand-name-searchbar" type="text" class="form-control" placeholder="Search Car Name" aria-label="Search Car Name" aria-describedby="button-addon">
+                <span class="input-group-text" id="button-addon">Search</span>
+            </div>
+        </div>
+    </div>
+    <div class="row p-3">
+        <div class="col">
             <a id="all-cars-btn" href="cars-showroom.php">See all cars</a>
         </div>
     </div>
