@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <meta name="referrer" content="origin">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
     <link href="/css/style.css" rel="stylesheet">
     <?php if (isset($templateParams["page-name"])): ?>
         <meta name="page-name" content="<?php echo $templateParams["page-name"]; ?>"/>
@@ -47,9 +49,7 @@ endif;
     ?>
 </header>
 <main class="row">
-    <div id="loginToast"
-         class="toast position-absolute p-3 top-0 end-0 align-items-center text-white bg-primary border-0" role="alert"
-         aria-live="assertive" aria-atomic="true">
+    <div id="loginToast" class="toast position-absolute p-3 top-0 end-0 align-items-center text-white bg-primary border-0" role="alert" aria-live="assertive" aria-atomic="true">
         <div class="d-flex">
             <div class="toast-body">
                 Login success!

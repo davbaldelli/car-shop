@@ -1,12 +1,12 @@
 function createNotificationDropdown(label, content) {
-    return `<div class="dropdown">
-                <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger" id="notificationCounter">99+
+    return `<div class="dropdown" id="notificationDropdownContainer">
+                <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger" id="notificationCounter">
                 <span class="visually-hidden">unread messages</span>
                 </span>
-                <a class="nav-link dropdown-toggle" id="notificationDropdownBtn" data-bs-toggle="dropdown" role="button" aria-expanded="false">
-                    ${label}
+                <a class="nav-link" id="notificationDropdownBtn" data-bs-toggle="dropdown" data-bs-autoClose="outside" role="button" aria-expanded="false">
+                    <span class="material-icons">notifications</span>
                 </a>
-                <ul class="dropdown-menu dropdown-menu-end dropdown-menu-dark" aria-labelledby="notify dropdown menu">
+                <ul class="dropdown-menu dropdown-menu-end list-group-flush" id="notificationDropdownContent" aria-labelledby="notify dropdown menu" style="background-color: #212529">
                     ${content}
                 </ul>
             </div>`
@@ -15,13 +15,11 @@ function createNotificationDropdown(label, content) {
 function createDropdownList(items) {
         return items.reduce((res, notify) => {
             return res + `
-        <li data-key="${notify.id}">
-            <div class="card">
-                <div class="card-body">
-                    <h5 class="card-title">${notify.title}</h5>
-                    <p class="card-title">${notify.description}</p>
-                </div>
+        <li class=" list-group-item ${notify.id} " style="background-color: #212529">
+            <div class="d-flex w-100 justify-content-between" style="background-color: #212529">
+                <h5 class="mb-1" style="color: #fff">${notify.title}</h5>
             </div>
+            <p class="mb-1" style="color: #fff">${notify.description}</p>
         </li>`
         }, "")
 }

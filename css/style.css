@@ -365,5 +365,52 @@ input:checked + .slider:before {
     margin-top: 70px;
 }
 
-/*da spostare*/
+/* Css shopping cart dropdown*/
+#cartContentContainer{
+    width: 20vw;
+    min-width: fit-content;
+    background-color: #212529;
+}
+.cart-dropdown-row{
+    width: 100%;
+    background-color: #212529;
+    border-color: #545D67;
+}
+
+.cart-dropdown-item{
+    width: 100%;
+    display: flex;
+    flex-flow: row;
+    flex-wrap: wrap;
+    align-content: center;
+    align-items: center;
+    background-color: #212529;
+    color: #fff;
+}
+
+.cartRemoveItem{
+    margin-left: auto;
+    margin-right: 0;
+}
+
+#btnCartToPurchase{
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    align-content: center;
+    align-items: center;
+    border-style: solid;
+    border-color: #91A826;
+    border-radius: 10px;
+    color: #fff;
+}
+.cartProductName{
+
+}
+
+#notificationDropdownContent{
+    height: 500px;
+    width: fit-content;
+    overflow: scroll;
+}
 

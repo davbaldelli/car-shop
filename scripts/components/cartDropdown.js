@@ -1,10 +1,13 @@
-function createCartDropdown(label, content) {
-    return `<div class="dropdown">
-                <a class="nav-link dropdown-toggle" type="button" id="cartDropdownBtn" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                    ${label}
+function createCartDropdown(content) {
+    return `<div class="dropdown" id="cartDropdownContainer">
+                <a class="nav-link " type="button" id="cartDropdownBtn" role="button" data-bs-toggle="dropdown"  data-bs-autoColse="outside" aria-expanded="false">
+                    <span class="material-icons"> shopping_cart </span>
                 </a>
-                <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="notify dropdown menu">
+                <ul class="dropdown-menu dropdown-menu-end list-group-flush"  id="cartContentContainer" aria-labelledby="notify dropdown menu">
                     ${content}
+                    <li class="list-group-item cart-dropdown-item cart-content-item">
+                        <a class="btn " id="btnCartToPurchase" href="http://localhost/purchase.php"><span class="material-icons"> shopping_cart_checkout </span> <span>Go to check-out</span> </a>
+                    </li>
                 </ul>
             </div>`
 }
@@ -12,18 +15,17 @@ function createCartDropdown(label, content) {
 function createDropdownElements(cart) {
     return cart.reduce((res, item, index) => {
         return res + `
-            <li class="list-group-item cart-dropdown-item" data-key="${index}">
-                <div> ${item.product.model} - x${item.quantity}</div>
-                <button class="remove-cart-product-btn" data-key="${index}">remove</button>
+            <li class="list-group-item cart-dropdown-row" data-key="${index}">
+                <div class="cart-dropdown-item"> <strong>${item.quantity}</strong> | <span class="cartProductName">${item.product.model}</span> <span class="remove-cart-product-btn material-icons cartRemoveItem" data-key="${index}">delete</span></div>              
             </li>
         `
     }, "")
 }
 
-export function generateCartDropdown(divName, dropdownLabel, items, onSelected = () => {
+export function generateCartDropdown(divName, items, onSelected = () => {
 }, onRemove = () => {
 }) {
-    $(`#${divName}`).html(createCartDropdown(dropdownLabel, createDropdownElements(items)))
+    $(`#${divName}`).html(createCartDropdown( createDropdownElements(items)))
     $(".remove-cart-product-btn").click(event => {
         onRemove(event.currentTarget.dataset.key)
     })
