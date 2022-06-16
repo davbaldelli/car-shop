@@ -17,7 +17,7 @@ export function carsToCards(cars) {
 export function carsToCarouselElems(cars) {
     return cars.map((car, i) => {
         return `<div class="carousel-item ${i === 0 ? "active" : ""}">
-                    <img src="${car.image}" class="d-block w-100" alt="car thumbnail">
+                    <img src="${car.image}" class="d-block w-100 carousel-item-img" alt="car thumbnail">
                 </div>`
     })
 }

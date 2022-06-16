@@ -17,11 +17,7 @@ body {
 html {
     width: auto;
 }
-
-.body-light {
-    background-color: white;
-}
-
+/* FOOTER CSS*/
 .div-ico:hover {
     box-shadow: 0 1px 10px 0 rgba(61, 38, 168, 0.7);
 }
@@ -47,35 +43,29 @@ html {
 }
 
 .fa {
+    max-font-size: 5rem;
     text-align: center;
     text-decoration: none;
+
+}
+.social_logos{
+    font-size: min(7vw, 70px);
 }
 
 .div-ico {
     border: 4px solid rgba(0, 0, 0, 0.8);
     border-radius: 50%;
-    width: 100px;
-    height: 100px;
+    max-height: 100px;
+    max-width: 100px;
+    width: 11vw;
+    height: 11vw;
     display: flex;
     align-items: center;
     justify-content: center;
 }
 
-.social_logos {
-    display: flex;
-    flex-wrap: wrap;
-    width: 200px;
-    height: auto;
-    margin: 0 auto;
-    justify-content: space-around;
-    align-items: center;
-    justify-items: center;
-    font-size: 70px;
-}
 
 .footer {
-    min-height: 300px;
-    max-height: fit-content;
     width: auto;
     display: flex;
     flex-wrap: wrap;
@@ -84,13 +74,10 @@ html {
 }
 
 .about-group {
-    width: fit-content;
-    min-width: 60%;
     padding-right: 100px;
     padding-left: 100px;
-    min-height: inherit;
     height: fit-content;
-    display: inline-flex;
+    display: flex;
     flex-direction: row;
     flex-wrap: wrap;
     align-content: center;
@@ -101,12 +88,8 @@ html {
 }
 
 .about_socials {
-    flex-shrink: 0;
+
     display: flex;
-    flex: 15%;
-    order: 1;
-    width: 100%;
-    min-width: 85px;
     height: inherit;
     align-items: center;
 
@@ -138,64 +121,17 @@ html {
 
 .a-link:hover {
     color: rgb(61, 38, 168);
-    font-size: 1.5em;
 }
 
-.switch-div {
-    max-width: 100px;
-}
+
 
 .h2-footer {
     min-width: 85px;
 }
+/*Footer end*/
 
-.switch {
-    position: relative;
-    display: inline-block;
-    width: 60px;
-    height: 34px;
-}
 
-.switch input {
-    opacity: 0;
-    width: 0;
-    height: 0;
-}
-
-.slider {
-    position: absolute;
-    cursor: pointer;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-color: #1E1E1E;
-    -webkit-transition: .4s;
-    transition: .4s;
-    border-radius: 34px;
-}
-
-.slider:before {
-    position: absolute;
-    content: "";
-    height: 26px;
-    width: 26px;
-    left: 4px;
-    bottom: 4px;
-    background-color: white;
-    -webkit-transition: .4s;
-    transition: .4s;
-    border-radius: 50%;
-}
-
-input:checked + .slider {
-    background-color: #91A826;
-}
-
-input:focus + .slider {
-    box-shadow: 0 0 1px #2196F3;
-}
-
+/*Sidebar css*/
 input:checked + .slider:before {
     -webkit-transform: translateX(26px);
     -ms-transform: translateX(26px);
@@ -221,15 +157,7 @@ input:checked + .slider:before {
 ::-webkit-scrollbar-thumb:hover {
     background: rgba(0, 0, 0, 0.8);
 }
-
-
-/*Css per login
-.nav-login {
-    display: flex;
-    visibility: visible;
-    justify-content: flex-end;
-    width: 100%;
-}*/
+/*end side bar*/
 
 .item-hidden {
     display: none;

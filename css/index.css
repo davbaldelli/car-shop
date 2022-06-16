@@ -28,55 +28,92 @@
 .home-sections {
     box-shadow: 0 10px 20px 0 rgba(0, 0, 0, 0.2), 0 0 0 0 rgba(0, 0, 0, 0.19);
     height: auto;
-    width: 100%;
+    margin-left: 0;
+    margin-righ: 0;
+    margin-top: 0;
     margin-bottom: 35px;
-}
 
+}
+.h2-abtxt {
+    color: #91A826;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+.h4-abtxt {
+    color: #DADADA;
+}
 /* css per section carosello*/
-#about-carousel {
-    display: inline-flex;
-    flex-wrap: wrap;
-    flex-direction: row;
-    align-items: center;
-}
 
-#carousel-outer-div {
-    flex: 37%;
-    padding: 5px 0;
-    padding-left: 5px;
-    align-self: center;
-    flex-shrink: 0;
+.carousel-item{
+    max-height: 1022px;
+
+}
+.carousel-item-img{
+    object-fit: cover;
 }
 
 #carousel {
-    max-width: 50vw;
-    min-width: none;
+    margin: 5px;
+    width: 100%;
+
 }
 
 #about-text {
-    flex: 63%;
-    order: 1;
     overflow-wrap: break-word;
     text-align: center;
-    max-width: 50vw;
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+}
+
+/* css per section shields*/
+#shields-section {
+    height: fit-content;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+.shield-div {
+    width: auto;
+    height: fit-content;
+    text-align: center;
+    align-self: center;
+}
+
+.h1-shield {
+    color: #3d26a8;
+}
+
+.h4-shield {
+    color: #91A826;
+}
+
+.h5-rev {
+    color: #A29F9D;
+}
+
+.p-rev {
+    text-align: center;
+    color: #A29F9D;
+    overflow: hidden;
+}
+
+.shield-img {
+    width: 7vw;
+    min-width: 80px;
+    height: auto;
+
+    opacity: 50%;
+    filter: invert(100%);
 }
 
 /* css per section review*/
-.review {
-    min-height: 300px;
-    height: auto;
-    display: flex;
-    flex-wrap: wrap;
-    flex-direction: row;
-    align-content: center;
-    justify-content: space-around;
+#review {
+
 }
 
 .review-div {
-    min-width: 200px;
-    height: auto;
     text-align: center;
-    max-width: 25%;
     padding-left: 1%;
     padding-right: 1%;
 }
@@ -93,70 +130,4 @@
     filter: invert(100%);
 }
 
-/* css per section shields*/
-.shields-section {
-    height: fit-content;
-    display: inline-flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: space-around;
-    align-content: flex-start;
-    padding-top: 20px;
-    padding-bottom: 20px;
-}
 
-.shield-div {
-    max-width: 512px;
-    flex-shrink: 1;
-    width: auto;
-    min-height: 280px;
-    height: fit-content;
-    text-align: center;
-    align-self: center;
-}
-
-.h2-footer {
-    margin-bottom: 6%;
-    margin-top: 3%;
-    font-weight: bolder;
-}
-
-.h1-shield {
-    color: #3d26a8;
-}
-
-.h4-shield {
-    color: #91A826;
-}
-
-.h2-abtxt {
-    color: #91A826;
-    font-size: 2vw;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-}
-
-
-.h5-rev {
-    color: #A29F9D;
-}
-
-.p-rev {
-    text-align: center;
-    color: #A29F9D;
-    overflow: hidden;
-}
-
-.shield-img {
-    width: 100%;
-    max-width: 128px;
-    height: auto;
-
-    opacity: 50%;
-    filter: invert(100%);
-}
-
-.h4-abtxt {
-    color: #DADADA;
-    font-size: 1vw;
-}
