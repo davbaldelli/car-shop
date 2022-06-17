@@ -47,3 +47,7 @@
 #itemPriceList{
     list-style-type: none;
 }
+
+.accordion-button-custom::after{
+    display: none;
+}

@@ -3,7 +3,7 @@ function createNotificationDropdown(label, content) {
                 <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger" id="notificationCounter">
                 <span class="visually-hidden">unread messages</span>
                 </span>
-                <a class="nav-link" id="notificationDropdownBtn" data-bs-toggle="dropdown" data-bs-autoClose="outside" role="button" aria-expanded="false">
+                <a class="nav-link" id="notificationDropdownBtn" data-bs-toggle="dropdown" data-bs-auto-close="outside" role="button" aria-expanded="false">
                     <span class="material-icons">notifications</span>
                 </a>
                 <ul class="dropdown-menu dropdown-menu-end list-group-flush" id="notificationDropdownContent" aria-labelledby="notify dropdown menu" style="background-color: #212529">

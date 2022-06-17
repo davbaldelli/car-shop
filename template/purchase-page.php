@@ -94,11 +94,11 @@
                     <div class="accordion accordion-flush" id="accordionFlush">
                     <div class="accordion-item">
                         <h2 class="accordion-header" id="flush-headingOne">
-                            <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="true" aria-controls="flush-collapseOne">
+                            <button class="accordion-button accordion-button-custom" type="button"  data-bs-target="#flush-collapseOne" aria-expanded="true" aria-controls="flush-collapseOne">
                                 Shipping Address
                             </button>
                         </h2>
-                        <div id="flush-collapseOne" class="accordion-collapse collapse show" aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
+                        <div id="flush-collapseOne" class=" show" aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
                             <div class="accordion-body">
                                 <span id="addressesList" class="vstack"></span> </br>
                                 <button type="button" id="newShippingAddressBtn" class="btn" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
@@ -109,11 +109,11 @@
                     </div>
                     <div class="accordion-item">
                         <h2 class="accordion-header" id="flush-headingTwo">
-                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseTwo" aria-expanded="false" aria-controls="flush-collapseTwo">
+                            <button class="accordion-button accordion-button-custom" type="button" >
                                 Payment method
                             </button>
                         </h2>
-                        <div id="flush-collapseTwo" class="accordion-collapse collapse" aria-labelledby="flush-headingTwo" data-bs-parent="#accordionFlushExample">
+                        <div id="flush-collapseTwo" class="accordion-collapse show" aria-labelledby="flush-headingTwo" data-bs-parent="#accordionFlushExample">
                             <div class="accordion-body">
                                 <div class="form-check">
                                     <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1" checked>
@@ -149,11 +149,11 @@
                     </div>
                     <div class="accordion-item">
                         <h2 class="accordion-header" id="flush-headingThree">
-                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseThree" aria-expanded="false" aria-controls="flush-collapseThree">
+                            <button class="accordion-button accordion-button-custom" type="button"  data-bs-target="#flush-collapseThree" aria-expanded="false" aria-controls="flush-collapseThree">
                                 Your shopping cart
                             </button>
                         </h2>
-                        <div id="flush-collapseThree" class="accordion-collapse collapse" aria-labelledby="flush-headingThree" data-bs-parent="#accordionFlushExample">
+                        <div id="flush-collapseThree" class="accordion-collapse show" aria-labelledby="flush-headingThree" data-bs-parent="#accordionFlushExample">
                             <div class="accordion-body">
                                 <ul class="list-group list-group-flush" id="productsList">
 

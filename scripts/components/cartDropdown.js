@@ -1,6 +1,6 @@
 function createCartDropdown(content) {
     return `<div class="dropdown" id="cartDropdownContainer">
-                <a class="nav-link " type="button" id="cartDropdownBtn" role="button" data-bs-toggle="dropdown"  data-bs-autoColse="outside" aria-expanded="false">
+                <a class="nav-link " type="button" id="cartDropdownBtn" role="button" data-bs-toggle="dropdown"  data-bs-auto-close="outside" aria-expanded="false">
                     <span class="material-icons"> shopping_cart </span>
                 </a>
                 <ul class="dropdown-menu dropdown-menu-end list-group-flush"  id="cartContentContainer" aria-labelledby="notify dropdown menu">
@@ -22,9 +22,7 @@ function createDropdownElements(cart) {
     }, "")
 }
 
-export function generateCartDropdown(divName, items, onSelected = () => {
-}, onRemove = () => {
-}) {
+export function generateCartDropdown(divName, items, onSelected = () => {}, onRemove = () => {}) {
     $(`#${divName}`).html(createCartDropdown( createDropdownElements(items)))
     $(".remove-cart-product-btn").click(event => {
         onRemove(event.currentTarget.dataset.key)

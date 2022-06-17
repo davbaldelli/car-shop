@@ -30,7 +30,7 @@ export function carToInfoPanel(car) {
                 </div>
                 <h3 class="car-model">${car.model}</h3>
                 <div class="divbtn">
-                    <button id="addToCartBtn" type="button" class="btn btn-buy"><span class="car-price">Aggiungi al carrello: $${car.price}</span></button>
+                    <button id="addToCartBtn" type="button" class="btn-buy"><span class="car-price">Aggiungi al carrello: $${car.price}</span></button>
                 </div>
                 
                 <div class="divcar-info">        

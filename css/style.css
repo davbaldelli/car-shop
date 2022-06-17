@@ -148,10 +148,7 @@ input:checked + .slider:before {
 
 ::-webkit-scrollbar-thumb {
     background: rgba(0, 0, 0, 0.3);
-    border-top-left-radius: 15px;
-    border-bottom-left-radius: 15px;
-    border-top-right-radius: 15px;
-    border-bottom-right-radius: 15px;
+    border-radius: 15px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
@@ -337,8 +334,20 @@ input:checked + .slider:before {
 }
 
 #notificationDropdownContent{
-    height: 500px;
+    max-height: 500px;
     width: fit-content;
-    overflow: scroll;
+    overflow-y: scroll;
+
+    scrollbar-width: thin;
+}
+
+#notificationDropdownContainer::-webkit-scrollbar-thumb{
+    border-radius: 5px;
+    width: 4px;
+}
+
+#notificationDropdownContainer::-webkit-scrollbar-track{
+    width: 5px;
+    background-color: #1E1E1E;
 }
 
