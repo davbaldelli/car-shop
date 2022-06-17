@@ -1,0 +1,23 @@
+#accountMainContainer{
+    margin-top: 20px;
+}
+#userPicturesContainer{
+    display: flex;
+    justify-content: center;
+}
+
+#userPictures{
+    height: 10vw;
+    border-radius: 100%;
+}
+
+#userNameContainer{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#userName{
+    color: #fff;
+    font-size: 3vw;
+}

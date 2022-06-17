@@ -4,6 +4,8 @@ import {getRandomCars} from "./store/carsStore.js";
 //load the given function when the page is loaded
 $(() => {
     getRandomCars(setCarouselContent)
+
+
 })
 
 function setCarouselContent(cars) {

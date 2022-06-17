@@ -19,3 +19,10 @@ function dropdownSetup(){
         getAllUserNotifications(setNotificationListContent)
     }
 }
+function activateHover(){
+    let notyDropdown = new bootstrap.Dropdown($("#notificationDropdownBtn"))
+
+    $("#notificationDropdownContainer").hover(function (){
+        notyDropdown.show()
+    })
+}

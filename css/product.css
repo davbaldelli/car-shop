@@ -28,12 +28,14 @@
     margin-bottom: 40px;
     background-color: #3d26a8;
     color: white;
-
+    border-radius: 10px;
+    border: 0;
 }
 
 .btn-buy:hover {
     color: white;
     box-shadow: 0 0 12px 4px rgba(120, 89, 255, 0.651);
+    border: 0;
 }
 
 .car-price {

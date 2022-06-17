@@ -50,9 +50,9 @@ class OrdersRepositoryImpl implements OrdersRepository
 
     function getUserOrders($id_user): array
     {
-        $stmt = $this->conn->prepare("SELECT orders_view.*, ua.address_line_1, ua.address_line_2, ua.administrative_area, ua.locality, ua.postal_code  
-                FROM orders_view JOIN users_delivering_addresses AS ua ON ua.id_user = ? WHERE orders_view.id_user = ?");
-        $stmt->bind_param("ii", $id_user, $id_user);
+        $stmt = $this->conn->prepare("SELECT orders_view.*, ua.address_line_1, ua.address_line_2, ua.administrative_area, ua.locality, ua.postal_code
+                FROM orders_view JOIN users_delivering_addresses AS ua ON ua.id = orders_view.id_user_address WHERE orders_view.id_user = ?");
+        $stmt->bind_param("i", $id_user);
         $stmt->execute();
         return $stmt->get_result()->fetch_all(MYSQLI_ASSOC);
     }
@@ -80,8 +80,8 @@ class OrdersRepositoryImpl implements OrdersRepository
     function getUserOrdersByState($id_user, $state): array
     {
         $stmt = $this->conn->prepare("SELECT orders_view.*, ua.address_line_1, ua.address_line_2, ua.administrative_area, ua.locality, ua.postal_code  
-                FROM orders_view JOIN users_delivering_addresses AS ua ON ua.id_user = ? WHERE orders_view.id_user = ? AND state = ?");
-        $stmt->bind_param("iis", $id_user,$id_user, $state);
+                FROM orders_view JOIN users_delivering_addresses AS ua ON ua.id = orders_view.id_user_address  WHERE orders_view.id_user = ? AND state = ?");
+        $stmt->bind_param("is", $id_user, $state);
         $stmt->execute();
         return $stmt->get_result()->fetch_all(MYSQLI_ASSOC);
     }
@@ -89,8 +89,8 @@ class OrdersRepositoryImpl implements OrdersRepository
     function getUserOrdersByNotState($id_user, $state): array
     {
         $stmt = $this->conn->prepare("SELECT orders_view.*, ua.address_line_1, ua.address_line_2, ua.administrative_area, ua.locality, ua.postal_code  
-                FROM orders_view JOIN users_delivering_addresses AS ua ON ua.id_user = ? WHERE orders_view.id_user = ? AND NOT state = ?");
-        $stmt->bind_param("iis", $id_user,$id_user, $state);
+                FROM orders_view JOIN users_delivering_addresses AS ua ON ua.id = orders_view.id_user_address  WHERE orders_view.id_user = ? AND NOT state = ?");
+        $stmt->bind_param("is", $id_user, $state);
         $stmt->execute();
         return $stmt->get_result()->fetch_all(MYSQLI_ASSOC);
     }

@@ -7,9 +7,22 @@ import {insertOrder} from "./store/ordersStore.js";
 import {addUserAddress, getUserAddresses} from "./store/userStore.js";
 import {checkEnoughCredit, payProduct, putAmountInWallet} from "./store/walletStore.js";
 
+let AddressModal = new bootstrap.Modal($(".addNewAddressModal"), {
+    keyboard: false
+})
+
+let purchaseConfirmModal = new bootstrap.Modal($("#purchaseConfirmModal"), {
+    keyboard: true
+})
+
+let feedBackToast = new bootstrap.Toast($("#userFeedbackToast"))
+
 $(() => {
+
     let user = JSON.parse(localStorage.getItem("user"))
     setupProductList(getCart().products)
+    setupReceiptView(getCart().products)
+    showUserCredits()
     getUserAddresses(setupAddressesList)
     getAllNations(setupNationsSelectOptions)
     $("#addAddressForm").submit((e) => {
@@ -48,26 +61,33 @@ $(() => {
 
     $("#rechargeWalletForm").submit((e) => {
         let amount = parseInt($("#creditInput").val())
-        putAmountInWallet(amount, onRechargeSuccess)
+        putAmountInWallet(amount, () => onRechargeSuccess(amount))
         e.preventDefault()
     })
 
+    $("#goToUserOrders").prop("href", `user-orders.php?userId=${user.userId}`)
+
 })
 
-function onRechargeSuccess() {
-    //TODO Show Recharge success
+let toastContent= $("#toastContent")
+
+function onRechargeSuccess(amount) {
+    toastContent.html(amount+" credits added successfully")
+    feedBackToast.show()
 }
 
 function onInsertAddressSuccess(){
-    //TODO Show address insert success
+    getUserAddresses(setupAddressesList)
+    AddressModal.toggle()
 }
 
 function onInsertAddressError(){
-    //TODO Show address insert success
+    console.log("error insert address")
 }
 
 function onNewOrderSuccess(item) {
     payProduct(item.product, item.quantity, onPaymentConfirm, onPaymentError)
+    purchaseConfirmModal.toggle()
 }
 
 function onPaymentConfirm() {
@@ -75,11 +95,12 @@ function onPaymentConfirm() {
 }
 
 function onPaymentError() {
-    //TODO Show payment error
+    console.log("Payment Error")
 }
 
 function onNotEnoughCredit(){
-    //TODO Show not enough credit
+    toastContent.html("Not enough credits for this transaction")
+    feedBackToast.show()
 }
 
 function setupProductList(products) {
@@ -92,4 +113,15 @@ function setupAddressesList(addresses) {
 
 function setupNationsSelectOptions(nations) {
     $("#nation-select").html(nationsToSelectElements(nations).reduce((res, el) => res + el, ""))
+}
+function setupReceiptView(products) {
+    console.log(products)
+    $("#subtotal").html(products.reduce((res, item)=> res+(item.quantity*item.product.price), 0))
+    $("#itemPriceList").html(products.reduce((res, item)=> res+`
+        <li>${item.product.brand +" "+ item.product.model +": "+ item.product.price}</li>
+`, ""))
+}
+
+function showUserCredits() {
+    //TODO Show user credit near radio btn
 }

@@ -17,7 +17,7 @@ export function carsToCards(cars) {
 export function carsToCarouselElems(cars) {
     return cars.map((car, i) => {
         return `<div class="carousel-item ${i === 0 ? "active" : ""}">
-                    <img src="${car.image}" class="d-block w-100" alt="car thumbnail">
+                    <img src="${car.image}" class="d-block w-100 carousel-item-img" alt="car thumbnail">
                 </div>`
     })
 }
@@ -30,7 +30,7 @@ export function carToInfoPanel(car) {
                 </div>
                 <h3 class="car-model">${car.model}</h3>
                 <div class="divbtn">
-                    <button id="addToCartBtn" type="button" class="btn btn-buy"><span class="car-price">Aggiungi al carrello: $${car.price}</span></button>
+                    <button id="addToCartBtn" type="button" class="btn-buy"><span class="car-price">Aggiungi al carrello: $${car.price}</span></button>
                 </div>
                 
                 <div class="divcar-info">        

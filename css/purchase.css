@@ -1,0 +1,53 @@
+#purchaseMainContainer{
+    margin-top: 20px;
+}
+#newShippingAddressBtn{
+    background-color: #3D26A8;
+    color: #fff;
+}
+
+#addCreditDropdown{
+    background-color: #3D26A8;
+    color: #fff;
+}
+#rechargeWalletForm{
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+#creditInput{
+    max-width: 20vw;
+}
+
+#rechargeWalletBtn{
+    border-style: solid;
+    border-color: #1E1E1E;
+    margin-top: 5px;
+}
+
+.list-item-cart-purchase{
+    display: flex;
+    flex-flow: row;
+    align-items: center;
+    align-content: center;
+    justify-content: start;
+}
+#purchaseProductQuantity{
+    min-width: 80px;
+    max-width: 10vw;
+}
+
+#checkOut{
+    background-color: #fff;
+    max-width: 100%;
+    height: 200px;
+    display: flex; flex-flow: column;
+    justify-content: space-evenly;
+}
+#itemPriceList{
+    list-style-type: none;
+}
+
+.accordion-button-custom::after{
+    display: none;
+}
