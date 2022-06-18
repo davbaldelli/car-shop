@@ -291,6 +291,8 @@ input:checked + .slider:before {
 }
 
 /* Css shopping cart dropdown*/
+
+
 #cartContentContainer{
     width: 20vw;
     min-width: fit-content;

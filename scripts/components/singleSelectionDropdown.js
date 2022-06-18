@@ -26,7 +26,7 @@ export class SingleSelectionDropdown{
     #createDropdownBtn() {
         let list = this.#createDropdownListContent()
         return `<div class="dropdown sigle-selection-dropdown-${this.#id}" id="dropdown-me">
-                <button class="btn btn-secondary dropdown-toggle filter-dropdown-btn" type="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <button class="dropdown-toggle filter-dropdown-btn" type="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     ${this.#label}
                 </button>
                 <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">

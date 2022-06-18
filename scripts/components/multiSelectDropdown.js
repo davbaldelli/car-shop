@@ -46,7 +46,7 @@ export class MultiSelectDropdown {
     #createDropdownBtn() {
         let grid = this.#createDropdownGridContent(this.items.map(item => this.#itemToCheckbox(item)), this.columns)
         return `<div class="dropdown" id="dropdown-me">
-                <button class="btn btn-secondary dropdown-toggle filter-dropdown-btn" type="button" data-bs-toggle="dropdown" data-bs-auto-close="outside" aria-haspopup="true" aria-expanded="false">
+                <button class="dropdown-toggle filter-dropdown-btn" type="button" data-bs-toggle="dropdown" data-bs-auto-close="outside" aria-haspopup="true" aria-expanded="false">
                     ${this.btnLabel}
                 </button>
                 <div class="dropdown-menu dropdown-multicol" aria-labelledby="dropdownMenuButton">
