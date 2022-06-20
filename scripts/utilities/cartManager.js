@@ -22,7 +22,6 @@ export function getCart() {
     return {products: []}
 }
 export function removeProductFromCart(index){
-    console.log("wtf")
     let cart = getCart()
     cart.products.splice(index, 1)
     localStorage.setItem("cart", JSON.stringify(cart))

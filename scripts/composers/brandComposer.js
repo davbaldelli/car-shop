@@ -4,7 +4,7 @@ export function generateBrandList(initialValue, nextValue) {
 
 export function generateBrandGrid(initialValue, nextValue) {
     return initialValue + `
-    <div class="col-12 col-md-4">
+    <div class="col-12 col-sm-6 col-xl-4">
             ${nextValue}
     </div>
     `

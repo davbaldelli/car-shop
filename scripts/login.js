@@ -10,10 +10,6 @@ const userDropdownActions = (user) => [
         label: "My orders",
         link: `http://localhost/user-orders.php?userId=${user.userId}`
     },
-    {
-        label: "Purchase",
-        link: `http://localhost/purchase.php`
-    }
 ]
 const adminDropdownActions = [
     {

@@ -30,24 +30,29 @@
         </div>
     </div>
 </div>
-
-<div class="row">
-    <div class="col-3"></div>
-    <div class="col-3">
-        <form id="new-car-form">
-            <div class="form-group">
+<div class="d-none d-md-flex col-md-2 col-xl-4"></div>
+<div class="col-12 col-md-8 col-xl-4">
+    <form id="new-car-form" class="row needs-validation" novalidate>
+        <div class="col-12">
+            <div class="form-group has-validation">
                 <label class="label-form-addcar" for="model-input">Model Name</label>
-                <input type="text" class="form-control" id="model-input" placeholder="Enter car model name">
+                <input type="text" class="form-control" id="model-input" placeholder="Enter car model name" required>
             </div>
+        </div>
+        <div class="col-12">
             <div class="form-group">
                 <label class="label-form-addcar" for="brand-select">Select Brand</label>
                 <select class="form-control" id="brand-select">
                 </select>
             </div>
-            <div class="form-group">
+        </div>
+        <div class="col-12">
+            <div class="form-group has-validation">
                 <label class="label-form-addcar" for="year-input">Year</label>
-                <input type="number" class="form-control" id="year-input" placeholder="Enter car Year">
+                <input type="number" class="form-control" id="year-input" placeholder="Enter car Year" required>
             </div>
+        </div>
+        <div class="col-6">
             <div class="form-group">
                 <label class="label-form-addcar" for="drivetrain-select">Select Drivetrain</label>
                 <select class="form-control" id="drivetrain-select">
@@ -56,6 +61,8 @@
                     <option value="FWD">FWD</option>
                 </select>
             </div>
+        </div>
+        <div class="col-6">
             <div class="form-group">
                 <label class="label-form-addcar" for="transmission-select">Select Transmission</label>
                 <select class="form-control" id="transmission-select">
@@ -63,6 +70,8 @@
                     <option value="MANUAL">Manual</option>
                 </select>
             </div>
+        </div>
+        <div class="col-6">
             <div class="form-group">
                 <label class="label-form-addcar" for="chassis-select">Select Chassis Type</label>
                 <select class="form-control" id="chassis-select">
@@ -74,6 +83,8 @@
                     <option value="suv">Suv</option>
                 </select>
             </div>
+        </div>
+        <div class="col-6">
             <div class="form-group">
                 <label class="label-form-addcar" for="engine-select">Select Fuel Type</label>
                 <select class="form-control" id="engine-select">
@@ -85,41 +96,59 @@
                     <option value="methane">Methane</option>
                 </select>
             </div>
-            <div class="form-group">
+        </div>
+        <div class="col-12">
+            <div class="form-group has-validation">
                 <label class="label-form-addcar" for="image-input">Image Url</label>
-                <input type="url" class="form-control" id="image-input" placeholder="Enter car image url">
+                <input type="url" class="form-control" id="image-input" placeholder="Car image url" required>
             </div>
-            <div class="form-group">
+        </div>
+        <div class="col-6">
+            <div class="form-group has-validation">
                 <label class="label-form-addcar" for="bhp-input">Horsepower</label>
-                <input type="number" class="form-control" id="bhp-input" placeholder="Enter car's horsepower">
+                <input type="number" class="form-control" id="bhp-input" placeholder="Car Horsepower" required>
             </div>
-            <div class="form-group">
+        </div>
+        <div class="col-6">
+            <div class="form-group has-validation">
                 <label class="label-form-addcar" for="torque-input">Torque</label>
-                <input type="number" class="form-control" id="torque-input" placeholder="Enter car Torque">
+                <input type="number" class="form-control" id="torque-input" placeholder="Car Torque" required>
             </div>
-            <div class="form-group">
+        </div>
+        <div class="col-6">
+            <div class="form-group has-validation">
                 <label class="label-form-addcar" for="top-speed-input">Top Speed</label>
-                <input type="number" class="form-control" id="top-speed-input" placeholder="Enter car Top Speed">
+                <input type="number" class="form-control" id="top-speed-input" placeholder="Car Top Speed" required>
             </div>
-            <div class="form-group">
+        </div>
+        <div class="col-6">
+            <div class="form-group has-validation">
                 <label class="label-form-addcar" for="weight-input">Weight</label>
-                <input type="number" class="form-control" id="weight-input" placeholder="Enter car Weight">
+                <input type="number" class="form-control" id="weight-input" placeholder="Car Weight" required>
             </div>
-            <div class="form-group">
+        </div>
+        <div class="col-4">
+            <div class="form-group has-validation">
                 <label class="label-form-addcar" for="price-input">Price</label>
-                <input type="number" class="form-control" id="price-input" placeholder="Enter car Price">
+                <input type="number" class="form-control" id="price-input" placeholder="Car Price" required>
             </div>
-            <div class="form-group">
+        </div>
+        <div class="col-4">
+            <div class="form-group has-validation">
                 <label class="label-form-addcar" for="doors-input">Doors</label>
-                <input type="number" class="form-control" id="doors-input" placeholder="Enter car Doors">
+                <input type="number" class="form-control" id="doors-input" placeholder="Car Doors" required>
             </div>
-            <div class="form-group">
+        </div>
+        <div class="col-4">
+            <div class="form-group has-validation">
                 <label class="label-form-addcar" for="rating-input">Rating</label>
-                <input type="number" class="form-control" id="rating-input" placeholder="Enter car Rating">
+                <input type="number" class="form-control" id="rating-input" placeholder="Car Rating" max="5" min="1" required>
             </div>
-            <button type="submit" class="btn btn-primary">Submit</button>
-
-        </form>
-    </div>
-    <div class="col-3"></div>
+        </div>
+        <div class="col-12 pt-3">
+            <div class="d-flex">
+                <button type="submit" class="btn btn-primary flex-fill">Submit</button>
+            </div>
+        </div>
+    </form>
 </div>
