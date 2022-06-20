@@ -17,7 +17,7 @@ function createDropdownList(items) {
         if(items.length!=0){
             return items.reduce((res, notify) => {
                 return res + `
-            <li class="list-group-item" style="background-color: #212529">
+            <li class="list-group-item notification-list-item" style="background-color: #212529">
                 <div class="d-flex w-100 justify-content-between" style="background-color: #212529">
                     <h5 class="mb-1" style="color: #fff">${notify.title}</h5>
                 </div>
