@@ -2,7 +2,7 @@ import {userAuth} from "../loaders/userLoader.js";
 
 
 let adminPages = ["add product", "update orders"]
-let userPages = ["order", "user orders"]
+let userPages = ["order", "user orders", "purchase"]
 const urlParams = new URLSearchParams(window.location.search);
 
 $(() => {
@@ -33,7 +33,7 @@ $(() => {
                 }
             }, goBack)
         } else {
-            redirectTo("index.php")
+            redirectTo("index.php?login=true")
         }
     }
 })

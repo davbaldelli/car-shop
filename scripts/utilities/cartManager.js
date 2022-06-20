@@ -22,8 +22,30 @@ export function getCart() {
     return {products: []}
 }
 export function removeProductFromCart(index){
+    console.log("wtf")
     let cart = getCart()
     cart.products.splice(index, 1)
     localStorage.setItem("cart", JSON.stringify(cart))
-    $(document).trigger("cartUpdate", cart)
+    $(document).trigger("cartSilentUpdate", cart)
+}
+
+export function increaseProductQuantity(index){
+    let cart = getCart()
+    cart.products[index].quantity++
+    localStorage.setItem("cart", JSON.stringify(cart))
+    $(document).trigger("cartSilentUpdate", cart)
+}
+
+export function decreaseProductQuantity(index){
+    let cart = getCart()
+    cart.products[index].quantity > 1 ? cart.products[index].quantity-- : cart.products.splice(index, 1)
+    localStorage.setItem("cart", JSON.stringify(cart))
+    $(document).trigger("cartSilentUpdate", cart)
+}
+
+export function updateProductQuantity(index, quantity){
+    let cart = getCart()
+    cart.products[index].quantity = quantity
+    localStorage.setItem("cart", JSON.stringify(cart))
+    $(document).trigger("cartSilentUpdate", cart)
 }

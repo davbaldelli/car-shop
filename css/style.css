@@ -291,7 +291,7 @@ input:checked + .slider:before {
 }
 
 /* Css shopping cart dropdown*/
-#cartContentContainer{
+#cart-dropdown-menu{
     width: 20vw;
     min-width: fit-content;
     background-color: #212529;
@@ -313,12 +313,12 @@ input:checked + .slider:before {
     color: #fff;
 }
 
-.cartRemoveItem{
+.cart-remove-item{
     margin-left: auto;
     margin-right: 0;
 }
 
-#btnCartToPurchase{
+#cart-purchase-btn{
     width: 100%;
     display: flex;
     justify-content: space-around;
@@ -329,7 +329,8 @@ input:checked + .slider:before {
     border-radius: 10px;
     color: #fff;
 }
-.cartProductName{
+
+.cart-product-name{
 
 }
 
