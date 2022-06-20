@@ -15,43 +15,32 @@ export class CartDropdown {
         this.#spawnDropdown()
     }
 
-    #spawnDropdown(){
+    #spawnDropdown() {
         this.#container.html(this.#composeDropdown())
         $(".remove-dropdown-cart-product-btn").click(event => {
             this.#onRemove(event.currentTarget.dataset.key)
         })
     }
 
-    updateDropdown(items){
+    updateDropdown(items) {
         this.#items = items
         this.#spawnDropdown()
     }
 
-    #createDropdownElements(){
-        return this.#items.reduce((res, item, index) => {
-            return res + `
-            <li class="list-group-item cart-dropdown-row" data-key="${index}">
-                <div class="cart-dropdown-item"> 
-                    <strong>${item.quantity}</strong> | <span class="cart-product-name">${item.product.model}</span> 
-                    <span class="remove-dropdown-cart-product-btn material-icons cart-remove-item" data-key="${index}">delete</span>
-                </div>              
-            </li>`
-        }, "")
-    }
-function createDropdownElements(cart) {
-    if(cart.length!==0){
-        let x =  cart.reduce((res, item, index) => {
-            return res + `
+    #createDropdownElements() {
+        if (this.#items.length !== 0) {
+            let x = this.#items.reduce((res, item, index) => {
+                return res + `
                 <li class="list-group-item cart-dropdown-row" data-key="${index}">
                     <div class="cart-dropdown-item"> <strong>${item.quantity}</strong> | <span class="cartProductName">${item.product.model}</span> <span class="remove-cart-product-btn material-icons cartRemoveItem" data-key="${index}">delete</span></div>              
                 </li>  
             `
-        }, "")
-        return x + `<li class="list-group-item cart-dropdown-item cart-content-item">
-                        <a class="btn " id="btnCartToPurchase" href="http://localhost/purchase.php"><span class="material-icons"> shopping_cart_checkout </span> <span>Go to check-out</span> </a>
+            }, "")
+            return x + `<li class="list-group-item cart-dropdown-item cart-content-item">
+                        <a class="btn " id="btnCartToPurchase" href="http://localhost/purchase.php?userId=${this.#getUserID()}"><span class="material-icons"> shopping_cart_checkout </span> <span>Go to check-out</span> </a>
                     </li>`
-    }else {
-        return `
+        } else {
+            return `
             <li class="list-group-item">
                     <div id="emptyCart">
                         <strong><span>Your cart is empty </span><span>Add some cars now!</span></strong>
@@ -59,25 +48,21 @@ function createDropdownElements(cart) {
                     </div>              
             </li> 
         `
+        }
     }
-}
 
-    #getUserID(){
+    #getUserID() {
         let user = JSON.parse(localStorage.getItem("user"))
-        return user?user.userId:""
+        return user ? user.userId : ""
     }
 
-    #composeDropdown(){
-
+    #composeDropdown() {
         return `<div class="dropdown" id="cart-dropdown">
                     <a class="nav-link" type="button" id="cart-dropdown-btn" data-bs-toggle="dropdown" aria-expanded="false">
                         <span class="material-icons"> shopping_cart </span>
                     </a>
                     <ul class="dropdown-menu dropdown-menu-end list-group-flush"  id="cart-dropdown-menu" aria-labelledby="notify dropdown menu">
                         ${this.#createDropdownElements()}
-                        <li class="list-group-item cart-dropdown-item cart-content-item">
-                            <a class="btn " id="cart-purchase-btn" href="http://localhost/purchase.php?userId=${this.#getUserID()}"><span class="material-icons"> shopping_cart_checkout </span> <span>Go to check-out</span> </a>
-                        </li>
                     </ul>
                 </div>`
     }
