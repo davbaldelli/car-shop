@@ -14,7 +14,6 @@ let statusMap = new Map([['taken_in_charge', "src_img/status_taken.png"], ["pend
 let classesMap = new Map([['taken_in_charge', "taken"], ["pending_payment_confirm", "payment-pending"], ["delivering", "delivering"], ["delivered", "delivered"]])
 
 export function ordersToCard(orders) {
-    console.log(orders)
     return orders.map(order => {
         return `
         <li class="list-group-item order-list-element" style="background-color: #1E1E1E">

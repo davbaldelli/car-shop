@@ -24,7 +24,12 @@
 .card-brand:hover{
     box-shadow: 0 0 12px 2px rgba(145, 168, 38, 0.5);
 }
-
+.car-card{
+    background-color: rgba(128, 128, 128, 0.123);
+}
+.car-card:hover{
+    box-shadow: 0 0 12px 2px rgba(145, 168, 38, 0.5);
+}
 .card-img-top {
     display: block;
     margin-left: auto;
@@ -42,10 +47,13 @@
 }
 
 .card-img-top-car {
+    min-width: 100%;
+    min-height: 100%;
     width: 100%;
     height: 100%;
-    max-width: 100%;
-    max-height: 100%;
+
+    aspect-ratio: 1022/575;
+    object-fit: cover ;
 }
 
 .card-brand {
@@ -53,49 +61,16 @@
 }
 
 /* css per dropdown btn*/
-.dropdown-menu {
-    height: auto;
-    overflow-y: auto;
-}
 
-div.dropdown-multicol {
+.dropdown-multicol {
     width: max-content;
 }
 
-div.dropdown-multicol > div.dropdown-col {
+.dropdown-multicol > div.dropdown-col {
     width: auto;
     height: 100%;
     display: inline-flex;
     flex-direction: column;
-}
-
-.inputChkbx {
-    width: auto;
-    margin-top: 6%;
-}
-
-.chkLabel {
-    width: max-content;
-    margin-left: 4px;
-}
-
-.chkbx {
-    display: inline-flex;
-    flex-direction: row;
-    justify-content: flex-start;
-    align-items: baseline;
-    padding-left: 1em;
-    padding-right: 1em;
-    width: 100%;
-    height: 30px;
-    max-width: 200px;
-    overflow: hidden;
-    text-overflow: clip;
-    border-radius: 4px;
-}
-
-.chkbx:hover {
-    background-color: rgb(238, 238, 238);
 }
 
 .div-allCarsBtn {
@@ -108,18 +83,9 @@ div.dropdown-multicol > div.dropdown-col {
 }
 
 .div-dropDown {
-    margin-top: 10px;
-    margin-bottom: 10px;
-    margin-left: 5px;
-    margin-right: 5px;
+    margin: 10px 5px 10px 5px;
 }
 
-#showBtnDropdown {
-    width: 100%;
-    display: flex;
-    flex-direction: row;
-    justify-content: flex-start;
-}
 
 .card-title {
     color: #91A826;
@@ -130,26 +96,73 @@ div.dropdown-multicol > div.dropdown-col {
     color: white;
     text-decoration: none;
 }
+#filters-container{
+    margin-left: 10px;
 
-#cardCarContent {
-    background-color: rgba(128, 128, 128, 0.123);
 }
 
-#cardCarContent:hover {
-    box-shadow: 0 0 12px 2px rgba(145, 168, 38, 0.5);
+#filters-badge-container{
+    margin-left: 10px;
 }
-
-.filters {
-    display: inline-flex;
-    align-items: center;
-    justify-content: space-around;
-}
-
 .filter-dropdown-btn {
     background-color: #3D26A8;
     color: white;
+    border:0;
+    border-radius: 8px;
+    padding: 10px;
+}
+
+.filter-dropdown-btn:focus {
+    box-shadow: 0 0 10px 0 rgba(82, 60, 183, 0.77);;
 }
 
 .img-brand-logo{
     max-height: 200px;
+}
+
+.showroom-header{
+    color: #91A826;
+}
+
+.searchbar{
+    background-color:  #1a1a1a;
+    border-color: #545D67;
+    color: white;
+
+}
+
+.searchbar::placeholder{
+    color: white;
+}
+
+#button-addon{
+    background-color: #545D67;
+    border-color: #545D67;
+}
+
+.filter-badge{
+    background-color: #3D26A8;
+    color: white;
+    margin: 0 5px 0 5px;
+}
+
+
+.truncate {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+
+@media only screen and (orientation: portrait) {
+
+
+    .dropdown-multicol {
+        width: auto;
+        height: 300px;
+        overflow-y: scroll;
+    }
+    .dropdown-multicol > div.dropdown-col {
+        height: auto;
+    }
 }

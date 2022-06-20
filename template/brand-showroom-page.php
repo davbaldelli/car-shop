@@ -3,15 +3,15 @@
 <div class="col-12 col-md-8">
     <div class="row p-3">
         <div class="col text-white text-center">
-            <h1 class="display-2 mb-1">Showroom</h1>
+            <h1 class="display-2 mb-1 showroom-header"><strong>Showroom</strong></h1>
             <h2 class="h5"><em>find the best car for you</em></h2>
         </div>
     </div>
     <div class="row p-3">
         <div class="col">
             <div class="input-group mb-3">
-                <input id="brand-name-searchbar" type="text" class="form-control" placeholder="Search Car Name" aria-label="Search Car Name" aria-describedby="button-addon">
-                <span class="input-group-text" id="button-addon">Search</span>
+                <input id="brand-name-searchbar" type="text" class="form-control searchbar" placeholder="Search Car Name" aria-label="Search Car Name" aria-describedby="button-addon">
+                <span class="input-group-text" id="button-addon"><span class="material-icons">search</span></span>
             </div>
         </div>
     </div>

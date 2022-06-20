@@ -161,6 +161,8 @@ input:checked + .slider:before {
     visibility: hidden;
 }
 
+/*CSS PER LOGIN*/
+
 .login-container {
     border-bottom-left-radius: 10px;
     border-bottom-right-radius: 10px;
@@ -263,10 +265,6 @@ input:checked + .slider:before {
     border-color: #dee2e6 #dee2e6 #212529;
 }
 
-.form-switch {
-    width: 90%;
-}
-
 .tab-content {
     padding-left: 30px;
 }
@@ -275,23 +273,14 @@ input:checked + .slider:before {
     color: #ff6e19;
 }
 
-
-.account-dprdwn {
-    display: inline-flex;
-    flex-direction: row;
-    justify-content: flex-end;
-}
-
-#navbarAccount {
-    min-width: 125px;
-}
-
 #loginToast {
     margin-top: 70px;
 }
 
 /* Css shopping cart dropdown*/
-#cart-dropdown-menu{
+
+
+#cartContentContainer{
     width: 20vw;
     min-width: fit-content;
     background-color: #212529;
@@ -334,21 +323,35 @@ input:checked + .slider:before {
 
 }
 
+#emptyCart{
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    align-items: center;
+}
+#emptyCartGoToShowRoom{
+    font-size: 50px;
+    text-decoration: none;
+    color: #fff;
+    margin-top: 10px;
+}
+
+/*Css per notifiche*/
 #notificationDropdownContent{
+    background-color: #212529;
     max-height: 500px;
     width: fit-content;
     overflow-y: scroll;
-
-    scrollbar-width: thin;
+    padding: 5px;
+    scrollbar-w
+}
+.notification-list-item{
+    padding: 5px 0 5px 0;
+    border-bottom-color: #545D67;
+    border-style: solid;
+    border-width: thin;
 }
 
-#notificationDropdownContainer::-webkit-scrollbar-thumb{
-    border-radius: 5px;
-    width: 4px;
-}
-
-#notificationDropdownContainer::-webkit-scrollbar-track{
-    width: 5px;
-    background-color: #1E1E1E;
-}
 
