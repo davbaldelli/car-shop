@@ -88,9 +88,9 @@
     <div class="row">
         <div class="col-sm"></div>
 
-        <div class="col-xxl-6">
+        <div class="col-xxl-8">
             <div class="row">
-                <div class="col-xxl-9">
+                <div class="col-lg-9">
                     <div class="accordion accordion-flush" id="accordionFlush">
                     <div class="accordion-item">
                         <h2 class="accordion-header" id="flush-headingOne">
@@ -163,21 +163,22 @@
                     </div>
                 </div>
                 </div>
-                <div class="col-md-3">
+                <div class="col-md">
                     <div class="row">
-                        <div id="checkOut">
+                        <div class="col-fluid">
+                            <div id="checkOut">
+                                <span> Your shopping list: </span>
+                                <ul id="itemPriceList">
 
-                            <ul id="itemPriceList">
-
-                            </ul>
-                            <span>Totale: <strong id="subtotal"></strong></span>
-                            <button id="purchaseBtn" class="btn btn-primary" >Purchase</button>
+                                </ul>
+                                <span>Totale: <strong id="subtotal"></strong></span>
+                                <button id="purchaseBtn" class="btn btn-primary" >Purchase</button>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-
         <div class="col-sm"> </div>
     </div>
 </section>

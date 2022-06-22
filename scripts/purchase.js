@@ -118,7 +118,7 @@ function setupReceiptView(products) {
     console.log(products)
     $("#subtotal").html(products.reduce((res, item)=> res+(item.quantity*item.product.price), 0))
     $("#itemPriceList").html(products.reduce((res, item)=> res+`
-        <li>${item.product.brand +" "+ item.product.model +": "+ item.product.price}</li>
+        <li class="row list-receipt-view"><div class="col-xxl-8">${item.product.brand +" "+ item.product.model } </div><div class="col-xxl-4">${item.product.price}</div> </li>
 `, ""))
 }
 

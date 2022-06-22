@@ -39,10 +39,12 @@
 
 #checkOut{
     background-color: #fff;
-    max-width: 100%;
-    height: 200px;
-    display: flex; flex-flow: column;
+    width: 100%;
+    min-height: 200px;
+    display: flex;
+    flex-flow: column;
     justify-content: space-evenly;
+    padding: 5px;
 }
 #itemPriceList{
     list-style-type: none;
@@ -50,4 +52,31 @@
 
 .accordion-button-custom::after{
     display: none;
+}
+
+#accordionFlush{
+    margin-bottom: 30px;
+}
+.list-receipt-view{
+    border-bottom: 1px solid #545D67 ;
+    display: flex;
+    align-items: center;
+}
+
+#itemPriceList, .list-receipt-view {
+    list-style-type: none;
+    list-style-position:inside;
+    margin:0;
+    padding:0; }
+
+
+@media only screen and (max-width: 990px) {
+    #checkOut{
+        margin: 20px 0 20px 0;
+    }
+
+    #accordionFlush{
+        margin-bottom: 0px;
+    }
+
 }

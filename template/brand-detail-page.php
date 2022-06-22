@@ -9,18 +9,19 @@
             <h1 id="brand-page-title" class="display-2 mb-1"></h1>
         </div>
     </div>
-    <div class="row">
-        <div class="col">
-            <nav aria-label="breadcrumb">
-                <ol class="breadcrumb">
-                    <li class="breadcrumb-item"><a href="brands-showroom.php">Cars</a></li>
-                    <li id="breadcrumb-brand-name" class="breadcrumb-item active" aria-current="page"></li>
-                </ol>
-            </nav>
-        </div>
-    </div>
+
     <div class="row p-3">
         <div class="col">
+            <div class="row">
+                <div class="col">
+                    <nav aria-label="breadcrumb">
+                        <ol class="breadcrumb">
+                            <li class="breadcrumb-item"><a href="brands-showroom.php">Cars</a></li>
+                            <li id="breadcrumb-brand-name" class="breadcrumb-item active" aria-current="page"></li>
+                        </ol>
+                    </nav>
+                </div>
+            </div>
             <div class="input-group mb-3">
                 <input id="car-model-searchbar" type="text" class="form-control searchbar" placeholder="Search Car Name" aria-label="Search Car Name" aria-describedby="button-addon">
                 <span class="input-group-text" id="button-addon"><span class="material-icons">search</span></span>

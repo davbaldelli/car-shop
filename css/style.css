@@ -279,9 +279,9 @@ input:checked + .slider:before {
 
 /* Css shopping cart dropdown*/
 
-
 #cartContentContainer{
-    width: 20vw;
+    padding: 12px;
+    width: 340px;
     min-width: fit-content;
     background-color: #212529;
 }
@@ -291,7 +291,7 @@ input:checked + .slider:before {
     border-color: #545D67;
 }
 
-.cart-dropdown-item{
+.cart-content-item{
     width: 100%;
     display: flex;
     flex-flow: row;
@@ -318,10 +318,24 @@ input:checked + .slider:before {
     border-radius: 10px;
     color: #fff;
 }
-.cartProductName{
-
+#defaultCartItem{
+    margin-top: 15px;
 }
-
+.cart-product-name{
+    width: 80%;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.cart-dropdown-item{
+    margin: 10px 0 10px;
+}
+.cart-product-quantity{
+    margin-right: 10px;
+}
+.cart-product-quantity::after{
+    content: "|";
+}
 #emptyCart{
     color: #fff;
     display: flex;
@@ -335,16 +349,21 @@ input:checked + .slider:before {
     text-decoration: none;
     color: #fff;
     margin-top: 10px;
+    padding: 10px;
+}
+
+#linkEmptyCartGoToShowRoom:hover> #emptyCartGoToShowRoom{
+    border: 1px solid #91A826;
+    border-radius: 10px;
 }
 
 /*Css per notifiche*/
 #notificationDropdownContent{
     background-color: #212529;
-    max-height: 500px;
-    width: fit-content;
+    max-height: 50vh;
+    width: 300px;
     overflow-y: scroll;
-    padding: 5px;
-    scrollbar-w
+    padding: 10px;
 }
 .notification-list-item{
     padding: 5px 0 5px 0;
@@ -353,4 +372,13 @@ input:checked + .slider:before {
     border-width: thin;
 }
 
+@media only screen and (max-width: 767px){
+    #cartContentContainer{
+        width: 100%;
+    }
+    #notificationDropdownContent{
+        max-height: 35vh;
+        width: 100%;
+     }
+}
 

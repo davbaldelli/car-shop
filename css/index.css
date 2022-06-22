@@ -45,7 +45,8 @@
 /* css per section carosello*/
 
 .carousel-item{
-    max-height: 1022px;
+    aspect-ratio: 1022/575;
+    overflow-y: hidden;
 
 }
 .carousel-item-img{
