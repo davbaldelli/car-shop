@@ -1,4 +1,9 @@
-import {getCart} from "./utilities/cartManager.js";
+import {
+    decreaseProductQuantity,
+    getCart,
+    increaseProductQuantity,
+    removeProductFromCart, updateProductQuantity
+} from "./utilities/cartManager.js";
 import {productsToListElements} from "./formatters/productFormatter.js";
 import {addressesToListItems} from "./formatters/addressesFormatter.js";
 import {nationsToSelectElements} from "./formatters/nationsFormatter.js";
@@ -11,9 +16,6 @@ let AddressModal = new bootstrap.Modal($(".addNewAddressModal"), {
     keyboard: false
 })
 
-let purchaseConfirmModal = new bootstrap.Modal($("#purchaseConfirmModal"), {
-    keyboard: true
-})
 
 let feedBackToast = new bootstrap.Toast($("#userFeedbackToast"))
 
@@ -87,7 +89,6 @@ function onInsertAddressError(){
 
 function onNewOrderSuccess(item) {
     payProduct(item.product, item.quantity, onPaymentConfirm, onPaymentError)
-    purchaseConfirmModal.toggle()
 }
 
 function onPaymentConfirm() {
@@ -105,6 +106,16 @@ function onNotEnoughCredit(){
 
 function setupProductList(products) {
     $("#productsList").html(productsToListElements(products).reduce((res, el) => res + el, ""))
+    $(".remove-cart-product-btn").click((evt) => {
+        removeProductFromCart(evt.currentTarget.dataset.key)
+        setupProductList(getCart().products)
+        setupReceiptView(getCart().products)
+    })
+    $(".product-quantity-input").change(function (evt){
+        updateProductQuantity(evt.currentTarget.dataset.key, $( this ).val())
+        setupReceiptView(getCart().products)
+    })
+
 }
 
 function setupAddressesList(addresses) {
@@ -115,7 +126,6 @@ function setupNationsSelectOptions(nations) {
     $("#nation-select").html(nationsToSelectElements(nations).reduce((res, el) => res + el, ""))
 }
 function setupReceiptView(products) {
-    console.log(products)
     $("#subtotal").html(products.reduce((res, item)=> res+(item.quantity*item.product.price), 0))
     $("#itemPriceList").html(products.reduce((res, item)=> res+`
         <li class="row list-receipt-view"><div class="col-xxl-8">${item.product.brand +" "+ item.product.model } </div><div class="col-xxl-4">${item.product.price}</div> </li>

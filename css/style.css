@@ -302,12 +302,12 @@ input:checked + .slider:before {
     color: #fff;
 }
 
-.cartRemoveItem{
+.cart-remove-item{
     margin-left: auto;
     margin-right: 0;
 }
 
-#btnCartToPurchase{
+#cart-purchase-btn{
     width: 100%;
     display: flex;
     justify-content: space-around;
