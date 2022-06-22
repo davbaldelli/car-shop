@@ -1,9 +1,11 @@
-<div class="row">
-    <div class="col-3">
+<div class="col-sm"></div>
 
-    </div>
-    <div id="orderList" class="col"></div>
-    <div class="col-3">
+<div  class="col-xl-6">
+    <h1 class="display-2 mb-1" id="adminHeader">Admin update orders</h1>
+    <ul class="list-group" id="orderList">
 
-    </div>
+    </ul>
 </div>
+
+<div class="col-sm"></div>
+

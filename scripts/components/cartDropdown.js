@@ -32,11 +32,11 @@ export class CartDropdown {
             let x = this.#items.reduce((res, item, index) => {
                 return res + `
                 <li class="list-group-item cart-dropdown-row" data-key="${index}">
-                    <div class="cart-dropdown-item"> <strong>${item.quantity}</strong> | <span class="cartProductName">${item.product.model}</span> <span class="remove-cart-product-btn material-icons cartRemoveItem" data-key="${index}">delete</span></div>              
+                    <div class="cart-dropdown-item cart-content-item"> <strong class="cart-product-quantity">${item.quantity}</strong>  <span class="cart-product-name">${item.product.model}</span> <span class="remove-cart-product-btn material-icons cartRemoveItem" data-key="${index}">delete</span></div>              
                 </li>  
             `
             }, "")
-            return x + `<li class="list-group-item cart-dropdown-item cart-content-item">
+            return x + `<li class="list-group-item cart-dropdown-item ">
                         <a class="btn " id="btnCartToPurchase" href="http://localhost/purchase.php?userId=${this.#getUserID()}"><span class="material-icons"> shopping_cart_checkout </span> <span>Go to check-out</span> </a>
                     </li>`
         } else {
@@ -61,7 +61,7 @@ export class CartDropdown {
                     <a class="nav-link" type="button" id="cart-dropdown-btn" data-bs-toggle="dropdown" aria-expanded="false">
                         <span class="material-icons"> shopping_cart </span>
                     </a>
-                    <ul class="dropdown-menu dropdown-menu-end list-group-flush"  id="cart-dropdown-menu" aria-labelledby="notify dropdown menu">
+                    <ul class="dropdown-menu dropdown-menu-end list-group-flush"  id="cartContentContainer" aria-labelledby="notify dropdown menu">
                         ${this.#createDropdownElements()}
                     </ul>
                 </div>`

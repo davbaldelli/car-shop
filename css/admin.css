@@ -1,3 +1,21 @@
+#adminHeader{
+    color: #fff;
+}
+
 #orderList{
-    margin-top: 20px;
+    margin: 20px 0 20px;
+    max-height: 70vh;
+    overflow-y: scroll;
+}
+
+.list-group-item-admin-update{
+    display: inline-flex;
+    justify-content: space-between;
+}
+#new-car-form{
+    margin: 20px 0 20px;
+}
+
+.label-form-addcar{
+    color: #fff;
 }

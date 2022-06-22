@@ -23,23 +23,33 @@ export function carsToCarouselElems(cars) {
 }
 
 export function carToInfoPanel(car) {
-    return `   
-
-                <div class="divcar-img">
-                    <img class="car-img" src="${car.image}" alt="car detail image">
-                </div>
-                <h3 class="car-model">${car.model}</h3>
-                <div class="divbtn">
-                    <button id="addToCartBtn" type="button" class="btn-buy"><span class="car-price">Aggiungi al carrello: $${car.price}</span></button>
+    return `    
+                <div class="row">
+                    <div class="col">
+                        <div class="divcar-img">
+                           <img class="car-img" src="${car.image}" alt="car detail image">
+                        </div>
+                    </div>
                 </div>
                 
-                <div class="divcar-info">        
-                    <p class="car-info">Marca: ${car.brand}</p>
-                    <p class="car-info">BHP: ${car.bhp}</p>
-                    <p class="car-info">Carburante: ${car.fuel_type}</p>
-                    <p class="car-info">Cambio: ${car.transmission}</p>
-                    <p class="car-info">Ruote motrici: ${car.drivetrain}</p>
-                </div>`
+                <div class="row">
+                    <div class="col">
+                        <h3 class="car-model">${car.model}</h3>
+                        <div class="divbtn">
+                            <button id="addToCartBtn" type="button" class="btn-buy"><span class="car-price">Aggiungi al carrello: $${car.price}</span></button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="row product-page-row">        
+                    <div class="col-md car-info"><div class="row car-info-header ">Brand</div>          <div class="row">${car.brand}</div></div>
+                    <div class="col-md car-info"><div class="row car-info-header ">Horse Power</div>    <div class="row">${car.bhp}</div></div>
+                    <div class="col-md car-info"><div class="row car-info-header ">Fuel</div>           <div class="row">${car.fuel_type}</div></div>
+                    <div class="col-md car-info"><div class="row car-info-header ">Transission</div>    <div class="row">${car.transmission}</div></div>
+                    <div class="col-md car-info"><div class="row car-info-header ">Drive Train</div>    <div class="row">${car.drivetrain}</div></div>
+                </div>
+
+`
 }
 
 export function carToOrderCard(cars) {

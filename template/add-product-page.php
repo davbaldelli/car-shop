@@ -32,6 +32,7 @@
 </div>
 <div class="d-none d-md-flex col-md-2 col-xl-4"></div>
 <div class="col-12 col-md-8 col-xl-4">
+    <h1 class="display-2 mb-1" id="adminHeader">Add new car</h1>
     <form id="new-car-form" class="row needs-validation" novalidate>
         <div class="col-12">
             <div class="form-group has-validation">

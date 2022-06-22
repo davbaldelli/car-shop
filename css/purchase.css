@@ -67,7 +67,11 @@
     list-style-type: none;
     list-style-position:inside;
     margin:0;
-    padding:0; }
+    padding:0;
+}
+.list-receipt-view-price::before, #subtotal::before{
+    content: "$";
+}
 
 
 @media only screen and (max-width: 990px) {

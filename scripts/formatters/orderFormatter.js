@@ -1,11 +1,17 @@
 import {getOldestLogsPerState} from "../utilities/logsFilter.js";
 
+let orderAdminMap = new Map([['taken_in_charge', "Taken in charge"], ["pending_payment_confirm", "Pending payment confirm"], ["delivering", "In transit"], ["delivered", "Car delivered"]])
+
 export function ordersToUpdateCard(orders) {
     return orders.map(order => {
-        return `<div class="card">Ordine numero ${order.id} - stato: ${order.state}
-                    <button class="forwardOrderBtn" ${order.state === "delivered" ? "disabled" : ""} data-key="${order.id}" >avanti</button>
-                    <button class="reverseOrderBtn" data-key="${order.id}" ${order.state === "pending_payment_confirm" ? "disabled" : ""}>indietro</button>
-                </div>`
+        return `<li class="list-group-item list-group-item-admin-update">
+                    <span> Ordine numero ${order.id} - stato: ${orderAdminMap.get(order.state)}</span>
+                    
+                    <span>
+                        <button class="reverseOrderBtn btn btn-info" data-key="${order.id}" ${order.state === "pending_payment_confirm" ? "disabled" : ""}><- Previus State</button>
+                        <button class="forwardOrderBtn btn btn-info"  ${order.state === "delivered" ? "disabled" : ""} data-key="${order.id}" >Next state -></button>
+                    </span>
+                </li>`
     })
 }
 

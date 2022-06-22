@@ -128,7 +128,7 @@ function setupNationsSelectOptions(nations) {
 function setupReceiptView(products) {
     $("#subtotal").html(products.reduce((res, item)=> res+(item.quantity*item.product.price), 0))
     $("#itemPriceList").html(products.reduce((res, item)=> res+`
-        <li class="row list-receipt-view"><div class="col-xxl-8">${item.product.brand +" "+ item.product.model } </div><div class="col-xxl-4">${item.product.price}</div> </li>
+        <li class="row list-receipt-view"><div class="col-xxl-8">${item.product.brand +" "+ item.product.model } </div><div class="col-xxl-4 list-receipt-view-price">${item.product.price}</div> </li>
 `, ""))
 }
 
