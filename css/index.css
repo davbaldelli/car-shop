@@ -17,11 +17,21 @@
 }
 
 .fixed-bg {
-    min-height: fit-content;
+    background-image: url(../src_img/homepage_toyota.jpg);
     background-attachment: fixed;
     background-position: center top;
     background-repeat: no-repeat;
     background-size: contain;
+}
+@media (max-width: 1780px) {
+    .fixed-bg{
+        background-size: unset;
+    }
+}
+@media (max-width: 750px) {
+    .fixed-bg{
+       background: none;
+    }
 }
 
 /* css generale per section*/
@@ -110,7 +120,7 @@
 
 /* css per section review*/
 #review {
-
+    gap: 2rem;
 }
 
 .review-div {
@@ -130,5 +140,7 @@
     color: #838383;
     filter: invert(100%);
 }
+
+
 
 

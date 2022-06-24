@@ -1,4 +1,4 @@
-import {ordersToCard} from "./formatters/orderFormatter.js";
+import {ordersToList} from "./formatters/orderFormatter.js";
 import {getAllUserOrders, getUserDeliveredOrders, getUserNotDeliveredOrders} from "./store/ordersStore.js";
 
 $(() => {
@@ -20,5 +20,5 @@ $(() => {
 })
 
 function setOrderListContent(orders) {
-    $(".list-group").html(ordersToCard(orders).reduce((res, order) => res + order, ""))
+    $(".list-group").html(ordersToList(orders).reduce((res, order) => res + order, ""))
 }

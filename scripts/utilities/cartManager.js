@@ -48,3 +48,7 @@ export function updateProductQuantity(index, quantity){
     localStorage.setItem("cart", JSON.stringify(cart))
     $(document).trigger("cartSilentUpdate", cart)
 }
+export function clearCart(){
+    localStorage.setItem("cart", JSON.stringify({products:[]}))
+    $(document).trigger("cartSilentUpdate")
+}

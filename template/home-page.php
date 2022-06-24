@@ -1,8 +1,3 @@
-<style>
-    .fixed-bg {
-        background-image: url("src_img/homepage_toyota.jpg");
-    }
-</style>
 <div class="fixed-bg">
     <div class="logo-space">
         <img src="src_img/carshopcolor.png" class="logo " alt="logo">

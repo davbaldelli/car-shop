@@ -19,19 +19,20 @@ let orderMap = new Map([['taken_in_charge', "Taken in charge"], ["pending_paymen
 let statusMap = new Map([['taken_in_charge', "src_img/status_taken.png"], ["pending_payment_confirm", "src_img/status_base.png"], ["delivering", "src_img/status_delivering.png"], ["delivered", "src_img/status_done.png"]])
 let classesMap = new Map([['taken_in_charge', "taken"], ["pending_payment_confirm", "payment-pending"], ["delivering", "delivering"], ["delivered", "delivered"]])
 
-export function ordersToCard(orders) {
+export function ordersToList(orders) {
+    console.log(orders)
     return orders.map(order => {
         return `
         <li class="list-group-item order-list-element" style="background-color: #1E1E1E">
            
             <a id="list-element-content" href="order.php?orderId=${order.id}&userId=${order.id_user}">
-             <div class="row">
-                    <div class="col-2"><img id="orderCarIcon" src="${order.image}" alt="ordered car thumbnail"/></div> 
-                    <div class="col-2"><span>Order N.${order.id} </span></div>    
-                    <div class="col-2"><span>${order.product}</span></div> 
-                    <div class="col-2"><span> USD: ${order.price} </span></div> 
-                    <div class="col-2"><span>${order.address_line_1} ${order.address_line_2}</span></div> 
-                    <div class="col-2"><span>${orderMap.get(order.state)}</span></div> 
+             <div class="order-detail-row">
+                    <div class="order-detail-col"><img id="orderCarIcon" src="${order.image}" alt="ordered car thumbnail"/></div> 
+                    <div class="order-detail-col"><span>Order N.${order.id} </span></div>                   
+                    <div class="order-detail-col"><span>${order.quantity} - ${order.product}</span></div> 
+                    <div class="order-detail-col"><span> USD: ${order.price} </span></div> 
+                    <div class="order-detail-col"><span>${order.address_line_1} ${order.address_line_2}</span></div> 
+                    <div class="order-detail-col"><span>${orderMap.get(order.state)}</span></div> 
                 </div>
             </a> 
         </li>

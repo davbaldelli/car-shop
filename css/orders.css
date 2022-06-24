@@ -1,6 +1,14 @@
 #ordersTabContent {
     padding-left: 0;
     margin-top: 10px;
+    min-height: 62vh;
+}
+
+.order-list-element{
+    border-color: rgba(218, 218, 218, 0.5);
+}
+.order-list-element a{
+    text-decoration: none;
 }
 
 #ordersTab {
@@ -77,4 +85,37 @@
     background-color: #1E1E1E;
     color: white;
     border: 1px solid rgba(68,68,68,.7)
+}
+.order-detail-row{
+    display: flex;
+    justify-content: space-between;
+    gap: 20px
+}
+.order-detail-col{
+    flex-grow: 1;
+    flex-shrink: 1;
+    flex-basis: 0;
+    text-align: center;
+}
+.order-detail-col:nth-child(1){
+    flex-grow: 0;
+}
+
+
+@media (max-width: 850px ){
+    .order-detail-row{
+        gap: 10px;
+        flex-flow: column;
+        justify-content: flex-start;
+    }
+    .order-detail-col{
+        flex-grow: 1;
+        flex-shrink: 1;
+        flex-basis: 0;
+        text-align: left;
+        border-bottom: 1px solid rgba(56, 56, 56, 0.4);
+    }
+    .order-detail-col:nth-child(6){
+        border-bottom: 0;
+    }
 }
