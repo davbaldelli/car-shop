@@ -7,7 +7,7 @@ export function ordersToUpdateCard(orders) {
         return `<li class="list-group-item list-group-item-admin-update">
                     <span> Ordine numero ${order.id} - stato: ${orderAdminMap.get(order.state)}</span>
                     
-                    <span>
+                    <span class="list-group-admin-update-buttons">
                         <button class="reverseOrderBtn btn btn-info" data-key="${order.id}" ${order.state === "pending_payment_confirm" ? "disabled" : ""}><- Previus State</button>
                         <button class="forwardOrderBtn btn btn-info"  ${order.state === "delivered" ? "disabled" : ""} data-key="${order.id}" >Next state -></button>
                     </span>
@@ -15,8 +15,8 @@ export function ordersToUpdateCard(orders) {
     })
 }
 
-let orderMap = new Map([['taken_in_charge', "Taken in charge"], ["pending_payment_confirm", "Pending payment confirm"], ["delivering", "In transit"], ["delivered", "Your car has arrived"]])
-let statusMap = new Map([['taken_in_charge', "src_img/status_taken.png"], ["pending_payment_confirm", "src_img/status_base.png"], ["delivering", "src_img/status_delivering.png"], ["delivered", "src_img/status_done.png"]])
+let orderMap = new Map([['taken_in_charge', "Taken in charge"], ["pending_payment_confirm", "Pending payment"], ["delivering", "In transit"], ["delivered", "Delivered"]])
+let statusMap = new Map([['taken_in_charge', "src_img/status_taken.png"], ["pending_payment_confirm", "src_img/status_pending.png"], ["delivering", "src_img/status_delivering.png"], ["delivered", "src_img/status_done.png"]])
 let classesMap = new Map([['taken_in_charge', "taken"], ["pending_payment_confirm", "payment-pending"], ["delivering", "delivering"], ["delivered", "delivered"]])
 
 export function ordersToList(orders) {
@@ -54,10 +54,10 @@ export function orderToInfoPanel(order) {
 export function orderToInfoPanel2(order) {
     let statesLogMap = getOldestLogsPerState(order.logs)
     let ordersHTML = Array.from(statesLogMap).map(([key, value])=>{
-        return `<div  id="${classesMap.get(key)}" class="status-detail-list" > <span>${orderMap.get(key)}</span><span>${value.timestamp}</span> </div>`
+        return `<div  id="${classesMap.get(key)}" class="status-detail-item" > <span class="status-detail-item-state">${orderMap.get(key)}</span><span class="status-detail-item-time">${value.timestamp}</span> </div>`
     })
     return `
-            <div class="row " id="order-detail-header">
+            <div id="orderDetailHeader">
                 <div id="div-order-detail-car-img"><img id="order-detail-car-img" src="${order.image}"/></div>
                 <div id="order-number-header"><h4>Order n. ${order.id}  &nbsp &nbsp </h4> <h2>${order.product}</h2></div>
             </div>
@@ -65,7 +65,7 @@ export function orderToInfoPanel2(order) {
             
             <div class="row order-row"  id="order-detail-content">
                 <div class="col-1" id="statusPoints"><img src="${statusMap.get(order.logs[order.logs.length - 1].state)}"/></div>
-                <div class="col">${ordersHTML.reduce((res, item) => res + item, "")}</div>
+                <div class="col status-detail-list">${ordersHTML.reduce((res, item) => res + item, "")}</div>
             </div>
             
             
