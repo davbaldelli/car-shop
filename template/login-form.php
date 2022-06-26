@@ -1,12 +1,12 @@
 <div class="login-container form-hidden">
     <div class="close-form">
-        <button id="close-login-form" class="btn-close"></button>
+        <button id="close-login-form" class="btn-close" aria-label="close login dropdown button"></button>
     </div>
     <div class="form-switch">
         <ul class="nav nav-tabs" id="myTab" role="tablist">
             <li class="nav-item" role="presentation">
                 <button class="nav-link active" id="login-tab" data-bs-toggle="tab" data-bs-target="#login"
-                        type="button" role="tab" aria-controls="Login" aria-selected="true">Login
+                        type="button" role="tab" aria-controls="login" aria-selected="true">Login
                 </button>
             </li>
             <li class="nav-item" role="presentation">
@@ -19,7 +19,7 @@
     <div class="tab-content">
         <div class=" tab-pane fade show active" id="login" role="tabpanel" aria-labelledby="login-tab">
             <form id="login-form-dropdown" class="login-form">
-                <h2 class="h2-login">Login</h2>
+                <span class="h2-login">Login</span>
                 <label class="login-label" for="username-log">Username</label><input id="username-log"
                                                                                      class="username-input" type="text"
                                                                                      placeholder="Username"><br>
@@ -33,7 +33,7 @@
         </div>
         <div class="tab-pane fade" id="signup" role="tabpanel" aria-labelledby="signup-tab">
             <form id="signup-form-dropdown" class="signup-form">
-                <h2 class="h2-signup">Sign up</h2>
+                <span class="h2-signup">Sign up</span>
                 <label class="signup-label" for="username-sign">Username</label><input id="username-sign"
                                                                                        class="username-input"
                                                                                        type="text"

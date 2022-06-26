@@ -17,7 +17,7 @@ export class CartDropdown {
 
     #spawnDropdown() {
         this.#container.html(this.#composeDropdown())
-        $(".remove-dropdown-cart-product-btn").click(event => {
+        $(".remove-cart-product-btn").click(event => {
             this.#onRemove(event.currentTarget.dataset.key)
         })
     }
@@ -32,12 +32,16 @@ export class CartDropdown {
             let x = this.#items.reduce((res, item, index) => {
                 return res + `
                 <li class="list-group-item cart-dropdown-row" data-key="${index}">
-                    <div class="cart-dropdown-item cart-content-item"> <strong class="cart-product-quantity">${item.quantity}</strong>  <span class="cart-product-name">${item.product.model}</span> <span class="remove-cart-product-btn material-icons cartRemoveItem" data-key="${index}">delete</span></div>              
+                    <div class="cart-dropdown-item cart-content-item">
+                        <strong class="cart-product-quantity">${item.quantity}</strong>  
+                        <span class="cart-product-name">${item.product.model}</span> 
+                        <button class="remove-cart-product-btn"><span class=" material-icons" data-key="${index}">delete</span></button>
+                    </div>              
                 </li>  
             `
             }, "")
             return x + `<li class="list-group-item cart-dropdown-item ">
-                        <a class="btn " id="btnCartToPurchase" href="http://localhost/purchase.php?userId=${this.#getUserID()}"><span class="material-icons"> shopping_cart_checkout </span> <span>Go to check-out</span> </a>
+                        <a class="btn" id="btnCartToPurchase" href="http://localhost/purchase.php?userId=${this.#getUserID()}"><span class="material-icons"> shopping_cart_checkout </span> <span>Go to check-out</span> </a>
                     </li>`
         } else {
             return `
@@ -58,9 +62,9 @@ export class CartDropdown {
 
     #composeDropdown() {
         return `<div class="dropdown" id="cart-dropdown">
-                    <a class="nav-link" type="button" id="cart-dropdown-btn" data-bs-toggle="dropdown" aria-expanded="false">
+                    <button class="nav-link" type="button" id="cart-dropdown-btn" data-bs-toggle="dropdown" data-bs-auto-close="outside" aria-haspopup="true" aria-expanded="false">
                         <span class="material-icons"> shopping_cart </span>
-                    </a>
+                    </button>
                     <ul class="dropdown-menu dropdown-menu-end list-group-flush"  id="cartContentContainer" aria-labelledby="notify dropdown menu">
                         ${this.#createDropdownElements()}
                     </ul>

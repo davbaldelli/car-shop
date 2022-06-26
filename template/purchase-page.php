@@ -134,10 +134,11 @@
                                     </label>
                                 </div>
                                 <div class="dropdown">
-                                    <a class=" btn dropdown-toggle" id="addCreditDropdown" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
+                                    <a class=" btn dropdown-toggle" id="addCreditDropdown" href="#" role="button"  data-bs-toggle="dropdown" aria-expanded="false">
                                         Add Credit
                                     </a>
                                     <form class="dropdown-menu" id="rechargeWalletForm">
+                                        <label for="creditInput" style="display: none">Insert credit</label>
                                         <div class="form-group">
                                             <input class="form-control" type="number" id="creditInput" placeholder="Enter credits">
                                         </div>

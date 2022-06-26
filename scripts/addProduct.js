@@ -26,6 +26,7 @@ $(() => {
                     rating: $("#rating-input").val()
                 }
                 insertCar(car, handleSuccessCarInsert, handleErrorCarInsert)
+                $(this).trigger("reset")
             }
         }
     })

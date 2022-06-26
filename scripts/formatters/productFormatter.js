@@ -1,9 +1,9 @@
 export function productsToListElements(products) {
     return products.map((prod,index) => `    
     <li class="list-group-item purchase-cart-list">
-        <label for="purchaseProductQuanity">${prod.product.model}</label>
+        <label for="product-${index}-quantity-input">${prod.product.model}</label>
         <div class="list-item-cart-purchase">
-            <input class="form-control product-quantity-input" type="number" value="${prod.quantity}" min="1" data-key="${index}">
+            <input class="form-control product-quantity-input" id="product-${index}-quantity-input" type="number" value="${prod.quantity}" min="1" data-key="${index}">
             <button class="btn remove-cart-product-btn" data-key="${index}"> 
                 <span class="material-icons">delete</span>
             </button>

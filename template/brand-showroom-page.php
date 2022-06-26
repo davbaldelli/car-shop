@@ -9,9 +9,10 @@
     </div>
     <div class="row p-3">
         <div class="col">
+            <label style="display: none" for="brand-name-searchbar">Input brand name</label>
             <div class="input-group mb-3">
-                <input id="brand-name-searchbar" type="text" class="form-control searchbar" placeholder="Search Car Name" aria-label="Search Car Name" aria-describedby="button-addon">
-                <span class="input-group-text" id="button-addon"><span class="material-icons">search</span></span>
+                <input id="brand-name-searchbar" type="text" class="form-control searchbar" placeholder="Search Car Name" aria-label="Search Car Name" aria-describedby="button-addon" title="Searchbar">
+                <span class="input-group-text material-icons" id="button-addon">search</span>
             </div>
         </div>
     </div>

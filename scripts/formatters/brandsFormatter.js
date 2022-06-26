@@ -4,7 +4,7 @@ export function brandsToCards(brands) {
                     <div class="card m-3 card-brand"  data-key="${brand.name}">
                         <img src="${brand.logo}" class="card-img-top card-image-fit p-2" alt="brand logo">
                         <div class="card-body">
-                            <h5 class="card-title text-center"> ${brand.name} </h5>
+                            <h3 class="card-title text-center"> ${brand.name} </h3>
                         </div>
                     </div>
                 </a>`

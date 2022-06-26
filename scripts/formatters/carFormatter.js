@@ -3,7 +3,7 @@ export function carsToCards(cars) {
         return `<a class="card-link" href="/product.php?id=${car.id}"><div class="card m-3 car-card"  id="cardCarContent">
                     <img src="${car.image}" class="card-img-top card-img-top-car" alt="car image">
                     <div class="card-body">
-                       <h5 class="card-title truncate"> ${car.brand} ${car.model} </h5>
+                       <span class="card-title truncate" style="font-size: 18pt"> ${car.brand} ${car.model} </span>
                        <p class="card-text">
                            ${car.bhp} BHP <br>
                            ${car.torque} Nm <br>

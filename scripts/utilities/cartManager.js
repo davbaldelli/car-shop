@@ -21,6 +21,7 @@ export function getCart() {
     }
     return {products: []}
 }
+
 export function removeProductFromCart(index){
     let cart = getCart()
     cart.products.splice(index, 1)

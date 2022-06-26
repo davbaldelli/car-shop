@@ -22,6 +22,7 @@
                     </nav>
                 </div>
             </div>
+            <label style="display: none" for="car-model-searchbar">Input car model name</label>
             <div class="input-group mb-3">
                 <input id="car-model-searchbar" type="text" class="form-control searchbar" placeholder="Search Car Name" aria-label="Search Car Name" aria-describedby="button-addon">
                 <span class="input-group-text" id="button-addon"><span class="material-icons">search</span></span>

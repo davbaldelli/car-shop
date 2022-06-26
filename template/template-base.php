@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="it">
+<html lang="en">
 <head>
     <title><?php echo $templateParams["title"]; ?></title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">

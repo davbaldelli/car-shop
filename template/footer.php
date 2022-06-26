@@ -15,17 +15,17 @@
             </div>
             <div class="col-sm about_socials">
                 <div class="row row-cols-2 social_logos">
-                    <div class="col div-ico" data-toggle="tooltip" title="Facebook">
-                        <a href="#" class="fa fa-facebook a-ico"></a>
+                    <div class="col div-ico" data-toggle="tooltip">
+                        <a href="#" class="fa fa-facebook a-ico" title="Facebook Link"></a>
                     </div>
-                    <div class="col div-ico" data-toggle="tooltip" title="Instagram">
-                        <a href="#" class="fa fa-instagram a-ico"></a>
+                    <div class="col div-ico" data-toggle="tooltip">
+                        <a href="#" class="fa fa-instagram a-ico" title="Instagram Link"></a>
                     </div>
                     <div class="col div-ico" data-toggle="tooltip" title="Twitter">
-                        <a href="#" class="fa fa-twitter a-ico"></a>
+                        <a href="#" class="fa fa-twitter a-ico" title="Twitter Link"></a>
                     </div>
-                    <div class="col div-ico" data-toggle="tooltip" title="Youtube">
-                        <a href="#" class="fa fa-youtube a-ico"></a>
+                    <div class="col div-ico" data-toggle="tooltip">
+                        <a href="#" class="fa fa-youtube a-ico" title="Youtube Link"></a>
                     </div>
                 </div>
             </div>
