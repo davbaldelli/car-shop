@@ -19,7 +19,7 @@
     <div class="tab-content">
         <div class=" tab-pane fade show active" id="login" role="tabpanel" aria-labelledby="login-tab">
             <form id="login-form-dropdown" class="login-form">
-                <span class="h2-login">Login</span>
+                <span class="form-header">Login</span>
                 <label class="login-label" for="username-log">Username</label><input id="username-log"
                                                                                      class="username-input" type="text"
                                                                                      placeholder="Username"><br>
@@ -33,7 +33,7 @@
         </div>
         <div class="tab-pane fade" id="signup" role="tabpanel" aria-labelledby="signup-tab">
             <form id="signup-form-dropdown" class="signup-form">
-                <span class="h2-signup">Sign up</span>
+                <span class="form-header">Sign up</span>
                 <label class="signup-label" for="username-sign">Username</label><input id="username-sign"
                                                                                        class="username-input"
                                                                                        type="text"

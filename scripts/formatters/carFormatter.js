@@ -1,9 +1,9 @@
 export function carsToCards(cars) {
     return cars.map(car => {
         return `<a class="card-link" href="/product.php?id=${car.id}"><div class="card m-3 car-card"  id="cardCarContent">
-                    <img src="${car.image}" class="card-img-top card-img-top-car" alt="car image">
+                    <img src="${car.image}" class="card-img-top card-img-top-car" alt="car image" loading="lazy">
                     <div class="card-body">
-                       <span class="card-title truncate" style="font-size: 18pt"> ${car.brand} ${car.model} </span>
+                       <span class="card-title card-title-car truncate"> ${car.brand} ${car.model} </span>
                        <p class="card-text">
                            ${car.bhp} BHP <br>
                            ${car.torque} Nm <br>

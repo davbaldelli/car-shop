@@ -15,7 +15,7 @@
                     <a class="nav-link <?php isActive("brands-showroom.php", "active"); ?>" href="brands-showroom.php">Showroom</a>
                 </li>
             </ul>
-            <ul class="navbar-nav ms-auto w-100 justify-content-end">
+            <ul class="navbar-nav ms-auto w-100 justify-content-end navbar-nav-dropdowns">
                 <li class="nav-item" id="cart-dropdown-container"></li>
                 <li class="nav-item" id="notify-dropdown-container"></li>
                 <li class="nav-item"><span class="navbar-text" id="nav-login"><a class=" nav-link login" id="login-dropdown" href="#">Login</a></span></li>
