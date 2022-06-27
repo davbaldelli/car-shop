@@ -19,6 +19,13 @@
     max-width: 20vw;
 }
 
+.accordion-button:not(.collapsed){
+    color: #3D26A8;
+    background-color: white;
+    font-weight: bold;
+
+}
+
 #rechargeWalletBtn{
     border-style: solid;
     border-color: #1E1E1E;
@@ -44,7 +51,7 @@
     display: flex;
     flex-flow: column;
     justify-content: space-evenly;
-    padding: 5px;
+    padding: 5px 10px;
 }
 #itemPriceList{
     list-style-type: none;
@@ -73,6 +80,16 @@
     content: "$";
 }
 
+#purchaseBtn{
+    border-radius: 10px;
+    background-color: #3D26A8;
+    color: #fff;
+}
+/*.truncate {*/
+/*    height: 20px;*/
+/*    overflow-x: hidden;*/
+/*    text-overflow: ellipsis;*/
+/*}*/
 
 @media only screen and (max-width: 990px) {
     #checkOut{

@@ -55,18 +55,16 @@
         </div>
     </div>
 </div>
-<div id="purchaseConfirmModal" class="modal" tabindex="-1">
+<div id="staticBackdrop2" class="modal fade purchase-confirm-modal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title">Payment Confirmed</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                <h5 class="modal-title" id="staticBackdropLabel2">Payment Confirmed</h5>
             </div>
             <div class="modal-body">
                 <p>Thanks for your purchase, you can review your orders here</p>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
                 <a id="goToUserOrders" type="button" class="btn btn-primary" >View Orders</a>
             </div>
         </div>
@@ -173,7 +171,7 @@
 
                                 </ul>
                                 <span>Totale: <strong id="subtotal"></strong></span>
-                                <button id="purchaseBtn" class="btn btn-primary" >Purchase</button>
+                                <button id="purchaseBtn" class="btn " >Purchase</button>
                             </div>
                         </div>
                     </div>

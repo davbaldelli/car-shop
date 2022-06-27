@@ -166,8 +166,10 @@ input:checked + .slider:before {
 .login-container {
     border-bottom-left-radius: 10px;
     border-bottom-right-radius: 10px;
-    width: 400px;
-    height: 500px;
+    max-width: 400px;
+    max-height: 500px;
+    width: 100%;
+    height: 100%;
     display: flex;
     flex-direction: column;
     background-color: rgb(33, 37, 41);
@@ -188,13 +190,21 @@ input:checked + .slider:before {
     right: 4px;
 }
 
+.form-switch{
+    padding-right: 2.5rem;
+}
+
+.tab-content{
+    padding-inline: 2.5rem;
+}
+
 .login-form {
     align-self: center;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
-    width: 85%;
-    height: 90%;
+    width: 100%;
+    height: 100%;
 }
 
 .btn-login {
@@ -232,10 +242,10 @@ input:checked + .slider:before {
     align-self: center;
     display: flex;
     flex-direction: column;
-    justify-content: space-around;
-    align-items: flex-start;
-    width: 85%;
-    height: 90%;
+    justify-content: flex-start;
+    gap: 0.2rem;
+    width: 100%;
+    height: 100%;
 }
 
 .btn-signup {
@@ -265,9 +275,6 @@ input:checked + .slider:before {
     border-color: #dee2e6 #dee2e6 #212529;
 }
 
-.tab-content {
-    padding-left: 30px;
-}
 
 .error-form {
     color: #ff6e19;

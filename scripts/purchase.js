@@ -1,4 +1,5 @@
 import {
+    clearCart,
     decreaseProductQuantity,
     getCart,
     increaseProductQuantity,
@@ -15,6 +16,7 @@ import {checkEnoughCredit, payProduct, putAmountInWallet} from "./store/walletSt
 let AddressModal = new bootstrap.Modal($(".addNewAddressModal"), {
     keyboard: false
 })
+let confirmationModal = new bootstrap.Modal($(".purchase-confirm-modal"), {keyboard: false})
 
 
 let feedBackToast = new bootstrap.Toast($("#userFeedbackToast"))
@@ -55,9 +57,7 @@ $(() => {
                     }
                     insertOrder(order, () => onNewOrderSuccess(item))
                 }, onNotEnoughCredit)
-
             }
-
         )
     })
 
@@ -89,6 +89,8 @@ function onInsertAddressError(){
 
 function onNewOrderSuccess(item) {
     payProduct(item.product, item.quantity, onPaymentConfirm, onPaymentError)
+    confirmationModal.toggle()
+    clearCart()
 }
 
 function onPaymentConfirm() {
@@ -126,9 +128,10 @@ function setupNationsSelectOptions(nations) {
     $("#nation-select").html(nationsToSelectElements(nations).reduce((res, el) => res + el, ""))
 }
 function setupReceiptView(products) {
+    console.log(products)
     $("#subtotal").html(products.reduce((res, item)=> res+(item.quantity*item.product.price), 0))
     $("#itemPriceList").html(products.reduce((res, item)=> res+`
-        <li class="row list-receipt-view"><div class="col-xxl-8">${item.product.brand +" "+ item.product.model } </div><div class="col-xxl-4 list-receipt-view-price">${item.product.price}</div> </li>
+        <li class="row list-receipt-view"><div class="col-sm-1">${item.quantity}</div> <div class="col-xxl-7 truncate">${item.product.brand +" "+ item.product.model } </div><div class="col-xxl-3 list-receipt-view-price">${item.product.price}</div> </li>
 `, ""))
 }
 

@@ -42,11 +42,11 @@
 
     </div>
 
-    <div class="row">
-        <div class="row" id="mainGrid">
 
-        </div>
+    <div class="row" id="mainGrid">
+
     </div>
+
 
 </div>
 
