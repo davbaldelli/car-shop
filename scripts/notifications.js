@@ -1,6 +1,7 @@
-import {getAllUserNotifications} from "./store/notificationsStore.js";
-import {generateNotifyDropdown} from "./components/notificationDropdown.js";
+import {getAllUserNotifications, updateNotificationsState} from "./store/notificationsStore.js";
+import {NotificationDropdown} from "./components/notificationDropdown.js";
 
+let notificationsDropdown
 
 $(()=>{
     dropdownSetup()
@@ -10,7 +11,7 @@ $(document).on("login",()=>{
 })
 
 function setNotificationListContent(notifications) {
-    generateNotifyDropdown("notify-dropdown-container", "Notifications",notifications, () => {})
+    notificationsDropdown = new NotificationDropdown(20, $("#notify-dropdown-container"), notifications,() => {}, removeNotifications)
 }
 
 function dropdownSetup(){
@@ -19,6 +20,13 @@ function dropdownSetup(){
         getAllUserNotifications(setNotificationListContent)
     }
 }
+
+function removeNotifications(notifications){
+    updateNotificationsState(() => {
+        getAllUserNotifications(items => notificationsDropdown.updateItems(items))
+    }, console.log, ...notifications)
+}
+
 function activateHover(){
     let notyDropdown = new bootstrap.Dropdown($("#notificationDropdownBtn"))
 

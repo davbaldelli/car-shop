@@ -19,6 +19,7 @@ if(!isset($_POST["ids"])){
     die("'ids' param missing");
 }
 
+
 $token = getallheaders()["Token"];
 
 $payload = json_decode(getJWTPayload($token));
