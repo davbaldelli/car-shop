@@ -223,8 +223,12 @@ input:checked + .slider:before {
     padding-right: 10px;
 }
 
+.form-header {
+    margin-top: 30px;
+    margin-bottom: 40px;
 .h2-login {
     color: #91A826;
+    font-size: 1.5rem;
 }
 
 .username-input {
@@ -286,7 +290,10 @@ input:checked + .slider:before {
 }
 
 /* Css shopping cart dropdown*/
-
+#cartDropdownBtn{
+    background: none;
+    border: 0;
+}
 #cartContentContainer{
     padding: 12px;
     width: 340px;
@@ -310,9 +317,12 @@ input:checked + .slider:before {
     color: #fff;
 }
 
-.cart-remove-item{
+.remove-cart-product-btn{
     margin-left: auto;
     margin-right: 0;
+    background: none;
+    border: 0;
+    color: #fff;
 }
 
 #btnCartToPurchase{
@@ -370,14 +380,53 @@ input:checked + .slider:before {
     max-height: 50vh;
     width: 300px;
     overflow-y: scroll;
-    padding: 10px;
+    padding: 4rem 1rem 1rem 1rem;
 }
 .notification-list-item{
     padding: 5px 0 5px 0;
-    border-bottom-color: #545D67;
-    border-style: solid;
-    border-width: thin;
+    border-bottom: thin solid #545D67;
 }
+#notificationCounter{
+    position: absolute;
+    transform: translate(1.5rem);
+
+}
+.navbar-nav-dropdowns{
+    gap: 0.4rem;
+}
+
+#notificationHeader{
+    position: absolute;
+    height: 3rem;
+    z-index: 1000;
+    width: 100%;
+    color:#fff;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+    border-bottom: 2px solid #545D67;
+}
+#notificationHeader span{
+    font-size: 1.2rem;
+}
+#deleteAllNotifyBtn{
+    font-size: 0.8rem;
+    color:#fff;
+    background: none;
+    border: 1px solid #fff;
+    border-radius: 5px;
+}
+
+#deleteAllNotifyBtn:hover{
+    background-color: #fff;
+    color: #212529;
+}
+
+#notificationDropdownContainer div{
+    background-color: #212529;
+}
+
 
 @media only screen and (max-width: 767px){
     #cartContentContainer{
@@ -386,6 +435,10 @@ input:checked + .slider:before {
     #notificationDropdownContent{
         max-height: 35vh;
         width: 100%;
-     }
+    }
+    .navbar-nav-dropdowns{
+        gap: 0rem;
+    }
+
 }
 

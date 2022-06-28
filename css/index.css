@@ -38,19 +38,18 @@
 .home-sections {
     box-shadow: 0 10px 20px 0 rgba(0, 0, 0, 0.2), 0 0 0 0 rgba(0, 0, 0, 0.19);
     height: auto;
-    margin-left: 0;
-    margin-righ: 0;
-    margin-top: 0;
-    margin-bottom: 35px;
+    margin: 0 0 2.2rem 0 ;
 
 }
-.h2-abtxt {
+.welcome-text-header {
     color: #91A826;
+    font-size: 2rem;
     text-transform: uppercase;
     letter-spacing: 2px;
 }
-.h4-abtxt {
+.welcome-text-sub {
     color: #DADADA;
+    font-size: 1.5rem;
 }
 /* css per section carosello*/
 
@@ -69,7 +68,7 @@
 
 }
 
-#about-text {
+#welcomeText{
     overflow-wrap: break-word;
     text-align: center;
     display: flex;
@@ -80,22 +79,27 @@
 /* css per section shields*/
 #shields-section {
     height: fit-content;
-    padding-top: 20px;
-    padding-bottom: 20px;
+    padding: 1rem 3rem 1rem 3rem ;
+    gap: 5rem;
+    align-items: flex-start;
 }
 
 .shield-div {
     width: auto;
-    height: fit-content;
+    height: inherit;
     text-align: center;
-    align-self: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
-.h1-shield {
+.shield-text-header{
+    font-size: 1.5rem;
     color: #3d26a8;
 }
 
-.h4-shield {
+.shield-text-sub {
+    font-size: 1.2rem;
     color: #91A826;
 }
 
@@ -110,10 +114,8 @@
 }
 
 .shield-img {
-    width: 7vw;
-    min-width: 80px;
+    width: clamp(4rem, 7vw, 10rem);
     height: auto;
-
     opacity: 50%;
     filter: invert(100%);
 }
@@ -125,8 +127,10 @@
 
 .review-div {
     text-align: center;
-    padding-left: 1%;
-    padding-right: 1%;
+    padding: 1rem 3rem 1rem 3rem ;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .img-stars {

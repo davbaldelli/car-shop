@@ -62,7 +62,7 @@ export class CartDropdown {
 
     #composeDropdown() {
         return `<div class="dropdown" id="cart-dropdown">
-                    <button class="nav-link" type="button" id="cart-dropdown-btn" data-bs-toggle="dropdown" data-bs-auto-close="outside" aria-haspopup="true" aria-expanded="false">
+                    <button class="nav-link" type="button" id="cartDropdownBtn" data-bs-toggle="dropdown" data-bs-auto-close="outside" aria-haspopup="true" aria-expanded="false">
                         <span class="material-icons"> shopping_cart </span>
                     </button>
                     <ul class="dropdown-menu dropdown-menu-end list-group-flush"  id="cartContentContainer" aria-labelledby="notify dropdown menu">
