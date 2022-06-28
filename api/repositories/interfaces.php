@@ -54,6 +54,8 @@ interface NotificationsRepository
     function addNotify($notify): string;
 
     function getUserNotifications($id_user): array;
+
+    function setNotificationRead($notifications_ids): string;
 }
 
 interface AddressesRepository
