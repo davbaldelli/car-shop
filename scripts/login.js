@@ -82,12 +82,15 @@ function onLogin() {
 
 function onSignup() {
     let username = $("#username-sign").val()
+    let name = $("#name-input").val()
+    let last_name = $("#last-name-input").val()
     let password1 = $("#password-sign").val()
     let password2 = $("#password2-sign").val()
+    let avatar_image = "https://i.imgur.com/FBB2A6C.jpg"
     if (password1 !== password2 || password1 === "") {
         $("#error-sign").html("Passwords not matching, or missing")
     } else {
-        signup({username, password: password1}, onLoginSuccess, onSigningFailure)
+        signup({username, password: password1, name, last_name, avatar_image}, onLoginSuccess, onSigningFailure)
     }
 }
 

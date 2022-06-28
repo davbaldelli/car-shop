@@ -18,17 +18,17 @@ class UserRepositoryImpl implements UserRepository
         return $stmt->get_result()->fetch_all(MYSQLI_ASSOC);
     }
 
-    function signIn($username, $password): ?array
+    function signIn($user): ?array
     {
-        $stmt = $this->conn->prepare("INSERT INTO users (username, password, role, salt) VALUES (?,SHA2(CONCAT(?, ?),?),?,?)");
+        $stmt = $this->conn->prepare("INSERT INTO users (username, password, role, salt, name, last_name, avatar_image) VALUES (?,SHA2(CONCAT(?, ?),?),?,?, ?, ?, ?)");
         $length = 224;
         $role = "base";
         $salt = $this->generateRandomString(30);
-        $stmt->bind_param("sssiss", $username, $password, $salt, $length, $role, $salt);
+        $stmt->bind_param("sssisssss", $user["username"], $user["password"], $salt, $length, $role, $salt, $user["name"], $user["last_name"], $user["avatar_image"]);
         try {
             if ($stmt->execute()) {
-                $stmt = $this->conn->prepare("SELECT id,username, role, salt FROM users WHERE username = ? AND password = SHA2(CONCAT(?, salt),?)");
-                $stmt->bind_param("ssi", $username, $password, $length);
+                $stmt = $this->conn->prepare("SELECT id,username, role FROM users WHERE username = ? AND password = SHA2(CONCAT(?, salt),?)");
+                $stmt->bind_param("ssi", $user["username"], $user["password"], $length);
                 $stmt->execute();
                 return $stmt->get_result()->fetch_all(MYSQLI_ASSOC);
             } else {
@@ -52,7 +52,7 @@ class UserRepositoryImpl implements UserRepository
 
     function getUserInfo($id_user): array
     {
-        $stmt = $this->conn->prepare("SELECT id, username, role, credit FROM users WHERE id = ?");
+        $stmt = $this->conn->prepare("SELECT id, username, name, last_name, cell_number, avatar_image, role, credit FROM users WHERE id = ?");
         $stmt->bind_param("i",$id_user);
         $stmt->execute();
         $user = $stmt->get_result()->fetch_all(MYSQLI_ASSOC)[0];

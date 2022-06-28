@@ -3,9 +3,15 @@ import {getAllManufacturers} from "./store/brandsStore.js";
 import {insertCar} from "./store/carsStore.js";
 
 $(() => {
-    $("#new-car-form").submit(function(evt) {
-        if($(this).checkValidity()) {
-            evt.preventDefault()
+
+    getAllManufacturers(setBrandSelectOptions)
+
+    'use strict'
+    const form = document.querySelector('#new-car-form')
+    form.addEventListener('submit', event => {
+        event.preventDefault()
+        event.stopPropagation()
+        if (form.checkValidity()) {
             let user = JSON.parse(localStorage.getItem("user"))
             if (user && user.role === "admin") {
                 let car = {
@@ -26,30 +32,11 @@ $(() => {
                     rating: $("#rating-input").val()
                 }
                 insertCar(car, handleSuccessCarInsert, handleErrorCarInsert)
-                $(this).trigger("reset")
             }
         }
-    })
-    getAllManufacturers(setBrandSelectOptions)
 
-    'use strict'
-
-    // Fetch all the forms we want to apply custom Bootstrap validation styles to
-    const forms = document.querySelectorAll('.needs-validation')
-
-    // Loop over them and prevent submission
-    Array.from(forms).forEach(form => {
-        form.addEventListener('submit', event => {
-            if (!form.checkValidity()) {
-                event.preventDefault()
-                event.stopPropagation()
-            }
-
-            form.classList.add('was-validated')
+        form.classList.add('was-validated')
         }, false)
-    })
-
-
 })
 
 function handleSuccessCarInsert() {

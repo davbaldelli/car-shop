@@ -19,12 +19,12 @@
     <div class="tab-content">
         <div class=" tab-pane fade show active" id="login" role="tabpanel" aria-labelledby="login-tab">
             <form id="login-form-dropdown" class="login-form">
-                <span class="h2-login">Login</span>
+                <span class="h2-login my-3">Login</span>
                 <label class="login-label" for="username-log">Username</label><input id="username-log"
-                                                                                     class="username-input" type="text"
+                                                                                     class="login-form-input" type="text"
                                                                                      placeholder="Username"><br>
                 <label class="login-label" for="password-log">Password</label><input id="password-log"
-                                                                                     class="password-input"
+                                                                                     class="login-form-input"
                                                                                      type="password"
                                                                                      placeholder="Password"><br>
                 <span class="error-form" id="error-login"><p></p></span>
@@ -33,17 +33,23 @@
         </div>
         <div class="tab-pane fade" id="signup" role="tabpanel" aria-labelledby="signup-tab">
             <form id="signup-form-dropdown" class="signup-form">
-                <span class="h2-signup">Sign up</span>
+                <span class="h2-signup my-3">Sign up</span>
                 <label class="signup-label" for="username-sign">Username</label><input id="username-sign"
-                                                                                       class="username-input"
+                                                                                       class="login-form-input"
                                                                                        type="text"
                                                                                        placeholder="Username"><br>
+                <label class="signup-label">Name
+                    <input id="name-input" type="text" class="login-form-input" placeholder="Name">
+                </label>
+                <label class="signup-label">Last Name
+                    <input id="last-name-input" type="text" class="login-form-input" placeholder="Last Name">
+                </label>
                 <label class="signup-label" for="password-sign">Password</label><input id="password-sign"
-                                                                                       class="password-input"
+                                                                                       class="login-form-input"
                                                                                        type="password"
                                                                                        placeholder="Password"><br>
                 <label class="signup-label" for="password2-sign">Password</label><input id="password2-sign"
-                                                                                        class="password-input"
+                                                                                        class="login-form-input"
                                                                                         type="password"
                                                                                         placeholder="Password"><br>
                 <span class="error-form" id="error-sign"></span>

@@ -7,7 +7,7 @@ $repo = RepositoriesFactory::GetUserRepository();
 $username = $_POST["username"];
 $password = $_POST["password"];
 
-$user = $repo->signIn($username, $password);
+$user = $repo->signIn($_POST);
 
 if ($user != null) {
     http_response_code(200);

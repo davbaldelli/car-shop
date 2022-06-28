@@ -44,7 +44,7 @@ interface UserRepository
 {
     function login($username, $password): ?array;
 
-    function signIn($username, $password): ?array;
+    function signIn($user): ?array;
 
     function getUserInfo($id_user) : array;
 }
