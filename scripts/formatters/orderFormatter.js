@@ -54,7 +54,8 @@ export function orderToInfoPanel(order) {
 export function orderToInfoPanel2(order) {
     let statesLogMap = getOldestLogsPerState(order.logs)
     let ordersHTML = Array.from(statesLogMap).map(([key, value])=>{
-        return `<div  id="${classesMap.get(key)}" class="status-detail-item" > <span class="status-detail-item-state">${orderMap.get(key)}</span><span class="status-detail-item-time">${value.timestamp}</span> </div>`
+        let time=timeFormat(value.timestamp)
+        return `<div  id="${classesMap.get(key)}" class="status-detail-item" > <span class="status-detail-item-state">${orderMap.get(key)}</span><span class="status-detail-item-time">${time[0]}</span> </div>`
     })
     return `
             <div id="orderDetailHeader">
@@ -91,4 +92,9 @@ export function orderToInfoPanel2(order) {
                   </li>
                 </ol>
             </div>`
+}
+
+function timeFormat(time){
+    let timeArray
+    return  timeArray=time.split(" ")
 }

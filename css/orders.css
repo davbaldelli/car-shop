@@ -38,8 +38,8 @@
     height: 300px;
     justify-content:  start;
     gap:58px;
-    padding: 15px 0 15px 0;
-    margin-left: 2px;
+    padding: 14px 0 14px 0;
+    margin-inline: 2px 5px;
 }
 .status-detail-item-state{
     flex-shrink: 0;
