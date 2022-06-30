@@ -6,7 +6,7 @@
     <div class="container" id="accountMainContainer">
         <div class="row row-cols-2" id="userAccountHeader">
             <div class="col-lg-4" id="userPicturesContainer">
-                <img id="userPictures" src="/src_img/standard-pictures.png"/>
+                <img id="userPictures" src="/src_img/standard-pictures.png" alt="profile pictures"/>
             </div>
             <div class="col-md-8" id="userNameContainer">
             </div>
@@ -58,10 +58,10 @@
                         </div>
                         <div class="flex flex-column flex-grow-1">
                              <span class="list-item-title">
-                                Favourite Car
+                                Favourite Brand
                             </span>
                             <span>
-                                Car
+                                BMW
                             </span>
                         </div>
 
