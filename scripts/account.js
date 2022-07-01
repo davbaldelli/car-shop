@@ -1,4 +1,4 @@
-import {getUserInfo, updateUserAddress} from "./store/userStore.js";
+import {deleteAddress, getUserInfo, updateUserAddress} from "./store/userStore.js";
 import {userToInfoPanel} from "./formatters/userFormatter.js";
 import {getAllNations} from "./store/nationsStore.js";
 import {nationsToSelectElements} from "./formatters/nationsFormatter.js";
@@ -25,6 +25,13 @@ $(() => {
             $("#addressL1Input").val(address.address_line_1)
             $("#addressL2Input").val(address.address_line_2)
             AddressModal.toggle()
+        })
+        $(".removeAddressBtn").click(function() {
+            let id = $(this).data("key")
+            let address = addresses.get(id)
+            deleteAddress(address, () => {
+                getUserInfo(setUserInfoPanelContent)
+            })
         })
         $("#addressForm").submit(function(e) {
             e.preventDefault()

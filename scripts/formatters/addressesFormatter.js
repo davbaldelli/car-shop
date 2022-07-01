@@ -12,6 +12,7 @@ export function addressToListItems(addresses){
         return `<li class="user-address-item">
                     ${address.address_line_1} ${address.address_line_2}, ${address.postal_code}, ${address.locality}, ${address.administrative_area} 
                     <button class="editAddressBtn" data-key="${address.id}">edit</button>
+                    <button class="removeAddressBtn" data-key="${address.id}">remove</button>
                 </li>`
     })
 }

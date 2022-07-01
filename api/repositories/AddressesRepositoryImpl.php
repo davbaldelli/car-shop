@@ -47,4 +47,16 @@ class AddressesRepositoryImpl implements AddressesRepository
         }
         return "";
     }
+
+    public function deleteAddress($id_address): string
+    {
+        $stmt = $this->conn->prepare("DELETE FROM users_delivering_addresses WHERE id = ?");
+        $stmt->bind_param("i", $id_address);
+        try {
+            $stmt->execute();
+        } catch (Exception $ex){
+            return $ex->getMessage();
+        }
+        return  "";
+    }
 }

@@ -61,6 +61,19 @@ export function addAddress(url, headers = {}, data, onSuccess, onFailure) {
     })
 }
 
+export function removeAddress(url, headers = {}, data, onSuccess, onFailure) {
+    $.ajax({
+        type: 'POST',
+        url: url,
+        data: data,
+        headers: headers,
+        success: onSuccess,
+        statusCode:{
+            500 : onFailure
+        }
+    })
+}
+
 export function makePayment(url, headers = {}, data, onSuccess, onError) {
     $.ajax({
         type: 'POST',

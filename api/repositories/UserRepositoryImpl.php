@@ -57,19 +57,32 @@ class UserRepositoryImpl implements UserRepository
                 GROUP BY (car_type) ORDER BY orders_count DESC LIMIT 1");
         $stmt->bind_param("i", $id_user);
         $stmt->execute();
-        $fav_car_type = $stmt->get_result()->fetch_all(MYSQLI_ASSOC)[0];
+        if($stmt->get_result()->num_rows == 0){
+            $fav_car_type = "no data available";
+        } else {
+            $fav_car_type = $stmt->get_result()->fetch_all(MYSQLI_ASSOC)[0]["name"];
+        }
 
         $stmt = $this->conn->prepare("SELECT m.name,COUNT(m.name) AS orders_count FROM orders 
                     JOIN cars c on c.id = orders.id_car JOIN users u on u.id = orders.id_user JOIN manufacturers m on m.id = c.id_brand WHERE u.id = ? 
                 GROUP BY (m.name) ORDER BY orders_count DESC LIMIT 1");
         $stmt->bind_param("i", $id_user);
         $stmt->execute();
-        $fav_car_brand = $stmt->get_result()->fetch_all(MYSQLI_ASSOC)[0];
+        if($stmt->get_result()->num_rows == 0){
+            $fav_car_brand = "no data available";
+        } else {
+            $fav_car_brand = $stmt->get_result()->fetch_all(MYSQLI_ASSOC)[0]["name"];
+        }
 
         $stmt = $this->conn->prepare("SELECT SUM(price) AS tot FROM orders_view WHERE id_user = ? GROUP BY id_user");
         $stmt->bind_param("i", $id_user);
         $stmt->execute();
-        $tot_money_spent = $stmt->get_result()->fetch_all(MYSQLI_ASSOC)[0];
+        if($stmt->get_result()->num_rows == 0){
+            $tot_money_spent = 0;
+        } else {
+            $tot_money_spent = $stmt->get_result()->fetch_all(MYSQLI_ASSOC)[0]["tot"];
+        }
+
 
         $stmt = $this->conn->prepare("SELECT id, username, name, last_name, cell_number, avatar_image, role, credit FROM users WHERE id = ?");
         $stmt->bind_param("i",$id_user);
@@ -79,6 +92,6 @@ class UserRepositoryImpl implements UserRepository
         $stmt->bind_param("i",$id_user);
         $stmt->execute();
         $addresses = array("addresses" => $stmt->get_result()->fetch_all(MYSQLI_ASSOC));
-        return array_merge($user, $addresses,array("fav_car_type" => $fav_car_type["car_type"]), array("tot_money_spent" => $tot_money_spent["tot"]),array("fav_car_brand" => $fav_car_brand["name"]));
+        return array_merge($user, $addresses,array("fav_car_type" => $fav_car_type), array("tot_money_spent" => $tot_money_spent),array("fav_car_brand" => $fav_car_brand));
     }
 }

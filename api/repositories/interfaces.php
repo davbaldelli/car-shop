@@ -65,6 +65,8 @@ interface AddressesRepository
     function addUserAddress($address): string;
 
     function updateAddress($address): string;
+
+    public function deleteAddress($id_address): string;
 }
 
 interface NationsRepository
