@@ -17,7 +17,7 @@ require("address-form.php")
     </div>
 </div>
 <section id="purchaseMainContainer" class="container-fluid">
-    <div id="userFeedbackToast" class="toast align-items-center text-bg-primary border-0 position-absolute end-0" role="alert" aria-live="assertive" aria-atomic="true">
+    <div id="userFeedbackToast" class="toast align-items-center text-bg-primary border-0 position-absolute end-0 custom-toast" role="alert" aria-live="assertive" aria-atomic="true">
         <div class="d-flex">
             <div class="toast-body" id="toastContent">
 

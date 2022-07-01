@@ -18,6 +18,14 @@
     flex-grow: 0;
 }
 
+.grid{
+    display: grid;
+}
+
+.grid-col-2fr{
+    grid-template-columns: 1fr 1fr;
+}
+
 .list-item-title{
     font-size: 1.2rem;
     font-weight: bold;
