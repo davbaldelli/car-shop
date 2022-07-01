@@ -38,12 +38,12 @@
                                                                                        class="login-form-input"
                                                                                        type="text"
                                                                                        placeholder="Username"><br>
-                <label class="signup-label">Name
+                <label class="signup-label">Name</label>
                     <input id="name-input" type="text" class="login-form-input" placeholder="Name">
-                </label>
-                <label class="signup-label">Last Name
+
+                <label class="signup-label">Last Name</label>
                     <input id="last-name-input" type="text" class="login-form-input" placeholder="Last Name">
-                </label>
+
                 <label class="signup-label" for="password-sign">Password</label><input id="password-sign"
                                                                                        class="login-form-input"
                                                                                        type="password"
