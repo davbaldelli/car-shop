@@ -15,9 +15,10 @@ export function carsToCards(cars) {
 }
 
 export function carsToCarouselElems(cars) {
+    console.log(cars)
     return cars.map((car, i) => {
         return `<div class="carousel-item ${i === 0 ? "active" : ""}">
-                    <img src="${car.image}" class="d-block w-100 carousel-item-img" alt="car thumbnail">
+                    <a href="/product.php?id=${car.id}"> <img src="${car.image}" class="d-block w-100 carousel-item-img" alt="car thumbnail"></a>
                 </div>`
     })
 }

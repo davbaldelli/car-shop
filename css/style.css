@@ -1,13 +1,13 @@
-main {
-    padding-top: 60px;
-    min-height: 77vh;
-
-}
-
 body {
     background-color: #1E1E1E;
+}
+
+main {
+    padding-top: 60px;
     min-height: 100vh;
 }
+
+
 
 .navbar-logo {
     width: 100px;
@@ -427,6 +427,14 @@ html {
     background-color: #212529;
 }
 
+.custom-toast{
+    background-image: linear-gradient(to right, #3d26a8, #5c46ce);
+}
+.toast-body{
+    color: #fff;
+    font-weight: 300;
+    font-size: 1.175rem;
+}
 
 @media only screen and (max-width: 767px){
     #cartContentContainer{

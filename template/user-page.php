@@ -1,4 +1,3 @@
-
 <div class="col-0 col-md-2"></div>
 
 
@@ -14,7 +13,7 @@
         <div class="row">
             <div class="col" id="userInfoRow">
                 <ul class="list-group list-group-flush" id="userInfoListGroup">
-                    <li class="list-group-item user-info-list-item flex flex-row">
+                    <li class="list-group-item user-info-list-item grid grid-col-2fr">
                         <div class="user-name flex flex-column flex-grow-1">
                             <span class="list-item-title">Name:</span>
                             <span class="user-name-span">
@@ -47,7 +46,7 @@
                             </li>
                         </ol>
                     </li>
-                    <li class="list-group-item user-info-list-item flex flex-row">
+                    <li class="list-group-item user-info-list-item grid grid-col-2fr">
                         <div class="flex flex-column flex-grow-1">
                             <span class="list-item-title">
                                 Favourite Car Type

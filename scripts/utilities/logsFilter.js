@@ -1,3 +1,5 @@
+
+
 export function getOldestLogsPerState(logs) {
     let ordersStateArray = ["pending_payment_confirm", "taken_in_charge", "delivering", "delivered"]
     let ordersStateMap = ordersStateArray.reduce((res, item, index) => res.set(item, index), new Map())
@@ -13,8 +15,9 @@ export function getOldestLogsPerState(logs) {
             lastLog = value
         }
     })
+
     return new Map([...logsMap]
-        .filter(([key, value]) => ordersStateMap.get(lastLog.state) >= ordersStateMap.get(value.state))
+        .filter(([key, value]) => ordersStateMap.get(lastLog.state) >= ordersStateMap.get(value.state)-1)
         .sort((a, b) => {
             if (ordersStateMap.get(a[0]) < ordersStateMap.get(b[0])) {
                 return -1;

@@ -41,17 +41,17 @@ export function ordersToList(orders) {
 }
 
 
-export function orderToInfoPanel(order) {
-    console.log(order.logs[order.logs.length-1])
-    let statesLogMap = getOldestLogsPerState(order.logs)
-    let res = Array.from(statesLogMap).map(([key, value])=>{
-        return `<div style="color : white">${key}-> ${value.timestamp} </div>`
-    })
-    return res.reduce((res, item)=>res+item, `<img src="${statusMap.get(order.logs[order.logs.length-1].state)}"/> <div style="color : white">Order n. ${order.id} -> ${order.state}</div>`)
-}
+// export function orderToInfoPanel(order) {
+//     let statesLogMap = getOldestLogsPerState(order.logs)
+//     let res = Array.from(statesLogMap).map(([key, value])=>{
+//         return `<div style="color : white">${key}-> ${value.timestamp} </div>`
+//     })
+//     return res.reduce((res, item)=>res+item, `<img src="${statusMap.get(order.logs[order.logs.length-1].state)}"/> <div style="color : white">Order n. ${order.id} -> ${order.state}</div>`)
+// }
 
 
 export function orderToInfoPanel2(order) {
+    console.log(order)
     let statesLogMap = getOldestLogsPerState(order.logs)
     let ordersHTML = Array.from(statesLogMap).map(([key, value])=>{
         let time=timeFormat(value.timestamp)
@@ -59,39 +59,42 @@ export function orderToInfoPanel2(order) {
     })
     return `
             <div id="orderDetailHeader">
-                <div id="div-order-detail-car-img"><img id="order-detail-car-img" src="${order.image}"/></div>
+                <div id="div-order-detail-car-img"><a id="detailLinkToCar" href="/product.php?id=${order.id_car}"><img id="order-detail-car-img" src="${order.image}" alt="car image" aria-hidden="true"/></a></div>
                 <div id="order-number-header"><h4>Order n. ${order.id}  &nbsp &nbsp </h4> <h2>${order.product}</h2></div>
             </div>
             
-            
-            <div class="row order-row"  id="order-detail-content">
-                <div class="col-1" id="statusPoints"><img src="${statusMap.get(order.logs[order.logs.length - 1].state)}"/></div>
-                <div class="col status-detail-list">${ordersHTML.reduce((res, item) => res + item, "")}</div>
+            <div id="orderDetailContainer">
+                <div class="row order-row"  id="order-detail-content">
+                    <div  id="statusPoints"> <img src="${statusMap.get(order.logs[order.logs.length - 1].state)} " alt="roadmap" aria-hidden="true"/></div>
+                    <div class= "status-detail-list">${ordersHTML.reduce((res, item) => res + item, "")}</div>
+                </div>
+                
+                
+                <div class="row order-row" id="order-detail-user">
+                    <ol class="list-group" id="list-user-detail">
+                      <li class="list-group-item d-flex justify-content-between align-items-start user-detail">
+                        <div class="ms-2 me-auto">
+                          <div class="fw-bold">Costumer Name:</div>
+                          ${order.address.first_name} ${order.address.last_name}
+                        </div>              
+                      </li>
+                      <li class="list-group-item d-flex justify-content-between align-items-start user-detail">
+                        <div class="ms-2 me-auto">
+                          <div class="fw-bold">Shipping Address:</div>
+                          Area: ${order.address.administrative_area} &nbsp City: ${order.address.locality} &nbsp Address: ${order.address.address_line_1} ${order.address.address_line_2}
+                        </div>
+                      </li>
+                      <li class="list-group-item d-flex justify-content-between align-items-start user-detail">
+                        <div class="ms-2 me-auto">
+                          <div class="fw-bold">Price: </div>
+                          ${order.price}
+                        </div>
+                      </li>
+                    </ol>
+                </div>
             </div>
-            
-            
-            <div class="row order-row" id="order-detail-user">
-                <ol class="list-group" id="list-user-detail">
-                  <li class="list-group-item d-flex justify-content-between align-items-start user-detail">
-                    <div class="ms-2 me-auto">
-                      <div class="fw-bold">Costumer Name:</div>
-                      ${order.address.first_name} ${order.address.last_name}
-                    </div>              
-                  </li>
-                  <li class="list-group-item d-flex justify-content-between align-items-start user-detail">
-                    <div class="ms-2 me-auto">
-                      <div class="fw-bold">Shipping Address:</div>
-                      Area: ${order.address.administrative_area} &nbsp City: ${order.address.locality} &nbsp Address: ${order.address.address_line_1} ${order.address.address_line_2}
-                    </div>
-                  </li>
-                  <li class="list-group-item d-flex justify-content-between align-items-start user-detail">
-                    <div class="ms-2 me-auto">
-                      <div class="fw-bold">Price: </div>
-                      ${order.price}
-                    </div>
-                  </li>
-                </ol>
-            </div>`
+
+`
 }
 
 function timeFormat(time){
