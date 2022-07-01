@@ -7,13 +7,13 @@ export function userToInfoPanel(user){
                 <img id="userPictures" src="${user.avatar_image}" alt="profile pictures"/>
             </div>
             <div class="col-md-8" id="userNameContainer">
-                ${user.username}
+               <span id="userName"> ${user.username}</span>
             </div>
         </div>
         <div class="row">
             <div class="col" id="userInfoRow">
                 <ul class="list-group list-group-flush" id="userInfoListGroup">
-                    <li class="list-group-item user-info-list-item flex flex-row">
+                    <li class="list-group-item user-info-list-item grid grid-col-2fr">
                         <div class="user-name flex flex-column flex-grow-1">
                             <span class="list-item-title">Name:</span>
                             <span class="user-name-span">
@@ -35,7 +35,7 @@ export function userToInfoPanel(user){
                             ${addressToListItems(user.addresses).reduce((r,i) => r + i,"")}
                         </ol>
                     </li>
-                    <li class="list-group-item user-info-list-item flex flex-row">
+                    <li class="list-group-item user-info-list-item grid grid-col-2fr">
                         <div class="flex flex-column flex-grow-1">
                             <span class="list-item-title">
                                 Favourite Car Type
@@ -59,7 +59,7 @@ export function userToInfoPanel(user){
                             How much I spent
                         </span>
                         <span class="flex flex-row gap-2">
-                            <span class="padding-block-1">You spent:</span>&nbsp;<div class="creditReveal padding-block-1 padding-inline-1">${user.tot_money_spent}</div>
+                            <span class="padding-block-1">You spent:</span>&nbsp;<div class="creditReveal padding-block-1 padding-inline-1 strong">${user.tot_money_spent}</div>
                         </span>
                     </li>
                 </ul>

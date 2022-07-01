@@ -40,6 +40,20 @@
 .gap-2{
     gap:2rem;
 }
+
+.btn-icon{
+    padding: 0 0.5rem;
+    background: 0;
+    border: 0;
+    color: #fff;
+    font-size: 0.8rem;
+}
+.strong{
+    font-weight: bold;
+}
+
+
+
 /******************/
 
 
@@ -100,5 +114,5 @@
 }
 
 .creditReveal{
-    border: 1px solid red;
+    /*border: 1px solid red;*/
 }
