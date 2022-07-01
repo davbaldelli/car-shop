@@ -1,7 +1,15 @@
 <?php
 
+function getSecret(){
+    $secretFile = file_get_contents(__DIR__ . "/../../../local_res/token_secret.json");
+    $secret = json_decode($secretFile, true);
+    return $secret["secret"];
+}
+
 function generateToken($username, $role, $id): string
 {
+    $secret = getSecret();
+
     // Create token header as a JSON string
     $header = json_encode(['typ' => 'JWT', 'alg' => 'HS256']);
 
@@ -15,7 +23,7 @@ function generateToken($username, $role, $id): string
     $base64UrlPayload = str_replace(['+', '/', '='], ['-', '_', ''], base64_encode($payload));
 
     // Create Signature Hash
-    $signature = hash_hmac('sha256', $base64UrlHeader . "." . $base64UrlPayload, 'abC123!', true);
+    $signature = hash_hmac('sha256', $base64UrlHeader . "." . $base64UrlPayload, $secret, true);
 
     // Encode Signature to Base64Url String
     $base64UrlSignature = str_replace(['+', '/', '='], ['-', '_', ''], base64_encode($signature));
@@ -26,8 +34,9 @@ function generateToken($username, $role, $id): string
 
 }
 
-function is_jwt_valid($jwt, $secret = 'abC123!'): bool
+function is_jwt_valid($jwt): bool
 {
+    $secret = getSecret();
     // split the jwt
     $tokenParts = explode('.', $jwt);
     $header = base64_decode($tokenParts[0]);
@@ -55,7 +64,7 @@ function is_jwt_valid($jwt, $secret = 'abC123!'): bool
     }
 }
 
-function getJWTPayload($jwt, $secret = 'abC123!')
+function getJWTPayload($jwt)
 {
     $tokenParts = explode('.', $jwt);
     return base64_decode($tokenParts[1]);

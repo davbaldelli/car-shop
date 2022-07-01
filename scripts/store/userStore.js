@@ -13,6 +13,11 @@ export function addUserAddress(address, onSuccess, onFailure){
     addAddress("api/user/addresses/new.php", {Token: user.token}, address, onSuccess, onFailure)
 }
 
+export function updateUserAddress(address, onSuccess, onFail){
+    let user = JSON.parse(localStorage.getItem("user"))
+    addAddress("api/user/addresses/update.php", {Token: user.token}, address, onSuccess, onFail)
+}
+
 export function getUserAddresses(...handlers){
     let user = JSON.parse(localStorage.getItem("user"))
     getUserDeliveringAddresses('api/user/addresses/all.php', {Token: user.token}, {userId: user.userId}, ...handlers)

@@ -1,60 +1,6 @@
-<div class="modal fade addNewAddressModal" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-    <div class="modal-dialog">
-
-        <div class="modal-content">
-            <form id="addAddressForm">
-            <div class="modal-header">
-                <h5 class="modal-title" id="staticBackdropLabel">Add New Address</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div><form id="addAddressForm">
-            <div class="modal-body">
-                <div class="row">
-                    <div class="col">
-                        <div class="form-group">
-                            <label for="firstNameInput">First Name</label>
-                            <input class="form-control" type="text" id="firstNameInput" placeholder="Your First Name" required/>
-                        </div>
-                        <div class="form-group">
-                            <label for="lastNameInput">Last Name</label>
-                            <input class="form-control" type="text" id="lastNameInput" placeholder="Your Last Name" required/>
-                        </div>
-                        <div class="form-group">
-                            <label for="nation-select">Select Nation</label>
-                            <select class="form-control" id="nation-select">
-                            </select>
-                        </div>
-                        <div class="form-group">
-                            <label for="administrativeAreaInput">State/Province/Region</label>
-                            <input class="form-control" type="text" id="administrativeAreaInput"
-                                   placeholder="State/Province/Region" required/>
-                        </div>
-                        <div class="form-group">
-                            <label for="localityInput">Locality</label>
-                            <input class="form-control" type="text" id="localityInput" placeholder="City/Town" required/>
-                        </div>
-                        <div class="form-group">
-                            <label for="zipInput">Postal Code</label>
-                            <input class="form-control" type="text" id="zipInput" placeholder="Postal code" required/>
-                        </div>
-                        <div class="form-group">
-                            <label for="addressL1Input">Address Line 1</label>
-                            <input class="form-control" type="text" id="addressL1Input" placeholder="Es. Street,Lane" required/>
-                        </div>
-                        <div class="form-group">
-                            <label for="addressL2Input">Address Line 2</label>
-                            <input class="form-control" type="text" id="addressL2Input" placeholder="Es. Civic Number"/>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                <button type="submit"  class="btn btn-primary">Add Address</button>
-            </div>
-                </form>
-        </div>
-    </div>
-</div>
+<?php
+require("address-form.php")
+?>
 <div id="staticBackdrop2" class="modal fade purchase-confirm-modal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
@@ -70,10 +16,6 @@
         </div>
     </div>
 </div>
-
-
-
-
 <section id="purchaseMainContainer" class="container-fluid">
     <div id="userFeedbackToast" class="toast align-items-center text-bg-primary border-0 position-absolute end-0" role="alert" aria-live="assertive" aria-atomic="true">
         <div class="d-flex">
@@ -85,7 +27,6 @@
     </div>
     <div class="row">
         <div class="col-sm"></div>
-
         <div class="col-xxl-8">
             <div class="row">
                 <div class="col-lg-9">

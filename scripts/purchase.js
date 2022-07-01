@@ -6,7 +6,7 @@ import {
     removeProductFromCart, updateProductQuantity
 } from "./utilities/cartManager.js";
 import {productsToListElements} from "./formatters/productFormatter.js";
-import {addressesToListItems} from "./formatters/addressesFormatter.js";
+import {addressesToRadioInputs} from "./formatters/addressesFormatter.js";
 import {nationsToSelectElements} from "./formatters/nationsFormatter.js";
 import {getAllNations} from "./store/nationsStore.js";
 import {insertOrder} from "./store/ordersStore.js";
@@ -22,27 +22,22 @@ let confirmationModal = new bootstrap.Modal($(".purchase-confirm-modal"), {keybo
 let feedBackToast = new bootstrap.Toast($("#userFeedbackToast"))
 
 $(() => {
-
     let user = JSON.parse(localStorage.getItem("user"))
     setupProductList(getCart().products)
     setupReceiptView(getCart().products)
     showUserCredits()
     getUserAddresses(setupAddressesList)
     getAllNations(setupNationsSelectOptions)
-    $("#addAddressForm").submit((e) => {
+    $("#addressForm").submit(function(e){
         e.preventDefault()
-        let address = {
-            first_name: $("#firstNameInput").val(),
-            last_name: $("#lastNameInput").val(),
+        let address = $(this).serializeArray().reduce(function (json, { name, value }) {
+            json[name] = value;
+            return json;
+        }, {});
+        addUserAddress({
+            ...address,
             id_user: user.userId,
-            id_country: $("#nation-select").val(),
-            administrative_area: $("#administrativeAreaInput").val(),
-            locality: $("#localityInput").val(),
-            postal_code: $("#zipInput").val(),
-            address_line_1: $("#addressL1Input").val(),
-            address_line_2: $("#addressL2Input").val(),
-        }
-        addUserAddress(address, onInsertAddressSuccess, onInsertAddressError)
+        }, onInsertAddressSuccess, onInsertAddressError)
     })
     $("#purchaseBtn").click(() => {
         let address = parseInt($("input[name='delivering-address']:checked").val());
@@ -127,7 +122,7 @@ function setupProductList(products) {
 }
 
 function setupAddressesList(addresses) {
-    $("#addressesList").html(addressesToListItems(addresses).reduce((res, el) => res + el, ""))
+    $("#addressesList").html(addressesToRadioInputs(addresses).reduce((res, el) => res + el, ""))
 }
 
 function setupNationsSelectOptions(nations) {
