@@ -14,7 +14,7 @@ $(() => {
         $(".editAddressBtn").click(function() {
             let id = $(this).data("key")
             let address = addresses.get(id)
-            console.log(address)
+            $("#address-form-submit").html("Modify")
             $("#addressForm").data("orderId", id)
             $("#firstNameInput").val(address.first_name)
             $("#lastNameInput").val(address.last_name)
@@ -26,7 +26,7 @@ $(() => {
             $("#addressL2Input").val(address.address_line_2)
             AddressModal.toggle()
         })
-        $(".removeAddressBtn").click(function() {
+        $(".deleteAddressBtn").click(function() {
             let id = $(this).data("key")
             let address = addresses.get(id)
             deleteAddress(address, () => {

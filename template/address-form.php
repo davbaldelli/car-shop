@@ -48,7 +48,7 @@
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                    <button type="submit"  class="btn btn-primary">Add Address</button>
+                    <button id="address-form-submit" type="submit"  class="btn btn-primary">Add Address</button>
                 </div>
             </form>
         </div>

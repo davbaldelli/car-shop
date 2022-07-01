@@ -57,10 +57,11 @@ class UserRepositoryImpl implements UserRepository
                 GROUP BY (car_type) ORDER BY orders_count DESC LIMIT 1");
         $stmt->bind_param("i", $id_user);
         $stmt->execute();
-        if($stmt->get_result()->num_rows == 0){
+        $res = $stmt->get_result();
+        if($res->num_rows == 0){
             $fav_car_type = "no data available";
         } else {
-            $fav_car_type = $stmt->get_result()->fetch_all(MYSQLI_ASSOC)[0]["name"];
+            $fav_car_type = $res->fetch_all(MYSQLI_ASSOC)[0]["car_type"];
         }
 
         $stmt = $this->conn->prepare("SELECT m.name,COUNT(m.name) AS orders_count FROM orders 
@@ -68,19 +69,21 @@ class UserRepositoryImpl implements UserRepository
                 GROUP BY (m.name) ORDER BY orders_count DESC LIMIT 1");
         $stmt->bind_param("i", $id_user);
         $stmt->execute();
-        if($stmt->get_result()->num_rows == 0){
+        $res = $stmt->get_result();
+        if($res->num_rows == 0){
             $fav_car_brand = "no data available";
         } else {
-            $fav_car_brand = $stmt->get_result()->fetch_all(MYSQLI_ASSOC)[0]["name"];
+            $fav_car_brand = $res->fetch_all(MYSQLI_ASSOC)[0]["name"];
         }
 
         $stmt = $this->conn->prepare("SELECT SUM(price) AS tot FROM orders_view WHERE id_user = ? GROUP BY id_user");
         $stmt->bind_param("i", $id_user);
         $stmt->execute();
-        if($stmt->get_result()->num_rows == 0){
+        $res = $stmt->get_result();
+        if($res->num_rows == 0){
             $tot_money_spent = 0;
         } else {
-            $tot_money_spent = $stmt->get_result()->fetch_all(MYSQLI_ASSOC)[0]["tot"];
+            $tot_money_spent = $res->fetch_all(MYSQLI_ASSOC)[0]["tot"];
         }
 
 
