@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Creato il: Lug 02, 2022 alle 09:58
+-- Creato il: Lug 02, 2022 alle 16:48
 -- Versione del server: 8.0.29-0ubuntu0.20.04.3
 -- Versione PHP: 7.4.3
 
@@ -175,9 +175,9 @@ INSERT INTO `cars` (`id`, `model`, `id_brand`, `year`, `created_at`, `image`, `b
 (531, 'Noah', 131, 2022, '2022-06-13 12:28:27', 'https://i.imgur.com/NbbF9aF.jpg', 138, 140, 1700, 160, 'SEQUENTIAL', 'AWD', 4, 180000, 'hybrid', 'van', 5),
 (532, 'Model S Plaid', 1352, 2020, '2022-06-14 12:58:10', 'https://i.imgur.com/VLMjcn9.jpg', 1020, 1424, 2162, 322, 'SEQUENTIAL', 'AWD', 5, 130000, 'electric', 'coupe', 4),
 (533, 'SF90 Stradale', 114, 2019, '2022-06-14 13:03:05', 'https://i.imgur.com/43lJdQ6.jpg', 1000, 770, 1540, 340, 'SEQUENTIAL', 'RWD', 5, 430000, 'hybrid', 'coupe', 2),
-(534, 'i8', 149, 2018, '2022-06-14 13:08:09', 'https://i.imgur.com/xpSWmAQ.jpg', 374, 570, 1670, 250, 'SEQUENTIAL', 'RWD', 5, 150, 'hybrid', 'coupe', 2),
+(534, 'i8', 149, 2018, '2022-06-14 13:08:09', 'https://i.imgur.com/xpSWmAQ.jpg', 374, 570, 1670, 250, 'SEQUENTIAL', 'RWD', 5, 150000, 'hybrid', 'coupe', 2),
 (540, 'GR Yaris', 131, 2020, '2022-06-28 14:17:42', 'https://i.imgur.com/Rhnh2wT.jpg', 272, 396, 1260, 230, 'MANUAL', 'AWD', 5, 40000, 'gasoline', 'sedan', 3),
-(541, 'Ypsilon', 178, 2020, '2022-07-02 08:02:17', 'https://i.imgur.com/wsz8EOq.jpg', 70, 92, 980, 140, 'MANUAL', 'FWD', 3, 16, 'methane', 'sedan', 5);
+(541, 'Ypsilon', 178, 2020, '2022-07-02 08:02:17', 'https://i.imgur.com/wsz8EOq.jpg', 70, 92, 980, 140, 'MANUAL', 'FWD', 3, 16000, 'methane', 'sedan', 5);
 
 --
 -- Trigger `cars`
@@ -621,6 +621,19 @@ CREATE TABLE `orders` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
+-- Dump dei dati per la tabella `orders`
+--
+
+INSERT INTO `orders` (`id`, `id_user`, `id_car`, `id_user_address`, `state`, `quantity`) VALUES
+(66, 14, 264, 9, 'delivered', 1),
+(67, 14, 540, 9, 'taken_in_charge', 1),
+(68, 14, 390, 6, 'delivering', 1),
+(69, 14, 352, 6, 'delivered', 1),
+(70, 17, 272, 12, 'pending_payment_confirm', 1),
+(71, 14, 515, 6, 'pending_payment_confirm', 1),
+(72, 14, 270, 9, 'pending_payment_confirm', 1);
+
+--
 -- Trigger `orders`
 --
 DELIMITER $$
@@ -648,6 +661,28 @@ CREATE TABLE `orders_logs` (
   `state` enum('delivered','delivering','taken_in_charge','pending_payment_confirm') CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
   `timestamp` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dump dei dati per la tabella `orders_logs`
+--
+
+INSERT INTO `orders_logs` (`id`, `id_order`, `state`, `timestamp`) VALUES
+(182, 66, 'pending_payment_confirm', '2022-07-02 10:14:00'),
+(183, 67, 'pending_payment_confirm', '2022-07-02 10:14:00'),
+(184, 68, 'pending_payment_confirm', '2022-07-02 10:15:04'),
+(185, 69, 'pending_payment_confirm', '2022-07-02 10:15:24'),
+(186, 66, 'taken_in_charge', '2022-07-02 10:21:28'),
+(187, 66, 'delivering', '2022-07-02 10:21:29'),
+(188, 66, 'delivered', '2022-07-02 10:21:30'),
+(189, 67, 'taken_in_charge', '2022-07-02 10:21:31'),
+(190, 68, 'taken_in_charge', '2022-07-02 10:21:32'),
+(191, 68, 'delivering', '2022-07-02 10:21:32'),
+(192, 69, 'taken_in_charge', '2022-07-02 10:21:33'),
+(193, 69, 'delivering', '2022-07-02 10:21:34'),
+(194, 69, 'delivered', '2022-07-02 10:21:35'),
+(195, 70, 'pending_payment_confirm', '2022-07-02 12:28:27'),
+(196, 71, 'pending_payment_confirm', '2022-07-02 15:49:08'),
+(197, 72, 'pending_payment_confirm', '2022-07-02 16:29:18');
 
 -- --------------------------------------------------------
 
@@ -693,9 +728,9 @@ CREATE TABLE `users` (
 INSERT INTO `users` (`id`, `username`, `password`, `role`, `salt`, `credit`, `name`, `last_name`, `avatar_image`) VALUES
 (10, 'prova', '1fc415f73245e74fdc47d249b0393ccf1a7ba5fcf3e72bc8b20128b7', 'base', 'OfnWVgpzuLVkd5XibAIiYffaSXbytv', 1000000, 'prova', 'prova', 'https://i.imgur.com/FBB2A6C.jpg'),
 (12, 'utente', '4f3368efd220fa7e3a9eecf9b89da00afc9e8b2c5113823b47f35b29', 'base', 'lGShRC5vVqpDrYcC1a3KcJKDKeUiDO', 860000, 'utente', 'utente', 'https://i.imgur.com/FBB2A6C.jpg'),
-(14, 'user', 'c98c9e2170120d36b7d59dd4d515adf7e5772154d0368dbfcfe2ac87', 'base', 'psfLxLvZtk8PUcGds9antxHKNq36Sp', 330000, 'user', 'user', 'https://i.imgur.com/FBB2A6C.jpg'),
+(14, 'user', 'c98c9e2170120d36b7d59dd4d515adf7e5772154d0368dbfcfe2ac87', 'base', 'psfLxLvZtk8PUcGds9antxHKNq36Sp', 231000, 'user', 'user', 'https://i.imgur.com/FBB2A6C.jpg'),
 (15, 'davbaldelli', '3f10414e14de5b693b9d5587688fc7216ba9dfe8d156bd55df5328b3', 'admin', '6nBj7Y90rFTVO32OjZeH7XK3ypugTJ', 240000, 'Davide', 'Baldelli', 'https://i.imgur.com/FBB2A6C.jpg'),
-(17, 'admin', 'b79bca434b21833094f4433320ffe1574a22459427881e677f78c851', 'admin', 'LlBHIs7Tvv1O83tC2gavgbv5Nl8pGZ', 600000, 'admin', 'admin', 'https://i.imgur.com/FBB2A6C.jpg');
+(17, 'admin', 'b79bca434b21833094f4433320ffe1574a22459427881e677f78c851', 'admin', 'LlBHIs7Tvv1O83tC2gavgbv5Nl8pGZ', 400034, 'admin', 'admin', 'https://i.imgur.com/FBB2A6C.jpg');
 
 -- --------------------------------------------------------
 
@@ -722,11 +757,12 @@ CREATE TABLE `users_delivering_addresses` (
 
 INSERT INTO `users_delivering_addresses` (`id`, `id_user`, `id_country`, `first_name`, `last_name`, `administrative_area`, `locality`, `postal_code`, `address_line_1`, `address_line_2`) VALUES
 (2, 10, 43, 'Davide', 'Baldelli', 'FC', 'Cesena', '47521', 'Via Cesare Pavese', '50'),
-(6, 14, 43, 'Utente', 'Utente', 'RN', 'Santarcangelo Di Romagna', '47822', 'Via Del Pioppo', '40'),
+(6, 14, 43, 'Utente', 'Utente', 'RN', 'Santarcangelo Di Romagna', '47822', 'Via Del Pioppo', '41'),
 (8, 15, 43, 'Davide', 'Baldelli', 'Rimini', 'Santarcangelo Di Romagna', '47822', 'Via Garibaldi 40', ''),
-(9, 14, 43, 'Davide', 'Baldelli', 'Rimini', 'Santaracangelo Di Romagna', '47822', 'Via Mazzini 2 ', ''),
+(9, 14, 43, 'Davide', 'Baldelli', 'Rimini', 'Santarcangelo Di Romagna', '47822', 'Via Mazzini 20', ''),
 (11, 12, 43, 'Davide', 'Baldelli', 'Rimini', 'Santarcangelo Di Romagna', '47822', 'Via Martini ', '35'),
-(12, 17, 43, 'admin', 'admin', 'RN', 'Santarcangelo Di Romagna', '47822', 'Via Mazzini 2', '');
+(12, 17, 43, 'admin', 'admin', 'RN', 'Santarcangelo Di Romagna', '47822', 'Via Mazzini 2', ''),
+(13, 14, 43, 'user', 'user', 'FC', 'Cesena', '3453', 'Via Della Repubblica', '34');
 
 -- --------------------------------------------------------
 
@@ -829,7 +865,16 @@ INSERT INTO `users_notifications` (`id`, `watched`, `title`, `description`, `tim
 (117, 1, 'Order Update', 'The order n. 65 now is in the current state: Taken in charge', '2022-07-02 09:53:56', 17),
 (118, 0, 'Order Update', 'The order n. 64 now is in the current state: In transit', '2022-07-02 09:53:57', 15),
 (119, 1, 'Order Update', 'The order n. 65 now is in the current state: In transit', '2022-07-02 09:53:58', 17),
-(120, 0, 'Order Update', 'The order n. 64 now is in the current state: Taken in charge', '2022-07-02 09:53:59', 15);
+(120, 0, 'Order Update', 'The order n. 64 now is in the current state: Taken in charge', '2022-07-02 09:53:59', 15),
+(121, 1, 'Order Update', 'The order n. 66 now is in the current state: Taken in charge', '2022-07-02 10:21:28', 14),
+(122, 1, 'Order Update', 'The order n. 66 now is in the current state: In transit', '2022-07-02 10:21:29', 14),
+(123, 1, 'Order Update', 'The order n. 66 now is in the current state: Car delivered', '2022-07-02 10:21:30', 14),
+(124, 1, 'Order Update', 'The order n. 67 now is in the current state: Taken in charge', '2022-07-02 10:21:31', 14),
+(125, 1, 'Order Update', 'The order n. 68 now is in the current state: Taken in charge', '2022-07-02 10:21:32', 14),
+(126, 1, 'Order Update', 'The order n. 68 now is in the current state: In transit', '2022-07-02 10:21:32', 14),
+(127, 1, 'Order Update', 'The order n. 69 now is in the current state: Taken in charge', '2022-07-02 10:21:33', 14),
+(128, 1, 'Order Update', 'The order n. 69 now is in the current state: In transit', '2022-07-02 10:21:34', 14),
+(129, 1, 'Order Update', 'The order n. 69 now is in the current state: Car delivered', '2022-07-02 10:21:35', 14);
 
 -- --------------------------------------------------------
 
@@ -975,13 +1020,13 @@ ALTER TABLE `nations`
 -- AUTO_INCREMENT per la tabella `orders`
 --
 ALTER TABLE `orders`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=66;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=73;
 
 --
 -- AUTO_INCREMENT per la tabella `orders_logs`
 --
 ALTER TABLE `orders_logs`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=182;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=198;
 
 --
 -- AUTO_INCREMENT per la tabella `users`
@@ -993,13 +1038,13 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT per la tabella `users_delivering_addresses`
 --
 ALTER TABLE `users_delivering_addresses`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
 -- AUTO_INCREMENT per la tabella `users_notifications`
 --
 ALTER TABLE `users_notifications`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=121;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=130;
 
 --
 -- Limiti per le tabelle scaricate
