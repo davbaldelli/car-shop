@@ -11,7 +11,7 @@ require("address-form.php")
                 <p>Thanks for your purchase, you can review your orders here</p>
             </div>
             <div class="modal-footer">
-                <a id="goToUserOrders" type="button" class="btn btn-primary" >View Orders</a>
+                <a id="goToUserOrders" type="button" class="btn" >View Orders</a>
             </div>
         </div>
     </div>
@@ -54,25 +54,25 @@ require("address-form.php")
                         </h2>
                         <div id="flush-collapseTwo" class="accordion-collapse show" aria-labelledby="flush-headingTwo" data-bs-parent="#accordionFlushExample">
                             <div class="accordion-body">
-                                <div class="form-check">
-                                    <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1" checked>
-                                    <label class="form-check-label" for="flexRadioDefault1">
+                                <div>
+                                    <input type="radio" name="flexRadioDefault" id="flexRadioDefault1" checked>
+                                    <label for="flexRadioDefault1">
                                         CarShop Credits: <span id="currentCreditsOwn"></span>
                                     </label>
                                 </div>
-                                <div class="form-check">
-                                    <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioPayPal" disabled>
-                                    <label class="form-check-label" for="flexRadioPayPal">
+                                <div>
+                                    <input type="radio" name="flexRadioDefault" id="flexRadioPayPal" disabled>
+                                    <label for="flexRadioPayPal">
                                         PayPal
                                     </label>
                                 </div>
-                                <div class="form-check">
-                                    <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioCreditCard" disabled>
-                                    <label class="form-check-label" for="flexRadioCreditCard">
+                                <div>
+                                    <input type="radio" name="flexRadioDefault" id="flexRadioCreditCard" disabled>
+                                    <label for="flexRadioCreditCard">
                                         Credit Card
                                     </label>
                                 </div>
-                                <div class="dropdown">
+                                <div class="dropdown mt-4">
                                     <a class=" btn dropdown-toggle" id="addCreditDropdown" href="#" role="button"  data-bs-toggle="dropdown" aria-expanded="false">
                                         Add Credit
                                     </a>

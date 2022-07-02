@@ -20,6 +20,11 @@ export class CartDropdown {
         $(".remove-cart-product-btn").click(event => {
             this.#onRemove(event.currentTarget.dataset.key)
         })
+        if(this.#items.length === 0){
+            $("#cartCounter").remove()
+        } else {
+            $("#cartCounter").html(this.#items.length)
+        }
     }
 
     updateDropdown(items) {
@@ -62,6 +67,9 @@ export class CartDropdown {
 
     #composeDropdown() {
         return `<div class="dropdown" id="cart-dropdown">
+                <span class="badge rounded-pill bg-primary" id="cartCounter">
+                    <span class="visually-hidden">unread messages</span>
+                </span>
                     <button class="nav-link" type="button" id="cartDropdownBtn" data-bs-toggle="dropdown" data-bs-auto-close="outside" aria-haspopup="true" aria-expanded="false">
                         <span class="material-icons"> shopping_cart </span>
                     </button>

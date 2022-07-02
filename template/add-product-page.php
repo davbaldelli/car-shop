@@ -148,7 +148,7 @@
         </div>
         <div class="col-12 pt-3">
             <div class="d-flex">
-                <button type="submit" class="btn btn-primary flex-fill">Submit</button>
+                <button id="add-prod-submit" type="submit" class="btn btn-cs flex-fill">Submit</button>
             </div>
         </div>
     </form>

@@ -26,3 +26,9 @@
 .label-form-addcar{
     color: #fff;
 }
+
+#add-prod-submit{
+    border-radius: 10px;
+    background-color: #3D26A8;
+    color: #fff;
+}

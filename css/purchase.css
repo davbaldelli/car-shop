@@ -85,6 +85,16 @@
     background-color: #3D26A8;
     color: #fff;
 }
+
+#goToUserOrders{
+    background-color: #3D26A8;
+    color: #fff;
+}
+
+input[type="radio"]{
+    accent-color: #3D26A8;
+}
+
 /*.truncate {*/
 /*    height: 20px;*/
 /*    overflow-x: hidden;*/
@@ -97,7 +107,7 @@
     }
 
     #accordionFlush{
-        margin-bottom: 0px;
+        margin-bottom: 0;
     }
 
 }

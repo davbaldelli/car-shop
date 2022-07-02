@@ -427,6 +427,16 @@ html {
     font-size: 1.175rem;
 }
 
+#address-form-submit{
+    background-color: #3D26A8;
+    color: #fff;
+}
+
+#cartCounter{
+    position: absolute;
+    transform: translate(1.5rem);
+}
+
 @media only screen and (max-width: 767px){
     #cartContentContainer{
         width: 100%;

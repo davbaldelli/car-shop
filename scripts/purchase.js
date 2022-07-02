@@ -10,7 +10,7 @@ import {addressesToRadioInputs} from "./formatters/addressesFormatter.js";
 import {nationsToSelectElements} from "./formatters/nationsFormatter.js";
 import {getAllNations} from "./store/nationsStore.js";
 import {insertOrder} from "./store/ordersStore.js";
-import {addUserAddress, getUserAddresses} from "./store/userStore.js";
+import {addUserAddress, getUserAddresses, getUserInfo} from "./store/userStore.js";
 import {checkEnoughCredit, payProduct, putAmountInWallet} from "./store/walletStore.js";
 
 let AddressModal = new bootstrap.Modal($(".addNewAddressModal"), {
@@ -26,7 +26,12 @@ $(() => {
     setupProductList(getCart().products)
     setupReceiptView(getCart().products)
     showUserCredits()
-    getUserAddresses(setupAddressesList)
+    //getUserAddresses(setupAddressesList)
+    getUserInfo(user => {
+        setupAddressesList(user.addresses)
+        $("#firstNameInput").val(user.name)
+        $("#lastNameInput").val(user.last_name)
+    })
     getAllNations(setupNationsSelectOptions)
     $("#addressForm").submit(function(e){
         e.preventDefault()
