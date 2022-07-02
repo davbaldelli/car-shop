@@ -57,14 +57,15 @@ export function orderToInfoPanel2(order) {
     return `
             <div id="orderDetailHeader">
                 <div id="div-order-detail-car-img"><a id="detailLinkToCar" href="/product.php?id=${order.id_car}"><img id="order-detail-car-img" src="${order.image}" alt="car image" aria-hidden="true"/></a></div>
-                <div id="order-number-header"><h4>Order n. ${order.id}  &nbsp &nbsp </h4> <h2>${order.product}</h2></div>
+                <div id="order-number-header"><h2>Order n. ${order.id}  &nbsp &nbsp </h2> <h1>${order.product}</h1></div>
             </div>
             
             <div id="orderDetailContainer">
-                <div class="row order-row"  id="order-detail-content">
-                    <div class="col-1 col-md-4"></div>
-                    <div  id="statusPoints" class="col-2 col-md-1"> <img src="${statusMap.get(order.logs[order.logs.length - 1].state)} " alt="roadmap" aria-hidden="true"/></div>
-                    <div class= "status-detail-list col-8 col-md-3 ms-md-3">${ordersHTML.reduce((res, item) => res + item, "")}</div>
+                <div class="row order-row" >
+                    <div class="col" id="order-detail-content">
+                        <div  id="statusPoints"> <img src="${statusMap.get(order.logs[order.logs.length - 1].state)} " alt="roadmap" aria-hidden="true"/></div>
+                        <div class= "status-detail-list">${ordersHTML.reduce((res, item) => res + item, "")}</div>
+                    </div>
                 </div>
                 
                 

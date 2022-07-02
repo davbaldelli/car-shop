@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
     <title><?php echo $templateParams["title"]; ?></title>
+    <link rel="icon" type="image/x-icon" href="/src_img/favicon.ico">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="referrer" content="origin">
     <meta name="description" content="Car Shop is the best place where you can bout the best luxury and vintage cars, in few click you can have your dream car delivered to your house, easy as that!">
