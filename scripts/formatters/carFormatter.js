@@ -1,3 +1,6 @@
+const carTypes = new Map([["coupe" , "Coupè"], ["sedan", "Sedan"], ["station_wagon", "Station Wagon"], ["van", "Minivan"], ["convertible", "Convertible"], ["suv", "Suv"]])
+const carTransmission = new Map([["MANUAL", "Manual"], ["SEQUENTIAL", "Sequential"]])
+
 export function carsToCards(cars) {
     return cars.map(car => {
         return `<a class="card-link" href="/product.php?id=${car.id}"><div class="card m-3 car-card"  id="cardCarContent">
@@ -15,7 +18,6 @@ export function carsToCards(cars) {
 }
 
 export function carsToCarouselElems(cars) {
-    console.log(cars)
     return cars.map((car, i) => {
         return `<div class="carousel-item ${i === 0 ? "active" : ""}">
                     <a href="/product.php?id=${car.id}"> <img src="${car.image}" class="d-block w-100 carousel-item-img" alt="car thumbnail"></a>
@@ -45,9 +47,9 @@ export function carToInfoPanel(car) {
                 <div class="row product-page-row">        
                     <div class="col-md car-info"><div class="row car-info-header ">Brand</div>          <div class="row">${car.brand}</div></div>
                     <div class="col-md car-info"><div class="row car-info-header ">Horse Power</div>    <div class="row">${car.bhp}</div></div>
-                    <div class="col-md car-info"><div class="row car-info-header ">Fuel</div>           <div class="row">${car.fuel_type}</div></div>
-                    <div class="col-md car-info"><div class="row car-info-header ">Transission</div>    <div class="row">${car.transmission}</div></div>
-                    <div class="col-md car-info"><div class="row car-info-header ">Drive Train</div>    <div class="row">${car.drivetrain}</div></div>
+                    <div class="col-md car-info"><div class="row car-info-header ">Fuel</div>           <div class="row">${car.fuel_type.charAt(0).toUpperCase() + car.fuel_type.slice(1)}</div></div>
+                    <div class="col-md car-info"><div class="row car-info-header ">Transmission</div>    <div class="row">${carTransmission.get(car.transmission)}</div></div>
+                    <div class="col-md car-info"><div class="row car-info-header ">Drivetrain</div>    <div class="row">${car.drivetrain}</div></div>
                 </div>
 
 `

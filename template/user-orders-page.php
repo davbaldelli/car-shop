@@ -1,5 +1,5 @@
-<div class="col-0 col-sm-2"></div>
-<div class="col-12 col-sm-8">
+<div class="col-0 col-sm-3"></div>
+<div class="col-12 col-sm-6">
     <ul class="nav nav-tabs" id="ordersTab" role="tablist">
         <li class="nav-item" role="presentation">
             <button class="nav-link active" id="allOrdersTab" data-bs-toggle="tab" data-bs-target="#contact"
@@ -33,4 +33,3 @@
         </div>
     </div>
 </div>
-<div class="col-0 col-sm-2"></div>

@@ -5,8 +5,8 @@
 
     <div class="row">
         <div class="col text-white text-center">
-            <img id="brand-page-image" class="img-fluid img-brand-logo" src="" alt="brand logo"/>
-            <h1 id="brand-page-title" class="display-2 mb-1"></h1>
+            <img id="brand-page-image" class="img-fluid img-brand-logo my-5" src="" alt="brand logo"/>
+            <h1 id="brand-page-title" class="d-none mb-1"></h1>
         </div>
     </div>
 

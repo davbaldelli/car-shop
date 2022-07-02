@@ -1,3 +1,4 @@
+
 export function productsToListElements(products) {
     return products.map((prod,index) => `    
     <li class="list-group-item purchase-cart-list">

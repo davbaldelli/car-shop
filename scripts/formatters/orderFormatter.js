@@ -20,7 +20,6 @@ let statusMap = new Map([['taken_in_charge', "src_img/status_taken.png"], ["pend
 let classesMap = new Map([['taken_in_charge', "taken"], ["pending_payment_confirm", "payment-pending"], ["delivering", "delivering"], ["delivered", "delivered"]])
 
 export function ordersToList(orders) {
-    console.log(orders)
     return orders.map(order => {
         return `
         <li class="list-group-item order-list-element" style="background-color: #1E1E1E">
@@ -29,9 +28,8 @@ export function ordersToList(orders) {
              <div class="order-detail-row">
                     <div class="order-detail-col"><img id="orderCarIcon" src="${order.image}" alt="ordered car thumbnail"/></div> 
                     <div class="order-detail-col"><span>Order N.${order.id} </span></div>                   
-                    <div class="order-detail-col"><span>${order.quantity} - ${order.product}</span></div> 
+                    <div class="order-detail-col"><span>${order.quantity}x - ${order.product}</span></div> 
                     <div class="order-detail-col"><span> USD: ${order.price} </span></div> 
-                    <div class="order-detail-col"><span>${order.address_line_1} ${order.address_line_2}</span></div> 
                     <div class="order-detail-col"><span>${orderMap.get(order.state)}</span></div> 
                 </div>
             </a> 
@@ -51,11 +49,10 @@ export function ordersToList(orders) {
 
 
 export function orderToInfoPanel2(order) {
-    console.log(order)
     let statesLogMap = getOldestLogsPerState(order.logs)
     let ordersHTML = Array.from(statesLogMap).map(([key, value])=>{
         let time=timeFormat(value.timestamp)
-        return `<div  id="${classesMap.get(key)}" class="status-detail-item" > <span class="status-detail-item-state">${orderMap.get(key)}</span><span class="status-detail-item-time">${time[0]}</span> </div>`
+        return `<div  id="${classesMap.get(key)}" class="status-detail-item" > <span class="status-detail-item-state">${orderMap.get(key)}</span><em class="status-detail-item-time">${time[0]}</em> </div>`
     })
     return `
             <div id="orderDetailHeader">
@@ -65,32 +62,35 @@ export function orderToInfoPanel2(order) {
             
             <div id="orderDetailContainer">
                 <div class="row order-row"  id="order-detail-content">
-                    <div  id="statusPoints"> <img src="${statusMap.get(order.logs[order.logs.length - 1].state)} " alt="roadmap" aria-hidden="true"/></div>
-                    <div class= "status-detail-list">${ordersHTML.reduce((res, item) => res + item, "")}</div>
+                    <div class="col-1 col-md-4"></div>
+                    <div  id="statusPoints" class="col-2 col-md-1"> <img src="${statusMap.get(order.logs[order.logs.length - 1].state)} " alt="roadmap" aria-hidden="true"/></div>
+                    <div class= "status-detail-list col-8 col-md-3 ms-md-3">${ordersHTML.reduce((res, item) => res + item, "")}</div>
                 </div>
                 
                 
                 <div class="row order-row" id="order-detail-user">
-                    <ol class="list-group" id="list-user-detail">
-                      <li class="list-group-item d-flex justify-content-between align-items-start user-detail">
-                        <div class="ms-2 me-auto">
-                          <div class="fw-bold">Costumer Name:</div>
-                          ${order.address.first_name} ${order.address.last_name}
-                        </div>              
-                      </li>
-                      <li class="list-group-item d-flex justify-content-between align-items-start user-detail">
-                        <div class="ms-2 me-auto">
-                          <div class="fw-bold">Shipping Address:</div>
-                          Area: ${order.address.administrative_area} &nbsp City: ${order.address.locality} &nbsp Address: ${order.address.address_line_1} ${order.address.address_line_2}
-                        </div>
-                      </li>
-                      <li class="list-group-item d-flex justify-content-between align-items-start user-detail">
-                        <div class="ms-2 me-auto">
-                          <div class="fw-bold">Price: </div>
-                          ${order.price}
-                        </div>
-                      </li>
-                    </ol>
+                    <div class="col">
+                        <ol class="list-group" id="list-user-detail">
+                          <li class="list-group-item d-flex justify-content-between align-items-start user-detail">
+                            <div class="ms-2 me-auto">
+                              <div class="fw-bold">Costumer Name:</div>
+                              ${order.address.first_name} ${order.address.last_name}
+                            </div>              
+                          </li>
+                          <li class="list-group-item d-flex justify-content-between align-items-start user-detail">
+                            <div class="ms-2 me-auto">
+                              <div class="fw-bold">Shipping Address:</div>
+                              Area: ${order.address.administrative_area} &nbsp City: ${order.address.locality} &nbsp Address: ${order.address.address_line_1} ${order.address.address_line_2}
+                            </div>
+                          </li>
+                          <li class="list-group-item d-flex justify-content-between align-items-start user-detail">
+                            <div class="ms-2 me-auto">
+                              <div class="fw-bold">Price: </div>
+                              ${order.price}
+                            </div>
+                          </li>
+                        </ol>
+                    </div>
                 </div>
             </div>
 

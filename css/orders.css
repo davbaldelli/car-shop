@@ -40,13 +40,11 @@
     gap:58px;
     padding: 14px 0 14px 0;
     margin-inline: 2px 5px;
-    width: calc(100% - 70px);
 }
 .status-detail-item-state{
     flex-shrink: 0;
 }
 .status-detail-item-time{
-    font-size: 14px;
     flex-shrink: 0;
 }
 .status-detail-item{
@@ -56,7 +54,6 @@
     flex-wrap: wrap;
     align-items: center;
     justify-content: space-between;
-
 
 }
 #div-order-detail-car-img{
@@ -109,9 +106,7 @@
 #order-detail-user{
     margin-top:50px;
     margin-bottom: 100px;
-}
-#list-user-detail{
-    width: 70rem ;
+    width: 100%
 }
 .user-detail{
     background-color: #1E1E1E;

@@ -1,5 +1,7 @@
 import {addressToListItems} from "./addressesFormatter.js";
 
+const carTypes = new Map([["coupe" , "Coupè"], ["sedan", "Sedan"], ["station_wagon", "Station Wagon"], ["van", "Minivan"], ["convertible", "Convertible"], ["suv", "Suv"]])
+
 export function userToInfoPanel(user){
     return `
      <div class="row row-cols-2" id="userAccountHeader">
@@ -41,7 +43,7 @@ export function userToInfoPanel(user){
                                 Favourite Car Type
                             </span>
                             <span>
-                                ${user.fav_car_type}
+                                ${carTypes.get(user.fav_car_type)}
                             </span>
                         </div>
                         <div class="flex flex-column flex-grow-1">

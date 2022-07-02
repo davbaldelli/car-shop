@@ -7,6 +7,8 @@ let AddressModal = new bootstrap.Modal($(".addNewAddressModal"), {
     keyboard: false
 })
 
+
+
 $(() => {
     getUserInfo(setUserInfoPanelContent, (user) => {
         let addresses = user.addresses.reduce((r,i) => r.set(i.id, i), new Map())
@@ -24,7 +26,6 @@ $(() => {
             $("#zipInput").val(address.postal_code)
             $("#addressL1Input").val(address.address_line_1)
             $("#addressL2Input").val(address.address_line_2)
-            AddressModal.toggle()
         })
         $(".deleteAddressBtn").click(function() {
             let id = $(this).data("key")
@@ -40,7 +41,6 @@ $(() => {
                 json[name] = value;
                 return json;
             }, {});
-            console.log(address)
             updateUserAddress({
                 ...address,
                 id_user : user.userId,

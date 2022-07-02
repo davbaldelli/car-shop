@@ -26,7 +26,6 @@ $(() => {
     setupProductList(getCart().products)
     setupReceiptView(getCart().products)
     showUserCredits()
-    //getUserAddresses(setupAddressesList)
     getUserInfo(user => {
         setupAddressesList(user.addresses)
         $("#firstNameInput").val(user.name)
@@ -134,10 +133,9 @@ function setupNationsSelectOptions(nations) {
     $("#nation-select").html(nationsToSelectElements(nations).reduce((res, el) => res + el, ""))
 }
 function setupReceiptView(products) {
-    console.log(products)
     $("#subtotal").html(products.reduce((res, item)=> res+(item.quantity*item.product.price), 0))
     $("#itemPriceList").html(products.reduce((res, item)=> res+`
-        <li class="row list-receipt-view"><div class="col-sm-1">${item.quantity}</div> <div class="col-xxl-7 truncate">${item.product.brand +" "+ item.product.model } </div><div class="col-xxl-3 list-receipt-view-price">${item.product.price}</div> </li>
+        <li class="row list-receipt-view"><div class="col-sm-1">${item.quantity}x</div> <div class="col-xxl-7 truncate">${item.product.brand +" "+ item.product.model } </div><div class="col-xxl-3 list-receipt-view-price">${item.product.price}</div> </li>
 `, ""))
 }
 

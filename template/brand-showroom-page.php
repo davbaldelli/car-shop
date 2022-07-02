@@ -11,7 +11,7 @@
         <div class="col">
             <label style="display: none" for="brand-name-searchbar">Input brand name</label>
             <div class="input-group mb-3">
-                <input id="brand-name-searchbar" type="text" class="form-control searchbar" placeholder="Search Car Name" aria-label="Search Car Name" aria-describedby="button-addon" title="Searchbar">
+                <input id="brand-name-searchbar" type="text" class="form-control searchbar" placeholder="Search Brand Name" aria-label="Search Car Name" aria-describedby="button-addon" title="Searchbar">
                 <span class="input-group-text material-icons" id="button-addon">search</span>
             </div>
         </div>
