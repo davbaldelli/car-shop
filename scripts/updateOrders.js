@@ -3,6 +3,7 @@ import {insertNotify} from "./store/notificationsStore.js";
 import {getAllOrders, updateOrderState} from "./store/ordersStore.js";
 
 let ordersStateArray = ["pending_payment_confirm", "taken_in_charge", "delivering", "delivered"]
+let orderAdminMap = new Map([['taken_in_charge', "Taken in charge"], ["pending_payment_confirm", "Pending payment confirm"], ["delivering", "In transit"], ["delivered", "Car delivered"]])
 let ordersStateMap = ordersStateArray.reduce((res, item, index) => res.set(item, index), new Map())
 let orders = new Map()
 
@@ -36,7 +37,7 @@ function onUpdateOrderState(id, state) {
     let user = JSON.parse(localStorage.getItem("user"))
     if (user && user.role === "admin") {
         updateOrderState(id, state, res => {
-            sendUpdateNotification(res, "Order Update", `The order n. ${id} now is in the current state: ${state}`)
+            sendUpdateNotification(res, "Order Update", `The order n. ${id} now is in the current state: ${orderAdminMap.get(state)}`)
             getAllOrders(setOrderListContent, setOrdersMap)
         })
     }

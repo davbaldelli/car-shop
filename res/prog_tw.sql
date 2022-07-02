@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Creato il: Lug 02, 2022 alle 09:17
+-- Creato il: Lug 02, 2022 alle 09:58
 -- Versione del server: 8.0.29-0ubuntu0.20.04.3
 -- Versione PHP: 7.4.3
 
@@ -621,29 +621,6 @@ CREATE TABLE `orders` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dump dei dati per la tabella `orders`
---
-
-INSERT INTO `orders` (`id`, `id_user`, `id_car`, `id_user_address`, `state`, `quantity`) VALUES
-(40, 14, 264, 6, 'delivered', 1),
-(41, 14, 498, 6, 'taken_in_charge', 1),
-(44, 14, 515, 6, 'taken_in_charge', 2),
-(45, 14, 303, 6, 'pending_payment_confirm', 1),
-(46, 14, 352, 6, 'pending_payment_confirm', 1),
-(53, 15, 272, 8, 'taken_in_charge', 1),
-(54, 15, 467, 8, 'pending_payment_confirm', 1),
-(55, 15, 494, 8, 'pending_payment_confirm', 1),
-(56, 15, 477, 8, 'delivering', 1),
-(57, 15, 304, 8, 'delivering', 2),
-(58, 15, 249, 8, 'delivered', 1),
-(59, 15, 496, 8, 'delivering', 1),
-(60, 12, 494, 11, 'pending_payment_confirm', 2),
-(61, 12, 232, 11, 'pending_payment_confirm', 1),
-(62, 15, 272, 8, 'pending_payment_confirm', 1),
-(63, 15, 234, 8, 'pending_payment_confirm', 1),
-(64, 15, 352, 8, 'delivering', 1);
-
---
 -- Trigger `orders`
 --
 DELIMITER $$
@@ -671,74 +648,6 @@ CREATE TABLE `orders_logs` (
   `state` enum('delivered','delivering','taken_in_charge','pending_payment_confirm') CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
   `timestamp` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Dump dei dati per la tabella `orders_logs`
---
-
-INSERT INTO `orders_logs` (`id`, `id_order`, `state`, `timestamp`) VALUES
-(100, 40, 'pending_payment_confirm', '2022-06-07 13:34:53'),
-(101, 41, 'pending_payment_confirm', '2022-06-07 13:34:53'),
-(102, 40, 'taken_in_charge', '2022-06-07 13:43:15'),
-(103, 41, 'taken_in_charge', '2022-06-07 13:43:17'),
-(104, 41, 'delivering', '2022-06-07 13:43:19'),
-(105, 41, 'delivered', '2022-06-07 13:43:20'),
-(106, 41, 'delivering', '2022-06-07 13:43:21'),
-(107, 40, 'delivering', '2022-06-07 13:43:25'),
-(108, 40, 'delivered', '2022-06-07 13:43:25'),
-(109, 40, 'delivering', '2022-06-07 13:43:26'),
-(110, 40, 'taken_in_charge', '2022-06-07 13:43:27'),
-(111, 40, 'delivering', '2022-06-07 13:43:27'),
-(112, 40, 'delivered', '2022-06-07 13:43:30'),
-(113, 41, 'taken_in_charge', '2022-06-10 08:05:23'),
-(116, 44, 'pending_payment_confirm', '2022-06-10 08:26:51'),
-(117, 44, 'taken_in_charge', '2022-06-10 08:28:19'),
-(118, 46, 'pending_payment_confirm', '2022-06-10 12:50:11'),
-(119, 45, 'pending_payment_confirm', '2022-06-10 12:50:11'),
-(128, 53, 'pending_payment_confirm', '2022-06-28 13:49:53'),
-(129, 54, 'pending_payment_confirm', '2022-06-28 15:15:46'),
-(130, 53, 'taken_in_charge', '2022-06-28 15:15:56'),
-(131, 53, 'delivering', '2022-06-28 15:16:06'),
-(132, 53, 'delivered', '2022-06-28 15:19:58'),
-(133, 54, 'taken_in_charge', '2022-06-28 15:20:00'),
-(134, 54, 'delivering', '2022-06-28 15:20:00'),
-(135, 53, 'delivering', '2022-06-28 15:33:45'),
-(136, 54, 'taken_in_charge', '2022-06-28 15:33:46'),
-(137, 53, 'taken_in_charge', '2022-06-28 15:33:46'),
-(138, 54, 'pending_payment_confirm', '2022-06-28 15:33:46'),
-(139, 53, 'delivering', '2022-06-28 15:33:50'),
-(140, 54, 'taken_in_charge', '2022-06-28 15:33:50'),
-(141, 53, 'delivered', '2022-06-28 15:37:01'),
-(142, 54, 'delivering', '2022-06-28 15:37:02'),
-(143, 54, 'delivered', '2022-06-28 15:37:03'),
-(144, 54, 'delivering', '2022-06-28 15:39:41'),
-(145, 54, 'taken_in_charge', '2022-06-28 15:39:41'),
-(146, 54, 'pending_payment_confirm', '2022-06-28 15:39:41'),
-(147, 53, 'delivering', '2022-06-28 15:39:41'),
-(148, 53, 'taken_in_charge', '2022-06-28 15:39:41'),
-(149, 55, 'pending_payment_confirm', '2022-07-01 06:13:01'),
-(150, 56, 'pending_payment_confirm', '2022-07-01 06:54:21'),
-(151, 57, 'pending_payment_confirm', '2022-07-01 06:54:21'),
-(152, 57, 'taken_in_charge', '2022-07-01 06:58:26'),
-(153, 57, 'delivering', '2022-07-01 06:58:26'),
-(154, 56, 'taken_in_charge', '2022-07-01 06:58:26'),
-(155, 56, 'delivering', '2022-07-01 06:58:26'),
-(156, 58, 'pending_payment_confirm', '2022-07-01 12:29:38'),
-(157, 59, 'pending_payment_confirm', '2022-07-01 12:47:12'),
-(158, 58, 'taken_in_charge', '2022-07-01 12:47:38'),
-(159, 58, 'delivering', '2022-07-01 12:47:39'),
-(160, 58, 'delivered', '2022-07-01 12:47:39'),
-(161, 59, 'taken_in_charge', '2022-07-01 12:47:40'),
-(162, 59, 'delivering', '2022-07-01 12:47:40'),
-(163, 59, 'delivered', '2022-07-01 12:47:41'),
-(164, 59, 'delivering', '2022-07-01 12:47:42'),
-(165, 60, 'pending_payment_confirm', '2022-07-01 15:43:49'),
-(166, 61, 'pending_payment_confirm', '2022-07-01 15:59:36'),
-(167, 62, 'pending_payment_confirm', '2022-07-02 08:06:05'),
-(168, 63, 'pending_payment_confirm', '2022-07-02 08:06:05'),
-(169, 64, 'pending_payment_confirm', '2022-07-02 08:07:24'),
-(170, 64, 'taken_in_charge', '2022-07-02 08:14:58'),
-(171, 64, 'delivering', '2022-07-02 08:14:59');
 
 -- --------------------------------------------------------
 
@@ -786,7 +695,7 @@ INSERT INTO `users` (`id`, `username`, `password`, `role`, `salt`, `credit`, `na
 (12, 'utente', '4f3368efd220fa7e3a9eecf9b89da00afc9e8b2c5113823b47f35b29', 'base', 'lGShRC5vVqpDrYcC1a3KcJKDKeUiDO', 860000, 'utente', 'utente', 'https://i.imgur.com/FBB2A6C.jpg'),
 (14, 'user', 'c98c9e2170120d36b7d59dd4d515adf7e5772154d0368dbfcfe2ac87', 'base', 'psfLxLvZtk8PUcGds9antxHKNq36Sp', 330000, 'user', 'user', 'https://i.imgur.com/FBB2A6C.jpg'),
 (15, 'davbaldelli', '3f10414e14de5b693b9d5587688fc7216ba9dfe8d156bd55df5328b3', 'admin', '6nBj7Y90rFTVO32OjZeH7XK3ypugTJ', 240000, 'Davide', 'Baldelli', 'https://i.imgur.com/FBB2A6C.jpg'),
-(17, 'admin', 'b79bca434b21833094f4433320ffe1574a22459427881e677f78c851', 'admin', 'LlBHIs7Tvv1O83tC2gavgbv5Nl8pGZ', 1000000, 'admin', 'admin', 'https://i.imgur.com/FBB2A6C.jpg');
+(17, 'admin', 'b79bca434b21833094f4433320ffe1574a22459427881e677f78c851', 'admin', 'LlBHIs7Tvv1O83tC2gavgbv5Nl8pGZ', 600000, 'admin', 'admin', 'https://i.imgur.com/FBB2A6C.jpg');
 
 -- --------------------------------------------------------
 
@@ -816,7 +725,8 @@ INSERT INTO `users_delivering_addresses` (`id`, `id_user`, `id_country`, `first_
 (6, 14, 43, 'Utente', 'Utente', 'RN', 'Santarcangelo Di Romagna', '47822', 'Via Del Pioppo', '40'),
 (8, 15, 43, 'Davide', 'Baldelli', 'Rimini', 'Santarcangelo Di Romagna', '47822', 'Via Garibaldi 40', ''),
 (9, 14, 43, 'Davide', 'Baldelli', 'Rimini', 'Santaracangelo Di Romagna', '47822', 'Via Mazzini 2 ', ''),
-(11, 12, 43, 'Davide', 'Baldelli', 'Rimini', 'Santarcangelo Di Romagna', '47822', 'Via Martini ', '35');
+(11, 12, 43, 'Davide', 'Baldelli', 'Rimini', 'Santarcangelo Di Romagna', '47822', 'Via Martini ', '35'),
+(12, 17, 43, 'admin', 'admin', 'RN', 'Santarcangelo Di Romagna', '47822', 'Via Mazzini 2', '');
 
 -- --------------------------------------------------------
 
@@ -910,7 +820,16 @@ INSERT INTO `users_notifications` (`id`, `watched`, `title`, `description`, `tim
 (108, 1, 'Order Update', 'The order n. 59 now is in the current state: delivered', '2022-07-01 12:47:41', 15),
 (109, 1, 'Order Update', 'The order n. 59 now is in the current state: delivering', '2022-07-01 12:47:42', 15),
 (110, 0, 'Order Update', 'The order n. 64 now is in the current state: taken_in_charge', '2022-07-02 08:14:58', 15),
-(111, 0, 'Order Update', 'The order n. 64 now is in the current state: delivering', '2022-07-02 08:14:59', 15);
+(111, 0, 'Order Update', 'The order n. 64 now is in the current state: delivering', '2022-07-02 08:14:59', 15),
+(112, 0, 'Order Update', 'The order n. 64 now is in the current state: delivered', '2022-07-02 09:51:32', 15),
+(113, 0, 'Order Update', 'The order n. 63 now is in the current state: taken_in_charge', '2022-07-02 09:51:32', 15),
+(114, 0, 'Order Update', 'The order n. 64 now is in the current state: delivering', '2022-07-02 09:51:33', 15),
+(115, 0, 'Order Update', 'The order n. 64 now is in the current state: taken_in_charge', '2022-07-02 09:51:33', 15),
+(116, 0, 'Order Update', 'The order n. 63 now is in the current state: pending_payment_confirm', '2022-07-02 09:51:33', 15),
+(117, 1, 'Order Update', 'The order n. 65 now is in the current state: Taken in charge', '2022-07-02 09:53:56', 17),
+(118, 0, 'Order Update', 'The order n. 64 now is in the current state: In transit', '2022-07-02 09:53:57', 15),
+(119, 1, 'Order Update', 'The order n. 65 now is in the current state: In transit', '2022-07-02 09:53:58', 17),
+(120, 0, 'Order Update', 'The order n. 64 now is in the current state: Taken in charge', '2022-07-02 09:53:59', 15);
 
 -- --------------------------------------------------------
 
@@ -1056,13 +975,13 @@ ALTER TABLE `nations`
 -- AUTO_INCREMENT per la tabella `orders`
 --
 ALTER TABLE `orders`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=65;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=66;
 
 --
 -- AUTO_INCREMENT per la tabella `orders_logs`
 --
 ALTER TABLE `orders_logs`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=172;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=182;
 
 --
 -- AUTO_INCREMENT per la tabella `users`
@@ -1074,13 +993,13 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT per la tabella `users_delivering_addresses`
 --
 ALTER TABLE `users_delivering_addresses`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT per la tabella `users_notifications`
 --
 ALTER TABLE `users_notifications`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=112;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=121;
 
 --
 -- Limiti per le tabelle scaricate

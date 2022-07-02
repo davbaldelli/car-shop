@@ -87,7 +87,7 @@ class UserRepositoryImpl implements UserRepository
         }
 
 
-        $stmt = $this->conn->prepare("SELECT id, username, name, last_name, cell_number, avatar_image, role, credit FROM users WHERE id = ?");
+        $stmt = $this->conn->prepare("SELECT id, username, name, last_name, avatar_image, role, credit FROM users WHERE id = ?");
         $stmt->bind_param("i",$id_user);
         $stmt->execute();
         $user = $stmt->get_result()->fetch_all(MYSQLI_ASSOC)[0];

@@ -43,7 +43,7 @@ class OrdersRepositoryImpl implements OrdersRepository
 
     function getAllOrders(): array
     {
-        $stmt = $this->conn->prepare("SELECT * FROM orders_view");
+        $stmt = $this->conn->prepare("SELECT * FROM orders_view ORDER BY id DESC");
         $stmt->execute();
         return $stmt->get_result()->fetch_all(MYSQLI_ASSOC);
     }

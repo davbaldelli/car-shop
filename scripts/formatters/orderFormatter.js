@@ -5,7 +5,7 @@ let orderAdminMap = new Map([['taken_in_charge', "Taken in charge"], ["pending_p
 export function ordersToUpdateCard(orders) {
     return orders.map(order => {
         return `<li class="list-group-item list-group-item-admin-update">
-                    <span> Ordine numero ${order.id} - stato: ${orderAdminMap.get(order.state)}</span>
+                    <span> Order n. ${order.id} - state: <strong>${orderAdminMap.get(order.state)}</strong></span>
                     
                     <span class="list-group-admin-update-buttons">
                         <button class="reverseOrderBtn btn btn-info" data-key="${order.id}" ${order.state === "pending_payment_confirm" ? "disabled" : ""}><- Previus State</button>
