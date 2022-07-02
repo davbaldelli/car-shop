@@ -7,9 +7,11 @@ export function carsToCards(cars) {
                     <img src="${car.image}" class="card-img-top card-img-top-car" alt="car image" loading="lazy">
                     <div class="card-body">
                        <span class="card-title card-title-car truncate"> ${car.brand} ${car.model} </span>
-                       <p class="card-text">
-                           ${car.bhp} BHP <br>
-                           ${car.torque} Nm <br>
+                       <p class="card-text  d-flex flex-row align-items-center">
+                           <span class="card-bhp"></span> &nbsp; ${car.bhp} BHP
+                       </p>
+                       <p class="card-text d-flex flex-row align-items-center">
+                           <span class="card-torque"></span> &nbsp; ${car.torque} Nm
                        </p>
                        <p class="card-text">${car.price} $</p>
                     </div>
@@ -27,6 +29,7 @@ export function carsToCarouselElems(cars) {
 
 export function carToInfoPanel(car) {
     return `    
+                
                 <div class="row">
                     <div class="col">
                         <div class="divcar-img">
@@ -44,12 +47,15 @@ export function carToInfoPanel(car) {
                     </div>
                 </div>
                 
-                <div class="row product-page-row">        
-                    <div class="col-md car-info"><div class="row car-info-header ">Brand</div>          <div class="row">${car.brand}</div></div>
-                    <div class="col-md car-info"><div class="row car-info-header ">Horse Power</div>    <div class="row">${car.bhp}</div></div>
-                    <div class="col-md car-info"><div class="row car-info-header ">Fuel</div>           <div class="row">${car.fuel_type.charAt(0).toUpperCase() + car.fuel_type.slice(1)}</div></div>
-                    <div class="col-md car-info"><div class="row car-info-header ">Transmission</div>    <div class="row">${carTransmission.get(car.transmission)}</div></div>
-                    <div class="col-md car-info"><div class="row car-info-header ">Drivetrain</div>    <div class="row">${car.drivetrain}</div></div>
+                <div class="row ">
+                    <div class="col product-page-row car-info-row">        
+                        <div class="car-info"><div class="row car-info-header ">Drivetrain</div>    <div class="row">${car.drivetrain}</div></div>
+                        <div class="car-info"><div class="row car-info-header ">Brand</div>         <div class="row">${car.brand}</div></div>
+                        <div class="car-info"><div class="row car-info-header ">Chassis</div>    <div class="row">${carTypes.get(car.car_type)}</div></div>
+                        <div class="car-info"><div class="row car-info-header ">Horse Power</div>    <div class="row">${car.bhp}</div></div>
+                        <div class="car-info"><div class="row car-info-header ">Fuel</div>           <div class="row">${car.fuel_type.charAt(0).toUpperCase() + car.fuel_type.slice(1)}</div></div>
+                        <div class="car-info"><div class="row car-info-header ">Transmission</div>    <div class="row">${carTransmission.get(car.transmission)}</div></div>                       
+                    </div>
                 </div>
 
 `

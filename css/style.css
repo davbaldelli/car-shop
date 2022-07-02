@@ -7,8 +7,6 @@ main {
     min-height: 100vh;
 }
 
-
-
 .navbar-logo {
     width: 100px;
     height: 37px;
@@ -202,11 +200,6 @@ html {
     height: 100%;
 }
 
-.btn-login {
-    margin-top: 8%;
-    background-color: #3d26a8;
-}
-
 .close-form {
     margin-top: 5px;
     width: 100%;
@@ -249,10 +242,17 @@ html {
     height: 100%;
 }
 
-.btn-signup {
+.btn-login-form {
     margin-top: 8%;
-    background-color: #3d26a8;
-    width: 100%;
+    background-image: linear-gradient(to right, #3d26a8, #5c46ce);
+    color: #fff;
+    border:1px solid #3D26A8;
+    border-radius: 0.5rem;
+    padding-block: 0.5rem;
+}
+
+.btn-login-form:hover{
+    border:1px solid #907fdc;
 }
 
 
@@ -401,7 +401,7 @@ html {
 #notificationHeader span{
     font-size: 1.2rem;
 }
-#deleteAllNotifyBtn{
+#deleteNotificationsBtn{
     font-size: 0.8rem;
     color:#fff;
     background: none;
@@ -409,7 +409,7 @@ html {
     border-radius: 5px;
 }
 
-#deleteAllNotifyBtn:hover{
+#deleteNotificationsBtn:hover{
     background-color: #fff;
     color: #212529;
 }

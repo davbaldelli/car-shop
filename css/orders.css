@@ -24,38 +24,7 @@
 .label-form-addcar {
     color: #fff;
 }
-#statusPoints{
-    width: 50px;
-    padding: 0;
-}
-.order-row{
-    flex-direction: row;
-}
 
-.status-detail-list{
-    display: flex;
-    flex-direction: column;
-    height: 300px;
-    justify-content:  flex-start;
-    gap:58px;
-    padding: 14px 0 14px 0;
-    margin-inline: 2px 5px;
-}
-.status-detail-item-state{
-    flex-shrink: 0;
-}
-.status-detail-item-time{
-    flex-shrink: 0;
-}
-.status-detail-item{
-    color: white;
-    max-height: 50px;
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    justify-content: space-between;
-
-}
 #div-order-detail-car-img{
     margin-left: 1rem;
 
@@ -67,6 +36,7 @@
 }
 
 #orderDetailHeader{
+    position: relative;
     margin-top: 15px;
     padding-top: 10px;
     padding-bottom: 10px;
@@ -77,10 +47,8 @@
     background-color: #2A2A2A;
     box-shadow: 0 0 5px 0 rgba(61, 38, 168, 0.2)
 }
-
-
-
 #order-number-header{
+
     color:white;
     display: flex;
     justify-content: center;
@@ -90,6 +58,47 @@
     flex-grow: 2;
     text-align: center;
 }
+@media (min-width: 2018px) {
+    #order-number-header{
+        position: absolute;
+        left:20%;
+        right: 20%;
+    }
+}
+
+#statusPoints{
+    width: 50px;
+    padding: 0;
+}
+.order-row{
+    flex-direction: row;
+}
+
+.status-detail-list{
+    display: grid;
+    height: 300px;
+    gap: 40px;
+    grid-template-rows: repeat(4, 1fr) ;
+}
+.status-detail-item-state{
+
+    flex-shrink: 0;
+}
+.status-detail-item-time{
+    flex-shrink: 0;
+}
+.status-detail-item{
+    color: white;
+    max-height: 50px;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    align-content: center;
+    justify-content: space-between;
+
+}
+
+
 
 #orderDetailContainer{
     display: flex;
@@ -100,7 +109,9 @@
 
 #order-detail-content{
     margin-top: 50px;
-    width: 50vw
+    width: clamp(20rem, 25vw, 30rem);
+    display: grid;
+    grid-template-columns: 50px auto;
 }
 
 #order-detail-user{
@@ -127,20 +138,20 @@
 .order-detail-col:nth-child(1){
     flex-grow: 0;
 }
-/*#detailLinkToCar{*/
-/*    position: relative;*/
-/*    height: fit-content;*/
-/*}*/
-/*#detailLinkToCar::before{*/
-/*    position: absolute;*/
-/*    opacity: 0;*/
-/*    content: "Go to Car";*/
-/*    color: white;*/
-/*    background-color: #3D26A8;*/
-/*}*/
-/*#detailLinkToCar:hover{*/
-/*    opacity: 1;*/
-/*}*/
+#detailLinkToCar{
+    position: relative;
+    height: fit-content;
+}
+#detailLinkToCar::before{
+    position: absolute;
+    opacity: 0;
+    content: "Go to Car";
+    color: white;
+    background-color: #3D26A8;
+}
+#detailLinkToCar:hover{
+    opacity: 1;
+}
 
 @media(max-width: 1470px){
     #orderDetailHeader{
@@ -149,9 +160,6 @@
         width: 100%;
         align-items: center;
         height: fit-content;
-    }
-    #list-user-detail{
-        width: 50rem;
     }
     .status-detail-item{
         width: 100%;
@@ -162,7 +170,9 @@
     #order-detail-content{
         margin-inline:0;
         padding-inline: 0;
-        align-self: flex-start;
+        width: 100%;
+    }
+    .order-row{
         width: 100%;
     }
 

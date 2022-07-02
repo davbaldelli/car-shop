@@ -101,6 +101,8 @@
     margin: 30px 0 30px 0;
     padding: 30px 0 30px 0;
     box-shadow: 0 8px 8px 0 rgba(0, 0, 0, 0.14);
+
+
 }
 .car-info-header{
     width: 100%;
@@ -109,9 +111,17 @@
     background-color: #3D26A8;
     border-bottom: 1px solid #3D26A8;
 }
+.car-info-row{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+}
 
-@media only screen and (max-width: 760px){
+@media only screen and (max-width: 850px){
     .car-info{
         width: 99%;
+    }
+    .car-info-row{
+        display: block;
+        margin-right: 2px;
     }
 }

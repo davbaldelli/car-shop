@@ -1,6 +1,6 @@
-<div class="col-0 col-md-2"></div>
+<div class="col-0 col-sm-3"></div>
 
-<div class="col-12 col-md-8">
+<div class="col-12 col-lg-6">
     <div class="row" id="breadcrumb-row">
         <div class="col">
             <nav aria-label="breadcrumb">
@@ -15,17 +15,17 @@
     </div>
 
 
-    <span id="mainPanel">
+    <div id="mainPanel">
 
-    </span>
+    </div>
 
     <div class="row product-page-row">
-            <div class="col-md-3"></div>
-            <div class="col prod-rev"><p class="p-prod-rev">I nostri clienti dicono:</p> </div>
-            <div class="col prod-rev"><p class="p-prod-rev">Eccezionale</p>
+            <div class="col-sm-1"></div>
+            <div class="col-md-2 prod-rev"><p class="p-prod-rev">I nostri clienti dicono:</p> </div>
+            <div class="col-md-2 prod-rev"><p class="p-prod-rev">Eccezionale</p>
                 <img src="src_img/4_5_stars.png" alt="review" class="img-prod-rev">
             </div>
-            <div class="col-md-3"></div>
+            <div class="col-sm-1"></div>
     </div>
     <div class="row product-page-row ">
         <div class="faq-block">
@@ -67,4 +67,4 @@
 </div>
 
 
-<div class="col-0 col-md-2"></div>
+<div class="col-0 col-sm-3"></div>

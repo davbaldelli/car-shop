@@ -28,7 +28,7 @@
                                                                                      type="password"
                                                                                      placeholder="Password"><br>
                 <span class="error-form" id="error-login"><p></p></span>
-                <button class="btn btn-primary btn-login" id="btn-login" type="submit">Login</button>
+                <button class="btn-login-form" id="btn-login" type="submit">Login</button>
             </form>
         </div>
         <div class="tab-pane fade" id="signup" role="tabpanel" aria-labelledby="signup-tab">
@@ -53,7 +53,7 @@
                                                                                         type="password"
                                                                                         placeholder="Password"><br>
                 <span class="error-form" id="error-sign"></span>
-                <button class="btn btn-primary btn-signup" id="btn-signup" type="submit">Sign Up</button>
+                <button class="btn-login-form" id="btn-signup" type="submit">Sign Up</button>
             </form>
         </div>
     </div>

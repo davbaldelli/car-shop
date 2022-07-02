@@ -20,6 +20,24 @@
     transition: all 200ms ease-out;
     background-color: rgba(128, 128, 128, 0.123);
 }
+.card-bhp{
+    display: block;
+    background-image: url("/src_img/car-engine.png");
+    background-size: contain ;
+    background-repeat: no-repeat;
+    width: 1.3rem;
+    height: 1.3rem;
+    filter: invert(100%);
+}
+.card-torque{
+    display: block;
+    background-image: url("/src_img/settings.png");
+    background-size: contain ;
+    background-repeat: no-repeat;
+    width: 1.3rem;
+    height: 1.3rem;
+    filter: invert(100%);
+}
 
 .card-brand:hover{
     box-shadow: 0 0 12px 2px rgba(145, 168, 38, 0.5);
