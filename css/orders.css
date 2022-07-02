@@ -108,6 +108,11 @@
     margin-bottom: 100px;
     width: 100%
 }
+
+#user-orders-title{
+    color: white;
+}
+
 .user-detail{
     background-color: #1E1E1E;
     color: white;

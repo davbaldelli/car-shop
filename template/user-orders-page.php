@@ -1,5 +1,6 @@
 <div class="col-0 col-sm-3"></div>
 <div class="col-12 col-sm-6">
+    <h1 id="user-orders-title" class="display-2 my-4 text-center">Your Orders</h1>
     <ul class="nav nav-tabs" id="ordersTab" role="tablist">
         <li class="nav-item" role="presentation">
             <button class="nav-link active" id="allOrdersTab" data-bs-toggle="tab" data-bs-target="#contact"
