@@ -8,12 +8,12 @@ export function carsToCards(cars) {
                     <div class="card-body">
                        <span class="card-title card-title-car truncate"> ${car.brand} ${car.model} </span>
                        <p class="card-text  d-flex flex-row align-items-center">
-                           <span class="card-bhp"></span> &nbsp; ${car.bhp} BHP
+                           <span class="card-bhp"></span>&nbsp;${car.bhp}<strong>&nbsp;BHP</strong>
                        </p>
                        <p class="card-text d-flex flex-row align-items-center">
-                           <span class="card-torque"></span> &nbsp; ${car.torque} Nm
+                           <span class="card-torque"></span>&nbsp;${car.torque}<strong>&nbsp;Nm</strong>
                        </p>
-                       <p class="card-text">${car.price} $</p>
+                       <p class="card-text d-flex justify-content-end pe-4 py-3 car-card-price">$${car.price}</p>
                     </div>
                 </div></a>`
     })

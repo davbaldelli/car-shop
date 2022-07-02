@@ -57,7 +57,7 @@ require("address-form.php")
                                 <div>
                                     <input type="radio" name="flexRadioDefault" id="flexRadioDefault1" checked>
                                     <label for="flexRadioDefault1">
-                                        CarShop Credits: <span id="currentCreditsOwn"></span>
+                                        CarShop Credits: <span id="remaining-credit"></span>$ remaining
                                     </label>
                                 </div>
                                 <div>

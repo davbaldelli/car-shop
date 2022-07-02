@@ -38,16 +38,6 @@ export function ordersToList(orders) {
     })
 }
 
-
-// export function orderToInfoPanel(order) {
-//     let statesLogMap = getOldestLogsPerState(order.logs)
-//     let res = Array.from(statesLogMap).map(([key, value])=>{
-//         return `<div style="color : white">${key}-> ${value.timestamp} </div>`
-//     })
-//     return res.reduce((res, item)=>res+item, `<img src="${statusMap.get(order.logs[order.logs.length-1].state)}"/> <div style="color : white">Order n. ${order.id} -> ${order.state}</div>`)
-// }
-
-
 export function orderToInfoPanel2(order) {
     let statesLogMap = getOldestLogsPerState(order.logs)
     let ordersHTML = Array.from(statesLogMap).map(([key, value])=>{
@@ -55,43 +45,44 @@ export function orderToInfoPanel2(order) {
         return `<div  id="${classesMap.get(key)}" class="status-detail-item" > <span class="status-detail-item-state">${orderMap.get(key)}</span><em class="status-detail-item-time">${time[0]}</em> </div>`
     })
     return `
-            <div id="orderDetailHeader">
-                <div id="div-order-detail-car-img"><a id="detailLinkToCar" href="/product.php?id=${order.id_car}"><img id="order-detail-car-img" src="${order.image}" alt="car image" aria-hidden="true"/></a></div>
-                <div id="order-number-header"><h2>Order n. ${order.id}  &nbsp &nbsp </h2> <h1>${order.product}</h1></div>
-            </div>
-            
-            <div id="orderDetailContainer">
-                <div class="row order-row" >
-                    <div class="col" id="order-detail-content">
-                        <div  id="statusPoints"> <img src="${statusMap.get(order.logs[order.logs.length - 1].state)} " alt="roadmap" aria-hidden="true"/></div>
-                        <div class= "status-detail-list">${ordersHTML.reduce((res, item) => res + item, "")}</div>
-                    </div>
+            <div class="row py-3 mt-2" id="orderDetailHeader">
+                <div class="col-12 col-md-2">
+                    <a id="detailLinkToCar" href="/product.php?id=${order.id_car}"><img id="order-detail-car-img"  class="img-fluid" src="${order.image}" alt="car image" aria-hidden="true"/></a>
                 </div>
-                
-                
-                <div class="row order-row" id="order-detail-user">
-                    <div class="col">
-                        <ol class="list-group" id="list-user-detail">
-                          <li class="list-group-item d-flex justify-content-between align-items-start user-detail">
-                            <div class="ms-2 me-auto">
-                              <div class="fw-bold">Costumer Name:</div>
-                              ${order.address.first_name} ${order.address.last_name}
-                            </div>              
-                          </li>
-                          <li class="list-group-item d-flex justify-content-between align-items-start user-detail">
-                            <div class="ms-2 me-auto">
-                              <div class="fw-bold">Shipping Address:</div>
-                              Area: ${order.address.administrative_area} &nbsp City: ${order.address.locality} &nbsp Address: ${order.address.address_line_1} ${order.address.address_line_2}
-                            </div>
-                          </li>
-                          <li class="list-group-item d-flex justify-content-between align-items-start user-detail">
-                            <div class="ms-2 me-auto">
-                              <div class="fw-bold">Price: </div>
-                              ${order.price}
-                            </div>
-                          </li>
-                        </ol>
-                    </div>
+                <div class="col-12 col-md-8 text-center d-flex align-items-center justify-content-center mt-md-0 mt-3" id="order-detail-heading">
+                    <h1 class="d-inline d-md-block h2">Order n. ${order.id}  &nbsp &nbsp </h1>
+                    <h2 class="d-inline d-md-block h1">${order.product}</h2>
+                </div>
+            </div>
+           
+            <div class="row mt-3">
+                <div class="col-1 col-md-3"></div>
+                <div class="col-2 col-md-1" id="status-points"> <img src="${statusMap.get(order.logs[order.logs.length - 1].state)} " alt="roadmap" aria-hidden="true"/></div>
+                <div class="col-6 col-md-4"><div class= "status-detail-list">${ordersHTML.reduce((res, item) => res + item, "")}</div></div>
+            </div>
+                        
+            <div class="row my-5">
+                <div class="col">
+                    <ol class="list-group" id="list-user-detail">
+                      <li class="list-group-item d-flex justify-content-between align-items-start user-detail">
+                        <div class="ms-2 me-auto">
+                          <div class="fw-bold">Costumer Name:</div>
+                          ${order.address.first_name} ${order.address.last_name}
+                        </div>              
+                      </li>
+                      <li class="list-group-item d-flex justify-content-between align-items-start user-detail">
+                        <div class="ms-2 me-auto">
+                          <div class="fw-bold">Shipping Address:</div>
+                          Area: ${order.address.administrative_area} &nbsp City: ${order.address.locality} &nbsp Address: ${order.address.address_line_1} ${order.address.address_line_2}
+                        </div>
+                      </li>
+                      <li class="list-group-item d-flex justify-content-between align-items-start user-detail">
+                        <div class="ms-2 me-auto">
+                          <div class="fw-bold">Price: </div>
+                          ${order.price}
+                        </div>
+                      </li>
+                    </ol>
                 </div>
             </div>
 

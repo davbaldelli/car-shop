@@ -25,12 +25,7 @@ $(() => {
     let user = JSON.parse(localStorage.getItem("user"))
     setupProductList(getCart().products)
     setupReceiptView(getCart().products)
-    showUserCredits()
-    getUserInfo(user => {
-        setupAddressesList(user.addresses)
-        $("#firstNameInput").val(user.name)
-        $("#lastNameInput").val(user.last_name)
-    })
+    getUserInfo(handleUserInfo)
     getAllNations(setupNationsSelectOptions)
     $("#addressForm").submit(function(e){
         e.preventDefault()
@@ -79,6 +74,7 @@ $(() => {
 let toastContent= $("#toastContent")
 
 function onRechargeSuccess(amount) {
+    getUserInfo(handleUserInfo)
     toastContent.html(amount+" credits added successfully")
     feedBackToast.show()
 }
@@ -90,6 +86,13 @@ function onInsertAddressSuccess(){
 
 function onInsertAddressError(){
     console.log("error insert address")
+}
+
+function handleUserInfo(user) {
+    setupAddressesList(user.addresses)
+    $("#firstNameInput").val(user.name)
+    $("#lastNameInput").val(user.last_name)
+    $("#remaining-credit").html(user.credit)
 }
 
 function onNewOrderSuccess(item) {
@@ -137,8 +140,4 @@ function setupReceiptView(products) {
     $("#itemPriceList").html(products.reduce((res, item)=> res+`
         <li class="row list-receipt-view"><div class="col-sm-1">${item.quantity}x</div> <div class="col-xxl-7 truncate">${item.product.brand +" "+ item.product.model } </div><div class="col-xxl-3 list-receipt-view-price">${item.product.price}</div> </li>
 `, ""))
-}
-
-function showUserCredits() {
-    //TODO Show user credit near radio btn
 }
