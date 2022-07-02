@@ -1,5 +1,6 @@
 <?php
-$templateParams["title"] = "Order";
+$idOrder = $_GET["orderId"];
+$templateParams["title"] = "Order n. ".$idOrder;
 $templateParams["page"] = "order-page.php";
 $templateParams["navbar"] = "navbar.php";
 $templateParams["footer"] = "footer.php";

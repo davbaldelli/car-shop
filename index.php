@@ -1,6 +1,6 @@
 <?php
 
-$templateParams["title"] = "Home";
+$templateParams["title"] = "Car Shop";
 $templateParams["page"] = "home-page.php";
 $templateParams["navbar"] = "navbar.php";
 $templateParams["footer"] = "footer.php";

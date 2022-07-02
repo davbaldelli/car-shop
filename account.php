@@ -1,6 +1,6 @@
 <?php
 
-$templateParams["title"] = "Account";
+$templateParams["title"] = "Your Account";
 $templateParams["page"] = "user-page.php";
 $templateParams["navbar"] = "navbar.php";
 $templateParams["footer"] = "footer.php";

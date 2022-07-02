@@ -1,2 +1,0 @@
-RewriteEngine On
-RewriteRule ^/brand/([^/]*)/ \/brand.php?name=$1 [NC]

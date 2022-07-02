@@ -1,5 +1,5 @@
 <?php
-$templateParams["title"] = "Purchase";
+$templateParams["title"] = "Checkout";
 $templateParams["page"] = "purchase-page.php";
 $templateParams["navbar"] = "navbar.php";
 $templateParams["footer"] = "footer.php";

@@ -1,7 +1,7 @@
 <?php
 
 $name = $_GET["name"];
-$templateParams["title"] = $name;
+$templateParams["title"] = $name." Showroom";
 $templateParams["page"] = "brand-detail-page.php";
 $templateParams["navbar"] = "navbar.php";
 $templateParams["footer"] = "footer.php";
