@@ -15,6 +15,9 @@ main {
 html {
     width: auto;
 }
+
+
+
 /* FOOTER CSS*/
 .div-ico:hover {
     box-shadow: 0 1px 10px 0 rgba(61, 38, 168, 0.7);
@@ -24,30 +27,17 @@ html {
     color: #3d26a8;
 }
 
-.fa-facebook {
-    color: white;
-}
-
-.fa-twitter {
-    color: white;
-}
-
-.fa-instagram {
-    color: white;
-}
-
-.fa-youtube {
-    color: white;
-}
 
 .fa {
     text-align: center;
     text-decoration: none;
-
+    color: #fff;
 }
 .social_logos{
     font-size: min(7vw, 70px);
     max-width: 200px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
 }
 
 .div-ico {
@@ -88,17 +78,30 @@ html {
 .about_socials {
 
     display: flex;
-    height: inherit;
+    flex-direction: column;
+    align-content: center;
     align-items: center;
+    justify-content: center;
+    height: inherit;
 
 }
 
 .about-links {
+    display: flex;
+    flex-direction: column;
     padding-left: 13%;
     margin-top: 2%;
     height: 95%;
-    flex: 15%;
-    order: 0;
+}
+@media (max-width: 555px) {
+    .about-links{
+        align-content: center;
+        align-items: center;
+        justify-content: center;
+    }
+    .social_logos{
+        grid-template-columns: repeat(4, 1fr);
+    }
 }
 
 .link_list {

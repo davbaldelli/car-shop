@@ -14,7 +14,7 @@
                 </div>
             </div>
             <div class="col-sm about_socials">
-                <div class="row row-cols-2 social_logos">
+                <div class="social_logos">
                     <div class="col div-ico" data-toggle="tooltip">
                         <a href="#" class="fa fa-facebook a-ico" title="Facebook Link"></a>
                     </div>
