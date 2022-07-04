@@ -27,12 +27,19 @@ export function carsToCarouselElems(cars) {
     })
 }
 
+let ratingPngMap= new Map ([[1, "src_img/1_stars.png"], [2, "src_img/2_stars.png"], [3, "src_img/3_stars.png"],
+    [4, "src_img/3_5_stars.png"], [5, "src_img/3_5_stars.png"], [6, "src_img/4_stars.png"],
+    [7, "src_img/4_stars.png"], [8, "src_img/4_5_stars.png"], [9, "src_img/4_5_stars.png"], [10, "src_img/5_stars.png"]])
+let ratingStringMap= new Map ([[1, "Terribile"], [2, "Decente"], [3, "Buono"],
+    [4, "Molto Buono"], [5, "Molto Buono"], [6, "Ottimo"],
+    [7, "Ottimo"], [8, "Eccellente"], [9, "Eccellente"], [10, "Eccezionale"]])
 export function carToInfoPanel(car) {
+    console.log(car)
     return `    
                 
                 <div class="row">
                     <div class="col">
-                        <div class="divcar-img">
+                        <div class="car-img-container">
                            <img class="car-img" src="${car.image}" alt="car detail image">
                         </div>
                     </div>
@@ -57,7 +64,15 @@ export function carToInfoPanel(car) {
                         <div class="car-info"><div class="row car-info-header ">Transmission</div>    <div class="row">${carTransmission.get(car.transmission)}</div></div>                       
                     </div>
                 </div>
-
+                
+                <div class="row product-page-row">
+                    <div class="col-sm-1"></div>
+                    <div class="col-md-2 prod-rev"><p class="p-prod-rev">I nostri clienti dicono:</p> </div>
+                    <div class="col-md-2 prod-rev"><p class="p-prod-rev">${ratingStringMap.get(car.rating)}</p>
+                        <img src="${ratingPngMap.get(car.rating)}" alt="review" class="img-prod-rev">
+                    </div>
+                    <div class="col-sm-1"></div>
+                </div>
 `
 }
 
