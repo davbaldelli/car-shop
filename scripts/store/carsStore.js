@@ -5,11 +5,11 @@ export function getCarsByManufacturer(manufacturer, ...handlers) {
 }
 
 export function getRandomCars(...handlers) {
-    getCars("/api/cars/random.php", {}, ...handlers)
+    getCars("api/cars/random.php", {}, ...handlers)
 }
 
 export function getCarById(id, ...handlers) {
-    getCars("/api/cars/id.php", {id}, ...handlers)
+    getCars("api/cars/id.php", {id}, ...handlers)
 }
 
 export function getAllCars(...handlers) {
