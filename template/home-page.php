@@ -6,7 +6,7 @@
             </div>
         </div>
     </div>
-    <section class="row home-section">
+    <section class="row home-section" id="homeSection">
         <div class="col-md-6 " id="carousel-outer-div">
             <div id="carousel" class="carousel slide carousel-fade " data-bs-ride="carousel">
                 <div class="carousel-inner" id="carousel-content">

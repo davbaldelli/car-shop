@@ -48,7 +48,11 @@
     color: #DADADA;
     font-size: 1.5rem;
 }
-/* css per section carosello*/
+/* css per home section*/
+
+#homeSection{
+    padding-block: 0.2rem;
+}
 
 .carousel-item{
     aspect-ratio: 1022/575;
@@ -71,9 +75,10 @@
     justify-content: center;
 }
 
-/* css per section shields*/
+/* css per sectio  shields*/
 #shields-section {
     height: fit-content;
+    margin-top: 2rem;
     padding: 1rem 3rem 1rem 3rem ;
     gap: 5rem;
     align-items: flex-start;
@@ -117,6 +122,7 @@
 
 /* css per section review*/
 #review {
+    margin-top: 2rem;
     gap: 2rem;
 }
 
