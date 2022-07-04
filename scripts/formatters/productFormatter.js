@@ -5,7 +5,7 @@ export function productsToListElements(products) {
         <label for="product-${index}-quantity-input">${prod.product.model}</label>
         <div class="list-item-cart-purchase">
             <input class="form-control product-quantity-input" id="product-${index}-quantity-input" type="number" value="${prod.quantity}" min="1" data-key="${index}">
-            <button class="btn remove-cart-product-btn" data-key="${index}"> 
+            <button class="remove-cart-product-btn" data-key="${index}"> 
                 <span class="material-icons">delete</span>
             </button>
         </div>
