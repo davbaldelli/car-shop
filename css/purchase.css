@@ -56,7 +56,9 @@
 #itemPriceList{
     list-style-type: none;
 }
-
+.remove-cart-product-btn span{
+    color: #000;
+}
 .accordion-button-custom::after{
     display: none;
 }
