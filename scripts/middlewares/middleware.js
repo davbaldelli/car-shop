@@ -23,6 +23,7 @@ $(() => {
         }
     }
     if (userPages.includes(pageName)) {
+        console.log(user)
         if (user) {
             userAuth("api/user/verifyauth.php", {Token: user.token}, {userId: user.userId, role: user.role}, () => {
                 const userId = parseInt(urlParams.get('userId'))
@@ -33,6 +34,7 @@ $(() => {
                 }
             }, goBack)
         } else {
+            console.log(user)
             redirectTo("index.php?login=true")
         }
     }
@@ -44,7 +46,7 @@ function goForward() {
 
 function goBack() {
     console.log("unauthorized")
-    history.back()
+    //history.back()
 }
 
 function redirectTo(to) {

@@ -4,21 +4,21 @@ import {login, signup} from "./store/userStore.js";
 const userDropdownActions = (user) => [
     {
         label: "Account",
-        link: "http://localhost/account.php"
+        link: "account.php"
     },
     {
         label: "My orders",
-        link: `http://localhost/user-orders.php?userId=${user.userId}`
+        link: `user-orders.php?userId=${user.userId}`
     },
 ]
 const adminDropdownActions = [
     {
         label: "Update Orders State",
-        link: "http://localhost/update-orders.php"
+        link: "update-orders.php"
     },
     {
         label: "Add Product",
-        link: "http://localhost/add-product.php"
+        link: "add-product.php"
     }
 ]
 

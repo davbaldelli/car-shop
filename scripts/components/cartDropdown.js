@@ -46,7 +46,7 @@ export class CartDropdown {
             `
             }, "")
             return x + `<li class="list-group-item cart-dropdown-item ">
-                        <a class="btn" id="btnCartToPurchase" href="http://localhost/purchase.php?userId=${this.#getUserID()}"><span class="material-icons"> shopping_cart_checkout </span> <span>Go to check-out</span> </a>
+                        <a class="btn" id="btnCartToPurchase" href="purchase.php?userId=${this.#getUserID()}"><span class="material-icons"> shopping_cart_checkout </span> <span>Go to check-out</span> </a>
                     </li>`
         } else {
             return `

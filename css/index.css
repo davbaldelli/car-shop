@@ -35,11 +35,8 @@
 }
 
 /* css generale per section*/
-.home-sections {
+.home-section {
     box-shadow: 0 10px 20px 0 rgba(0, 0, 0, 0.2), 0 0 0 0 rgba(0, 0, 0, 0.19);
-    height: auto;
-    margin: 0 0 2.2rem 0 ;
-
 }
 .welcome-text-header {
     color: #91A826;
@@ -63,9 +60,7 @@
 }
 
 #carousel {
-    margin: 5px;
     width: 100%;
-
 }
 
 #welcomeText{
