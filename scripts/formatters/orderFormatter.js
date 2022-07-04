@@ -47,7 +47,7 @@ export function orderToInfoPanel2(order) {
     return `
             <div class="row py-3 mt-2" id="orderDetailHeader">
                 <div class="col-12 col-md-3">
-                    <a id="detailLinkToCar" href="/product.php?id=${order.id_car}"><img id="order-detail-car-img"  class="img-fluid" src="${order.image}" alt="car image" aria-hidden="true"/></a>
+                    <a id="detailLinkToCar" href="product.php?id=${order.id_car}"><img id="order-detail-car-img"  class="img-fluid" src="${order.image}" alt="car image" aria-hidden="true"/></a>
                 </div>
                 <div class="col-12 col-md-6 text-center d-flex flex-column flex-md-row align-items-center justify-content-center mt-md-0 mt-3" id="order-detail-heading">
                     <h1 class="h3">Order n. ${order.id}  &nbsp &nbsp </h1>

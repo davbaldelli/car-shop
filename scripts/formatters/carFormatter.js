@@ -3,7 +3,7 @@ const carTransmission = new Map([["MANUAL", "Manual"], ["SEQUENTIAL", "Sequentia
 
 export function carsToCards(cars) {
     return cars.map(car => {
-        return `<a class="card-link" href="/product.php?id=${car.id}"><div class="card m-3 car-card"  id="cardCarContent">
+        return `<a class="card-link" href="product.php?id=${car.id}"><div class="card m-3 car-card"  id="cardCarContent">
                     <img src="${car.image}" class="card-img-top card-img-top-car" alt="car image" loading="lazy">
                     <div class="card-body">
                        <span class="card-title card-title-car truncate"> ${car.brand} ${car.model} </span>
@@ -22,7 +22,7 @@ export function carsToCards(cars) {
 export function carsToCarouselElems(cars) {
     return cars.map((car, i) => {
         return `<div class="carousel-item ${i === 0 ? "active" : ""}">
-                    <a href="/product.php?id=${car.id}"> <img src="${car.image}" class="d-block w-100 carousel-item-img" alt="car thumbnail"></a>
+                    <a href="product.php?id=${car.id}"> <img src="${car.image}" class="d-block w-100 carousel-item-img" alt="car thumbnail"></a>
                 </div>`
     })
 }
